@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AjouterEditionDemo
+Bundle-SymbolicName: fr.legrain.ajoutereditiondemo;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.ajoutereditiondemo.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ log4j_1_2_8;bundle-version="1.2.8",
+ LibrairiesEcran;bundle-version="2.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

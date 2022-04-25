@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.licence.editors.SupportAbonMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.editor.supportAbon.multi"
+            name="Gestion support abonnement">
+      </editor>
+      <editor
+            class="fr.legrain.licence.editors.FormEditorLicence"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.licence"
+            name="Support abonnement editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.licence.handle.HandlerEtatLicence"
+            description="Support abonnement command"
+            id="fr.legrain.licence"
+            name="Support abonnement command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion.support">
+         <command
+               commandId="fr.legrain.licence"
+               icon="icons/logo_lgr_16.png"
+               label="Description des supports"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.licence.separator3"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:gestion">
+         <menu
+               icon="icons/logo_lgr_16.png"
+               id="gestion.support"
+               label="Gestion des supports et abonnements">
+         </menu>
+         <separator
+               name="gestion.separator1">
+         </separator>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.legrain.licence.handle.HandlerListeTiersViewSupportAbon"
+            commandId="fr.legrain.gestionCommerciale.supportAbon">
+         <activeWhen>
+            <test
+                  property="org.demo.matchesPattern">
+            </test>
+         </activeWhen>
+      </handler>
+   </extension>
+
+</plugin>

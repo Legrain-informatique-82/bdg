@@ -1,0 +1,12 @@
+<introContent>
+  	<extensionContent id="fr.legrain.prelevement" style="css/prelevement.css" name="Prelevement" path="documents/links-background/page-links/ancre_prelevement">
+		<group style-id="content-group" id="fr.legrain.prelevement-group">
+       		<link label="Ouvrir les prélèvements" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Prelevement&amp;class=fr.legrain.prelevement.handlers.IntroActionPrelevement&amp;standby=true"
+       			id="link_prelevement" 
+       			style-id="content-link">
+          		<text>Gestion des prélèvements</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

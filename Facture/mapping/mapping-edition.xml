@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<!-- 
+		Si le nom de la classe ou du champs est en plusieurs parties (ex : AaaBbb),
+		indiquer explicitement le nom dans le fichier xml. (bind-xml et map-to)
+		Tout en mininuscule avec des underscore aux coupures
+	-->
+	<class name="fr.legrain.documents.dao.TaFacture">
+		<map-to xml="facture" />
+		<field name="idFacture"></field>
+		<field name="codeFacture"></field>
+		<field name="dateFacture"></field>
+		<field name="dateEchFacture"></field>
+		<field name="dateLivFacture"></field>
+		<field name="libelleFacture"></field>
+		<field name="regleFacture"></field>
+		<field name="remHtFacture"></field>
+		<field name="txRemHtFacture"></field>
+		<field name="remTtcFacture"></field>
+		<field name="txRemTtcFacture"></field>
+		<field name="nbEFacture"></field>
+		<field name="ttc"></field>
+		<field name="export"></field>
+		<field name="commentaire"></field>
+		<field name="gestionTVA"></field>
+		<field name="mtTtcCalc"></field>
+		<field name="mtHtCalc"></field>
+		<field name="mtTvaCalc"></field>
+		<field name="netTtcCalc"></field>
+		<field name="netHtCalc"></field>
+		<field name="netTvaCalc"></field>
+		<field name="netAPayer"></field>
+
+		<field name="taTiers" type="fr.legrain.tiers.dao.TaTiers"></field>
+		<field name="taTPaiement"
+			type="fr.legrain.documents.dao.TaTPaiement">
+		</field>
+		<field name="taCPaiement"
+			type="fr.legrain.tiers.dao.TaCPaiement">
+		</field>
+		<field name="taAdresseByIdAdresse"
+			type="fr.legrain.tiers.dao.TaAdresse">
+		</field>
+		<field name="taAdresseByIdAdresseLiv"
+			type="fr.legrain.tiers.dao.TaAdresse">
+		</field>
+		<field name="taInfosFactures"
+			type="fr.legrain.documents.dao.TaInfosFacture">
+		</field>
+
+		<field name="lignes" type="fr.legrain.documents.dao.TaLFacture"
+			collection="arraylist" container="false">
+			<bind-xml name="lignes" />
+		</field>
+
+		<field name="lignesTVA" type="fr.legrain.documents.dao.LigneTva"
+			collection="arraylist" container="false">
+			<bind-xml name="lignes_tva" />
+		</field>
+
+	</class>
+
+	<!--  
+		<class name="fr.legrain.tiers.dao.TaTiers"></class>
+		<class name="fr.legrain.documents.dao.TaTPaiement"></class>
+		<class name="fr.legrain.tiers.dao.TaCPaiement"></class>
+		<class name="fr.legrain.tiers.dao.TaAdresse"></class>
+	-->
+
+	<class name="fr.legrain.documents.dao.TaInfosFacture">
+		<field name="idInfosFacture"></field>
+		<field name="adresse1"></field>
+		<field name="adresse2"></field>
+		<field name="adresse3"></field>
+		<field name="codepostal"></field>
+		<field name="ville"></field>
+		<field name="pays"></field>
+		<field name="adresse1Liv"></field>
+		<field name="adresse2Liv"></field>
+		<field name="adresse3Liv"></field>
+		<field name="codepostalLiv"></field>
+		<field name="villeLiv"></field>
+		<field name="paysLiv"></field>
+		<field name="codeCompta"></field>
+		<field name="compte"></field>
+		<field name="nomTiers"></field>
+		<field name="prenomTiers"></field>
+		<field name="surnomTiers"></field>
+		<field name="codeTCivilite"></field>
+		<field name="codeTEntite"></field>
+		<field name="tvaIComCompl"></field>
+		<field name="codeCPaiement"></field>
+		<field name="libCPaiement"></field>
+		<field name="reportCPaiement"></field>
+		<field name="finMoisCPaiement"></field>
+		<!--
+			private TaFacture taFacture;
+		-->
+	</class>
+
+	<class name="fr.legrain.documents.dao.LigneTva">
+		<field name="libelle"></field>
+		<field name="codeTva"></field>
+		<field name="tauxTva"></field>
+		<field name="mtTva"></field>
+		<field name="nbLigneDocument"></field>
+	</class>
+
+	<class name="fr.legrain.documents.dao.TaLFacture">
+		<field name="idLFacture"></field>
+		<field name="numLigneLFacture"></field>
+		<field name="libLFacture"></field>
+		<field name="qteLFacture"></field>
+		<field name="qte2LFacture"></field>
+		<field name="u1LFacture"></field>
+		<field name="u2LFacture"></field>
+		<field name="prixULFacture"></field>
+		<field name="tauxTvaLFacture"></field>
+		<field name="compteLFacture"></field>
+		<field name="codeTvaLFacture"></field>
+		<field name="mtHtLFacture"></field>
+		<field name="mtTtcLFacture"></field>
+		<field name="remTxLFacture"></field>
+		<field name="remHtLFacture"></field>
+		<!-- 
+			private TaTLigne taTLigne;
+			private TaFacture taFacture;
+			private TaArticle taArticle;
+		-->
+	</class>
+
+</mapping>

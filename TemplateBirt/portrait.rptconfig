@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <list-property name="configVars">
+        <structure>
+            <property name="name">__isdisplay__paramUrlJDBC_621_0</property>
+            <property name="value">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__paramDriverJDBC_673_1</property>
+            <property name="value">org.firebirdsql.jdbc.FBDriver</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__paramUser_674_2</property>
+            <property name="value">admin</property>
+        </structure>
+        <structure>
+            <property name="name">__isdisplay__paramPassword_675_3</property>
+            <property name="value">lgr82admin</property>
+        </structure>
+        <structure>
+            <property name="name">paramPassword_675_4</property>
+            <property name="value">lgr82admin</property>
+        </structure>
+        <structure>
+            <property name="name">paramPassword_675_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">paramDriverJDBC_673_5</property>
+            <property name="value">org.firebirdsql.jdbc.FBDriver</property>
+        </structure>
+        <structure>
+            <property name="name">paramDriverJDBC_673_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">paramUser_674_6</property>
+            <property name="value">admin</property>
+        </structure>
+        <structure>
+            <property name="name">paramUser_674_type_</property>
+            <property name="value">string</property>
+        </structure>
+        <structure>
+            <property name="name">paramUrlJDBC_621_7</property>
+            <property name="value">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+        </structure>
+        <structure>
+            <property name="name">paramUrlJDBC_621_type_</property>
+            <property name="value">string</property>
+        </structure>
+    </list-property>
+    <styles>
+        <style name="crosstab-cell" id="2">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="3">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+</report>

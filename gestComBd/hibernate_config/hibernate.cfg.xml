@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.firebirdsql.jdbc.FBDriver</property>
+		<!-- 
+        <property name="hibernate.connection.url">jdbc:firebirdsql:localhost:/home/lee/runtime-GestionCommercialeComplet.product/2432009/Bd/GEST_COM.FDB</property>
+       
+        <property name="hibernate.connection.url">jdbc:firebirdsql:localhost:/donnees/Projet/Java/Eclipse/runtime-GestionCommerciale.product/demo/Bd/GEST_COM.FDB</property>
+          -->
+         <property name="hibernate.connection.url">jdbc:firebirdsql:localhost:C:/runtime-GestionCommercialeComplet.product/demo/Bd/GEST_COM.FDB</property>
+        <property name="hibernate.connection.password">###_PASSWORD_FB_BDG_###</property>
+        <property name="hibernate.connection.username">admin</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.FirebirdDialect</property>
+    </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="bureau de gestion" id="GestionCommerciale.product" application="GestionCommerciale.application" version="2.0.14" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/GestionCommerciale/content/link_obj.gif"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+   </launcherArgs>
+
+   <windowImages i16="/GestionCommerciale/icons/logo_lgr_16.png" i32="/GestionCommerciale/icons/logo_lgr_32.png" i48="/GestionCommerciale/icons/logo_lgr_48.png"/>
+
+   <splash
+      location="GestionCommerciale"
+      startupProgressRect="10,276,250,9"
+      startupMessageRect="10,260,250,12"
+      startupForegroundColor="4D4D4D" />
+   <launcher name="GestionCommerciale">
+      <linux icon="/GestionCommerciale/icons/logo_lgr_48.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/GestionCommerciale/icons/legrain_new.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="Articles"/>
+      <plugin id="Facture"/>
+      <plugin id="GestionCommerciale"/>
+      <plugin id="GestionDossier"/>
+      <plugin id="JayBird_1_5" fragment=""/>
+      <plugin id="L2FProd_6_2"/>
+      <plugin id="Lib"/>
+      <plugin id="LibJBuilder2006"/>
+      <plugin id="LibLgrBirt"/>
+      <plugin id="LibrairiesEcran"/>
+      <plugin id="Tiers"/>
+      <plugin id="Updater"/>
+      <plugin id="gestComBd"/>
+      <plugin id="librairiesLeGrain"/>
+      <plugin id="log4j_1_2_8"/>
+      <plugin id="org.apache.ant"/>
+      <plugin id="org.apache.lucene"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.birt"/>
+      <plugin id="org.eclipse.birt.core"/>
+      <plugin id="org.eclipse.birt.core.ui"/>
+      <plugin id="org.eclipse.birt.data"/>
+      <plugin id="org.eclipse.birt.data.oda" fragment=""/>
+      <plugin id="org.eclipse.birt.data.oda.adapter.dtp" fragment=""/>
+      <plugin id="org.eclipse.birt.report.data.oda.flatfile" fragment=""/>
+      <plugin id="org.eclipse.birt.report.data.oda.flatfile.ui" fragment=""/>
+      <plugin id="org.eclipse.birt.report.data.oda.jdbc"/>
+      <plugin id="org.eclipse.birt.report.data.oda.jdbc.ui"/>
+      <plugin id="org.eclipse.birt.report.data.oda.xml"/>
+      <plugin id="org.eclipse.birt.report.data.oda.xml.ui"/>
+      <plugin id="org.eclipse.birt.report.designer.core"/>
+      <plugin id="org.eclipse.birt.report.designer.ui"/>
+      <plugin id="org.eclipse.birt.report.engine"/>
+      <plugin id="org.eclipse.birt.report.engine.emitter.html"/>
+      <plugin id="org.eclipse.birt.report.engine.emitter.pdf"/>
+      <plugin id="org.eclipse.birt.report.model"/>
+      <plugin id="org.eclipse.birt.report.viewer"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.hpux" fragment=""/>
+      <plugin id="org.eclipse.core.resources.linux" fragment=""/>
+      <plugin id="org.eclipse.core.resources.macosx" fragment=""/>
+      <plugin id="org.eclipse.core.resources.win32" fragment=""/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.datatools.connectivity.oda"/>
+      <plugin id="org.eclipse.datatools.connectivity.oda.flatfile"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.help.appserver"/>
+      <plugin id="org.eclipse.help.base"/>
+      <plugin id="org.eclipse.help.ui"/>
+      <plugin id="org.eclipse.help.webapp"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.carbon.macosx.ppc" fragment=""/>
+      <plugin id="org.eclipse.swt.gtk.linux.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.swt.gtk.solaris.sparc" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.aix.ppc" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.hpux.PA_RISC" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.swt.motif.solaris.sparc" fragment="true"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.team.core"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.tomcat" fragment=""/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.browser"/>
+      <plugin id="org.eclipse.ui.carbon" fragment="true"/>
+      <plugin id="org.eclipse.ui.cheatsheets"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.update.core"/>
+      <plugin id="org.eclipse.update.core.linux" fragment="true"/>
+      <plugin id="org.eclipse.update.core.win32" fragment="true"/>
+      <plugin id="org.eclipse.update.scheduler"/>
+      <plugin id="org.eclipse.update.ui"/>
+      <plugin id="org.junit"/>
+   </plugins>
+
+   <features>
+      <feature id="GestionCommercialeFeature" version="2.0.14"/>
+      <feature id="UpdaterFeature" version="2.0.14.qualifier"/>
+   </features>
+
+
+</product>

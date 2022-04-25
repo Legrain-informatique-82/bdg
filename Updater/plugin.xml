@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Mise à jour"
+            visible="true"
+            id="Updater.actionSet">
+         <menu
+               id="maj"
+               label="Mise à jour"
+               path="help/update">
+            <separator
+                  name="updateGroup">
+            </separator>
+         </menu>
+         <action
+               label="&amp;Mise à jour"
+               icon="icons/updates_obj.gif"
+               class="fr.legrain.updater.actions.UpdaterAction"
+               tooltip="Mise à jour"
+               id="fr.legrain.updater.actions.UpdaterAction">
+         </action>
+         <action
+               class="fr.legrain.updater.actions.ConfigurationManagerAction"
+               icon="icons/config_obj.gif"
+               id="fr.legrain.updater.actions.ConfigurationManagerAction"
+               label="&amp;Gestion de la configuration"
+               menubarPath="help/maj/updateGroup"
+               style="push"
+               tooltip="&amp;Gestion de la configuration"/>
+         <action
+               class="fr.legrain.updater.actions.LgrMailUpdaterAction"
+               icon="icons/updates_obj.gif"
+               id="fr.legrain.updater.actions.LgrMailUpdaterAction"
+               label="Gestion des mises à jour Le Grain"
+               menubarPath="--help/maj/updateGroup"
+               style="push"
+               tooltip="Gestion des mises à jour Le Grain"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.updater.preferences.LgrUpdaterPreferencePage"
+            id="fr.legrain.updater.preferences.LgrUpdaterPreferencePage"
+            name="Mise à jour Le Grain"/>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer class="fr.legrain.updater.preferences.PreferenceInitializer"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Mise à jour"
+            id="fr.legrain.gestionCommerciale.updater.maj"
+            name="Lancer les mise à jour">
+      </command>
+      <command
+            description="Recherche MAJ"
+            id="fr.legrain.gestionCommerciale.updater.recherche"
+            name="Recherche de mise à jour">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.gestionCommerciale.updater.maj"
+            contextId="org.eclipse.ui.contexts.dialog"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M3+U">
+      </key>
+      <key
+            commandId="fr.legrain.gestionCommerciale.updater.recherche"
+            contextId="org.eclipse.ui.contexts.dialog"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M3+R">
+      </key>
+   </extension>
+   <extension
+         id="custominstall"
+         name="custominstall"
+         point="org.eclipse.update.core.installHandlers">
+      <install-handler
+            class="fr.legrain.updater.CustomInstallHandler">
+      </install-handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.updater.handlers.HandlerUpdater"
+            description="Updater"
+            id="fr.legrain.updater.editor.updater"
+            name="Updater">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.updater.editor.EditorUpdater"
+            icon="icons/updates_obj.gif"
+            id="fr.legrain.updater.editor.EditorUpdater"
+            name="Mise à jour">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:help">
+         <menu
+               icon="icons/updates_obj.gif"
+               id="maj"
+               label="Mise à jour">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:maj">
+         <command
+               commandId="fr.legrain.updater.editor.updater"
+               icon="icons/updates_obj.gif"
+               label="Gestion des mises à jour Le Grain">
+         </command>
+      </menuContribution>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.installationPages">
+          <page
+            name="%installedSoftwarePage"
+            class="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.InstalledSoftwarePage"
+            id="10.org.eclipse.equinox.p2.examples.rcp.cloud.InstalledSoftwarePage">
+          </page>
+          <page
+            name="%installHistoryPage"
+            class="org.eclipse.equinox.internal.provisional.p2.ui.dialogs.RevertProfilePage"
+            id="11.org.eclipse.equinox.p2.examples.rcp.cloud.RevertProfilePage">
+          </page>
+    </extension>
+    
+    <extension
+         point="org.eclipse.ui.commands">
+      <command
+            name="Mise à jour (P2)"
+            id="org.eclipse.equinox.p2.examples.rcp.cloud.command.update">
+      </command>
+      <command
+            name="Installation (P2)"
+            id="org.eclipse.equinox.p2.examples.rcp.cloud.command.install">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="org.eclipse.equinox.p2.examples.rcp.cloud.command.update"
+            class="fr.legrain.updater.p2.UpdateHandler">
+      </handler>
+      <handler
+            commandId="org.eclipse.equinox.p2.examples.rcp.cloud.command.install"
+            class="fr.legrain.updater.p2.InstallNewSoftwareHandler">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:help?after=additions">
+            <command
+                  commandId="org.eclipse.equinox.p2.examples.rcp.cloud.command.update"
+            	  mnemonic="%Update.command.mnemonic"
+                  id="org.eclipse.equinox.p2.examples.rcp.cloud.menu.update">
+            </command>
+                        
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:help?after=org.eclipse.equinox.p2.examples.rcp.cloud.menu.update">
+            <command
+                  commandId="org.eclipse.equinox.p2.examples.rcp.cloud.command.install"
+            	  mnemonic="%Install.command.mnemonic"
+                  id="org.eclipse.equinox.p2.examples.rcp.cloud.menu.install">
+            </command>
+      </menuContribution>
+   </extension>
+   
+    
+   
+
+</plugin>

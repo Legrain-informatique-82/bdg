@@ -1,0 +1,251 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+	<!-- 
+		<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_version=" 1.0">
+	-->
+	<persistence-unit name="sample">
+		<!-- <jta-data-source>java:/DefaultDS</jta-data-source>  -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- articles -->
+		<class>fr.legrain.articles.dao.TaFamille</class>
+		<class>fr.legrain.articles.dao.TaFamilleUnite</class>
+		<class>fr.legrain.articles.dao.TaPrix</class>
+		<class>fr.legrain.articles.dao.TaArticle</class>
+		<class>fr.legrain.articles.dao.TaRefPrix</class>
+		<class>fr.legrain.articles.dao.TaTTva</class>
+		<class>fr.legrain.articles.dao.TaUnite</class>
+		<class>fr.legrain.articles.dao.TaTva</class>
+		<class>fr.legrain.articles.dao.TaRapportUnite</class>
+		<class>fr.legrain.articles.dao.TaNoteArticle</class>
+		<class>fr.legrain.articles.dao.TaTNoteArticle</class>
+		<class>fr.legrain.articles.dao.TaImageArticle</class>
+		
+		<class>fr.legrain.articles.dao.TaCategorieArticle</class>
+		<class>fr.legrain.articles.dao.TaCatalogueWeb</class>
+		<class>fr.legrain.articles.dao.TaLabelArticle</class>
+		
+		<class>fr.legrain.articles.dao.TaConditionnementArticle</class>
+		<!-- <class>fr.legrain.articles.dao.TaTConditionnement</class> -->
+		
+		<!-- département -->
+		<class>fr.legrain.departement.dao.TaDepartements</class>
+		
+		<!-- requetes -->
+		<class>fr.legrain.requete.dao.TaRequete</class>
+		<class>fr.legrain.requete.dao.TaLigneRequete</class>
+
+		<!-- tiers -->
+		<class>fr.legrain.tiers.dao.TaFamilleTiers</class>
+		<class>fr.legrain.tiers.dao.TaAdresse</class>
+		<class>fr.legrain.tiers.dao.TaEmail</class>
+		<class>fr.legrain.tiers.dao.TaEntreprise</class>
+		<class>fr.legrain.tiers.dao.TaLiens</class>
+		<class>fr.legrain.tiers.dao.TaTelephone</class>
+		<class>fr.legrain.tiers.dao.TaTiers</class>
+		<class>fr.legrain.tiers.dao.TaTAdr</class>
+		<class>fr.legrain.tiers.dao.TaTBanque</class>
+		<class>fr.legrain.tiers.dao.TaCompteBanque</class>
+		<class>fr.legrain.tiers.dao.TaTCivilite</class>
+		<class>fr.legrain.tiers.dao.TaCommentaire</class>
+		<class>fr.legrain.tiers.dao.TaTEmail</class>
+		<class>fr.legrain.tiers.dao.TaTEntite</class>
+		<class>fr.legrain.tiers.dao.TaTLiens</class>
+		<class>fr.legrain.tiers.dao.TaTTarif</class>
+		<class>fr.legrain.tiers.dao.TaTTel</class>
+		<class>fr.legrain.tiers.dao.TaTTiers</class>
+		<class>fr.legrain.tiers.dao.TaTWeb</class>
+		<class>fr.legrain.tiers.dao.TaWeb</class>
+		<class>fr.legrain.tiers.dao.TaCompl</class>
+		<class>fr.legrain.tiers.dao.TaCPaiement</class>
+		<class>fr.legrain.tiers.dao.TaNoteTiers</class>
+		<class>fr.legrain.tiers.dao.TaTNoteTiers</class>
+		<class>fr.legrain.tiers.dao.TaTTvaDoc</class>
+		<class>fr.legrain.tiers.dao.TaInfoJuridique</class>
+		<class>fr.legrain.tiers.dao.TaDocumentTiers</class>
+		<class>fr.legrain.tiers.dao.TaParamCreeDocTiers</class>
+
+		<!-- documents -->
+		<class>fr.legrain.documents.dao.TaFacture</class>
+		<class>fr.legrain.documents.dao.TaApporteur</class>
+		<class>fr.legrain.documents.dao.TaAvoir</class>
+		<class>fr.legrain.documents.dao.TaBoncde</class>
+		<class>fr.legrain.documents.dao.TaBonliv</class>
+		<class>fr.legrain.documents.dao.TaDevis</class>
+		<class>fr.legrain.documents.dao.TaProforma</class>
+		<class>fr.legrain.documents.dao.TaAcompte</class>
+		<class>fr.legrain.documents.dao.TaPrelevement</class>
+		
+		<class>fr.legrain.documents.dao.TaLFacture</class>
+		<class>fr.legrain.documents.dao.TaLApporteur</class>
+		<class>fr.legrain.documents.dao.TaLAvoir</class>
+		<class>fr.legrain.documents.dao.TaLBoncde</class>
+		<class>fr.legrain.documents.dao.TaLBonliv</class>
+		<class>fr.legrain.documents.dao.TaLProforma</class>
+		<class>fr.legrain.documents.dao.TaLDevis</class>
+		<class>fr.legrain.documents.dao.TaLAcompte</class>
+		<class>fr.legrain.documents.dao.TaLPrelevement</class>
+		
+		<class>fr.legrain.documents.dao.TaInfosFacture</class>
+		<class>fr.legrain.documents.dao.TaInfosApporteur</class>
+		<class>fr.legrain.documents.dao.TaInfosAvoir</class>
+		<class>fr.legrain.documents.dao.TaInfosBoncde</class>
+		<class>fr.legrain.documents.dao.TaInfosBonliv</class>
+		<class>fr.legrain.documents.dao.TaInfosDevis</class>		
+		<class>fr.legrain.documents.dao.TaInfosProforma</class>
+		<class>fr.legrain.documents.dao.TaInfosAcompte</class>
+		<class>fr.legrain.documents.dao.TaInfosPrelevement</class>
+		
+		
+		<class>fr.legrain.documents.dao.TaMandat</class>
+		<class>fr.legrain.documents.dao.TaEndToEnd</class>
+		
+		
+		<class>fr.legrain.documents.dao.TaRAcompte</class>
+		<class>fr.legrain.documents.dao.TaReglement</class>
+		<class>fr.legrain.documents.dao.TaRReglement</class>
+		<class>fr.legrain.documents.dao.TaRAvoir</class>
+		<class>fr.legrain.documents.dao.TaComDoc</class>
+		<class>fr.legrain.documents.dao.TaLModele</class>
+		<class>fr.legrain.documents.dao.TaModele</class>
+		<class>fr.legrain.documents.dao.TaTDoc</class>
+		<class>fr.legrain.documents.dao.TaTLigne</class>
+		<class>fr.legrain.documents.dao.TaTPaiement</class>
+		<class>fr.legrain.documents.dao.TaRDocument</class>
+		<class>fr.legrain.documents.dao.TaTRelance</class>
+		<class>fr.legrain.documents.dao.TaRelance</class>
+		<class>fr.legrain.documents.dao.TaLRelance</class>
+		<class>fr.legrain.documents.dao.TaParamPublipostage</class>
+		<class>fr.legrain.tiers.dao.TaTCPaiement</class>
+		<class>fr.legrain.documents.dao.TaDocumentEditable</class>
+		
+		<class>fr.legrain.documents.dao.TaLEcheance</class>
+		<class>fr.legrain.documents.dao.TaLAvisEcheance</class>
+		<class>fr.legrain.documents.dao.TaAvisEcheance</class>
+		<class>fr.legrain.documents.dao.TaInfosAvisEcheance</class>
+		
+		<class>fr.legrain.documents.dao.TaRemise</class>
+		<class>fr.legrain.documents.dao.TaLRemise</class>
+		
+		<class>fr.legrain.documents.dao.TaEtat</class>
+		
+		
+		<class>fr.legrain.saisieCaisse.dao.TaTOperation</class>
+		<class>fr.legrain.saisieCaisse.dao.TaOperation</class>
+		<class>fr.legrain.saisieCaisse.dao.TaDepot</class>
+		<class>fr.legrain.saisieCaisse.dao.TaEtablissement</class>
+		<class>fr.legrain.saisieCaisse.dao.TaReportTPaiement</class>
+		
+		
+		<class>fr.legrain.stocks.dao.TaStock</class>
+		<class>fr.legrain.stocks.dao.TaReportStock</class>
+		
+		<class>fr.legrain.generationDocumentLGR.dao.TaWlgr</class>
+		<class>fr.legrain.generationDocumentLGR.dao.TaWlgrNMoins1</class>
+		<class>fr.legrain.generationDocumentLGR.dao.RecapMaintenances</class>
+		
+		<!-- points lgr -->
+		<class>fr.legrain.pointLgr.dao.TaPointAcquisAnnee</class>
+		<class>fr.legrain.pointLgr.dao.TaIndicePoint</class>
+		<class>fr.legrain.pointLgr.dao.TaArticlePoint</class>
+		<class>fr.legrain.pointLgr.dao.TaComptePoint</class>
+		<class>fr.legrain.pointLgr.dao.TaPointHistorique</class>
+		<class>fr.legrain.pointLgr.dao.TaTypeMouvPoint</class>
+		<class>fr.legrain.pointLgr.dao.TaPourcGroupe</class>
+		
+		
+		<!-- Champ supplementaire article -->
+		<!--  
+		<class>fr.legrain.articles.champsupp.dao.TaChampSuppArt</class>
+		<class>fr.legrain.articles.champsupp.dao.TaRChampSuppArt</class>
+		-->
+		
+		<!--class>fr.legrain.stocks.dao.TaEtatStock</class-->
+		<!-- param Dossier intelligent -->
+		<class>fr.legrain.dossierIntelligent.dao.TaParamDossierIntel</class>
+		<class>fr.legrain.dossierIntelligent.dao.TaRParamDossierIntel</class>
+		<class>fr.legrain.dossierIntelligent.dao.TaTypeDonnee</class>
+		
+	
+ 		<!-- infos entreprise -->
+ 		<class>fr.legrain.dossier.dao.TaInfoEntreprise</class>
+ 		
+ 		<!-- Mise a jour legrain -->
+ 		<class>fr.legrain.updater.dao.TaMailMaj</class>
+ 		
+ 		<!-- visualisation -->
+ 		<class>fr.legrain.visualisation.dao.TaVisualisation</class>
+
+ 		<!-- version base -->
+ 		<class>fr.legrain.dossier.dao.TaVersion</class>
+ 		
+ 		<!-- synchro boutique internet -->
+ 		<class>fr.legrain.boutique.dao.TaSynchroBoutique</class>
+ 		<class>fr.legrain.boutique.dao.TaCorrespondanceIDBoutique</class>
+ 		
+ 		
+ 		<!-- Gestion des licences et abonnements -->
+ 		<class>fr.legrain.SupportAbon.dao.TaSupportAbon</class>
+ 		<class>fr.legrain.SupportAbon.dao.TaOptionAbon</class>
+ 		<class>fr.legrain.SupportAbon.dao.TaROptionAbon</class>
+ 		
+ 		
+ 		<class>fr.legrain.SupportAbonLegrain.dao.TaUtilisateur</class>
+<!--  		<class>fr.legrain.SupportAbonLegrain.dao.TaIpFixe</class> -->
+<!--  		<class>fr.legrain.SupportAbonLegrain.dao.TaRegistrar</class> -->
+<!--  		<class>fr.legrain.SupportAbonLegrain.dao.TaRIpFixe</class> -->
+<!--  		<class>fr.legrain.SupportAbonLegrain.dao.TaServeur</class> -->
+
+<!-- 		<class>fr.legrain.supportHebergement.dao.TaHebergement</class> -->
+<!-- 		<class>fr.legrain.supportImmosManager.dao.TaImmosManager</class> -->
+<!-- 		<class>fr.legrain.supportNDD.dao.TaNDD</class> -->
+<!-- 		<class>fr.legrain.lgrBackup.dao.TaLgrBackup</class> -->
+<!-- 		<class>fr.legrain.antiVirus.dao.TaAntiVirus</class> -->
+ 			
+ 		<class>fr.legrain.licenceEpicea.dao.TaLicenceEpicea</class>
+ 		<class>fr.legrain.licenceSara.dao.TaLicenceSara</class>
+ 		<class>fr.legrain.licenceBdg.dao.TaLicenceBdg</class>
+ 		<class>fr.legrain.abonnement.dao.TaAbonnement</class>
+ 		<class>fr.legrain.articles.dao.TaTSupport</class>
+ 		<class>fr.legrain.articles.dao.TaTAbonnement</class>
+ 		<class>fr.legrain.articles.dao.TaRTSupport</class>
+ 		
+ 		<!-- Gestion des capsules - viticulteurs -->
+ 		<class>fr.legrain.gestioncapsules.dao.TaTitreTransport</class>
+ 		<class>fr.legrain.articles.dao.TaArticleViti</class>
+ 		<class>fr.legrain.gestioncapsules.dao.TaReportStockCapsules</class>
+ 		<class>fr.legrain.gestioncapsules.dao.TaStockCapsules</class>
+ 		<class>fr.legrain.articles.dao.TaRTaTitreTransport</class>
+ 		
+ 		<class>fr.legrain.gestCom.global.dao.TaConst</class>
+ 		
+ 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+ 		
+		<properties>
+			<!-- 
+				<property name="hibernate.connection.driver_class">org.firebirdsql.jdbc.FBDriver</property>
+				<property name="hibernate.connection.password">###_PASSWORD_FB_BDG_###</property>
+				<property name="hibernate.connection.url">jdbc:firebirdsql:localhost:/donnees/Projet/Java/Eclipse/runtime-GestionCommerciale.product/dossier/Bd/GEST_COM.FDB</property>
+				<property name="hibernate.connection.username">admin</property>
+			-->
+
+			<property name="hibernate.dialect" value="fr.legrain.gestCom.global.LgrHibernateFirebirdDialect"/>
+				
+			<!-- Enable Hibernate's automatic session context management -->
+			<property name="current_session_context_class" value="thread"/>
+			<property name="hibernate.archive.autodetection" value="class, hbm" />
+			<!-- property name="hibernate.show_sql" value="true"/-->
+			<!-- A list of vendor-specific properties -->
+			<!--<property name="javax.persistence.validation.mode" value="NONE"/>
+			<property name="hibernate.bytecode.use_reflection_optimizer" value="true"/>
+			<property name="hibernate.bytecode.provider" value="javassist"/>-->
+			 <property name="hibernate.cache.use_second_level_cache" value="true"/>
+			 <property name="hibernate.cache.provider_class" value="org.hibernate.cache.EhCacheProvider"/>
+<!--				<property name="hibernate.cache.use_query_cache" value="true"/>-->
+<!--				<property name="hibernate.cache.use_minimal_puts" value="true"/>   -->
+<!--				<property name="hibernate.cache.provider_configuration_file_resource_path" value="META-INF/ehcache.xml"/>         -->
+			
+
+		</properties>
+	</persistence-unit>
+</persistence>

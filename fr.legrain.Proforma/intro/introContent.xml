@@ -1,0 +1,22 @@
+<introContent>
+
+  	<extensionContent id="fr.legrain.proforma" style="css/proforma.css" name="Proforma" path="documents/links-background/page-links/ancre_proforma">
+		<group style-id="content-group" id="fr.legrain.proforma-group">
+       		<link label="Ouvrir les proformas" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Proforma&amp;class=fr.legrain.proforma.handlers.IntroActionProforma&amp;standby=true"
+       			id="link_proformas" 
+       			style-id="content-link">
+          		<text>Gestion des proformas</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+  	<extensionContent id="fr.legrain.proforma" style="css/proforma.css" name="Proforma" path="root/links-background/page-links/ancre_proforma">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=Proforma&amp;class=fr.legrain.proforma.handlers.IntroActionProforma&amp;standby=true"
+       		id="link_proforma" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+  	
+</introContent>

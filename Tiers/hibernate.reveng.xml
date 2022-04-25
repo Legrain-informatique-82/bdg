@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="TA_ADRESSE"></table-filter>
+	<table-filter match-name="TA_EMAIL"></table-filter>
+	<table-filter match-name="TA_ENTREPRISE"></table-filter>
+	<table-filter match-name="TA_LIENS"></table-filter>
+	<table-filter match-name="TA_TELEPHONE"></table-filter>
+	<table-filter match-name="TA_TIERS"></table-filter>
+	<table-filter match-name="TA_T_ADR"></table-filter>
+	<table-filter match-name="TA_T_BANQUE"></table-filter>
+	<table-filter match-name="TA_COMPTE_BANQUE"></table-filter>
+	<table-filter match-name="TA_T_CIVILITE"></table-filter>
+	<table-filter match-name="TA_COMMENTAIRE"></table-filter>
+	<table-filter match-name="TA_T_EMAIL"></table-filter>
+	<table-filter match-name="TA_T_ENTITE"></table-filter>
+	<table-filter match-name="TA_T_LIENS"></table-filter>
+	<table-filter match-name="TA_T_TARIF"></table-filter>
+	<table-filter match-name="TA_T_TEL"></table-filter>
+	<table-filter match-name="TA_T_TIERS"></table-filter>
+	<table-filter match-name="TA_T_WEB"></table-filter>
+	<table-filter match-name="TA_WEB"></table-filter>
+	<table-filter match-name="TA_COMPL"></table-filter>
+	<table-filter match-name="TA_C_PAIEMENT"></table-filter>
+</hibernate-reverse-engineering>

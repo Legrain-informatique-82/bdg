@@ -1,0 +1,47 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Updater Plug-in
+Bundle-SymbolicName: Updater; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.updater.UpdaterPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.update.configurator,
+ org.eclipse.update.core,
+ org.eclipse.update.scheduler,
+ org.eclipse.update.ui,
+ LibLgrMail,
+ log4j_1_2_8,
+ LibMessageLGR,
+ Lib,
+ librairiesLeGrain,
+ gestComBd,
+ LibrairiesEcran,
+ LibJBuilder2006,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ org.eclipse.equinox.p2.core;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.ui;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.updatechecker;bundle-version="1.1.0",
+ org.eclipse.equinox.p2.updatesite;bundle-version="1.0.100",
+ org.eclipse.equinox.p2.ui.sdk;bundle-version="1.0.100",
+ org.eclipse.equinox.p2.ui.sdk.scheduler;bundle-version="1.0.0",
+ org.eclipse.equinox.p2.metadata;bundle-version="1.0.100",
+ org.eclipse.equinox.p2.engine;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.artifact.repository;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.directorywatcher;bundle-version="1.0.100",
+ org.eclipse.equinox.p2.metadata.repository;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.touchpoint.eclipse;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.touchpoint.natives;bundle-version="1.0.101",
+ org.eclipse.equinox.p2.director;bundle-version="1.0.100",
+ org.eclipse.equinox.p2.repository;bundle-version="1.0.1",
+ org.eclipse.core.databinding.property;bundle-version="1.2.0"
+Eclipse-AutoStart: true
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.updater,
+ fr.legrain.updater.actions,
+ fr.legrain.updater.preferences

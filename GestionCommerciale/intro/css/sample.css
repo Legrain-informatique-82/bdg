@@ -1,0 +1,3 @@
+
+a#GestionCommerciale-introLink img { background-image : url(graphics/sample.gif); }
+a#GestionCommerciale-introLink:hover img { background-image : url(graphics/sample_hov.gif); }

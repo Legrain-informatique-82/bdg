@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Editeurs JavaScript
+Bundle-SymbolicName: fr.legrain.javascript.editors
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.javascript.editors.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Lib;bundle-version="2.0.14",
+ log4j_1_2_8;bundle-version="1.2.8",
+ org.mortbay.jetty.server;bundle-version="6.1.23",
+ org.mortbay.jetty.util;bundle-version="6.1.23"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: fr.legrain.javascript.editors

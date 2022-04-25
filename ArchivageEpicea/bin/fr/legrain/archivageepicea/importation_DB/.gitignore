@@ -1,0 +1,13 @@
+/ClassQuerySql.class
+/SelectDB.class
+<<<<<<< HEAD
+/VerficationFichier.class
+/connectionDB.class
+/makeDB.class
+/test_fonction.class
+=======
+/connectionDB.class
+/makeDB.class
+/test_fonction.class
+/VerficationFichier.class
+>>>>>>> branch 'b_2_0_13' of ssh://nicolas@git.legrain.dev/home/prog/git/bdg.git

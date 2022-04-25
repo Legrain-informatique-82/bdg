@@ -1,0 +1,42 @@
+	public void enregistrer() throws Exception{
+		try{
+			int Row=0;
+			if (update==null)update=new Update(nomTable,idTable);;
+			if (update.getIdChamps().equals(null))update.setIdChamps(idTable);
+			if(isModeInsertionDirecte()) {
+//				String idChamps = update.getIdChamps();
+//				String id = getFChamp_Query(idChamps);
+				update.setMode(this.getFModeObjet());
+				update.setIdValeur(String.valueOf(getFChamp_Query(update.getIdChamps())));
+				update.execution(update.createQuery(listeMAJVue));
+				fIBQuery.cancel();
+				fIBQuery.saveChanges();
+				fIBQuery.refresh();
+//				DataRow courant = new DataRow(fIBQuery,update.getIdChamps());
+//				courant.setShort(update.getIdChamps(),Short.parseShort(update.getIdValeur()));
+//				fIBQuery.locate(courant,32);
+			}
+			else {  
+				Iterator iteNomChamp = fListeChampValue.keySet().iterator();
+				String cle = null;
+				if (fIBQuLgrEnregistrer != null) { //if assigned(FIBQuLgrEnregistrer)
+					fIBQuLgrEnregistrer.enregistrer(new BdLgrEvent(this)); //FIBQuLgrEnregistrer([FIBQuery]);
+					// ou fireTBdLgrEnregistrer(); sans le if pour signaler à tous les objets intéressés par l'évènement
+				}
+				else {
+					fIBQuery.post();
+					fIBQuery.saveChanges();
+					fIBQuery.refresh();
+				}
+			}
+			this.setChamp_Obj(idTable, update.getIdValeur());
+			this.setFChamp_Query(idTable, update.getIdValeur());
+			fModeObjet.setMode(ModeObjet.EnumModeObjet.valueOf("C_MO_CONSULTATION"));
+			if (listeMAJVue!=null)listeMAJVue.clear();
+		}
+		catch (Exception e) {
+			logger.error("Erreur : enregistrer", e);
+			this.getFIBBase().rollback(); //FIBTransaction.RollbackRetaining;
+			throw new ExceptLgr();
+		}		
+	}

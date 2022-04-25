@@ -1,0 +1,263 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="GestionCommerciale" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appInfo>
+         <meta.schema plugin="GestionCommerciale" id="messageEditeur" name="Message dans editeur"/>
+      </appInfo>
+      <documentation>
+         Insertion d&apos;un message en haut d&apos;un Editeur de type JPALgrEditorPart.
+&lt;br&gt;
+Le message peut etre inserer a l&apos;interieur d&apos;un nouveau Composite qui sera integre dans l&apos;editeur
+ou dans un composant navigateur (affichage de HTML ou d&apos;une URL).
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appInfo>
+            <meta.element />
+         </appInfo>
+      </annotation>
+      <complexType>
+         <choice minOccurs="1" maxOccurs="unbounded">
+            <element ref="message"/>
+         </choice>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appInfo>
+                  <meta.attribute translatable="true"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="message">
+      <annotation>
+         <documentation>
+            message
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="message" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Le corps du message
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="typeAffichage" use="default" value="COMPOSITE">
+            <annotation>
+               <documentation>
+                  Le type d&apos;affichage du message.
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="COMPOSITE">
+                  </enumeration>
+                  <enumeration value="BROWSER">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="couleur" type="string">
+            <annotation>
+               <documentation>
+                  5 couleurs sous la forme : (r,v,b);(r,v,b);(r,v,b);(r,v,b);(r,v,b)&lt;br&gt;
+Exemple : (40,73,97);(40,73,97);(226,239,249);(177,211,243);(40,73,97) &lt;br&gt;
+Ordre des couleurs : &lt;br&gt;
+1 - title foreground color&lt;br&gt;
+2 - text foreground color&lt;br&gt;
+3 - shell gradient background color - top&lt;br&gt;
+4 - shell gradient background color - bottom   &lt;br&gt; 
+5 - shell border color&lt;br&gt;
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="identifier"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="titre" type="string">
+            <annotation>
+               <documentation>
+                  Le titre du message
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="icone" type="string">
+            <annotation>
+               <documentation>
+                  L&apos;image associee au message
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="url" type="string">
+            <annotation>
+               <documentation>
+                  L&apos;adresse de la page web a afficher pour les message de type BROWSER,
+exemple : http://www.legrain.fr
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="type_message" use="default" value="INFO">
+            <annotation>
+               <documentation>
+                  Type de message (Icone) predefini
+               </documentation>
+            </annotation>
+            <simpleType>
+               <restriction base="string">
+                  <enumeration value="ERROR">
+                  </enumeration>
+                  <enumeration value="DELETE">
+                  </enumeration>
+                  <enumeration value="WARN">
+                  </enumeration>
+                  <enumeration value="SUCCESS">
+                  </enumeration>
+                  <enumeration value="INFO">
+                  </enumeration>
+                  <enumeration value="LIBRARY">
+                  </enumeration>
+                  <enumeration value="HINT">
+                  </enumeration>
+                  <enumeration value="PRINTED">
+                  </enumeration>
+                  <enumeration value="CONNECTION_TERMINATED">
+                  </enumeration>
+                  <enumeration value="CONNECTION_FAILED">
+                  </enumeration>
+                  <enumeration value="CONNECTED">
+                  </enumeration>
+                  <enumeration value="DISCONNECTED">
+                  </enumeration>
+                  <enumeration value="TRANSACTION_OK">
+                  </enumeration>
+                  <enumeration value="TRANSACTION_FAIL">
+                  </enumeration>
+               </restriction>
+            </simpleType>
+         </attribute>
+         <attribute name="messageEditeurClass" type="string">
+            <annotation>
+               <documentation>
+                  Classe implementant fr.legrain.gestCom.librairiesEcran.workbench.IMessageEditeur. Si cette propriete est utilise, la classe passe en parametre doit se charge de l&apos;affichage du message, cela doit permettre de gerer les cas pour lesquels les autres parametres sont insuffisants.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="java" basedOn=":fr.legrain.gestCom.librairiesEcran.workbench.IMessageEditeur"/>
+               </appInfo>
+            </annotation>
+         </attribute>
+         <attribute name="idEditeur" type="string" use="required">
+            <annotation>
+               <documentation>
+                  L&apos;ID de l&apos;editeur cible dans lequel devra etre inserer le message
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="obligatoire" type="boolean" use="default" value="false">
+            <annotation>
+               <documentation>
+                  Vrai si le message doit toujours etre visible, faux si on peu le desactive a partir des preferences.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="since"/>
+      </appInfo>
+      <documentation>
+         2.0.4
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="examples"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+&lt;pre&gt;
+ &lt;extension
+         point=&quot;GestionCommerciale.messageEditeur&quot;&gt;
+      &lt;message
+            idEditeur=&quot;fr.legrain.articles.editor.EditorCatalogueWeb&quot;
+            message=&quot;*** TEST ***&quot;
+            obligatoire=&quot;true&quot;
+            titre=&quot;PUB VERSION N*&quot;
+            type=&quot;COMPOSITE&quot;
+            typeAffichage=&quot;COMPOSITE&quot;
+            type_message=&quot;SUCCESS&quot;&gt;
+      &lt;/message&gt;
+      &lt;message
+            idEditeur=&quot;fr.legrain.articles.editor.EditorCategorieArticle&quot;
+            message=&quot;Test 2&quot;
+            obligatoire=&quot;false&quot;
+            typeAffichage=&quot;BROWSER&quot;
+            type_message=&quot;INFO&quot;
+            url=&quot;http://www.legrain.fr&quot;&gt;
+      &lt;/message&gt;
+      &lt;message
+            couleur=&quot;(40,73,230);(40,73,97);(226,239,249);(120,211,243);(40,73,97)&quot;
+            icone=&quot;icons/logo_lgr_16.png&quot;
+            idEditeur=&quot;fr.legrain.articles.editor.EditorImageArticle&quot;
+            message=&quot;Test 3&quot;
+            typeAffichage=&quot;COMPOSITE&quot;
+            type_message=&quot;INFO&quot;&gt;
+      &lt;/message&gt;
+   &lt;/extension&gt;
+&lt;/pre&gt;
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="apiinfo"/>
+      </appInfo>
+      <documentation>
+         &lt;p&gt;
+Priorite des parametres :
+&lt;li&gt;la classe &gt; tout le reste
+&lt;li&gt;icone &gt; type_message
+&lt;li&gt;url &gt; message
+&lt;/p&gt;
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appInfo>
+         <meta.section type="implementation"/>
+      </appInfo>
+      <documentation>
+         [Enter information about supplied implementation of this extension point.]
+      </documentation>
+   </annotation>
+
+
+</schema>

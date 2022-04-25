@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="GestionCommerciale-introExtension" style="css/sample.css" name="Sample Extension" path="whatsnew/@">
+		<group style-id="content-group" id="GestionCommerciale-introLink-group">
+		<!--  
+       		<link label="Lorem ipsum" url="http://www.legrain.fr" id="GestionCommerciale-introLink" style-id="content-link">
+          		<text>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</text>
+       		</link>
+       		<link label="Aide Doc" url="http://org.eclipse.ui.intro/showHelpTopic?id=/fr.legrain.document.help/html/maintopic.html" id="link_aide_doc_topic" style-id="content-link">
+					<text>Ouverture de l'aide des documents</text>
+			</link>
+       	-->
+       		<link label="Aide" url="http://org.eclipse.ui.intro/showHelp" id="link_aide_doc" style-id="content-link">
+				<text>Ouverture de l'aide</text>
+			</link>	
+	 		<link label="Nouveautés" url="http://org.eclipse.ui.intro/showHelpTopic?id=/fr.legrain.bdg.help/html/nouveautes.html" id="link_aide_doc_topic" style-id="content-link">
+				<text>Voir la liste des dernières modifications</text>
+			</link>	
+       	</group>
+  	</extensionContent>
+</introContent>

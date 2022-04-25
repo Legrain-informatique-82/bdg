@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" sourcepath="C:/Borland/JBuilder2005/src/dx-src.jar" kind="lib" path="dx.jar">
+		<attributes>
+			<attribute value="jar:file:/C:/Borland/JBuilder2005/doc/jds_api.jar!/apiref" name="javadoc_location"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" sourcepath="C:/Borland/JBuilder2005/src/dbswing-src.jar" kind="lib" path="dbswing.jar">
+		<attributes>
+			<attribute value="jar:file:/C:/Borland/JBuilder2005/doc/jb_apiref.jar!/apiref" name="javadoc_location"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

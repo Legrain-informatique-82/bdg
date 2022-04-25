@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: WsImportOsc Plug-in
+Bundle-SymbolicName: WsImportOsc;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.wsimportosc.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibrairiesEcran,
+ log4j_1_2_8,
+ librairiesLeGrain,
+ gestComBd,
+ LibJBuilder2006,
+ org.eclipse.core.expressions,
+ Articles,
+ Tiers,
+ JayBird_2_0,
+ org.hibernate.eclipse,
+ Lib,
+ Facture
+Eclipse-LazyStart: true

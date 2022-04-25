@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Written by Eclipse BIRT 2.0 -->
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 1.0.1 Build &lt;20050729-0746></property>
+    <property name="units">in</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">2</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">2</property>
+            <expression name="value">params["paramUrlJDBC"]</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">2</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">2</property>
+        </structure>
+    </list-property>
+    <list-property name="configVars">
+        <structure>
+            <property name="name">paramUrlJDBC</property>
+            <property name="value">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/@Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="paramID_FACTURE" id="141">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="format">Unformatted</property>
+            <property name="controlType">text-box</property>
+        </scalar-parameter>
+        <scalar-parameter name="paramUrlJDBC" id="621">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="format">Unformatted</property>
+            <property name="controlType">text-box</property>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="GestCom" id="2">
+            <property name="odaDriverClass">org.firebirdsql.jdbc.FBDriver</property>
+            <property name="odaURL">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/@Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+            <property name="odaUser">admin</property>
+            <encrypted-property name="odaPassword">bGdyODJhZG1pbg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Tiers" id="3">
+            <property name="dataSource">GestCom</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_TIERS</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select *
+from V_TIERS where V_TIERS.ID_TIERS = ?</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Facture" id="36">
+            <property name="dataSource">GestCom</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_FACTURE</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">44</property>
+                    <property name="name">ID_TIERS_44</property>
+                </structure>
+                <structure>
+                    <property name="position">45</property>
+                    <property name="name">CODE_TIERS_45</property>
+                </structure>
+                <structure>
+                    <property name="position">46</property>
+                    <property name="name">CODE_COMPTA_46</property>
+                </structure>
+                <structure>
+                    <property name="position">47</property>
+                    <property name="name">COMPTE_47</property>
+                </structure>
+                <structure>
+                    <property name="position">48</property>
+                    <property name="name">NOM_TIERS_48</property>
+                </structure>
+                <structure>
+                    <property name="position">49</property>
+                    <property name="name">PRENOM_TIERS_49</property>
+                </structure>
+                <structure>
+                    <property name="position">50</property>
+                    <property name="name">SURNOM_TIERS_50</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select *
+from V_FACTURE F, V_TIERS T
+where F.ID_FACTURE = ?
+and F.ID_TIERS = T.ID_TIERS</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="LignesFacture" id="39">
+            <property name="dataSource">GestCom</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_FACTURE</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select 
+    ID_L_FACTURE,
+    ID_FACTURE,
+    ID_T_LIGNE,
+    ID_ARTICLE,
+    NUM_LIGNE_L_FACTURE,
+    CODE_ARTICLE,
+    LIB_L_FACTURE,
+    QTE_L_FACTURE,
+    U1_L_FACTURE,
+    U2_L_FACTURE,
+    PRIX_U_L_FACTURE,
+    TAUX_TVA_L_FACTURE,
+    CODE_TVA_L_FACTURE,
+    MT_HT_L_FACTURE,
+    MT_TTC_L_FACTURE,
+    REM_TX_L_FACTURE,
+    REM_HT_L_FACTURE
+from V_L_FACTURE lFacture
+where lFacture.ID_FACTURE = ?
+order by NUM_LIGNE_L_FACTURE</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.SPSelectDataSet" name="Totaux" id="264">
+            <property name="dataSource">GestCom</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_FACTURE</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <property name="queryText">{call CALCUL_TOTAL(?)} </property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="LignesTVA" id="360">
+            <property name="dataSource">GestCom</property>
+            <property name="cachedRowCount">0</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_FACTURE</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select *
+from CALCUL_TVA_TA_L_FACTURE 
+where id_facture_recup = ?</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="InfosFacture" id="634">
+            <property name="dataSource">GestCom</property>
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">paramID_FACTURE</property>
+                    <property name="dataType">integer</property>
+                    <property name="position">1</property>
+                    <expression name="defaultValue">0</expression>
+                    <property name="isOptional">false</property>
+                    <property name="allowNull">false</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select * 
+from TA_INFOS_FACTURE
+where TA_INFOS_FACTURE.ID_FACTURE = ?</property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Info_Entreprise" id="654">
+            <property name="dataSource">GestCom</property>
+            <property name="queryText">select * from v_info_entreprise;</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="Totaux" id="390">
+            <property name="backgroundPositionX">right</property>
+            <property name="fontFamily">Times New Roman</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">right</property>
+        </style>
+        <style name="Currency" id="434">
+            <property name="textAlign">right</property>
+            <property name="showIfBlank">true</property>
+        </style>
+        <style name="TexteADroite" id="435">
+            <property name="textAlign">right</property>
+        </style>
+        <style name="Texte Gras" id="436">
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="Trait" id="570">
+            <property name="backgroundColor">#C0C0C0</property>
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontWeight">bold</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="4">
+            <property name="topMargin">0.489in</property>
+            <property name="leftMargin">0.51in</property>
+            <property name="bottomMargin">0.468in</property>
+            <property name="rightMargin">0.489in</property>
+            <property name="floatingFooter">false</property>
+            <page-footer>
+                <text id="5">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[  <BR>
+<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <list id="657">
+            <property name="dataSet">Facture</property>
+            <list-property name="paramBindings">
+                <structure>
+                    <property name="paramName">paramID_FACTURE</property>
+                    <expression name="expression">params["paramID_FACTURE"]</expression>
+                </structure>
+            </list-property>
+            <header>
+                <grid id="173">
+                    <property name="width">100%</property>
+                    <property name="dataSet">Facture</property>
+                    <column id="174">
+                        <property name="width">3.052in</property>
+                    </column>
+                    <column id="175">
+                        <property name="width">1.312in</property>
+                    </column>
+                    <column id="176">
+                        <property name="width">3.125in</property>
+                    </column>
+                    <row id="177">
+                        <cell id="178">
+                            <data id="655">
+                                <property name="dataSet">Info_Entreprise</property>
+                                <expression name="valueExpr">value="Raison sociale : ";
+if(row["NOM_INFO_ENTREPRISE"]!=null) value=value.concat(row["NOM_INFO_ENTREPRISE"]+"\n");
+if(row["ADRESSE1_INFO_ENTREPRISE"] !=null) value=value.concat(row["ADRESSE1_INFO_ENTREPRISE"] +"\n");
+if(row["ADRESSE2_INFO_ENTREPRISE"] !=null) value=value.concat(row["ADRESSE2_INFO_ENTREPRISE"] +"\n");
+if( row["ADRESSE3_INFO_ENTREPRISE"]!=null) value=value.concat(row["ADRESSE3_INFO_ENTREPRISE"] +"\n");
+if( row["CODEPOSTAL_INFO_ENTREPRISE"]!=null) value=value.concat(row["CODEPOSTAL_INFO_ENTREPRISE"]+"  " );
+if(row["VILLE_INFO_ENTREPRISE"] !=null) value=value.concat( row["VILLE_INFO_ENTREPRISE"]+"\n");
+if(row["PAYS_INFO_ENTREPRISE"] !=null) value=value.concat(row["PAYS_INFO_ENTREPRISE"] +"\n");</expression>
+                            </data>
+                        </cell>
+                        <cell id="179"/>
+                        <cell id="180">
+                            <data id="168">
+                                <property name="style">Texte Gras</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Facture : "+row["CODE_FACTURE"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="615">
+                        <cell id="616">
+                            <data id="633">
+                                <property name="dataSet">InfosFacture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">value ="N° Intra. : ";
+if(row["TVA_I_COM_COMPL"]!=null) value=value.concat(row["TVA_I_COM_COMPL"]);</expression>
+                            </data>
+                        </cell>
+                        <cell id="617"/>
+                        <cell id="618">
+                            <grid id="638">
+                                <property name="width">100%</property>
+                                <column id="639">
+                                    <property name="width">0.843in</property>
+                                </column>
+                                <column id="640">
+                                    <property name="width">2.239in</property>
+                                </column>
+                                <row id="641">
+                                    <cell id="642">
+                                        <label id="644">
+                                            <text-property name="text">Date facture :</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="643">
+                                        <data id="645">
+                                            <structure name="dateTimeFormat">
+                                                <property name="category">Long Date</property>
+                                                <property name="pattern">Long Date</property>
+                                            </structure>
+                                            <property name="dataSet">Facture</property>
+                                            <list-property name="paramBindings">
+                                                <structure>
+                                                    <property name="paramName">paramID_FACTURE</property>
+                                                    <expression name="expression">params["paramID_FACTURE"]</expression>
+                                                </structure>
+                                            </list-property>
+                                            <expression name="valueExpr">row["DATE_FACTURE"];</expression>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                    <row id="250">
+                        <cell id="251">
+                            <grid id="646">
+                                <property name="width">100%</property>
+                                <column id="647">
+                                    <property name="width">1.072in</property>
+                                </column>
+                                <column id="648">
+                                    <property name="width">1.906in</property>
+                                </column>
+                                <row id="649">
+                                    <cell id="650">
+                                        <label id="651">
+                                            <text-property name="text">Date d'échéance :</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="652">
+                                        <data id="653">
+                                            <structure name="dateTimeFormat">
+                                                <property name="category">Long Date</property>
+                                                <property name="pattern">Long Date</property>
+                                            </structure>
+                                            <property name="dataSet">Facture</property>
+                                            <list-property name="paramBindings">
+                                                <structure>
+                                                    <property name="paramName">paramID_FACTURE</property>
+                                                    <expression name="expression">params["paramID_FACTURE"]</expression>
+                                                </structure>
+                                            </list-property>
+                                            <expression name="valueExpr">row["DATE_ECH_FACTURE"]</expression>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="252"/>
+                        <cell id="253">
+                            <data id="257">
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Code client : "+row["CODE_TIERS"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="622">
+                        <cell id="623"/>
+                        <cell id="624"/>
+                        <cell id="625"/>
+                    </row>
+                    <row id="259">
+                        <cell id="260"/>
+                        <cell id="261"/>
+                        <cell id="262">
+                            <data id="258">
+                                <property name="dataSet">InfosFacture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">value="";
+if(row["CODE_T_CIVILITE"]!=null) value=value.concat(row["CODE_T_CIVILITE"]);
+if(row["CODE_T_ENTITE"]!=null) value=value.concat("  "+row["CODE_T_ENTITE"]);
+if(row["NOM_TIERS"]!=null) value=value.concat("  "+row["NOM_TIERS"]);
+if(row["PRENOM_TIERS"]!=null) value=value.concat("  "+row["PRENOM_TIERS"]);</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="246">
+                        <cell id="247"/>
+                        <cell id="248"/>
+                        <cell id="249">
+                            <text id="428">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[
+ ]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="181">
+                        <cell id="182">
+                            <label id="191">
+                                <property name="backgroundColor">#C0C0C0</property>
+                                <text-property name="text">Adresse de facturation</text-property>
+                            </label>
+                        </cell>
+                        <cell id="183"/>
+                        <cell id="184">
+                            <label id="192">
+                                <property name="backgroundColor">#C0C0C0</property>
+                                <text-property name="text">Adresse de livraison</text-property>
+                            </label>
+                        </cell>
+                    </row>
+                    <row id="185">
+                        <cell id="186">
+                            <data id="189">
+                                <property name="dataSet">InfosFacture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["ADRESSE1"]+"\n"
++row["ADRESSE2"]+"\n"
++row["ADRESSE3"]+"\n"
++row["CODEPOSTAL"]+"\n"
++row["VILLE"]</expression>
+                            </data>
+                        </cell>
+                        <cell id="187"/>
+                        <cell id="188">
+                            <data id="190">
+                                <property name="dataSet">InfosFacture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["ADRESSE1_LIV"]+"\n"
++row["ADRESSE2_LIV"]+"\n"
++row["ADRESSE3_LIV"]+"\n"
++row["CODEPOSTAL_LIV"]+"\n"
++row["VILLE_LIV"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="429">
+                        <cell id="430">
+                            <text id="433">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[ 
+ ]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="431"/>
+                        <cell id="432"/>
+                    </row>
+                </grid>
+            </header>
+            <detail>
+                <table id="90">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="height">1.625in</property>
+                    <property name="width">7.531in</property>
+                    <property name="dataSet">LignesFacture</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">paramID_FACTURE</property>
+                            <expression name="expression">params["paramID_FACTURE"]</expression>
+                        </structure>
+                    </list-property>
+                    <column id="119">
+                        <property name="width">0.781in</property>
+                    </column>
+                    <column id="120">
+                        <property name="width">2.187in</property>
+                    </column>
+                    <column id="121">
+                        <property name="width">0.604in</property>
+                    </column>
+                    <column id="122">
+                        <property name="width">0.375in</property>
+                    </column>
+                    <column id="123">
+                        <property name="width">0.385in</property>
+                    </column>
+                    <column id="124">
+                        <property name="width">1.187in</property>
+                    </column>
+                    <column id="239">
+                        <property name="width">0.927in</property>
+                    </column>
+                    <column id="243">
+                        <property name="width">0.666in</property>
+                    </column>
+                    <column id="611">
+                        <property name="width">0.416in</property>
+                    </column>
+                    <header>
+                        <row id="91">
+                            <property name="height">0.291in</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <cell id="93">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="126">
+                                    <property name="marginLeft">2mm</property>
+                                    <text-property name="text">Référence</text-property>
+                                </label>
+                            </cell>
+                            <cell id="94">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="128">
+                                    <text-property name="text">Désignation de l'article</text-property>
+                                </label>
+                            </cell>
+                            <cell id="95">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="130">
+                                    <text-property name="text">Quantité</text-property>
+                                </label>
+                            </cell>
+                            <cell id="96">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="132">
+                                    <text-property name="text">U1</text-property>
+                                </label>
+                            </cell>
+                            <cell id="97">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="134">
+                                    <text-property name="text">U2</text-property>
+                                </label>
+                            </cell>
+                            <cell id="98">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="136">
+                                    <property name="style">TexteADroite</property>
+                                    <text-property name="text">Prix unitaire</text-property>
+                                </label>
+                            </cell>
+                            <cell id="236">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="138">
+                                    <property name="style">TexteADroite</property>
+                                    <text-property name="text">Montant HT</text-property>
+                                </label>
+                            </cell>
+                            <cell id="240">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="244">
+                                    <property name="style">TexteADroite</property>
+                                    <text-property name="text">Remise %</text-property>
+                                </label>
+                            </cell>
+                            <cell id="607">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <label id="612">
+                                    <property name="style">TexteADroite</property>
+                                    <text-property name="text">Tva</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="100">
+                            <cell id="102">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="127">
+                                    <property name="marginTop">0mm</property>
+                                    <property name="marginLeft">2mm</property>
+                                    <expression name="valueExpr">row["CODE_ARTICLE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="103">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="129">
+                                    <expression name="valueExpr">row["LIB_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="104">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="131">
+                                    <expression name="valueExpr">row["QTE_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="105">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="133">
+                                    <expression name="valueExpr">row["U1_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="106">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="135">
+                                    <expression name="valueExpr">row["U2_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="107">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="137">
+                                    <property name="style">Currency</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">###,##0.00 €</property>
+                                    </structure>
+                                    <expression name="valueExpr">row["PRIX_U_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="237">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="139">
+                                    <property name="style">Currency</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">###,##0.00 €</property>
+                                    </structure>
+                                    <expression name="valueExpr">row["MT_HT_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="241">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="245">
+                                    <property name="style">Currency</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">###,##0.00 %</property>
+                                    </structure>
+                                    <expression name="valueExpr">if( row["REM_TX_L_FACTURE"]!=null)row["REM_TX_L_FACTURE"]/100</expression>
+                                </data>
+                            </cell>
+                            <cell id="608">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                                <data id="613">
+                                    <property name="style">Currency</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">###,##0.00 %</property>
+                                    </structure>
+                                    <expression name="valueExpr">row["CODE_TVA_L_FACTURE"]</expression>
+                                </data>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="109">
+                            <property name="height">0.239in</property>
+                            <cell id="111">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="112">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="113">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="114">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="115">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="116">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="238">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="242">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                            <cell id="610">
+                                <property name="paddingTop">0mm</property>
+                                <property name="textIndent">0em</property>
+                            </cell>
+                        </row>
+                    </footer>
+                </table>
+                <table id="304">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="height">0.885in</property>
+                    <property name="width">7.541in</property>
+                    <property name="dataSet">LignesTVA</property>
+                    <list-property name="paramBindings">
+                        <structure>
+                            <property name="paramName">paramID_FACTURE</property>
+                            <expression name="expression">params["paramID_FACTURE"]</expression>
+                        </structure>
+                    </list-property>
+                    <column id="356">
+                        <property name="width">1.354in</property>
+                    </column>
+                    <column id="357">
+                        <property name="width">3.697in</property>
+                    </column>
+                    <column id="358">
+                        <property name="width">2.01in</property>
+                    </column>
+                    <header>
+                        <row id="305">
+                            <property name="height">0.25in</property>
+                            <property name="backgroundColor">#C0C0C0</property>
+                            <cell id="315">
+                                <property name="paddingTop">0mm</property>
+                                <label id="316">
+                                    <property name="marginLeft">2mm</property>
+                                    <text-property name="text">Code TVA</text-property>
+                                </label>
+                            </cell>
+                            <cell id="317">
+                                <property name="paddingTop">0mm</property>
+                                <label id="318">
+                                    <text-property name="text">Libellé</text-property>
+                                </label>
+                            </cell>
+                            <cell id="319">
+                                <property name="paddingTop">0mm</property>
+                                <label id="320">
+                                    <property name="style">TexteADroite</property>
+                                    <text-property name="text">Montant TVA</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                    </header>
+                    <detail>
+                        <row id="323">
+                            <cell id="333">
+                                <property name="paddingTop">0mm</property>
+                                <data id="334">
+                                    <property name="marginLeft">2mm</property>
+                                    <expression name="valueExpr">row["CODE_TVA_RECUP"]</expression>
+                                </data>
+                            </cell>
+                            <cell id="335">
+                                <property name="paddingTop">0mm</property>
+                                <data id="336">
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">###0.00€</property>
+                                    </structure>
+                                    <expression name="valueExpr">row["LIBELLE_RECUP"]+" - "+row["TAUX_RECUP"]+" %"</expression>
+                                </data>
+                            </cell>
+                            <cell id="337">
+                                <property name="paddingTop">0mm</property>
+                                <data id="338">
+                                    <property name="style">Totaux</property>
+                                    <structure name="numberFormat">
+                                        <property name="category">Custom</property>
+                                        <property name="pattern">###,##0.00 €</property>
+                                    </structure>
+                                    <expression name="valueExpr">row["MT_TVA_RECUP"]</expression>
+                                </data>
+                            </cell>
+                        </row>
+                    </detail>
+                    <footer>
+                        <row id="341">
+                            <property name="height">0.239in</property>
+                            <cell id="347">
+                                <property name="paddingTop">0mm</property>
+                            </cell>
+                            <cell id="348">
+                                <property name="paddingTop">0mm</property>
+                            </cell>
+                            <cell id="349">
+                                <property name="paddingTop">0mm</property>
+                            </cell>
+                        </row>
+                    </footer>
+                </table>
+            </detail>
+            <footer>
+                <grid id="194">
+                    <property name="width">100%</property>
+                    <property name="dataSet">Facture</property>
+                    <column id="195">
+                        <property name="width">3.26in</property>
+                    </column>
+                    <column id="196">
+                        <property name="width">0.656in</property>
+                    </column>
+                    <column id="197">
+                        <property name="width">2.458in</property>
+                    </column>
+                    <column id="198">
+                        <property name="width">1.135in</property>
+                    </column>
+                    <row id="385">
+                        <property name="height">0.385in</property>
+                        <cell id="386"/>
+                        <cell id="387"/>
+                        <cell id="388"/>
+                        <cell id="389"/>
+                    </row>
+                    <row id="585">
+                        <property name="height">0.395in</property>
+                        <cell id="586"/>
+                        <cell id="587"/>
+                        <cell id="588">
+                            <data id="602">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Total HT"</expression>
+                            </data>
+                        </cell>
+                        <cell id="589">
+                            <data id="603">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["MT_HT"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="199">
+                        <cell id="200">
+                            <data id="235">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Taux remise HT"</expression>
+                            </data>
+                        </cell>
+                        <cell id="201">
+                            <data id="578">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 %</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["TAUX_R_HT"]/100</expression>
+                            </data>
+                        </cell>
+                        <cell id="202">
+                            <data id="548">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Montant remise HT"</expression>
+                            </data>
+                        </cell>
+                        <cell id="203">
+                            <data id="550">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["REMISE_HT"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="204">
+                        <cell id="205"/>
+                        <cell id="206"/>
+                        <cell id="207">
+                            <data id="232">
+                                <property name="style">TexteADroite</property>
+                                <expression name="valueExpr">"Montant Net HT"</expression>
+                            </data>
+                        </cell>
+                        <cell id="208">
+                            <data id="572">
+                                <property name="style">Totaux</property>
+                                <property name="numberAlign">right</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["MTNETHT"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="590">
+                        <cell id="591"/>
+                        <cell id="592"/>
+                        <cell id="593">
+                            <data id="233">
+                                <property name="style">TexteADroite</property>
+                                <expression name="valueExpr">"Montant Net TVA"</expression>
+                            </data>
+                        </cell>
+                        <cell id="594">
+                            <data id="281">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["MTNETTVA"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="562">
+                        <cell id="563">
+                            <text id="568">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[  ]]></text-property>
+                            </text>
+                        </cell>
+                        <cell id="564"/>
+                        <cell id="566"/>
+                        <cell id="567">
+                            <text id="606">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[  ]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="595">
+                        <cell id="596"/>
+                        <cell id="597"/>
+                        <cell id="598">
+                            <data id="234">
+                                <property name="style">TexteADroite</property>
+                                <expression name="valueExpr">"Montant TTC"</expression>
+                            </data>
+                        </cell>
+                        <cell id="599">
+                            <data id="282">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["MT_TTC"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="209">
+                        <cell id="210">
+                            <data id="224">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Taux remise TTC"</expression>
+                            </data>
+                        </cell>
+                        <cell id="211">
+                            <data id="579">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 %</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["TAUX_R_TTC"]/100</expression>
+                            </data>
+                        </cell>
+                        <cell id="212">
+                            <data id="549">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Escompte"</expression>
+                            </data>
+                        </cell>
+                        <cell id="213">
+                            <data id="551">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["REMISE_TTC"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="265">
+                        <cell id="266"/>
+                        <cell id="267"/>
+                        <cell id="268"/>
+                        <cell id="269">
+                            <text id="604">
+                                <property name="contentType">plain</property>
+                                <text-property name="content"><![CDATA[  ]]></text-property>
+                            </text>
+                        </cell>
+                    </row>
+                    <row id="214">
+                        <cell id="215"/>
+                        <cell id="216"/>
+                        <cell id="217">
+                            <data id="225">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Montant réglé"</expression>
+                            </data>
+                        </cell>
+                        <cell id="218">
+                            <data id="460">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["REGLE"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="275">
+                        <cell id="276"/>
+                        <cell id="277"/>
+                        <cell id="278">
+                            <data id="600">
+                                <property name="style">TexteADroite</property>
+                                <property name="dataSet">Facture</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">"Montant net TTC"</expression>
+                            </data>
+                        </cell>
+                        <cell id="279">
+                            <data id="601">
+                                <property name="style">Totaux</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Custom</property>
+                                    <property name="pattern">###,##0.00 €</property>
+                                </structure>
+                                <property name="dataSet">Totaux</property>
+                                <list-property name="paramBindings">
+                                    <structure>
+                                        <property name="paramName">paramID_FACTURE</property>
+                                        <expression name="expression">params["paramID_FACTURE"]</expression>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["MTNETTTC"]</expression>
+                            </data>
+                        </cell>
+                    </row>
+                    <row id="270">
+                        <cell id="271"/>
+                        <cell id="272"/>
+                        <cell id="273"/>
+                        <cell id="274"/>
+                    </row>
+                    <row id="219">
+                        <cell id="220">
+                            <data id="656">
+                                <property name="dataSet">Info_Entreprise</property>
+                                <expression name="valueExpr">value="Capital : ";
+if( row["CAPITAL_INFO_ENTREPRISE"]!=null) value=value.concat(row["CAPITAL_INFO_ENTREPRISE"] );
+if(row["APE_INFO_ENTREPRISE"] !=null) value=value.concat(" Code APE : "+row["APE_INFO_ENTREPRISE"] );
+if(row["SIRET_INFO_ENTREPRISE"] !=null) value=value.concat(" N° SIRET : "+row["SIRET_INFO_ENTREPRISE"] );</expression>
+                            </data>
+                        </cell>
+                        <cell id="221"/>
+                        <cell id="222"/>
+                        <cell id="223"/>
+                    </row>
+                </grid>
+            </footer>
+        </list>
+    </body>
+</report>

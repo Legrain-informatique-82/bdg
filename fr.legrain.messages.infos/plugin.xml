@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="GestionCommerciale.messageEditeur">
+      <message
+            idEditeur="fr.legrain.articles.editor.EditorCatalogueWeb"
+            message="%message.boutique"
+            obligatoire="false"
+            titre="%titre.boutique"
+            typeAffichage="COMPOSITE"
+            type_message="INFO">
+      </message>
+      <message
+            idEditeur="fr.legrain.articles.editor.EditorLabelArticle"
+            message="%message.boutique"
+            obligatoire="false"
+            titre="%titre.boutique"
+            typeAffichage="COMPOSITE"
+            type_message="INFO">
+      </message>
+      <message
+            idEditeur="fr.legrain.articles.editor.EditorCategorieArticle"
+            message="%message.boutique"
+            obligatoire="false"
+            titre="%titre.boutique"
+            typeAffichage="COMPOSITE"
+            type_message="INFO">
+      </message>
+      <message
+            idEditeur="fr.legrain.articles.editor.EditorImageArticle"
+            message="%message.boutique"
+            obligatoire="false"
+            titre="%titre.boutique"
+            typeAffichage="COMPOSITE"
+            type_message="INFO">
+      </message>
+      <message
+            idEditeur="fr.legrain.articles.editor.EditorFournisseurArticle"
+            message="%message.boutique"
+            obligatoire="false"
+            titre="%titre.boutique"
+            typeAffichage="COMPOSITE"
+            type_message="INFO">
+      </message>
+   </extension>
+
+</plugin>

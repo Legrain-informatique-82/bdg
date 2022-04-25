@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="bureau de gestion" id="GestionCommerciale.product" application="GestionCommerciale.application" version="2.0.14" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/GestionCommerciale/content/link_obj.gif"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>--launcher.XXMaxPermSize
+256m</programArgs>
+      <programArgsLin>-data
+@user.home/lgrdoss/BureauDeGestion</programArgsLin>
+      <programArgsWin>-data
+c:/lgrdoss/BureauDeGestion</programArgsWin>
+      <vmArgs>-Xms500m
+-Xmx500m
+-XX:PermSize=256m
+-XX:MaxPermSize=256m
+-XX:+CMSClassUnloadingEnabled
+-XX:CompileCommand=exclude,org/hibernate/cfg/annotations/SimpleValueBinder,setType</vmArgs>
+   </launcherArgs>
+
+   <windowImages i16="/GestionCommerciale/icons/logo_lgr_16.png" i32="/GestionCommerciale/icons/logo_lgr_32.png" i48="/GestionCommerciale/icons/logo_lgr_48.png"/>
+
+   <splash
+      location="GestionCommerciale"
+      startupProgressRect="10,276,250,9"
+      startupMessageRect="10,260,250,12"
+      startupForegroundColor="4D4D4D" />
+   <launcher name="GestionCommerciale">
+      <linux icon="/GestionCommerciale/icons/logo_lgr_48.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/GestionCommerciale/icons/legrain_new.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <intro introId="GestionCommerciale.intro"/>
+
+   <vm>
+      <windows include="true">jre1.6.0</windows>
+   </vm>
+
+   <plugins>
+      <plugin id="AnalyseEconomique"/>
+      <plugin id="Articles"/>
+      <plugin id="BonLivraison"/>
+      <plugin id="CalculTva"/>
+      <plugin id="Devis"/>
+      <plugin id="Exportation"/>
+      <plugin id="Facture"/>
+      <plugin id="GestionCommerciale"/>
+      <plugin id="GestionCommercialeBase"/>
+      <plugin id="GestionDossier"/>
+      <plugin id="JavaMail"/>
+      <plugin id="JayBird_1_5" fragment=""/>
+      <plugin id="JayBird_2_0"/>
+      <plugin id="L2FProd_6_2"/>
+      <plugin id="LiasseFiscale"/>
+      <plugin id="Lib"/>
+      <plugin id="LibJBuilder2006"/>
+      <plugin id="LibLgrBirt"/>
+      <plugin id="LibLgrMail"/>
+      <plugin id="LibMessageLGR"/>
+      <plugin id="LibrairiesEcran"/>
+      <plugin id="MiseAJourBase"/>
+      <plugin id="Nebula"/>
+      <plugin id="Sauvegarde"/>
+      <plugin id="SilentPdfPrint"/>
+      <plugin id="Tiers"/>
+      <plugin id="Updater"/>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="com.lowagie.itext" fragment=""/>
+      <plugin id="garbage" fragment=""/>
+      <plugin id="gestComBd"/>
+      <plugin id="javax.servlet"/>
+      <plugin id="javax.servlet.jsp"/>
+      <plugin id="librairiesLeGrain"/>
+      <plugin id="log4j_1_2_8"/>
+      <plugin id="org.apache.ant"/>
+      <plugin id="org.apache.batik.bridge"/>
+      <plugin id="org.apache.batik.css"/>
+      <plugin id="org.apache.batik.dom"/>
+      <plugin id="org.apache.batik.dom.svg"/>
+      <plugin id="org.apache.batik.ext.awt"/>
+      <plugin id="org.apache.batik.parser"/>
+      <plugin id="org.apache.batik.svggen"/>
+      <plugin id="org.apache.batik.transcoder"/>
+      <plugin id="org.apache.batik.util"/>
+      <plugin id="org.apache.batik.util.gui"/>
+      <plugin id="org.apache.batik.xml"/>
+      <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.commons.el"/>
+      <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.derby.core"/>
+      <plugin id="org.apache.jasper"/>
+      <plugin id="org.apache.lucene"/>
+      <plugin id="org.apache.lucene.analysis"/>
+      <plugin id="org.apache.xerces"/>
+      <plugin id="org.apache.xml.resolver"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.birt.chart.engine"/>
+      <plugin id="org.eclipse.birt.core"/>
+      <plugin id="org.eclipse.birt.data"/>
+      <plugin id="org.eclipse.birt.report.data.adapter"/>
+      <plugin id="org.eclipse.birt.report.data.oda.jdbc"/>
+      <plugin id="org.eclipse.birt.report.engine"/>
+      <plugin id="org.eclipse.birt.report.engine.emitter.html"/>
+      <plugin id="org.eclipse.birt.report.engine.emitter.pdf"/>
+      <plugin id="org.eclipse.birt.report.engine.fonts"/>
+      <plugin id="org.eclipse.birt.report.model"/>
+      <plugin id="org.eclipse.birt.report.viewer"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.net"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.resources.win32" fragment=""/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.auth"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.datatools.connectivity"/>
+      <plugin id="org.eclipse.datatools.connectivity.oda"/>
+      <plugin id="org.eclipse.datatools.connectivity.oda.consumer"/>
+      <plugin id="org.eclipse.datatools.connectivity.oda.profile"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.http.jetty"/>
+      <plugin id="org.eclipse.equinox.http.registry"/>
+      <plugin id="org.eclipse.equinox.http.servlet"/>
+      <plugin id="org.eclipse.equinox.jsp.jasper"/>
+      <plugin id="org.eclipse.equinox.jsp.jasper.registry"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.help.appserver"/>
+      <plugin id="org.eclipse.help.base"/>
+      <plugin id="org.eclipse.help.ui"/>
+      <plugin id="org.eclipse.help.webapp"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.team.core"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.tomcat" fragment=""/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.browser"/>
+      <plugin id="org.eclipse.ui.console"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.eclipse.update.configurator"/>
+      <plugin id="org.eclipse.update.core"/>
+      <plugin id="org.eclipse.update.core.win32" fragment="true"/>
+      <plugin id="org.eclipse.update.scheduler"/>
+      <plugin id="org.eclipse.update.ui"/>
+      <plugin id="org.hibernate.eclipse"/>
+      <plugin id="org.junit"/>
+      <plugin id="org.mortbay.jetty" fragment=""/>
+      <plugin id="org.mozilla.rhino" fragment=""/>
+      <plugin id="org.w3c.css.sac"/>
+      <plugin id="org.w3c.dom.smil"/>
+      <plugin id="org.w3c.dom.svg"/>
+      <plugin id="org.w3c.sac"/>
+   </plugins>
+
+   <features>
+      <feature id="LibLgrBirtFeature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.openmail.feature" version="2.0.14.qualifier"/>
+      <feature id="EditionFeature" version="2.0.14.qualifier"/>
+      <feature id="FeatureVisualisation" version="2.0.14.qualifier"/>
+      <feature id="LangueFeature" version="2.0.14.qualifier"/>
+      <feature id="LibJbuilderFeature" version="2.0.14.qualifier"/>
+      <feature id="MiseAJourBaseFeature" version="2.0.14.qualifier"/>
+      <feature id="GestionCommercialeFeature" version="2.0.14"/>
+      <feature id="GeoLocalisationFeature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.publipostage.core.feature" version="2.0.14.qualifier"/>
+      <feature id="GenerationLabelEtiquetteFeature" version="2.0.14.qualifier"/>
+      <feature id="TiersFeature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.gestiondossier.feature" version="2.0.14.qualifier"/>
+      <feature id="SauvegardeFeature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.sauvegardeFTP.feature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.restaurationFTP.feature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.rechercherMultiCrit.feature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.bdg.demo.feature" version="2.0.14.qualifier"/>
+      <feature id="fr.legrain.bdg.branding.contact.feature" version="2.0.14.qualifier"/>
+   </features>
+
+
+</product>

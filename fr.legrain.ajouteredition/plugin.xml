@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.ajouteredition.handlers.HandlerAjouterEdition"
+            id="fr.legrain.ajouterEdition"
+            name="Edition personnelle">
+      </command>
+      <command
+            id="fr.legrain.ajouterEdition.btAnnuler"
+            name="annuler">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:outils?before=fr.legrain.miseAJourBase.maj">
+         <separator
+               name="fr.legrain.ajouteredition.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="fr.legrain.ajouterEdition"
+               icon="icons/application_put.png"
+               label="Edition personnelle"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.ajouterEdition.btAnnuler"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="s">
+      </key>
+   </extension>
+
+</plugin>

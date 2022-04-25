@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LibLgrMail Plug-in
+Bundle-SymbolicName: LibLgrMail;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.libLgrMail.LibLgrMailPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ JavaMail,
+ log4j_1_2_8,
+ LibMessageLGR
+Eclipse-AutoStart: true
+Export-Package: fr.legrain.libLgrMail,
+ fr.legrain.libLgrMail.divers,
+ fr.legrain.libLgrMail.ecran,
+ fr.legrain.libLgrMail.test
+Bundle-Vendor: Le Grain SA

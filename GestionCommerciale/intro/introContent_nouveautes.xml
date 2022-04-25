@@ -1,0 +1,30 @@
+<introContent>
+	<page alt-style="../themes/legrain/swt/root.properties" style="../themes/legrain/html/root.css"
+		id="root" style-id="page">
+
+		<head src="../themes/legrain/html/root_css_ie.html" />
+
+		<img id="logo_lgr" src="../themes/legrain/graphics/icons/logoLgr.png" />
+
+		<!-- 
+		<text style-id="intro-title">
+			BUREAU DE GESTION
+		</text>
+		-->
+
+		<group id="links-background">
+			<group id="page-links">
+				
+				<text style-id="intro-title"> BUREAU DE GESTION </text>
+				
+				<text style-id="fa fa-camera-retro"> BUREAU DE GESTION </text>
+
+       		<link label="Aide" url="http://org.eclipse.ui.intro/showHelp" id="link_aide_doc" style-id="content-link">
+				<text>Ouverture de l'aide</text>
+			</link>	
+			</group>
+		</group>
+
+	</page>
+
+</introContent>

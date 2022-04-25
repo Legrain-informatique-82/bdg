@@ -1,0 +1,20 @@
+<introContent>
+  	<extensionContent id="fr.legrain.bl" style="css/bl.css" name="Bon de livraison" path="documents/links-background/page-links/ancre_bon_liv">
+		<group style-id="content-group" id="fr.legrain.bl-group">
+       		<link label="Ouvrir les bons de livraison" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=BonLivraison&amp;class=fr.legrain.bonlivraison.handlers.fr.legrain.Bl&amp;standby=true"
+       			id="link_bl_1" 
+       			style-id="content-link">
+          		<text>Gestion des BL</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+    <extensionContent id="fr.legrain.bl" style="css/bl.css" name="Bon de livraison" path="root/links-background/page-links/ancre_bon_liv">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=BonLivraison&amp;class=fr.legrain.bonlivraison.handlers.IntroActionBL&amp;standby=true"
+       		id="link_bl" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+</introContent>

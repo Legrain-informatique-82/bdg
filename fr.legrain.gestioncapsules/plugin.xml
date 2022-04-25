@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.gestioncapsules.editors.EditorTitreTransport"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.gestioncapsules.editors.EditorTitreTransport"
+            name="Type CRD">
+      </editor>
+      <editor
+            class="fr.legrain.gestioncapsules.stocks.editor.StocksMultiPageEditor"
+            default="false"
+            icon="icons/brick_add.png"
+            id="fr.legrain.gestioncapsules.stocks.editor.StocksMultiPageEditor"
+            name="Gestion des CRD">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="fr.legrain.gestioncapsules.editors.EditorTitreTransport"
+            name="Type CRD">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestioncapsules.stocks.handlers.HandlerStocks"
+            id="fr.legrain.gestioncapsules.stocks.handlers.EditorStocks"
+            name="Gestion des CRD">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.legrain.gestioncapsules.handlers.HandlerTitreTransport"
+            commandId="fr.legrain.gestioncapsules.editors.EditorTitreTransport">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:param.articles">
+         <command
+               commandId="fr.legrain.gestioncapsules.editors.EditorTitreTransport"
+               icon="icons/logo_lgr_16.png"
+               label="Type CRD"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:Articles?after=Stocks.separator2">
+         <command
+               commandId="fr.legrain.gestioncapsules.stocks.handlers.EditorStocks"
+               icon="icons/brick_add.png"
+               label="Gestion des capsules CRD"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.gestioncapsules.separator1">
+         </separator>
+      </menuContribution>
+   </extension>
+   <extension
+         point="Articles.editorEcranArticles">
+      <champ
+            classe="fr.legrain.gestioncapsules.ExtensionEcran">
+      </champ>
+   </extension>
+
+</plugin>

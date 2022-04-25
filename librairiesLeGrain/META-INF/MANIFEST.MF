@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LibrairiesLeGrain Plug-in
+Bundle-SymbolicName: librairiesLeGrain;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.librairiesLeGrain.LibrairiesLeGrainPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ JayBird_2_0,
+ Lib,
+ org.eclipse.core.databinding,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ org.hibernate.eclipse,
+ org.eclipse.core.databinding.property;bundle-version="1.2.0",
+ Nebula;bundle-version="1.8.9"
+Eclipse-AutoStart: true
+Export-Package: fr.legrain.lib.compress,
+ fr.legrain.lib.data,
+ fr.legrain.lib.gui,
+ fr.legrain.lib.gui.aide,
+ fr.legrain.lib.gui.fieldassist,
+ fr.legrain.lib.gui.grille,
+ fr.legrain.lib.validation,
+ fr.legrain.lib.windows,
+ fr.legrain.librairiesLeGrain
+Bundle-Vendor: Le Grain SA
+Bundle-ClassPath: .,
+ lib/net.sf.paperclips_1.0.4.200908120926.jar,
+ lib/net.sf.paperclips.ui_1.0.4.200908120926.jar

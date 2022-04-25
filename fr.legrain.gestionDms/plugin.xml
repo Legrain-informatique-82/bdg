@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.gestiondms.handlers.HandlerDms"
+            description="s"
+            id="fr.legrain.dms.editor.EditorEtatDms"
+            name="Edition de la Dms">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.gestiondms.editors.DmsMultiPageEditor"
+            icon="icons/report_add.png"
+            id="fr.legrain.editor.dms.multi"
+            name="Calcul pour la Dms">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:">
+         <command
+               commandId="fr.legrain.dms.editor.EditorEtatDms"
+               icon="icons/report_add.png"
+               label="Gestion de la DMS">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:Articles">
+         <separator
+               name="Dms.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="fr.legrain.dms.editor.EditorEtatDms"
+               icon="icons/report_add.png"
+               label="Gestion de la DMS">
+         </command>
+      </menuContribution>
+   </extension>
+   
+</plugin>

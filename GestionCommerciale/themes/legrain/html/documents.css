@@ -1,0 +1,15 @@
+
+html, body {
+	/*background-color : gray;*/
+}
+
+
+/*
+a#test3 {
+	position : absolute;
+	left: 300px;
+	top: 300px;
+}
+*/
+
+a#test3 { background-image : url("../graphics/icons/package.png"); background-repeat : no-repeat; }

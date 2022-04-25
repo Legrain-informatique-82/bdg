@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="fr.legrain.liasseFiscale.actions.Repart">
+		<map-to xml="compta" />
+		<field name="ListeRepartition" collection="map">
+			<bind-xml name="repart">
+				<class name="org.exolab.castor.mapping.MapItem">
+					<field name="key"
+						type="fr.legrain.liasseFiscale.actions.Cle">
+						<bind-xml name="cle" />
+					</field>
+					<field name="value"
+						type="fr.legrain.liasseFiscale.actions.Repartition">
+						<bind-xml name="valeur" />
+					</field>
+				</class>
+			</bind-xml>
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Cle">
+		<field name="cle" type="java.lang.String">
+			<bind-xml name="id-cle" node="attribute" />
+		</field>
+		<field name="sousCle" type="java.lang.String">
+			<bind-xml name="id-sous-cle" node="attribute" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Repartition">
+		<field name="montant" />
+		<field name="valeur" />
+		<field name="detail"
+			type="fr.legrain.liasseFiscale.actions.Compte" collection="arraylist"
+			container="false">
+			<!-- <bind-xml name="cpt" location="comptes" /> -->
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Compte">
+		<field name="Numero" type="java.lang.String">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+		<field name="libelle">
+			<bind-xml name="libelle" node="attribute" />
+		</field>
+		<field name="mtDebit">
+			<bind-xml name="mtDebit" node="attribute" />
+		</field>
+		<field name="mtCredit">
+			<bind-xml name="mtCredit" node="attribute" />
+		</field>
+	</class>
+
+</mapping>

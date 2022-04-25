@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: 0570 Centre d'apiculture
+Bundle-SymbolicName: 0570
+Bundle-Version: 2.0.14.qualifier
+Fragment-Host: EditionsSpecifiques;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

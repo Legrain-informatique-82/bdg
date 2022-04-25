@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Generation Facture Plug-in
+Bundle-SymbolicName: fr.legrain.generationdocument.facture;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.generationdocument.facture.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Facture;bundle-version="1.8.9",
+ Lib;bundle-version="1.8.9",
+ LibMessageLGR;bundle-version="1.8.9",
+ LibrairiesEcran;bundle-version="1.8.9",
+ librairiesLeGrain;bundle-version="1.8.9",
+ log4j_1_2_8;bundle-version="1.2.8",
+ GestionCommerciale;bundle-version="2.0.14",
+ gestComBd;bundle-version="1.8.9",
+ Edition;bundle-version="1.8.9",
+ org.eclipse.core.expressions;bundle-version="3.4.1",
+ fr.legrain.generationdocument;bundle-version="1.0.0",
+ LibJBuilder2006;bundle-version="1.8.9",
+ Document;bundle-version="1.8.9",
+ org.hibernate.eclipse;bundle-version="3.2.4"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: fr.legrain.generationdocument.facture,
+ fr.legrain.generationdocument.facture.controllers,
+ fr.legrain.generationdocument.facture.divers,
+ fr.legrain.generationdocument.facture.ecran,
+ fr.legrain.generationdocument.facture.editor,
+ fr.legrain.generationdocument.facture.handlers
+Bundle-Vendor: Le Grain SA

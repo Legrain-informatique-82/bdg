@@ -1,0 +1,395 @@
+Importation SIEA
+
+
+
+*********************************************************
+
+Pour créer le dossier, passer par l'exe en cours de distribution et non pas par
+l'exe en cours de developpement. Tres important !!!!
+
+*********************************************************
+
+prendre le fichier SIEA
+l'importer dans excel
+rajouter une colonne en début, avant le nom pour y intégrer un numéro
+de 0 jusqu'au nombre total d'enregistrement (le 0 correspond à la ligne des titres)
+mettre les colonnes "tel" et "fax" au format "numero de telephone" dans special
+créer la table SIEA à partir du script ci-dessous
+
+CREATE TABLE TA_SIEA (
+    id_client	    DID3  primary key,
+    CLIENT          VARCHAR(255),
+    CIVILITE        VARCHAR(255),
+    LIBCIVILITE     VARCHAR(255),
+    NOM             VARCHAR(255),
+    PRENOM          VARCHAR(255),
+    ADRESSE1        VARCHAR(255),
+    ADRESSE2        VARCHAR(255),
+    REGION          VARCHAR(255),
+    CODEPOSTAL      VARCHAR(255),
+    VILLE           VARCHAR(255),
+    PAYS            VARCHAR(255),
+    TEL             VARCHAR(20),
+    FAX             VARCHAR(20),
+    TARIF           VARCHAR(10),
+    TRI             VARCHAR(255),
+    REPRES          VARCHAR(10),
+    CONTACT         Timestamp,
+    COMMANDE        VARCHAR(10),
+    CPT             VARCHAR(10),
+    FACT            VARCHAR(10),
+    CPT_BANQUE1     VARCHAR(10),
+    CPT_BANQUE2     VARCHAR(10),
+    CPT_BANQUE3     VARCHAR(10),
+    CPT_BANQUE_CLE  VARCHAR(10),
+    DIVERS1         VARCHAR(255),
+    DIVERS2         VARCHAR(255),
+    REF             VARCHAR(255)
+);
+
+puis créer aussi la procédure stockées d'importation des tiers avec le script ci-dessous
+
+CREATE PROCEDURE IMPORTATION_TIERS (
+    ID_DEB INTEGER,
+    ID_FIN INTEGER)
+AS
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TEL INTEGER;
+DECLARE VARIABLE ID_T_ADR INTEGER;
+DECLARE VARIABLE CODE VARCHAR(20);
+DECLARE VARIABLE CIVILITE VARCHAR(255);
+DECLARE VARIABLE NOM VARCHAR(255);
+DECLARE VARIABLE PRENOM VARCHAR(255);
+DECLARE VARIABLE COMPTE VARCHAR(8);;//changement isa 21/03/2008 (l'ancien était à 20)
+DECLARE VARIABLE ADRESSE1 VARCHAR(255);
+DECLARE VARIABLE ADRESSE2 VARCHAR(255);
+DECLARE VARIABLE VILLE VARCHAR(255);
+DECLARE VARIABLE PAYS VARCHAR(255);
+DECLARE VARIABLE CODEPOSTAL VARCHAR(255);
+DECLARE VARIABLE TEL VARCHAR(20);
+DECLARE VARIABLE FAX VARCHAR(20);
+DECLARE VARIABLE DIVERS1 VARCHAR(100);
+DECLARE VARIABLE DIVERS2 VARCHAR(100);
+DECLARE VARIABLE TTC VARCHAR(1);
+DECLARE VARIABLE CODETMP VARCHAR(7);
+DECLARE VARIABLE I INTEGER;
+DECLARE VARIABLE CODETMP2 VARCHAR(7);
+DECLARE VARIABLE DERCOMMANDE VARCHAR(10);
+DECLARE VARIABLE PREMCONTACT TIMESTAMP;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(255);
+begin
+pays = 'France';
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = 'C' into :id_t_tiers;
+  select ttel.id_t_tel from ta_t_tel ttel where ttel.code_t_tel = 'FAX' into :id_t_tel;
+  select tadr.id_t_adr from ta_t_adr tadr where tadr.code_t_adr = 'FACT' into :id_t_adr;
+  for select SIEA.client,SIEA.libcivilite,SIEA.nom,SIEA.prenom,SIEA.adresse1,SIEA.adresse2,SIEA.codepostal,SIEA.ville,
+  SIEA.pays,SIEA.tel,SIEA.fax,SIEA.cpt,SIEA.fact,SIEA.divers1,SIEA.divers2,SIEA.contact,SIEA.commande from TA_SIEA SIEA where SIEA.id_client
+  between :id_deb and :id_fin into :code,:civilite,:nom,:prenom,:adresse1,:adresse2
+  ,:codepostal,:ville,:pays,:tel,:fax,:compte,:ttc,:divers1,:divers2,:premcontact,:dercommande do
+  begin
+	compte = '411';
+    if (:civilite<>'' and not exists(select civ.code_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite )) then
+    begin
+      insert into ta_t_civilite (code_t_civilite) values (:civilite);
+    end
+  select civ.id_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite into :id_civilite;
+
+  id_tiers=gen_id(num_id_tiers,1);
+  if (:nom is null) then nom= :code;
+  if (upper(:ttc) = 'H') then ttc = 0; else ttc = 1;
+
+
+  i=1;
+  codetmp='';
+  while (:i<=strlen(:code) and (strlen(:codetmp)<6))do
+  begin
+    codetmp=:codetmp||substr(:code,i,i);
+    codetmp=ltrim(:codetmp);
+    codetmp=rtrim(:codetmp);
+    i=i+1;
+  end
+  code=codetmp;
+
+  i=1;
+  codetmp2=:codetmp;
+  while (exists(select t.code_tiers from ta_tiers t where t.code_tiers=:codetmp2)) do begin
+   i=i+1;
+   codetmp2=substr(:code, 1,6)||i;
+  end
+  code=codetmp2;
+  codetmp=:codetmp2;
+
+  insert into ta_tiers values(:id_tiers,:code,:codetmp,:compte,:nom,:prenom,null,1,:ttc,:id_civilite,null,:id_t_tiers,null,null,
+  null, :premcontact,null,null,null,null);
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:ville is null) then ville=' ';
+  if (:pays is null) then  pays=' ';
+  if ((:codepostal is not null) and (:codepostal <> ' 0000')) then begin
+  insert into ta_adresse values(:id_adresse,:adresse1,:adresse2,null, :codepostal,:ville,:pays,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:tel is not null) then begin
+  insert into ta_telephone values(:id_telephone,:tel,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:fax is not null) then begin
+  insert into ta_telephone values(:id_telephone,:fax,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel,null,null,null,null,null,null);
+  end
+commentaire=null;
+  if (:dercommande is not null) then commentaire='Dernière commande : '||:dercommande;
+  if (:divers1 is not null) then  commentaire = :commentaire||' - '||:divers1;
+  if (:divers2 is not null) then  commentaire = :commentaire||' - '||:divers2;
+
+  if (not :commentaire is null ) then
+  begin
+    insert into ta_commentaire values(null,:commentaire,:id_tiers,null,null,null,null,null,null);
+  end
+  end
+end
+
+
+//procedure importation_Tiers pour CEGERER
+CREATE PROCEDURE IMPORTATION_TIERS (
+    ID_DEB INTEGER,
+    ID_FIN INTEGER)
+AS
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TEL INTEGER;
+DECLARE VARIABLE ID_T_ADR INTEGER;
+DECLARE VARIABLE CODE VARCHAR(20);
+DECLARE VARIABLE CIVILITE VARCHAR(255);
+DECLARE VARIABLE NOM VARCHAR(255);
+DECLARE VARIABLE PRENOM VARCHAR(255);
+DECLARE VARIABLE COMPTE VARCHAR(8);
+DECLARE VARIABLE ADRESSE1 VARCHAR(255);
+DECLARE VARIABLE ADRESSE2 VARCHAR(255);
+DECLARE VARIABLE VILLE VARCHAR(255);
+DECLARE VARIABLE PAYS VARCHAR(255);
+DECLARE VARIABLE CODEPOSTAL VARCHAR(255);
+DECLARE VARIABLE TEL VARCHAR(20);
+DECLARE VARIABLE FAX VARCHAR(20);
+DECLARE VARIABLE DIVERS1 VARCHAR(100);
+DECLARE VARIABLE DIVERS2 VARCHAR(100);
+DECLARE VARIABLE TTC VARCHAR(1);
+DECLARE VARIABLE CODETMP VARCHAR(7);
+DECLARE VARIABLE I INTEGER;
+DECLARE VARIABLE CODETMP2 VARCHAR(7);
+DECLARE VARIABLE DERCOMMANDE VARCHAR(10);
+DECLARE VARIABLE PREMCONTACT TIMESTAMP;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(255);
+DECLARE VARIABLE CRLF CHAR(2);
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+pays = 'France';
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = 'C' into :id_t_tiers;
+  select ttel.id_t_tel from ta_t_tel ttel where ttel.code_t_tel = 'FAX' into :id_t_tel;
+  select tadr.id_t_adr from ta_t_adr tadr where tadr.code_t_adr = 'FACT' into :id_t_adr;
+  for select SIEA.client,SIEA.libcivilite,SIEA.nom,SIEA.prenom,SIEA.adresse1,SIEA.adresse2,SIEA.codepostal,SIEA.ville,
+  SIEA.pays,SIEA.tel,SIEA.fax,SIEA.cpt,SIEA.fact,SIEA.divers1,SIEA.divers2,SIEA.contact,SIEA.ref from TA_SIEA SIEA where SIEA.id_client
+  between :id_deb and :id_fin into :code,:civilite,:nom,:prenom,:adresse1,:adresse2
+  ,:codepostal,:ville,:pays,:tel,:fax,:compte,:ttc,:divers1,:divers2,:premcontact,:dercommande do
+  begin
+    compte = '411';
+    if (:civilite<>'' and not exists(select civ.code_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite )) then
+    begin
+      insert into ta_t_civilite (code_t_civilite) values (:civilite);
+    end
+  select civ.id_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite into :id_civilite;
+
+  id_tiers=gen_id(num_id_tiers,1);
+  if (:nom is null) then nom= :code;
+  if (upper(:ttc) = 'H') then ttc = 0; else ttc = 1;
+
+
+  i=1;
+  codetmp='';
+  while (:i<=strlen(:code) and (strlen(:codetmp)<6))do
+  begin
+    codetmp=:codetmp||substr(:code,i,i);
+    codetmp=ltrim(:codetmp);
+    codetmp=rtrim(:codetmp);
+    i=i+1;
+  end
+  code=codetmp;
+
+  i=1;
+  codetmp2=:codetmp;
+  while (exists(select t.code_tiers from ta_tiers t where t.code_tiers=:codetmp2)) do begin
+   i=i+1;
+   codetmp2=substr(:code, 1,6)||i;
+  end
+  code=codetmp2;
+  codetmp=:codetmp2;
+
+  insert into ta_tiers values(:id_tiers,:code,:codetmp,:compte,:nom,:prenom,null,1,:ttc,:id_civilite,null,:id_t_tiers,null,null,
+  null, :premcontact,null,null,null,null);
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:ville is null) then ville=' ';
+  if (:pays is null) then  pays=' ';
+  if ((:codepostal is not null) and (:codepostal <> ' 0000')) then begin
+  insert into ta_adresse values(:id_adresse,:adresse1,:adresse2,null, :codepostal,:ville,:pays,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:tel is not null) then begin
+  insert into ta_telephone values(:id_telephone,:tel,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:fax is not null) then begin
+  insert into ta_telephone values(:id_telephone,:fax,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel,null,null,null,null,null,null);
+  end
+commentaire=null;
+  if (:divers1 is not null) then commentaire='Date clôture dossier : '||:divers1;
+  if (:divers2 is not null) then  commentaire = :commentaire||CRLF||'N° agence : '||:divers2;
+
+  if (:dercommande is not null) then  commentaire = :commentaire||CRLF||'Comptable : '||:dercommande;
+
+  if (not :commentaire is null ) then
+  begin
+    insert into ta_commentaire values(null,:commentaire,:id_tiers,null,null,null,null,null,null);
+  end
+  end
+end
+^
+
+
+puis ouvrir IBEasy+ et importer à partir du fichier excel du champ "A" au champ "AB"
+en suivant l'ordre de la table
+
+une fois la table remplie
+aller dans IBExpert pour executer la procédure d'importation en coupant par tranche de 1000
+
+puis enlever cette procedure et laisser la table SIEA au cas où on en aurait besoin.
+
+
+//particularité pour un dossier Dumercq
+
+CREATE PROCEDURE IMPORTATION_TIERS (
+    ID_DEB INTEGER,
+    ID_FIN INTEGER)
+AS
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TEL INTEGER;
+DECLARE VARIABLE ID_T_ADR INTEGER;
+DECLARE VARIABLE CODE VARCHAR(20);
+DECLARE VARIABLE CIVILITE VARCHAR(255);
+DECLARE VARIABLE NOM VARCHAR(255);
+DECLARE VARIABLE PRENOM VARCHAR(255);
+DECLARE VARIABLE COMPTE VARCHAR(8);;//changement isa 21/03/2008 (l'ancien était à 20)
+DECLARE VARIABLE ADRESSE1 VARCHAR(255);
+DECLARE VARIABLE ADRESSE2 VARCHAR(255);
+DECLARE VARIABLE VILLE VARCHAR(255);
+DECLARE VARIABLE PAYS VARCHAR(255);
+DECLARE VARIABLE CODEPOSTAL VARCHAR(255);
+DECLARE VARIABLE TEL VARCHAR(20);
+DECLARE VARIABLE FAX VARCHAR(20);
+DECLARE VARIABLE DIVERS1 VARCHAR(100);
+DECLARE VARIABLE DIVERS2 VARCHAR(100);
+DECLARE VARIABLE TTC VARCHAR(1);
+DECLARE VARIABLE CODETMP VARCHAR(7);
+DECLARE VARIABLE I INTEGER;
+DECLARE VARIABLE CODETMP2 VARCHAR(7);
+DECLARE VARIABLE DERCOMMANDE VARCHAR(10);
+DECLARE VARIABLE PREMCONTACT TIMESTAMP;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(255);
+begin
+pays = 'France';
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = 'C' into :id_t_tiers;
+  select ttel.id_t_tel from ta_t_tel ttel where ttel.code_t_tel = 'FAX' into :id_t_tel;
+  select tadr.id_t_adr from ta_t_adr tadr where tadr.code_t_adr = 'FACT' into :id_t_adr;
+  for select SIEA.client,SIEA.libcivilite,SIEA.nom,SIEA.prenom,SIEA.adresse1,SIEA.adresse2,SIEA.codepostal,SIEA.ville,
+  SIEA.pays,SIEA.tel,SIEA.fax,SIEA.cpt,SIEA.fact,SIEA.divers1,SIEA.divers2,SIEA.contact,SIEA.commande from TA_SIEA SIEA where SIEA.id_client
+  between :id_deb and :id_fin into :code,:civilite,:nom,:prenom,:adresse1,:adresse2
+  ,:codepostal,:ville,:pays,:tel,:fax,:compte,:ttc,:divers1,:divers2,:premcontact,:dercommande do
+  begin
+	compte = '411';
+    if (:civilite<>'' and not exists(select civ.code_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite )) then
+    begin
+      insert into ta_t_civilite (code_t_civilite) values (:civilite);
+    end
+  select civ.id_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite into :id_civilite;
+
+  id_tiers=gen_id(num_id_tiers,1);
+  if (:nom is null) then nom= :code;
+  if (upper(:ttc) = 'H') then ttc = 0; else ttc = 1;
+
+
+  i=1;
+  codetmp='';
+  while (:i<=strlen(:code) and (strlen(:codetmp)<6))do
+  begin
+    codetmp=:codetmp||substr(:code,i,i);
+    codetmp=ltrim(:codetmp);
+    codetmp=rtrim(:codetmp);
+    i=i+1;
+  end
+  code=codetmp;
+
+  i=1;
+  codetmp2=:codetmp;
+  while (exists(select t.code_tiers from ta_tiers t where t.code_tiers=:codetmp2)) do begin
+   i=i+1;
+   codetmp2=substr(:code, 1,6)||i;
+  end
+  code=codetmp2;
+  codetmp=:codetmp2;
+
+  insert into ta_tiers values(:id_tiers,:code,:codetmp,:compte,:nom,:prenom,null,1,:ttc,:id_civilite,null,:id_t_tiers,null,null,
+  null, :premcontact,null,null,null,null);
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:ville is null) then ville=' ';
+  if (:pays is null) then  pays=' ';
+  if ((:codepostal is not null) and (:codepostal <> ' 0000')) then begin
+  insert into ta_adresse values(:id_adresse,:adresse1,:adresse2,null, :codepostal,:ville,:pays,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:tel is not null) then begin
+  insert into ta_telephone values(:id_telephone,:tel,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:fax is not null) then begin
+  insert into ta_telephone values(:id_telephone,:fax,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel,null,null,null,null,null,null);
+  end
+commentaire=null;
+  if (:dercommande is not null) then commentaire='Dernière commande : '||:dercommande;
+  if (:divers1 is not null) then  commentaire = :commentaire||' - '||:divers1;
+  if (:divers2 is not null) then  commentaire = :commentaire||' - '||:divers2;
+
+  if (not :commentaire is null ) then
+  begin
+    insert into ta_commentaire values(null,:commentaire,:id_tiers,null,null,null,null,null,null);
+  end
+  end
+end

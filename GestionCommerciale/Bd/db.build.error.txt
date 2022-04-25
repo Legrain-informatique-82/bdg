@@ -1,0 +1,14 @@
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Expected end of statement, encountered EOF
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Expected end of statement, encountered EOF
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Use CONNECT or CREATE DATABASE to specify a database
+Expected end of statement, encountered EOF
+Use CONNECT or CREATE DATABASE to specify a database

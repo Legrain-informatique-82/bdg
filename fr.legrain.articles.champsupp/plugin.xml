@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="Articles.editorPageArticles">
+      <editor
+            editorClass="fr.legrain.articles.champsupp.editors.EditorChampSuppArticle"
+            editorIcon="icons/legrain.gif"
+            editorLabel="Champ supp">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.articles.champsupp.handlers.HandlerTypeChampSuppArticle"
+            id="fr.legrain.articles.champsupp.TypeChampSuppArticle"
+            name="Champ Supplémentaires">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:param.articles">
+         <command
+               commandId="fr.legrain.articles.champsupp.TypeChampSuppArticle"
+               icon="icons/legrain.gif"
+               label="Champ supplémentaires"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.articles.champsupp.editors.EditorTypeChampSuppArticle"
+            default="false"
+            icon="icons/legrain.gif"
+            id="fr.legrain.articles.champsupp.editors.EditorTypeChampSuppArticle"
+            name="Champ supplementaires">
+      </editor>
+   </extension>
+
+</plugin>

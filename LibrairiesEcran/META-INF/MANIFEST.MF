@@ -1,0 +1,37 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LibrairiesEcran Plug-in
+Bundle-SymbolicName: LibrairiesEcran;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.gestCom.librairiesEcran.LibrairiesEcranPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibMessageLGR,
+ librairiesLeGrain,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ gestComBd,
+ org.eclipse.core.expressions,
+ org.eclipse.birt.report.viewer,
+ Lib,
+ LibLgrBirt;bundle-version="1.8.9",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ org.eclipse.core.databinding.property;bundle-version="1.2.0",
+ org.eclipse.ui.forms;bundle-version="3.5.100"
+Eclipse-AutoStart: true
+Export-Package: fr.legrain.gestCom.librairiesEcran,
+ fr.legrain.gestCom.librairiesEcran.editor,
+ fr.legrain.gestCom.librairiesEcran.interfaces,
+ fr.legrain.gestCom.librairiesEcran.notifier,
+ fr.legrain.gestCom.librairiesEcran.notifier.cache,
+ fr.legrain.gestCom.librairiesEcran.notifier.test,
+ fr.legrain.gestCom.librairiesEcran.preferences,
+ fr.legrain.gestCom.librairiesEcran.swt,
+ fr.legrain.gestCom.librairiesEcran.workbench
+Bundle-Vendor: Le Grain SA
+Bundle-ClassPath: lib/images.jar,
+ .

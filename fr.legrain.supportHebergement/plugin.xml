@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.supporthebergement.editors.HebergementMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.supportHebergement.multi"
+            name="Hébergement">
+      </editor>
+   </extension>
+   <extension
+         point="GestionCommerciale.SupportAbonnement">
+      <Editeur
+            classCTablItem="fr.legrain.supporthebergement.controllers.CTabItemHebergement"
+            classController="fr.legrain.licenceepicea.controllers.SWTPaEpiceaController"
+            classEditor="fr.legrain.supporthebergement.editors.HebergementMultiPageEditor"
+            classSupport="fr.legrain.supportHebergement.dao.TaHebergement"
+            classVue="fr.legrain.licenceepicea.ecrans.PaEpiceaSWT"
+            nameSupport="Hebergement">
+      </Editeur>
+   </extension>
+
+</plugin>

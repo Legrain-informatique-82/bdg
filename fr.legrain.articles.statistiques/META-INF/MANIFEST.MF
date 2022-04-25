@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Statistiques
+Bundle-SymbolicName: fr.legrain.articles.statistiques;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.articles.statistiques.Activator
+Bundle-Vendor: Le Grain SA
+Require-Bundle: org.eclipse.ui,
+ Articles,
+ LibLgrBirt;bundle-version="2.0.14",
+ gestComBd;bundle-version="2.0.14",
+ log4j_1_2_8;bundle-version="1.2.8",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ LibrairiesEcran;bundle-version="2.0.14",
+ librairiesLeGrain;bundle-version="2.0.14",
+ org.eclipse.ui.forms;bundle-version="3.4.1",
+ org.eclipse.birt.chart.engine;bundle-version="2.5.1",
+ com.ibm.icu;bundle-version="4.0.1",
+ org.eclipse.core.databinding.observable;bundle-version="1.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Export-Package: fr.legrain.articles.statistiques,
+ fr.legrain.articles.statistiques.editors

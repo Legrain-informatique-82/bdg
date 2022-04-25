@@ -1,0 +1,141 @@
+Tous les champs obligatoires sont marqués "NOT NULL", les autres sont libres
+
+TABLE TA_TIERS
+  ID_TIERS      auto généré
+  CODE_TIERS    VARCHAR(20) NOT NULL,
+  CODE_COMPTA   VARCHAR(20) NOT NULL,
+  COMPTE        VARCHAR(8) NOT NULL,
+  NOM_TIERS     VARCHAR(100) NOT NULL,
+  PRENOM_TIERS  VARCHAR(100),
+  SURNOM_TIERS  VARCHAR(20),
+  ACTIF_TIERS   0 ou 1,
+  ID_T_CIVILITE SMALLINT,
+  ID_ENTREPRISE   SMALLINT,
+  ID_T_TIERS    SMALLINT NOT NULL,
+  ID_T_ENTITE   SMALLINT,
+  ID_I_BANQUE   SMALLINT
+  
+  
+TABLE TA_T_CIVILITE   	********* pas obligatoire
+  ID_T_CIVILITE  auto généré,
+  CODE_T_CIVILITE  VARCHAR(20) NOT NULL , 
+  
+    
+TABLE TA_T_TIERS  ***** à remplir 
+  ID_T_TIERS   auto généré,
+  CODE_T_TIERS  VARCHAR(20) NOT NULL ,
+  LIBELLE_T_TIERS  VARCHAR(100) NOT NULL ,
+  COMPTE_T_TIERS VARCHAR(8) NOT NULL,  
+
+
+TABLE TA_T_ENTITE   	********* pas obligatoire
+  ID_T_ENTITE  auto généré,
+  CODE_T_ENTITE  VARCHAR(20) NOT NULL ,
+  LIBL_T_ENTITE  VARCHAR(100) ,
+  
+  
+TABLE TA_ENTREPRISE   	********* pas obligatoire
+  ID_ENTREPRISE  auto généré,
+  CODE_ENTREPRISE  VARCHAR(20) NOT NULL ,
+  LIBL_ENTREPRISE  VARCHAR(100) NOT NULL ,
+  ID_T_ENTITE SMALLINT,
+  ID_I_RESP_TIERS  SMALLINT  
+
+
+TABLE TA_COMMENTAIRE   	********* pas obligatoire
+  ID_COMMENTAIRE  auto généré,
+  LIBL_COMMENTAIRE  VARCHAR(255) ,
+  ID_TIERS SMALLINT NOT NULL, 
+  
+  
+TABLE TA_BANQUE   	********* pas obligatoire
+  ID_BANQUE  auto généré,
+  CODE_BANQUE VARCHAR(20) NOT NULL ,
+  LIBC_BANQUE VARCHAR(100) NOT NULL ,
+  LIBL_BANQUE VARCHAR(100) ,
+  
+  
+TABLE TA_ADRESSE   	********* pas obligatoire, mais si rempli, remplir le lien dans table TA_R_ADR
+  ID_ADRESSE  auto généré,
+  ADRESSE1_ADRESSE  VARCHAR(100) ,
+  ADRESSE2_ADRESSE  VARCHAR(100) ,
+  ADRESSE3_ADRESSE  VARCHAR(100) ,
+  CODEPOSTAL_ADRESSE  VARCHAR(5) ,
+  VILLE_ADRESSE  VARCHAR(100) NOT NULL ,
+  PAYS_ADRESSE  VARCHAR(100) NOT NULL DEFAULT 'FRANCE',    
+  
+  
+TABLE TA_R_ADR  
+  ID_R_ADR  auto généré,
+  ID_TIERS  SMALLINT NOT NULL,
+  ID_ADRESSE  SMALLINT NOT NULL, 
+
+*** si tu veux rajouter le type d'adresse, tu dois remplir la table TA_T_ADR avec le type s'il n'existe pas déjà
+puis remplir le lien dans la table TA_R_ADR_T_ADR entre l'adresse et le type
+
+TABLE TA_T_ADR
+  ID_T_ADR  auto généré,
+  CODE_T_ADR   VARCHAR(20) NOT NULL ,
+  LIBL_T_ADR  VARCHAR(100) NOT NULL,  
+  
+  
+TABLE TA_R_ADR_T_ADR
+  ID_R_ADR_T_ADR  auto généré,
+  ID_T_ADR  SMALLINT NOT NULL ,
+  ID_ADRESSE  SMALLINT NOT NULL,
+  
+ 
+ 
+TABLE TA_TELEPHONE        ********* pas obligatoire, mais si rempli, remplir le lien dans table TA_R_TEL
+  ID_TELEPHONE  auto généré,
+  NUMERO_TELEPHONE   VARCHAR(20) NOT NULL ,
+  POSTE_TELEPHONE   VARCHAR(20) NOT NULL ,
+  ID_I_TIERS  SMALLINT 
+  
+  
+TABLE TA_R_TEL
+  ID_R_TEL  auto généré,
+  ID_TIERS  SMALLINT NOT NULL ,
+  ID_TELEPHONE  SMALLINT NOT NULL 
+  
+*** si tu veux rajouter le type de téléphone, tu dois remplir la table TA_T_TEL avec le type s'il n'existe pas déjà
+puis remplir le lien dans la table TA_R_TEL_T_TEL entre le téléphone et le type  
+TABLE TA_T_TEL
+  ID_T_TEL  auto généré,
+  CODE_T_TEL   VARCHAR(20) NOT NULL,
+  LIBL_T_TEL   VARCHAR(100)
+  
+  
+TABLE TA_R_TEL_T_TEL
+  ID_R_TEL_T_TEL  auto généré,
+  ID_TELEPHONE  SMALLINT NOT NULL  ,
+  ID_T_TEL  SMALLINT NOT NULL  
+  
+  
+TABLE TA_EMAIL       ********* pas obligatoire, mais si tu rempli, remplir le lien dans la table TA_R_EMAIL entre
+  ID_EMAIL  auto généré,              le mail et le tiers
+  ADRESSE_EMAIL   VARCHAR(255) NOT NULL
+  
+  
+TABLE TA_R_EMAIL  
+  ID_R_EMAIL  auto généré,
+  ID_TIERS  SMALLINT NOT NULL  ,
+  ID_EMAIL  SMALLINT NOT NULL  
+  
+  
+TABLE TA_WEB         ********* pas obligatoire, mais si tu rempli, remplir le lien dans la table TA_R_WEB entre
+  ID_WEB  auto généré,          **** le web et le tiers
+  ADRESSE_WEB   VARCHAR(255) NOT NULL
+  
+  
+TABLE TA_R_WEB
+  ID_R_WEB  auto généré,
+  ID_TIERS  SMALLINT NOT NULL  ,
+  ID_WEB  SMALLINT NOT NULL  
+  
+
+TABLE TA_COMPL    pas obligatoire,
+  ID_COMPL  auto généré,
+  ID_TIERS  SMALLINT NOT NULL ,
+  TVA_I_COM_COMPL  VARCHAR(50),
+  SIRET_COMPL  VARCHAR(50)  

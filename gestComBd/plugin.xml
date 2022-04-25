@@ -1,0 +1,22 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="gestComBd.actionSet"
+            label="Version Action Set"
+            visible="true">
+         <menu
+               id="versionMenu"
+               label="Version">
+            <separator name="versionGroup"/>
+         </menu>
+         <action
+               class="gestComBd.actions.VersionAction"
+               icon="icons/application.png"
+               id="gestComBd.actions.VersionAction"
+               label="Version"
+               menubarPath="help/versionGroup"
+               tooltip="Version"/>
+      </actionSet>
+   </extension>
+</plugin>

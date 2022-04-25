@@ -1,0 +1,451 @@
+
+          SET TERM ^ ;
+
+CREATE OR ALTER PROCEDURE VERIF_IMPORTATION 
+returns (
+    doc varchar(10),
+    ht_e2fac numeric(15,2),
+    ht_bdg numeric(15,2),
+    dif_ht numeric(15,2),
+    ttc_e2fac numeric(15,2),
+    ttc_bdg numeric(15,2),
+    dif_ttc numeric(15,2),
+    ttc integer,
+    fli_rem numeric(15,2),
+    rem_tx_l_document numeric(15,2))
+as
+begin
+for select d.fac_num,d.fac_pri ,sum(l.fli_mht),sum(l.fli_mtc),sum(l.fli_rem) from lignes_docs_e2fac l
+join documents_e2fac d on d.fac_num=l.fli_num and l.type_docs='F' and d.fac_dat >=cast('01/01/1900'as date)
+where d.fac_typ='F' group by d.fac_num,d.fac_pri
+into :doc,:ttc,:ht_e2fac,:ttc_e2fac,:fli_rem do
+    begin
+      select sum(lf.mt_ht_l_document),sum(lf.mt_ttc_l_document) from  ta_facture f
+      join ta_l_facture lf on lf.id_document=f.id_document
+         where f.code_document=''||:doc into :ht_bdg,:ttc_bdg;
+      if(abs(:ht_e2fac-ht_bdg)>0.02 or abs(:ttc_e2fac-ttc_bdg)>0.02)then
+        begin
+          dif_ht=abs(:ht_e2fac-ht_bdg);
+          dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+          doc='F'||:doc;
+          suspend;
+        end
+    end
+
+for select d.fac_num,d.fac_pri ,sum(l.fli_mht),sum(l.fli_mtc),sum(l.fli_rem) from lignes_docs_e2fac l
+join documents_e2fac d on d.fac_num=l.fli_num and l.type_docs='A' and d.fac_dat >=cast('01/01/1900'as date)
+where d.fac_typ='A' group by d.fac_num,d.fac_pri
+into :doc,:ttc,:ht_e2fac,:ttc_e2fac,:fli_rem do
+    begin
+      select sum(lf.mt_ht_l_document),sum(lf.mt_ttc_l_document) from  ta_avoir f
+      join ta_l_avoir lf on lf.id_document=f.id_document
+         where f.code_document=''||:doc into :ht_bdg,:ttc_bdg;
+      if(abs(:ht_e2fac-ht_bdg)>0.01 or abs(:ttc_e2fac-ttc_bdg)>0.01)then
+        begin
+          dif_ht=abs(:ht_e2fac-ht_bdg);
+          dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+          doc='A'||:doc;
+          suspend;
+        end
+    end
+for select d.fac_num,d.fac_pri ,sum(l.fli_mht),sum(l.fli_mtc),sum(l.fli_rem) from lignes_docs_e2fac l
+join documents_e2fac d on d.fac_num=l.fli_num and l.type_docs='B' and d.fac_dat >=cast('01/01/1900'as date)
+where d.fac_typ='B' group by d.fac_num,d.fac_pri
+into :doc,:ttc,:ht_e2fac,:ttc_e2fac,:fli_rem do
+    begin
+      select sum(lf.mt_ht_l_document),sum(lf.mt_ttc_l_document) from  ta_bonliv f
+      join ta_l_bonliv lf on lf.id_document=f.id_document
+         where f.code_document=''||:doc into :ht_bdg,:ttc_bdg;
+      if(abs(:ht_e2fac-ht_bdg)>0.01 or abs(:ttc_e2fac-ttc_bdg)>0.01)then
+        begin
+          dif_ht=abs(:ht_e2fac-ht_bdg);
+          dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+          doc='B'||:doc;
+          suspend;
+        end
+    end
+for select d.fac_num,d.fac_pri ,sum(l.fli_mht),sum(l.fli_mtc),sum(l.fli_rem) from lignes_docs_e2fac l
+join documents_e2fac d on d.fac_num=l.fli_num and l.type_docs='P' and d.fac_dat >=cast('01/01/1900'as date)
+where d.fac_typ='P' group by d.fac_num,d.fac_pri
+into :doc,:ttc,:ht_e2fac,:ttc_e2fac,:fli_rem do
+    begin
+      select sum(lf.mt_ht_l_document),sum(lf.mt_ttc_l_document) from  ta_devis f
+      join ta_l_devis lf on lf.id_document=f.id_document
+         where f.code_document=''||:doc into :ht_bdg,:ttc_bdg;
+      if(abs(:ht_e2fac-ht_bdg)>0.01 or abs(:ttc_e2fac-ttc_bdg)>0.01)then
+        begin
+          dif_ht=abs(:ht_e2fac-ht_bdg);
+          dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+          doc='P'||:doc;
+          suspend;
+        end
+    end
+
+end^
+
+
+CREATE OR ALTER PROCEDURE VERIF_IMPORTATION_GLOBALE 
+returns (
+    doc varchar(10),
+    ht_e2fac numeric(15,2),
+    ht_bdg numeric(15,2),
+    dif_ht numeric(15,2),
+    ttc_e2fac numeric(15,2),
+    ttc_bdg numeric(15,2),
+    dif_ttc numeric(15,2),
+    ttc integer,
+    fli_rem numeric(15,2),
+    rem_tx_l_document numeric(15,2))
+as
+declare variable "TYPE" varchar(1);
+begin
+
+select sum(f.mt_ttc_calc)as ttc,sum(f.mt_ht_calc)as TTc from ta_facture f into :ttc_bdg,:ht_bdg;
+select sum(f.fli_mtc)as ttc,sum(f.fli_mht)as TTc from lignes_docs_e2fac f
+join documents_e2fac d on d.fac_num=f.fli_num
+where f.type_docs='F' and d.fac_dat >=cast('01/01/1900'as date) into :ttc_e2fac,:ht_e2fac;
+suspend;
+if(:ht_e2fac<>ht_bdg or :ttc_e2fac<>:ttc_bdg)then
+begin
+  dif_ht=abs(:ht_e2fac-ht_bdg);
+  dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+  suspend;
+end
+
+
+select sum(f.mt_ttc_calc)as ttc,sum(f.mt_ht_calc)as TTc from ta_avoir f into :ttc_bdg,:ht_bdg;
+select sum(f.fli_mtc)as ttc,sum(f.fli_mht)as TTc from lignes_docs_e2fac f
+join documents_e2fac d on d.fac_num=f.fli_num
+where f.type_docs='A' and d.fac_dat >=cast('01/01/1900'as date) into :ttc_e2fac,:ht_e2fac;
+suspend;
+if(:ht_e2fac<>ht_bdg or :ttc_e2fac<>:ttc_bdg)then
+begin
+  dif_ht=abs(:ht_e2fac-ht_bdg);
+  dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+  suspend;
+end
+
+
+select sum(f.mt_ttc_calc)as ttc,sum(f.mt_ht_calc)as TTc from ta_bonliv f into :ttc_bdg,:ht_bdg;
+select sum(f.fli_mtc)as ttc,sum(f.fli_mht)as TTc from lignes_docs_e2fac f
+join documents_e2fac d on d.fac_num=f.fli_num
+where f.type_docs='B' and d.fac_dat >=cast('01/01/1900'as date) into :ttc_e2fac,:ht_e2fac;
+suspend;
+if(:ht_e2fac<>ht_bdg or :ttc_e2fac<>:ttc_bdg)then
+begin
+  dif_ht=abs(:ht_e2fac-ht_bdg);
+  dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+  suspend;
+end
+
+select sum(f.mt_ttc_calc)as ttc,sum(f.mt_ht_calc)as TTc from ta_devis f into :ttc_bdg,:ht_bdg;
+select sum(f.fli_mtc)as ttc,sum(f.fli_mht)as TTc from lignes_docs_e2fac f
+join documents_e2fac d on d.fac_num=f.fli_num
+where f.type_docs='P' and d.fac_dat >=cast('01/01/1900'as date) into :ttc_e2fac,:ht_e2fac;
+suspend;
+if(:ht_e2fac<>ht_bdg or :ttc_e2fac<>:ttc_bdg)then
+begin
+  dif_ht=abs(:ht_e2fac-ht_bdg);
+  dif_ttc=abs(:ttc_e2fac-ttc_bdg);
+  suspend;
+end
+
+
+end^
+
+
+CREATE OR ALTER PROCEDURE VERIF_LIGNES_A_IMPORTER 
+returns (
+    fli_num varchar(9),
+    fli_lig varchar(15),
+    fli_rem numeric(15,2),
+    fli_ptc numeric(15,2),
+    fli_pht numeric(15,2),
+    fli_qt1 numeric(15,4),
+    fli_mht numeric(15,2),
+    mtcalc numeric(15,2),
+    ttc integer,
+    fli_mtc numeric(15,2),
+    mt numeric(15,2),
+    diff numeric(15,2))
+as
+declare variable mtremise numeric(15,2);
+declare variable ht numeric(15,2);
+declare variable remise numeric(15,2);
+begin
+  for select l.fli_num,l.fli_lig,l.fli_qt1,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,d.fac_pri
+  from lignes_docs_e2fac l join documents_e2fac d on d.fac_num=l.fli_num and d.fac_typ='F'
+  where l.type_docs='F' order by 1,2
+  into :fli_num,:fli_lig,:fli_qt1,:fli_pht,:fli_ptc,:fli_rem,:fli_mht,:fli_mtc,:ttc do
+      begin
+        ht=0;
+        MTCALC=0;
+        remise=0;
+        MTCALC=:fli_mht;
+        if(:fli_rem=0 or :fli_rem is null)then remise=0;
+        else remise=(:fli_rem);
+        if(:ttc=1)then ht=(:fli_qt1 * (:fli_ptc)); else ht=(:fli_qt1 * (:fli_pht));
+        MTCALC=ht;
+        mtremise=0;
+        if(:ht<>0 and remise<>0)then
+          begin
+            mtremise=(ht*:remise)/100;
+            MTCALC=ht-(:mtremise);
+
+          end
+        if(:ttc=1)then mt=:fli_mtc; else mt=:fli_mht;
+        if (abs(cast(:MTCALC as numeric(15,2))-cast(:mt as numeric(15,2)))>0.02)then
+          begin
+                diff= abs(cast(:MTCALC as numeric(15,2))-cast(:mt as numeric(15,2)));
+                if(:mt is not null and :mt <>0) then
+                begin
+                 -- remise=(100*:diff) / :mt ;
+                  update lignes_docs_e2fac l2 set fli_qt1=1,fli_pht=:fli_mht,fli_ptc=:fli_mtc where l2.type_docs='F'
+                  and l2.fli_num=:fli_num and l2.fli_lig=:fli_lig;
+                end
+            suspend;
+          end
+      end
+
+end^
+
+
+
+
+
+
+CREATE OR ALTER PROCEDURE ASCII_CONVERSION (
+    valeur_in varchar(255))
+returns (
+    valeur_out varchar(255))
+as
+declare variable conv varchar(1);
+declare variable i integer;
+declare variable j integer;
+declare variable rang integer;
+declare variable caracteres varchar(255);
+declare variable correspondance_min varchar(255);
+declare variable majautour integer;
+declare variable correspondance_maj varchar(255);
+declare variable correspondance varchar(255);
+declare variable valgauche varchar(1);
+declare variable valdroite varchar(1);
+begin
+i=128;
+  while (i<=159) do
+  begin
+      caracteres=:caracteres||asciichar(:i);
+      i=:i+1;
+  end
+  correspondance_min='ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜø£Ø×ƒ';
+  correspondance_maj='ÇÜÉÂÄÀÅÇÊËÈÏÎÌÄÅÉÆÆÔÖÒÛÙŸÖÜØ£Ø×ƒ';
+
+valeur_out='';
+conv='';
+
+  i=1;
+  if(:valeur_in is not null)then
+  begin
+
+     while (:i <= strlen(:valeur_in) )do
+     begin
+     valgauche='';
+     valdroite='';
+        conv=substring(:valeur_in from :i for 1) ;
+        if(i-1>0)then
+          valgauche=substring(:valeur_out from :i-1 for 1);
+        if(i+1<=strlen(:valeur_in))then
+          valdroite=substring(:valeur_in from :i+1 for 1);
+        if((ascii_val(:valgauche)between 65 and 90 or :valgauche = '')and
+        (ascii_val(:valdroite)between 65 and 90 or :valdroite = ''))then majautour=1;
+        else  majautour=0;
+
+
+        j=1;
+        if(:majautour=1)then correspondance=:correspondance_maj;
+        else correspondance=:correspondance_min;
+        while (:j<=strlen(:correspondance)) do
+        begin
+            if(ascii_val(conv) between 128 and 159) then
+            BEGIN
+              rang=ascii_val(conv);
+              conv=(substring(:correspondance from rang-127 for 1));
+            END
+            j=:j+1;
+        end
+        valeur_out=:valeur_out||:conv;
+        i=:i+1;
+     end
+  end
+  suspend;
+end^
+
+
+/*CONVERSION TABLE E2_FAC*//*$$IBEC$$ 
+update articles_fac t set t.art_cod  = (select * from ascii_conversion(t.art_cod))^
+update articles_fac t set t.art_des  = (select * from ascii_conversion(t.art_des))^
+update articles_fac t set t.fam_des  = (select * from ascii_conversion(t.fam_des))^
+
+
+update clients_e2fac t set t.cli_cod  = (select * from ascii_conversion(t.cli_cod))^
+update clients_e2fac t set t.cli_nom  = (select * from ascii_conversion(t.cli_nom))^
+update clients_e2fac t set t.cli_ad1  = (select * from ascii_conversion(t.cli_ad1))^
+update clients_e2fac t set t.cli_ad2  = (select * from ascii_conversion(t.cli_ad2))^
+update clients_e2fac t set t.cli_vil  = (select * from ascii_conversion(t.cli_vil))^
+update clients_e2fac t set t.cli_pay  = (select * from ascii_conversion(t.cli_pay))^
+update clients_e2fac t set t.cli_obs  = (select * from ascii_conversion(t.cli_obs))^
+update clients_e2fac t set t.cli_rsp  = (select * from ascii_conversion(t.cli_rsp))^
+update clients_e2fac t set t.cli_bqe  = (select * from ascii_conversion(t.cli_bqe))^
+update clients_e2fac t set t.cli_lad1  = (select * from ascii_conversion(t.cli_lad1))^
+update clients_e2fac t set t.cli_lad2  = (select * from ascii_conversion(t.cli_lad2))^
+update clients_e2fac t set t.cli_lvil  = (select * from ascii_conversion(t.cli_lvil))^
+update clients_e2fac t set t.cli_lpay  = (select * from ascii_conversion(t.cli_lpay))^
+update clients_e2fac t set t.cli_rsp  = (select * from ascii_conversion(t.cli_rsp))^
+update clients_e2fac t set t.cli_rep  = (select * from ascii_conversion(t.cli_rep))^
+update clients_e2fac t set t.cli_civ  = (select * from ascii_conversion(t.cli_civ))^
+update clients_e2fac t set t.cli_fam  = (select * from ascii_conversion(t.cli_fam))^
+update clients_e2fac t set t.pmt_int  = (select * from ascii_conversion(t.pmt_int))^
+
+
+update documents_e2fac t set t.fac_cod  = (select * from ascii_conversion(t.fac_cod))^
+update documents_e2fac t set t.fac_nom  = (select * from ascii_conversion(t.fac_nom))^
+update documents_e2fac t set t.fac_ad1  = (select * from ascii_conversion(t.fac_ad1))^
+update documents_e2fac t set t.fac_ad2  = (select * from ascii_conversion(t.fac_ad2))^
+update documents_e2fac t set t.fac_vil  = (select * from ascii_conversion(t.fac_vil))^
+update documents_e2fac t set t.fac_pay  = (select * from ascii_conversion(t.fac_pay))^
+update documents_e2fac t set t.fac_ref  = (select * from ascii_conversion(t.fac_ref))^
+update documents_e2fac t set t.fac_mes1  = (select * from ascii_conversion(t.fac_mes1))^
+update documents_e2fac t set t.fac_mes2  = (select * from ascii_conversion(t.fac_mes2))^
+update documents_e2fac t set t.fac_mes3  = (select * from ascii_conversion(t.fac_mes3))^
+update documents_e2fac t set t.fac_cial  = (select * from ascii_conversion(t.fac_cial))^
+
+
+update lignes_docs_e2fac t set t.fli_cod  = (select * from ascii_conversion(t.fli_cod))^
+update lignes_docs_e2fac t set t.fli_des  = (select * from ascii_conversion(t.fli_des))^
+update lignes_docs_e2fac t set t.fli_num  = (select * from ascii_conversion(t.fli_num))^
+update lignes_docs_e2fac t set t.fli_lot  = (select * from ascii_conversion(t.fli_lot))^
+update lignes_docs_e2fac t set t.fli_nbl  = (select * from ascii_conversion(t.fli_nbl))^
+update lignes_docs_e2fac t set t.fli_un1  = (select * from ascii_conversion(t.fli_un1))^
+update lignes_docs_e2fac t set t.fli_un2  = (select * from ascii_conversion(t.fli_un2))^
+
+
+
+ $$IBEC$$*//*CONVERSION TABLE BDG*//*$$IBEC$$ 
+update ta_t_civilite t set t.code_t_civilite  = (select * from ascii_conversion(t.code_t_civilite))^
+
+update ta_article t set t.code_article  = (select * from ascii_conversion(t.code_article))^
+update ta_article t set t.libellec_article  = (select * from ascii_conversion(t.libellec_article))^
+update ta_article t set t.libellel_article  = (select * from ascii_conversion(t.libellel_article))^
+update ta_article t set t.commentaire_article  = (select * from ascii_conversion(t.commentaire_article))^
+
+update ta_tiers t set t.nom_tiers  = (select * from ascii_conversion(t.nom_tiers))^
+update ta_tiers t set t.prenom_tiers  = (select * from ascii_conversion(t.prenom_tiers))^
+update ta_adresse t set t.adresse1_adresse  = (select * from ascii_conversion(t.adresse1_adresse))^
+update ta_adresse t set t.adresse2_adresse  = (select * from ascii_conversion(t.adresse2_adresse))^
+update ta_adresse t set t.adresse3_adresse  = (select * from ascii_conversion(t.adresse3_adresse))^
+update ta_adresse t set t.ville_adresse  = (select * from ascii_conversion(t.ville_adresse))^
+
+update ta_infos_facture t set t.adresse1  = (select * from ascii_conversion(t.adresse1))^
+update ta_infos_facture t set t.adresse2  = (select * from ascii_conversion(t.adresse2))^
+update ta_infos_facture t set t.adresse3  = (select * from ascii_conversion(t.adresse3))^
+update ta_infos_facture t set t.adresse1_liv  = (select * from ascii_conversion(t.adresse1_liv))^
+update ta_infos_facture t set t.adresse2_liv  = (select * from ascii_conversion(t.adresse2_liv))^
+update ta_infos_facture t set t.adresse3_liv  = (select * from ascii_conversion(t.adresse3_liv))^
+update ta_infos_facture t set t.ville  = (select * from ascii_conversion(t.ville))^
+update ta_infos_facture t set t.ville_liv  = (select * from ascii_conversion(t.ville_liv))^
+update ta_infos_facture t set t.nom_tiers  = (select * from ascii_conversion(t.nom_tiers))^
+update ta_infos_facture t set t.prenom_tiers  = (select * from ascii_conversion(t.prenom_tiers))^
+
+update ta_facture t set t.libelle_document  = (select * from ascii_conversion(t.libelle_document))^
+update ta_facture t set t.commentaire  = (select * from ascii_conversion(t.commentaire))^
+update ta_facture t set t.libelle_paiement  = (select * from ascii_conversion(t.libelle_paiement))^
+
+update ta_l_facture t set t.lib_l_document  = (select * from ascii_conversion(t.lib_l_document))^
+
+
+update ta_infos_devis t set t.adresse1  = (select * from ascii_conversion(t.adresse1))^
+update ta_infos_devis t set t.adresse2  = (select * from ascii_conversion(t.adresse2))^
+update ta_infos_devis t set t.adresse3  = (select * from ascii_conversion(t.adresse3))^
+update ta_infos_devis t set t.adresse1_liv  = (select * from ascii_conversion(t.adresse1_liv))^
+update ta_infos_devis t set t.adresse2_liv  = (select * from ascii_conversion(t.adresse2_liv))^
+update ta_infos_devis t set t.adresse3_liv  = (select * from ascii_conversion(t.adresse3_liv))^
+update ta_infos_devis t set t.ville  = (select * from ascii_conversion(t.ville))^
+update ta_infos_devis t set t.ville_liv  = (select * from ascii_conversion(t.ville_liv))^
+update ta_infos_devis t set t.nom_tiers  = (select * from ascii_conversion(t.nom_tiers))^
+update ta_infos_devis t set t.prenom_tiers  = (select * from ascii_conversion(t.prenom_tiers))^
+
+update ta_devis t set t.libelle_document  = (select * from ascii_conversion(t.libelle_document))^
+update ta_devis t set t.commentaire  = (select * from ascii_conversion(t.commentaire))^
+
+
+update ta_l_devis t set t.lib_l_document  = (select * from ascii_conversion(t.lib_l_document))^
+
+
+update ta_infos_bonliv t set t.adresse1  = (select * from ascii_conversion(t.adresse1))^
+update ta_infos_bonliv t set t.adresse2  = (select * from ascii_conversion(t.adresse2))^
+update ta_infos_bonliv t set t.adresse3  = (select * from ascii_conversion(t.adresse3))^
+update ta_infos_bonliv t set t.adresse1_liv  = (select * from ascii_conversion(t.adresse1_liv))^
+update ta_infos_bonliv t set t.adresse2_liv  = (select * from ascii_conversion(t.adresse2_liv))^
+update ta_infos_bonliv t set t.adresse3_liv  = (select * from ascii_conversion(t.adresse3_liv))^
+update ta_infos_bonliv t set t.ville  = (select * from ascii_conversion(t.ville))^
+update ta_infos_bonliv t set t.ville_liv  = (select * from ascii_conversion(t.ville_liv))^
+update ta_infos_bonliv t set t.nom_tiers  = (select * from ascii_conversion(t.nom_tiers))^
+update ta_infos_bonliv t set t.prenom_tiers  = (select * from ascii_conversion(t.prenom_tiers))^
+
+update ta_bonliv t set t.libelle_document  = (select * from ascii_conversion(t.libelle_document))^
+update ta_bonliv t set t.commentaire  = (select * from ascii_conversion(t.commentaire))^
+
+
+update ta_l_bonliv t set t.lib_l_document  = (select * from ascii_conversion(t.lib_l_document))^
+
+
+update ta_infos_avoir t set t.adresse1  = (select * from ascii_conversion(t.adresse1))^
+update ta_infos_avoir t set t.adresse2  = (select * from ascii_conversion(t.adresse2))^
+update ta_infos_avoir t set t.adresse3  = (select * from ascii_conversion(t.adresse3))^
+update ta_infos_avoir t set t.adresse1_liv  = (select * from ascii_conversion(t.adresse1_liv))^
+update ta_infos_avoir  t set t.adresse2_liv  = (select * from ascii_conversion(t.adresse2_liv))^
+update ta_infos_avoir t set t.adresse3_liv  = (select * from ascii_conversion(t.adresse3_liv))^
+update ta_infos_avoir t set t.ville  = (select * from ascii_conversion(t.ville))^
+update ta_infos_avoir t set t.ville_liv  = (select * from ascii_conversion(t.ville_liv))^
+update ta_infos_avoir t set t.nom_tiers  = (select * from ascii_conversion(t.nom_tiers))^
+update ta_infos_avoir t set t.prenom_tiers  = (select * from ascii_conversion(t.prenom_tiers))^
+
+update ta_avoir t set t.libelle_document  = (select * from ascii_conversion(t.libelle_document))^
+update ta_avoir t set t.commentaire  = (select * from ascii_conversion(t.commentaire))^
+
+
+update ta_l_avoir t set t.lib_l_document  = (select * from ascii_conversion(t.lib_l_document))^
+
+
+
+
+create or alter procedure SUPPRESSION_DOC_ANTERIEUR (
+    DATEDEB date not null)
+as
+begin
+
+delete from ta_reglement r where r.date_document < cast(:datedeb as date);
+
+delete from ta_facture f where f.date_document < cast(:datedeb as date);
+
+delete from ta_devis f where f.date_document < cast(:datedeb as date);
+
+delete from ta_avoir f where f.date_document < cast(:datedeb as date);
+
+delete from ta_bonliv f where f.date_document < cast(:datedeb as date);
+
+delete from ta_apporteur f where f.date_document < cast(:datedeb as date);
+
+update ta_facture f set f.code_document='FV'||f.code_document;
+
+update ta_avoir f set f.code_document='AV'||f.code_document;
+
+update ta_devis f set f.code_document='DE'||f.code_document;
+
+update ta_bonliv f set f.code_document='BL'||f.code_document;
+
+update ta_apporteur f set f.code_document='AP'||f.code_document;
+
+  suspend;
+end
+

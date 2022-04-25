@@ -1,0 +1,93 @@
+Documentation :
+
+1 étape ==> créer database pour web service ex: ws_genboucom.
+2 étape ==> créer table de ws_ta_nombre_connect pour vérifier login/password et nombre de connections
+  create table ws_ta_nombre_connect
+  (
+    id int not null auto_increment,
+    nombre_connect int not null default 0,
+    login_user varchar(20),
+    password varchar(20),
+    quand_connect datetime,
+    primary key(id)
+  );
+if nombre_connection is 0,on va créer des tables. sinon,c-t-d que les table existent
+
+
+/*******valeur par defaut*********/
+Insert into TA_VERSION (num_version,old_version)values ('0','0');
+
+Insert into TA_T_TIERS (CODE_T_TIERS,LIBELLE_T_TIERS,COMPTE_T_TIERS) values('C','Clients','411');
+Insert into TA_T_TIERS (CODE_T_TIERS,LIBELLE_T_TIERS,COMPTE_T_TIERS) values('F','Fournisseurs','401');
+Insert into TA_T_TIERS (CODE_T_TIERS,LIBELLE_T_TIERS,COMPTE_T_TIERS) values('E','Personnel','421');
+Insert into TA_T_TIERS (CODE_T_TIERS,LIBELLE_T_TIERS,COMPTE_T_TIERS) values('COM','Commerciaux','421');
+
+
+Insert into TA_T_CIVILITE(CODE_T_CIVILITE) Values ('Madame');
+Insert into TA_T_CIVILITE(CODE_T_CIVILITE) Values ('Monsieur');
+Insert into TA_T_CIVILITE(CODE_T_CIVILITE) Values ('Mademoiselle');
+Insert into TA_T_CIVILITE(CODE_T_CIVILITE) Values ('Docteur.');
+Insert into TA_T_CIVILITE(CODE_T_CIVILITE) Values ('Sr.');
+
+Insert into TA_BANQUE (CODE_BANQUE,LIBC_BANQUE,LIBL_BANQUE) Values ('BNP','Banque ','Banque Nationale de Paris');
+Insert into TA_BANQUE (CODE_BANQUE,LIBC_BANQUE,LIBL_BANQUE) Values ('CE','Caisse','Caisse d''Epargne');
+Insert into TA_BANQUE (CODE_BANQUE,LIBC_BANQUE,LIBL_BANQUE) Values ('BP','Banque','Banque Populaire');
+Insert into TA_BANQUE (CODE_BANQUE,LIBC_BANQUE,LIBL_BANQUE) Values ('CL','Crédit Lyonnais','Crédit Lyonnais interactif');
+
+Insert into TA_T_ENTITE(CODE_T_ENTITE) values('Association');
+Insert into TA_T_ENTITE(CODE_T_ENTITE) values('SARL');
+
+Insert into TA_T_ADR (CODE_T_ADR,LIBL_T_ADR) Values ('B','Bureau');
+Insert into TA_T_ADR (CODE_T_ADR,LIBL_T_ADR) Values ('D','Domicile');
+Insert into TA_T_ADR (CODE_T_ADR,LIBL_T_ADR) Values ('S','Secondaire');
+Insert into TA_T_ADR (CODE_T_ADR,LIBL_T_ADR) Values ('FACT','Facturation');
+Insert into TA_T_ADR (CODE_T_ADR,LIBL_T_ADR) Values ('LIV','Livraison');
+
+Insert into TA_T_TEL (CODE_T_TEL,LIBL_T_TEL) Values ('B','Bureau');
+Insert into TA_T_TEL (CODE_T_TEL,LIBL_T_TEL) Values ('P','Portable');
+Insert into TA_T_TEL (CODE_T_TEL,LIBL_T_TEL) Values ('D','Domicile');
+Insert into TA_T_TEL (CODE_T_TEL,LIBL_T_TEL) Values ('FAX','Fax et télécopie');
+
+Insert into TA_UNITE (CODE_UNITE,LIBL_UNITE) Values ('L','Litre');
+Insert into TA_UNITE (CODE_UNITE,LIBL_UNITE) Values ('KG','Kilogramme');
+Insert into TA_UNITE (CODE_UNITE,LIBL_UNITE) Values ('M2','mètre carré');
+
+Insert into TA_TVA (CODE_TVA,LIBELLE_TVA,TAUX_TVA,NUMCPT_TVA) Values ('A1','Immobilisations','19.6','44562');
+Insert into TA_TVA (CODE_TVA,LIBELLE_TVA,TAUX_TVA,NUMCPT_TVA) Values ('A2','Achats 5.5','5.5','44566');
+Insert into TA_TVA (CODE_TVA,LIBELLE_TVA,TAUX_TVA,NUMCPT_TVA) Values ('A3','Achats 19.6','19.6','44566');
+Insert into TA_TVA (CODE_TVA,LIBELLE_TVA,TAUX_TVA,NUMCPT_TVA) Values ('V1','Ventes 5.5','5.5','44573');
+Insert into TA_TVA (CODE_TVA,LIBELLE_TVA,TAUX_TVA,NUMCPT_TVA) Values ('V2','Ventes 19.6','19.6','44574');
+
+Insert into TA_FAMILLE (CODE_FAMILLE,LIBC_FAMILLE,LIBL_FAMILLE) Values ('F1','Alimentaire','Achats alimentaires');
+Insert into TA_FAMILLE (CODE_FAMILLE,LIBC_FAMILLE,LIBL_FAMILLE) Values ('F2','Transport','Essence ou peage ou réparation');
+Insert into TA_FAMILLE (CODE_FAMILLE,LIBC_FAMILLE,LIBL_FAMILLE) Values ('F3','Loisirs','Livres, spectacles, cd, cadeaux');
+
+Insert into TA_T_TVA (CODE_T_TVA,LIB_T_TVA) Values ('D','Tva sur livraison');
+Insert into TA_T_TVA (CODE_T_TVA,LIB_T_TVA) Values ('E','Tva sur Encaissement');
+
+Insert into TA_T_LIGNE (CODE_T_LIGNE,LIB_T_LIGNE) Values ('H','Ligne HT');
+Insert into TA_T_LIGNE (CODE_T_LIGNE,LIB_T_LIGNE) Values ('T','Ligne TVA');
+Insert into TA_T_LIGNE (CODE_T_LIGNE,LIB_T_LIGNE) Values ('C','Ligne Commentaire');
+Insert into TA_T_LIGNE (CODE_T_LIGNE,LIB_T_LIGNE) Values ('ST','Ligne Sous Total');
+
+Insert into TA_T_PAIEMENT (CODE_T_PAIEMENT,LIB_T_PAIEMENT) Values ('C','Cheque');
+Insert into TA_T_PAIEMENT (CODE_T_PAIEMENT,LIB_T_PAIEMENT) Values ('E','Espece');
+Insert into TA_T_PAIEMENT (CODE_T_PAIEMENT,LIB_T_PAIEMENT) Values ('CB','CB');
+
+
+
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,
+ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM)VALUES
+(1,'Liste des articles','select CODE_ARTICLE,LIBELLEC_ARTICLE,NUMCPT_ARTICLE,DIVERS_ARTICLE,COMMENTAIRE_ARTICLE,STOCK_MIN_ARTICLE,
+PRIX_PRIX,CODE_UNITE,CODE_FAMILLE,CODE_TVA,TAUX_TVA,NUMCPT_TVA,CODE_T_TVA  from v_article','CODE_ARTICLE;LIBELLEC_ARTICLE;
+NUMCPT_ARTICLE;DIVERS_ARTICLE;COMMENTAIRE_ARTICLE;STOCK_MIN_ARTICLE;PRIX_PRIX;CODE_UNITE;CODE_FAMILLE;CODE_TVA;TAUX_TVA;NUMCPT_TVA;
+CODE_T_TVA','CODE;LIBELLE;COMPTE;DIVERS;COMMENTAIRE;STOCK MINI;PRIX;UNITE;FAMILLE;CODE TVA;TAUX TVA;COMPTE TVA;TYPE TVA',
+'50;100;50;100;100;20;50;20;50;50;50;50;50','article','/report/article.rptdesign','CODE_ARTICLE',
+'fr.legrain.articles.editor.EditorArticle','Articles',NULL,0,NULL);
+
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM) VALUES (2,'liste des Factures','select CODE_FACTURE,DATE_FACTURE,CODE_TIERS,NOM_TIERS,(MTNETTTC)as MTNETTTC ,EXPORT FROM  V_facture , calcul_total_direct(''facture'',id_facture)','CODE_FACTURE;DATE_FACTURE;CODE_TIERS;NOM_TIERS;MTNETTTC;EXPORT','CODE;DATE FACTURE;CODE TIERS;NOM TIERS;NET TTC;EXPORTEE','100;100;100;100;200;100;100;100','facture','/report/visu_facture.rptdesign','CODE_FACTURE','fr.legrain.editor.facture.swt.multi','Facture',NULL,0,NULL);
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM) VALUES (3,'Liste des tiers','select CODE_TIERS,CODE_COMPTA,COMPTE,NOM_TIERS,ACTIF_TIERS,TTC_TIERS,CODE_T_CIVILITE,CODE_ENTREPRISE,CODE_T_TIERS,CODE_BANQUE,CODE_T_ENTITE from v_tiers','CODE_TIERS;CODE_COMPTA;COMPTE;NOM_TIERS;ACTIF_TIERS;TTC_TIERS;CODE_T_CIVILITE;CODE_ENTREPRISE;CODE_T_TIERS;CODE_BANQUE;CODE_T_ENTITE','CODE_TIERS;CODE_COMPTA;COMPTE;NOM_TIERS;ACTIF_TIERS;TTC_TIERS;CODE_T_CIVILITE;CODE_ENTREPRISE;CODE_T_TIERS;CODE_BANQUE;CODE_T_ENTITE','100;50;50;100;30;30;50;50;50;50;50','tiers','/report/tiers.rptdesign','CODE_TIERS','fr.legrain.tiers.editor.EditorTiers','Tiers',NULL,0,NULL);
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM) VALUES (4,'Etat des stocks','select CODE_ARTICLE,LIBELLE_ARTICLE,QTE,UNITE,PERIODE_DEB,PERIODE_FIN,REPORT_QTE from VISU_ETAT_STOCKS(null,null,null,null,null,null)','CODE_ARTICLE;LIBELLE_ARTICLE;QTE;UNITE;PERIODE_DEB;PERIODE_FIN','Code article;Libellé de l''article;Quantité;Unité;Date début période;Date fin période','100;100;100;100;100;100','stocks','/report/EtatStocks.rptdesign','CODE_ARTICLE','fr.legrain.stocks.editor.EditorStocks','Stocks',NULL,1,NULL);
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM) VALUES (5,'Liste des bons de livraison',' select b.code_bonliv,b.date_bonliv,CODE_TIERS,NOM_TIERS,(MTNETTTC)as MTNETTTC  FROM v_bonliv b , calcul_total_direct(''BonLiv'',b.id_bonliv)','code_bonliv;date_bonliv;CODE_TIERS;NOM_TIERS;MTNETTTC','CODE;DATE BONLIV;CODE TIERS;NOM TIERS;NET TTC','100;100;100;100;100','BONLIV','/report/visu_BonLiv.rptdesign','CODE_BONLIV','fr.legrain.editor.Bl.swt.multi','BonLiv',NULL,0,NULL);
+INSERT INTO TA_VISUALISATION (ID,CODE_REQUETE,REQUETE,CHAMPS,TITRE_CHAMPS,TAILLE_CHAMPS,MODULE,IMPRESSION,IDENTIFIANT,ID_EDITEUR,ID_PLUGIN,GROUPBY,PROC,PARAM) VALUES (6,'Liste des devis',' select b.code_devis,b.date_devis,CODE_TIERS,NOM_TIERS,(MTNETTTC)as MTNETTTC  FROM v_devis b , calcul_total_direct(''devis'',b.id_devis)','code_devis;date_devis;CODE_TIERS;NOM_TIERS;MTNETTTC','CODE;DATE DEVIS;CODE TIERS;NOM TIERS;NET TTC','100;100;100;100;100','DEVIS','/report/visu_devis.rptdesign','CODE_DEVIS','fr.legrain.editor.devis.swt.multi','Devis',NULL,0,NULL);
+

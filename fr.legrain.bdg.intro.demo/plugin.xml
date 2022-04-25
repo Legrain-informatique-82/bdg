@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="GestionCommerciale.GestionCommercialeExtentionPoints">
+      <elementExtensionPoint
+            site_url="http://legrain.fr/bdg/version-facturation-gratuite-erp-bureau-de-gestion.html">
+      </elementExtensionPoint>
+   </extension>
+
+</plugin>

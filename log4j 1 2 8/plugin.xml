@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="log4j_1_2_8"
+   name="Log4j_1_2_8 Plug-in"
+   version="1.2.8"
+   provider-name="Le Grain SA">
+
+   <runtime>
+      <library name="log4j-1.2.8.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+</plugin>

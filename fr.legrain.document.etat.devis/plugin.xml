@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="editorPageEtatDocument" name="Editeur page etat document" schema="schema/editorPageEtatDocument.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.document.etat.devis.handlers.HandlerEtatDevis"
+            description="Echéance documents"
+            id="fr.legrain.document.etat.devis"
+            name="Echéance documents">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.document.etat.devis.editors.FormEditorEtat"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.etat.devis"
+            name="Echéance documents">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:gestion">
+         <command
+               commandId="fr.legrain.document.etat.devis"
+               icon="icons/logo_lgr_16.png"
+               label="Echéance documents"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.etat.devis.echeance"
+            class="fr.legrain.document.etat.devis.preferences.EcheanceDevisPreferencePage"
+            id="fr.legrain.document.etat.devis.preferences.EcheanceDevisPreferencePage"
+            name="Devis">
+      </page>
+      <page
+            class="fr.legrain.document.etat.devis.preferences.EcheancePreference"
+            id="fr.legrain.document.etat.devis.echeance"
+            name="Echeance">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.document.etat.devis.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="GestionCommerciale.execLancement">
+      <code
+            classe="fr.legrain.document.etat.devis.ExecLancement">
+      </code>
+   </extension>
+
+</plugin>

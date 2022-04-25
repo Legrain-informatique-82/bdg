@@ -1,0 +1,46 @@
+<project name="GestCom" default="db.build">
+		<property name="jdbcDriver" value="org.firebirdsql.jdbc.FBDriver"/>
+		<property name="dbFile" value="${db}"/>
+		<property name="debutURL" value="jdbc:firebirdsql:localhost/3050:"/>
+		<property name="dbURL" value="${debutURL}${dbFile}"/>
+		<property name="dbUser" value="${userLoc}"/>
+		<property name="dbPass" value="${passLoc}"/>
+		
+		<path id="jdbc.driver.class.path">
+			<!--<pathelement path="./firebirdsql-full.jar"/>-->
+			<pathelement location="${osgi.syspath}"/>
+		</path>
+
+	<target name="db.build">	
+		<sql driver="${jdbcDriver}"
+       		url="${dbURL}" userid="${dbUser}" password="${dbPass}"   output="db.txt"  keepformat="on">
+    		<classpath refid="jdbc.driver.class.path"/>
+			<transaction src="Creation_Base/DescriptionDomaines.SQL"/>
+			<transaction src="Creation_Base/DescriptionTables.SQL"/>
+			<transaction src="Creation_Base/DescriptionVues.SQL"/>
+			<transaction src="Creation_Base/DescriptionGenerator.SQL"/>
+			<transaction src="Creation_Base/DescriptionException.SQL"/>
+			<transaction src="Creation_Base/DescriptionUDF.SQL"/>
+			<transaction src="Creation_Base/DescriptionTablesOSC.SQL"/>
+  		</sql>
+		
+		<sql driver="${jdbcDriver}"
+			url="${dbURL}" userid="${dbUser}" password="${dbPass}"   delimitertype="row" delimiter="^"  output="db.txt" append="true" keepformat="on">
+			<classpath refid="jdbc.driver.class.path"/>
+			<transaction src="Creation_Base/DescriptionProcedures.SQL"/>
+			<transaction src="Creation_Base/DescriptionTriggers.SQL"/>
+  		</sql>
+		
+		<sql driver="${jdbcDriver}"
+			url="${dbURL}" userid="${dbUser}" password="${dbPass}"   delimitertype="row" delimiter="^" encoding="UTF-8" output="db.txt" append="true" keepformat="on">			
+			<classpath refid="jdbc.driver.class.path"/>
+			 <transaction src="Requete_Essai/Insertion.SQL"/>
+		</sql>
+
+
+<!--		<exec dir="." executable="${script}" output="db.build.txt" error="db.build.error.txt">  
+		</exec>-->
+
+	</target>	
+		
+</project>

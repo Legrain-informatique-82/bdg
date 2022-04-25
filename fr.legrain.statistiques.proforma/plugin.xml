@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="fr.legrain.statistiques.editorPageTableauDeBord">
+      <editor
+            editorClass="fr.legrain.statistiques.proforma.ecrans.PaFormPageProforma"
+            editorController="fr.legrain.statistiques.proforma.controllers.FormPageControllerProforma"
+            editorIcon="icons/devis.png"
+            editorLabel="Proforma">
+      </editor>
+   </extension>
+
+</plugin>

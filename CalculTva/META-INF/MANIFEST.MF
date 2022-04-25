@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CalculTva Plug-in
+Bundle-SymbolicName: CalculTva;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.calcultva.CalculTvaPlugin
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ librairiesLeGrain,
+ gestComBd,
+ LibrairiesEcran,
+ LibJBuilder2006,
+ Articles,
+ Tiers,
+ log4j_1_2_8,
+ LibMessageLGR,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions
+Eclipse-LazyStart: true
+Export-Package: fr.legrain.calcultva,
+ fr.legrain.calcultva.controller,
+ fr.legrain.calcultva.divers,
+ fr.legrain.calcultva.ecran
+Bundle-Vendor: Le Grain SA

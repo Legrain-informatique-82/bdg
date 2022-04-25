@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.remisecheque.editors.RemiseMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.remise.multi"
+            name="Remise">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.remisecheque.handlers.HandlerRemise"
+            description="Remise"
+            id="fr.legrain.remise.multi"
+            name="Remise">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion">
+         <command
+               commandId="fr.legrain.remise.multi"
+               icon="icons/logo_lgr_16.png"
+               label="Remise"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.remisecheque.preferences.RemisePreferencePage"
+            id="fr.legrain.remise.page1"
+            name="Remise">
+      </page>
+   </extension>
+
+</plugin>

@@ -1,0 +1,93 @@
+/*Exportation des clients avec toutes les infos*/
+select
+  Tiers.CODE_TIERS,
+  Tiers.CODE_COMPTA,
+  Tiers.COMPTE,
+  Tiers.NOM_TIERS,
+  Tiers.PRENOM_TIERS,
+  Tiers.SURNOM_TIERS,
+  Tiers.ACTIF_TIERS,
+  Tiers.TTC_TIERS,
+  Civilite.CODE_T_CIVILITE,
+  Entreprise.CODE_ENTREPRISE,
+  Entreprise.LIBL_ENTREPRISE,
+  TTiers.CODE_T_TIERS,
+  TTiers.LIBELLE_T_TIERS,
+  Com.LIBL_COMMENTAIRE,
+  Banque.CODE_BANQUE,
+  Banque.LIBC_BANQUE,
+  Banque.LIBL_BANQUE,
+  Entite.CODE_T_ENTITE,
+  compl.tva_i_com_compl,
+  compl.siret_compl,
+  adr.ADRESSE1_ADRESSE,
+  adr.ADRESSE2_ADRESSE,
+  adr.ADRESSE3_ADRESSE,
+  adr.CODEPOSTAL_ADRESSE,
+  adr.VILLE_ADRESSE,
+  adr.PAYS_ADRESSE,
+  email.ADRESSE_EMAIL,
+  web.ADRESSE_WEB
+  Tiers.quand_cree_tiers
+  
+  from TA_TIERS Tiers
+  LEFT OUTER join TA_T_ENTITE Entite on Tiers.ID_T_ENTITE = Entite.ID_T_ENTITE
+  LEFT OUTER join TA_T_CIVILITE Civilite on Tiers.ID_T_CIVILITE = Civilite.ID_T_CIVILITE
+  LEFT OUTER join TA_ENTREPRISE Entreprise on Tiers.ID_ENTREPRISE = Entreprise.ID_ENTREPRISE
+  LEFT OUTER join TA_T_TIERS TTiers on Tiers.ID_T_TIERS = TTiers.ID_T_TIERS
+  LEFT OUTER join TA_COMMENTAIRE Com on Tiers.ID_TIERS = Com.ID_TIERS
+  LEFT OUTER join TA_BANQUE Banque on Tiers.ID_I_BANQUE = Banque.ID_BANQUE
+  LEFT OUTER join ta_compl compl on compl.id_tiers = Tiers.id_tiers
+  LEFT OUTER join TA_R_ADR radr on radr.ID_TIERS = Tiers.id_tiers
+  LEFT OUTER join TA_R_EMAIL remail on remail.id_tiers = Tiers.id_tiers
+  LEFT OUTER join TA_R_WEB rweb on rweb.id_tiers = Tiers.id_tiers
+  LEFT OUTER join ta_ADRESSE adr on adr.ID_ADRESSE = radr.ID_ADRESSE
+  LEFT OUTER join ta_EMAIL email on email.ID_EMAIL = remail.ID_EMAIL
+  LEFT OUTER join ta_WEB web on web.ID_WEB = rweb.ID_WEB
+
+  
+  
+  /*Requete pour Client Dumercq*/
+  select
+  Tiers.NOM_TIERS,
+  Tiers.PRENOM_TIERS,
+  Civilite.CODE_T_CIVILITE,
+  adr.ADRESSE1_ADRESSE,
+  adr.ADRESSE2_ADRESSE,
+  adr.ADRESSE3_ADRESSE,
+  adr.CODEPOSTAL_ADRESSE,
+  adr.VILLE_ADRESSE,
+  adr.PAYS_ADRESSE
+  
+  from TA_TIERS Tiers
+  LEFT OUTER join TA_T_CIVILITE Civilite on Tiers.ID_T_CIVILITE = Civilite.ID_T_CIVILITE
+  LEFT OUTER join TA_R_ADR radr on radr.ID_TIERS = Tiers.id_tiers
+  LEFT OUTER join ta_ADRESSE adr on adr.ID_ADRESSE = radr.ID_ADRESSE
+
+  where (adr.CODEPOSTAL_ADRESSE is not null
+  and adr.CODEPOSTAL_ADRESSE<>'0'
+  and adr.codepostal_adresse<>'' )
+  
+  
+  
+CREATE OR ALTER PROCEDURE MISEAJOUR_PARAM_ARTICLE (
+    NUM_PIECE INTEGER)
+AS
+begin
+if (:num_piece=0) then
+    begin  
+        Update ta_l_facture lf set lf.compte_l_facture = (select A.numcpt_article
+        from ta_article A where a.id_article=lf.id_article)
+        where lf.compte_l_facture is null or (lf.compte_l_facture not in(select A.numcpt_article
+        from ta_article A where a.id_article=lf.id_article));
+    end
+else
+    begin 
+        Update ta_l_facture lf set lf.compte_l_facture = (select A.numcpt_article
+        from ta_article A where a.id_article=lf.id_article)
+        where (lf.id_facture = :num_piece) and  (lf.compte_l_facture is null or (lf.compte_l_facture not in(select A.numcpt_article
+        from ta_article A where a.id_article=lf.id_article)));
+    end
+  suspend;
+end
+^

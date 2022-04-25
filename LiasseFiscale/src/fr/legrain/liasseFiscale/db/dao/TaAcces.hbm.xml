@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 7, 2006 10:37:19 AM by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+    <class name="fr.legrain.liasseFiscale.db.dao.TaAcces" table="TA_ACCES">
+        <id name="idAcces" type="java.lang.Integer">
+            <column name="ID_ACCES" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="string">
+            <column name="VERSION" length="20" />
+        </version>
+        <property name="passwordAcces" type="string">
+            <column name="PASSWORD_ACCES" length="50" />
+        </property>
+        <property name="ipAcces" type="string">
+            <column name="IP_ACCES" length="50" />
+        </property>
+        <property name="userAcces" type="string">
+            <column name="USER_ACCES" length="50" />
+        </property>
+        <property name="quiCreeAcces" type="string">
+            <column name="QUI_CREE_ACCES" length="50" />
+        </property>
+        <property name="quandCreeAcces" type="timestamp">
+            <column name="QUAND_CREE_ACCES" length="19" />
+        </property>
+        <property name="quiModifAcces" type="string">
+            <column name="QUI_MODIF_ACCES" length="50" />
+        </property>
+        <property name="quandModifAcces" type="timestamp">
+            <column name="QUAND_MODIF_ACCES" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 7, 2006 10:37:19 AM by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+    <class name="fr.legrain.liasseFiscale.db.dao.TaModif" table="TA_MODIF">
+        <id name="idModif" type="java.lang.Integer">
+            <column name="ID_MODIF" />
+            <generator class="assigned" />
+        </id>
+        <version name="version" type="string">
+            <column name="VERSION" length="20" />
+        </version>
+        <property name="tableModif" type="string">
+            <column name="TABLE_MODIF" />
+        </property>
+        <property name="champModif" type="string">
+            <column name="CHAMP_MODIF" />
+        </property>
+        <property name="valeurModif" type="string">
+            <column name="VALEUR_MODIF" />
+        </property>
+        <property name="ipAcces" type="string">
+            <column name="IP_ACCES" length="50" />
+        </property>
+        <property name="quiCreeModif" type="string">
+            <column name="QUI_CREE_MODIF" length="50" />
+        </property>
+        <property name="quandCreeModif" type="timestamp">
+            <column name="QUAND_CREE_MODIF" length="19" />
+        </property>
+        <property name="quiModifModif" type="string">
+            <column name="QUI_MODIF_MODIF" length="50" />
+        </property>
+        <property name="quandModifModif" type="timestamp">
+            <column name="QUAND_MODIF_MODIF" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

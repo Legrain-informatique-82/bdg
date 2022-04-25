@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LeGrain Fragment
+Bundle-SymbolicName: LeGrain
+Bundle-Version: 2.0.14.qualifier
+Fragment-Host: EditionsSpecifiques;bundle-version="2.0.14.qualifier"

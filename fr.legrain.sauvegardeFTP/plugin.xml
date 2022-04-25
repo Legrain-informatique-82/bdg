@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.sauvegardeFTP.handlers.HandlerSauvergardeFTP"
+            description="Sauvegarder FTP"
+            id="fr.legrain.sauvegardeFTP"
+            name="Sauvegarder FTP">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:outils?after=Sauvegarde.finSauvegarde">
+         <command
+               commandId="fr.legrain.sauvegardeFTP"
+               icon="icons/database_save.png"
+               label="Sauvegarde FTP"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.sauvegardeFTP.preferences.SauvegardeFTPPreferencePage"
+            id="fr.legrain.sauvegardeFTP.preferences.SauvegardeFTPPreferencePage"
+            name="Serveur FTP">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.sauvegardeFTP.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

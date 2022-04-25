@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: MiseAJourDesDossiers Plug-in
+Bundle-SymbolicName: MiseAJourDesDossiers;singleton:=true
+Bundle-Version: 2.0.1.qualifier
+Bundle-Activator: miseajourdesdossiers.MajDossiers
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ gestComBd,
+ Tiers,
+ Articles,
+ log4j_1_2_8,
+ LibJBuilder2006,
+ Lib,
+ GestionCommerciale,
+ Document,
+ CalculTva,
+ LibMessageLGR,
+ org.hibernate.eclipse,
+ librairiesLeGrain,
+ avisEcheance;bundle-version="2.0.9",
+ Edition;bundle-version="2.0.14"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Le Grain SA

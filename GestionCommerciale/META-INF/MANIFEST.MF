@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GestionCommerciale Plug-in
+Bundle-SymbolicName: GestionCommerciale; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.gestionCommerciale.GestionCommercialePlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.ui.intro,
+ log4j_1_2_8,
+ gestComBd,
+ org.eclipse.core.resources,
+ librairiesLeGrain,
+ org.eclipse.ant.core,
+ JayBird_2_0,
+ LibrairiesEcran,
+ LibMessageLGR,
+ MiseAJourBase,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ Lib,
+ fr.legrain.services;bundle-version="2.0.14",
+ org.eclipse.ui.intro.universal,
+ org.eclipse.ui.forms;bundle-version="3.5.100",
+ org.eclipse.core.databinding.property;bundle-version="1.4.0"
+Eclipse-AutoStart: true
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.gestionCommerciale,
+ fr.legrain.gestionCommerciale.extension.interfaces,
+ fr.legrain.gestionCommerciale.preferences

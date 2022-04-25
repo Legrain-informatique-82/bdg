@@ -1,0 +1,359 @@
+<project name="Build specific targets and properties" default="noDefault">
+
+	<!-- ===================================================================== -->
+	<!-- Run a given ${target} on all elements being built -->
+	<!-- Add on <ant> task for each top level element being built. -->
+	<!-- ===================================================================== -->
+	<property name="allElementsFile" value="${builder}/allElements.xml"/>
+	<!--<property name="testAllElementsFile" value="${builder}/testAllElements.xml"/>-->
+	<import file="${allElementsFile}" />
+	<!--<import file="${testAllElementsFile}" />-->
+	<target name="allElements">
+		<antcall target="allElementsDelegator" />
+		<!--<antcall target="allElementsDelegatorTest" />-->
+		<!--<antcall target="lgrTestFeature" />-->
+	</target>
+
+	<!--
+	<target name="lgrTestFeature" if="runTest">
+		<echo message="lgrTestFeature ***** ${genericTargets} ** ${eclipse.base} * ${target}" />
+		<echo message="${eclipse.base} = ${assemblyTempDir} / ${collectingFolder}" />
+		<ant antfile="${genericTargets}" target="${target}" >
+			<property name="type" value="feature" />
+			<property name="id" value="fr.legrain.bdg.tests" />
+		</ant> 
+	</target>
+
+ 	<target name="assemble.fr.legrain.bdg.tests.win32.win32.x86">
+ 		<echo message="lgrTestFeature ***win32**" />
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+ 	<target name="assemble.fr.legrain.bdg.tests.linux.gtk.x86">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+ 	<target name="assemble.fr.legrain.bdg.tests">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+-->
+
+	<!-- ===================================================================== -->
+	<!-- ===================================================================== -->
+	<target name="getBaseComponents" depends="checkLocalBase" unless="skipBase">
+		<get src="${eclipseBaseURL}" dest="${buildDirectory}/../temp-base.zip" />
+		<unzip dest="${base}" overwrite="true" src="${buildDirectory}/../temp-base.zip" />
+	</target>
+
+	<target name="checkLocalBase">
+		<available file="${base}" property="skipBase" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Check out map files from correct repository -->
+	<!-- Replace values for mapsCheckoutTag as desired. -->
+	<!-- ===================================================================== -->
+	<target name="getMapFiles" depends="checkLocalMaps" unless="skipMaps">
+		<property name="mapsCheckoutTag" value="HEAD" />
+		<cvs cvsRoot="${mapsRepo}" package="${mapsRoot}" dest="${buildDirectory}/maps" tag="${mapsCheckoutTag}" />
+	</target>
+
+	<target name="checkLocalMaps">
+		<available property="skipMaps" file="${buildDirectory}/maps" />
+	</target>
+
+	<target name="tagMapFiles" if="tagMaps">
+		<cvs dest="${buildDirectory}/maps/${mapsRoot}" command="tag ${mapsTagTag}" />
+	</target>
+
+	<!-- ===================================================================== -->
+
+	<target name="clean" unless="noclean">
+		<antcall target="allElements">
+			<param name="target" value="cleanElement" />
+		</antcall>
+	</target>
+
+	<target name="gatherLogs">
+		<mkdir dir="${buildDirectory}/${buildLabel}/compilelogs" />
+		<antcall target="allElements">
+			<param name="target" value="gatherLogs" />
+		</antcall>
+		<unzip dest="${buildDirectory}/${buildLabel}/compilelogs" overwrite="true">
+			<fileset dir="${buildDirectory}/features">
+				<include name="**/*.log.zip" />
+			</fileset>
+		</unzip>
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before setup -->
+	<!-- ===================================================================== -->
+	<target name="preSetup">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after setup but before starting the build proper -->
+	<!-- ===================================================================== -->
+	<target name="postSetup">
+		<antcall target="getBaseComponents" />
+		<!-- lgr -->
+		<antcall target="lgrFetch" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- LGR : Recupere les fichiers a compiler a partir d'un workspace -->
+	<!-- ===================================================================== -->
+	<target name="lgrFetch">
+		<!--
+		<echo message="lgrFetch : ${buildDirectory}" />
+		-->
+		<!--
+		<copy todir="${buildDirectory}">
+    		<fileset dir="${lgrWorkspace}"/>
+  		</copy>
+		-->
+
+		<!-- ============== -->
+		<!-- LGR : Features -->
+		<!-- ============== -->
+		<!--
+		<copy todir="${buildDirectory}/features/GestionCommerciale">
+    		<fileset dir="${lgrWorkspace}/GestionCommerciale"/>
+  		</copy>
+
+-->
+		<!-- ============== -->
+		<!-- LGR : Plugins  -->
+		<!-- ============== -->
+		<!--
+		<copy todir="${buildDirectory}/plugins/Articles">
+    		<fileset dir="${lgrWorkspace}/Articles"/>
+  		</copy>
+-->
+
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="preFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after fetching the build elements -->
+	<!-- ===================================================================== -->
+	<target name="postFetch">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="preGenerate">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after generating the build scripts. -->
+	<!-- ===================================================================== -->
+	<target name="postGenerate">
+		<antcall target="clean" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="preProcess">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after running the build.xmls for the elements being built. -->
+	<!-- ===================================================================== -->
+	<target name="postProcess">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="preAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running assemble. -->
+	<!-- ===================================================================== -->
+	<target name="postAssemble">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do before running package. -->
+	<!-- ===================================================================== -->
+	<target name="prePackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after  running package. -->
+	<!-- ===================================================================== -->
+	<target name="postPackage">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do after the build is done. -->
+	<!-- ===================================================================== -->
+	<target name="postBuild">
+		<antcall target="gatherLogs" />
+		<antcall target="test" />
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to test the build results -->
+	<!-- ===================================================================== -->
+	<target name="test">
+		<antcall target="lgrTest" />
+	</target>
+
+	<target name="lgrTest" if="runTest">
+		<property environment="env" />
+		<echo message="${env.BUILD_TAG}"/>
+
+		<property name="testDirectory" value="${env.WORKSPACE}/test"/>
+		<property name="testResultsDirectory" value="${env.WORKSPACE}"/>
+		<echo message="testDirectory ***** ${env.WORKSPACE}/test" />
+		<echo message="Fichier .product pour les tests ***** ${product}" />
+		<property name="eclipse-home" value="${testDirectory}/eclipse"/>
+
+		<delete dir="${testDirectory}"/>
+		<mkdir dir="${testDirectory}"/>
+
+		<!-- 
+			Create the test environment needed to run unit tests using the 
+			Eclipse Testing Framework. The test environment consists of three
+			parts.
+			
+			1. A complete version of the Eclipse SDK.
+			2. The Eclipse Testing Framework itself.
+			3. The production and test plug-ins that make up your application.
+		-->
+		<!--
+			First, we will unzip an archived version of the Eclipse SDK. It is 
+			important to start with a "clean" version of the SDK. If you copy a 
+			previously run instance of Eclipse, you will bring along a lot of 
+			metadata and config info that will slow down your build and complicate
+			the running of JUnits.
+		-->
+		<untar src="${base}/eclipse-SDK-3.7.1-linux-gtk.tar.gz" dest="${testDirectory}" compression="gzip"/>
+
+		<!-- 
+			Add Eclipse Testing Framework
+		-->
+		<mkdir dir="${testDirectory}/eclipse/dropins/etf"/>
+
+		<unzip src="${base}/eclipse-test-framework-3.7.1.zip" dest="${testDirectory}/eclipse/dropins/etf"/>
+
+		<!-- 
+			Unzip the product created above. Note that the extract code must then
+			be copied into the "eclipse" directory containing the SDK and the ETF.
+		-->
+		<mkdir dir="${testDirectory}/eclipse/dropins/bdg"/>
+		<mkdir dir="${testDirectory}/eclipse/dropins/bdg/eclipse"/>
+		<mkdir dir="${testDirectory}/eclipse/dropins/bdg/eclipse/plugins"/>
+		<mkdir dir="${testDirectory}/eclipse/dropins/bdg/eclipse/features"/>
+		<unzip src="${buildDirectory}/${buildLabel}/${buildId}-linux.gtk.x86.zip" dest="${testDirectory}"/>
+
+		<echo message="Install ETF" />
+		<!--
+		http://dev.eclipse.org/viewcvs/viewvc.cgi/e4/releng/org.eclipse.e4.builder/builder/general/tests/test.xml?view=co&content-type=text%2Fplain
+		-->
+		<chmod file="${testDirectory}/eclipse/eclipse" perm="ugo+rx"/>
+		
+		<property name="additionalPlugins" value="" />
+		<exec executable="${testDirectory}/eclipse/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" resultproperty="directorcode">
+			<!--<arg line="-vm /opt/public/common/jdk-1.6.x86_64/bin/java" />-->
+			<arg line="-application org.eclipse.equinox.p2.director" />
+			<arg line="-nosplash" />
+			<arg line="--launcher.suppressErrors" />
+			<arg line="-consoleLog" />
+			<arg line="-flavor tooling" />
+			<!--<arg line="-installIUs fr.legrain.bdg.tests,org.eclipse.test,org.eclipse.ant.optional.junit" />-->
+			<arg line="-installIUs org.eclipse.test,org.eclipse.ant.optional.junit,org.junit,org.junit4" />
+			<arg line="-p2.os linux" />
+			<arg line="-p2.ws gtk" />
+			<arg line="-p2.arch x86" />
+			<arg line="-roaming" />
+			<arg line="-profile SDKProfile" />
+			<arg line="-repository file:${testDirectory}/eclipse/dropins/etf" />
+			<arg line="-destination ${testDirectory}/eclipse" />
+			<arg line="-bundlepool ${testDirectory}/eclipse" />
+		</exec>
+
+
+		<!--<unzip src="${buildDirectory}/${buildLabel}/fr.legrain.bdg.tests_1.0.0.zip" dest="${testDirectory}"/>-->
+		<move todir="${eclipse-home}/dropins/bdg/plugins">
+			<fileset dir="${testDirectory}/${archivePrefix}/plugins">
+				<include name="*/**" />
+			</fileset>
+		</move>
+		<move todir="${eclipse-home}/dropins/bdg/features">
+			<fileset dir="${testDirectory}/${archivePrefix}/features">
+				<include name="*/**" />
+			</fileset>
+		</move>
+		
+		<echo message="Install Feature/Plugin de test BDG : fr.legrain.bdg.tests" />
+		<exec executable="${testDirectory}/eclipse/eclipse" failonerror="false" dir="${eclipse-home}" timeout="900000" resultproperty="directorcode">
+					<!--<arg line="-vm /opt/public/common/jdk-1.6.x86_64/bin/java" />-->
+					<arg line="-application org.eclipse.equinox.p2.director" />
+					<arg line="-nosplash" />
+					<arg line="--launcher.suppressErrors" />
+					<arg line="-consoleLog" />
+					<arg line="-flavor tooling" />
+					<arg line="-installIUs fr.legrain.bdg.tests" />
+					<arg line="-p2.os linux" />
+					<arg line="-p2.ws gtk" />
+					<arg line="-p2.arch x86" />
+					<arg line="-roaming" />
+					<arg line="-profile SDKProfile" />
+					<arg line="-repository file:${testDirectory}/eclipse/dropins/bdg" />
+					<arg line="-destination ${testDirectory}/eclipse" />
+					<arg line="-bundlepool ${testDirectory}/eclipse" />
+				</exec>
+
+		<!-- 
+			Run the test.
+		-->
+		<!--<property name="library-file" value="${eclipse-home}/dropins/etf/eclipse/plugins/org.eclipse.test_3.3.100/library.xml"/>-->
+		<!--<property name="org.eclipse.test" value="org.eclipse.test_3.3.100" />-->
+		<property name="org.eclipse.test" value="3.3.100" />
+		<property name="library-file" value="${testDirectory}/eclipse/plugins/org.eclipse.test_3.3.100/library.xml"/>
+		<property name="junit-stylesheet" value="${testDirectory}/eclipse/plugins/org.eclipse.test_3.3.100/JUNIT.XSL" />
+
+		<ant target="core-test" antfile="${library-file}" dir="${eclipse-home}">
+			<property name="os" value="${baseos}"/>
+			<property name="ws" value="${basews}"/>
+			<property name="arch" value="${basearch}"/>
+			<property name="data-dir" value="${eclipse-home}/junit-workspace -clean"/>
+			<property name="plugin-name" value="fr.legrain.bdg.tests"/>
+			<property name="classname" value="fr.legrain.bdg.tests.AllTests"/>
+		</ant>
+
+		<!-- 
+			Collect all test results into single file and move to results directory.
+		-->
+		<ant target="collect" antfile="${library-file}" dir="${eclipse-home}">
+			<property name="includes" value="fr.legrain*.xml" />
+			<property name="output-file" value="test-results.xml" />
+		</ant>
+		<move file="${eclipse-home}/test-results.xml" todir="${testResultsDirectory}" />
+	</target>
+
+
+	<!-- ===================================================================== -->
+	<!-- Steps to do to publish the build results -->
+	<!-- ===================================================================== -->
+	<target name="publish">
+	</target>
+
+	<!-- ===================================================================== -->
+	<!-- Default target                                                        -->
+	<!-- ===================================================================== -->
+	<target name="noDefault">
+		<echo message="You must specify a target when invoking this file" />
+	</target>
+
+</project>

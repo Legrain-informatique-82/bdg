@@ -1,0 +1,20 @@
+<introContent>
+  	<extensionContent id="fr.legrain.avoir" style="css/avoir.css" name="Avoir" path="documents/links-background/page-links/ancre_avoir">
+		<group style-id="content-group" id="fr.legrain.avoir-group">
+       		<link label="Ouvrir les avoirs" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Avoir&amp;class=fr.legrain.avoir.handlers.IntroActionAvoir&amp;standby=true"
+       			id="link_avoir" 
+       			style-id="content-link">
+          		<text>Gestion des avoirs</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+  	<extensionContent id="fr.legrain.avoir" style="css/avoir.css" name="Avoir" path="root/links-background/page-links/ancre_avoir">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=Avoir&amp;class=fr.legrain.avoir.handlers.IntroActionAvoir&amp;standby=true"
+       		id="link_facture_avoir" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+</introContent>

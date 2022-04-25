@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compta>
+    <comptes>
+        <cpt numero="a" origine="bal">
+            <libelle>b</libelle>
+            <mt-debit>10.0</mt-debit>
+            <mt-credit>20.0</mt-credit>
+        </cpt>
+        <cpt numero="c" origine="bal">
+            <libelle>d</libelle>
+            <mt-debit>30.0</mt-debit>
+            <mt-credit>40.0</mt-credit>
+        </cpt>
+        <cpt numero="e" origine="immo">
+            <libelle>f</libelle>
+            <mt-debit>50.0</mt-debit>
+            <mt-credit>60.0</mt-credit>
+        </cpt>
+    </comptes>
+    <complement>
+        <info cle="cle" valeur1="v1" valeur2="v2"/>
+        <info cle="cle" valeur1="v3" valeur2="v4"/>
+    </complement>
+</compta>

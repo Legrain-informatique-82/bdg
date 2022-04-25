@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="fr.legrain.statistiques.editorPageTableauDeBord">
+      <editor
+            editorClass="fr.legrain.statistiques.livraison.ecrans.PaFormPageLivraisons"
+            editorController="fr.legrain.statistiques.livraison.controllers.FormPageControllerLivraisons"
+            editorIcon="icons/lorry.png"
+            editorLabel="Livraison">
+      </editor>
+   </extension>
+
+</plugin>

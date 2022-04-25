@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-Localization: plugin
+Bundle-ManifestVersion: 2
+Bundle-Name: Infos
+Bundle-SymbolicName: fr.legrain.messages.infos;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.messages.infos.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ GestionCommerciale
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

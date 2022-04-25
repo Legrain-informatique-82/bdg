@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.generationLabelEtiquette.handlers.HandlerGenerationLabelsEtiquette"
+            id="fr.legrain.GenerationLabelEtiquette.genere"
+            name="Génération d&apos;étiquettes">
+      </command>
+      <command
+            id="fr.legrain.GenerationLabelEtiquette.imprimer"
+            name="Imprimer des étiquettes">
+         <commandParameter
+               id="GenerationLabelEtiquette.commandParameter3"
+               name="type"
+               optional="true">
+         </commandParameter>
+         <commandParameter
+               id="GenerationLabelEtiquette.commandParameter4"
+               name="modele"
+               optional="true">
+         </commandParameter>
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.GenerationLabelEtiquette">
+         <command
+               commandId="fr.legrain.GenerationLabelEtiquette.genere"
+               icon="icons/page_white_width.png"
+               label="Génération d&apos;étiquettes"
+               style="push"
+               tooltip="Génération d&apos;étiquettes">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.GenerationLabelEtiquette">
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.generationLabelEtiquette.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

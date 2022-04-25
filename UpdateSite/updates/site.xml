@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://bureaugestion.fr/updates">
+      Site de mise à jour du bureau de gestion
+   </description>
+   <feature url="features/DocumentFiscalFeature_2.0.14.2.0.148251024.jar" id="DocumentFiscalFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/SauvegardeFeature_2.0.14.2.0.148251024.jar" id="SauvegardeFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/EditionFeature_2.0.14.2.0.148251024.jar" id="EditionFeature" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/EditionsSpecifiquesFeatures_2.0.14.2.0.148251024.jar" id="EditionsSpecifiquesFeatures" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/DiversFeature_2.0.14.2.0.148251024.jar" id="DiversFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/MiseAJourBaseFeature_2.0.14.2.0.148251024.jar" id="MiseAJourBaseFeature" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/FeatureVisualisation_2.0.14.2.0.148251024.jar" id="FeatureVisualisation" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/GestionCommerciale_2.0.14.2.0.148251024.jar" id="GestionCommerciale" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/LangueFeature_2.0.14.2.0.148251024.jar" id="LangueFeature" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/GestionCommercialeBase_2.0.14.2.0.148251024.jar" id="GestionCommercialeBase" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <feature url="features/LibJbuilderFeature_2.0.14.2.0.148251024.jar" id="LibJbuilderFeature" version="2.0.14.2.0.148251024">
+      <category name="Librairies"/>
+   </feature>
+   <feature url="features/LibLgrBirtFeature_2.0.14.2.0.148251024.jar" id="LibLgrBirtFeature" version="2.0.14.2.0.148251024">
+      <category name="Librairies"/>
+   </feature>
+   <feature url="features/UpdaterFeature_2.0.14.2.0.148251024.jar" id="UpdaterFeature" version="2.0.14.2.0.148251024">
+      <category name="Librairies"/>
+   </feature>
+   <feature url="features/DevisFeature_2.0.14.2.0.148251024.jar" id="DevisFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/DocumentFeature_2.0.14.2.0.148251024.jar" id="DocumentFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/StocksFeature_2.0.14.2.0.148251024.jar" id="StocksFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/TiersFeature_2.0.14.2.0.148251024.jar" id="TiersFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/BoncdeFeature_2.0.14.2.0.148251024.jar" id="BoncdeFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/BonLivraisonFeature_2.0.14.2.0.148251024.jar" id="BonLivraisonFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/ApporteurFeature_2.0.14.2.0.148251024.jar" id="ApporteurFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/ArticlesFeature_2.0.14.2.0.148251024.jar" id="ArticlesFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/AvoirFeature_2.0.14.2.0.148251024.jar" id="AvoirFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/ArchivageFeature_2.0.14.2.0.148251024.jar" id="ArchivageFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/FactureFeature_2.0.14.2.0.148251024.jar" id="FactureFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/ExportationFeature_2.0.14.2.0.148251024.jar" id="ExportationFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/fr.legrain.document.impression.feature_2.0.14.2.0.148251024.jar" id="fr.legrain.document.impression.feature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/fr.legrain.SaisieCaisseFeature_2.0.14.2.0.148251024.jar" id="fr.legrain.SaisieCaisseFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/GenerationDocumentFeature_2.0.14.2.0.148251024.jar" id="GenerationDocumentFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/GenerationDocumentLGRFeature_2.0.14.2.0.148251024.jar" id="GenerationDocumentLGRFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/GeoLocalisationFeature_2.0.14.2.0.148251024.jar" id="GeoLocalisationFeature" version="2.0.14.2.0.148251024">
+      <category name="Divers"/>
+   </feature>
+   <feature url="features/ProformaFeature_2.0.14.2.0.148251024.jar" id="ProformaFeature" version="2.0.14.2.0.148251024">
+      <category name="Facturation"/>
+   </feature>
+   <feature url="features/VisualisationsFeature_2.0.14.2.0.148251024.jar" id="VisualisationsFeature" version="2.0.14.2.0.148251024">
+      <category name="Base"/>
+   </feature>
+   <category-def name="Facturation" label="Facturation">
+      <description>
+         Modules articles, tiers et tous les documents
+      </description>
+   </category-def>
+   <category-def name="Librairies" label="Librairies"/>
+   <category-def name="Base" label="Base"/>
+   <category-def name="Divers" label="Divers"/>
+</site>

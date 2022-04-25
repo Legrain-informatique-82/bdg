@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Exportation Plug-in
+Bundle-SymbolicName: Exportation; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.exportation.ExportationPlugin
+Bundle-Vendor: Le Grain SA
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ gestComBd,
+ librairiesLeGrain,
+ Lib,
+ LibrairiesEcran,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ LibMessageLGR;bundle-version="2.0.14",
+ Document;bundle-version="2.0.14",
+ org.eclipse.core.databinding.property;bundle-version="1.2.0"
+Eclipse-AutoStart: true

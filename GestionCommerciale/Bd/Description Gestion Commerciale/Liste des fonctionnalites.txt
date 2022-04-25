@@ -1,0 +1,122 @@
+Gestion des dossiers :
+Ajout, modification d'un dossier commercial
+ - nouveau dossier
+- renommer un dossier
+- ouvrir un dossier existant
+
+Gestion des informations relative à l'entreprise et aux dates de l'exercice commercial
+
+Gestion des paramètres : 
+  - des articles :
+     - Unités
+     - Tva
+     - Famille d'articles
+     - Famille d'unités  
+
+- des tiers :
+     - type de téléphone  
+     - type d'email  
+     - type de site web  
+     - type d'adresse  
+     - civilité  
+     - type de tiers  
+     - type d'entité  
+     - type de compte bancaire  
+     - type de tarifs 
+     - type de liens 
+     - condition de paiement 
+     - famille de tiers
+
+  - des documents :
+     - type de paiement  
+
+Gestion des Articles : 
+- Ajouter, modifier, supprimer un article
+- gestion de ses tarifs et de ses unités
+- gestion du rapport entre 2 unités d'un article
+- Possibilité de rajouter un commentaire sur un article
+
+Gestion des stocks
+- Ajouter, modifier, supprimer un mouvement de stocks
+- Etat des mouvements de stocks
+- Calcul du report des stocks à une date donnée.
+- Etat des reports des stocks.
+
+Gestion des Tiers :
+- Ajouter, modifier, supprimer un tiers 
+- gestion de ses adresses
+- gestion de ses téléphones
+- gestion de ses emails
+- gestion de ses adresses web
+- gestion de ses liens de fichiers ou de répertoires
+- gestion de ses comptes bancaires
+- gestion de l'entreprise à laquelle il est rattaché
+- gestion des commerciaux auxquels il est rattaché
+- gestion des familles de tiers auxquels il appartient
+
+Gestion des documents : 
+Ajout, modification, suppression de :
+- Factures
+- Devis
+- Bons de livraison
+- Avoirs
+- Factures proforma
+- Bons de commande
+- Factures apporteur
+
+Génération de document : 
+- Possibilité de générer une facture à partir d'une autre en fonction d'une liste de tiers sélectionnés
+- Possiblité de générer un type de document à partir d'un autre type de document : 
+  exemple : génération d'une facture à partir d'un devis ou d'un bon de livraison, etc...
+
+Impression de documents : 
+- impression d'une sélection de documents entre 2 dates ou entre 2 codes
+
+Sur tous les écrans : Ecran de recherche et de visualisation (Alt+s)
+avec une sélection de requètes à paramétrer.
+
+Exportation des factures
+
+Gestion des préférences
+- article : 
+  codification des articles
+  Affichage d'une sélection d'éditions possibles
+  Liste des editions possibles avec sélection d'une par défaut
+- Documents (préférences applicable à tous les documents) :
+  Affichage des écrans sous forme d'onglet
+  Affichage des adresses de facturation, de livraisons, des commentaires et des conditions de paiement
+  Type par défaut d'une adresse de facturation, de livraison
+  Affichage d'une sélection d'éditions possibles
+  Type de paiement par défaut
+  - Pour chaque document particulier :
+    Codification du document
+    Impression du document automatiquement après validation
+    Commentaire à insérer automatiquement
+    Affichage d'une sélection d'éditions possibles
+    Affichage d'une sélection d'éditions possibles lors de l'impression en nombre
+    Liste des editions possibles avec sélection d'une par défaut
+    Choix des champs du destinataire à éditer
+    Type d'adresse de correspondance (pour éditer une page supplémentaire avec l'adresse de l'entité qui gère le document)
+    Liste des tiers à utiliser par défaut dans le document
+- Gestion des dossiers : 
+  Répertoire par défaut des dossiers
+- Mise à jour LeGrain (mise à jour du programme par internet): 
+  Paramètrages du serveur de mail, de l'utilisateur et du mot de pass
+- Sauvegarde et restauration : 
+  Répertoire de destinations par défaut des sauvegardes
+  Répertoire par défaut de la liste des sauvegardes à restaurer
+- Tiers : 
+  codification des tiers
+  Type par défaut de l'adresse saisie directement dans la fiche du tiers
+  Type par défaut du téléphone saisi directement dans la fiche du tiers
+  Type par défaut de l'adresse email saisie directement dans la fiche du tiers
+  Type par défaut de l'adresse Web saisie directement dans la fiche du tiers
+  Affichage d'une sélection d'éditions possibles
+  Liste des editions possibles avec sélection d'une par défaut
+  
+Sauvegarde et restauration d'un dossier
+
+Gestion des mises à jour du programme par internet
+
+
+

@@ -1,0 +1,23 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="ImportationGenerale.actionSet"
+            label="Importation Generale"
+            visible="true">
+         <menu
+               id="ImportationGenerale"
+               label="ImportationGenerale">
+            <groupMarker name="ImportationGroup"/>
+         </menu>
+         <action
+               class="importationGenerale.ImportationFermeBasqueAction"
+               icon="icons/legrain.gif"
+               id="ImportationFermeBasqueAction"
+               label="Importation Generale"
+               menubarPath="ImportationGroup"
+               toolbarPath="ImportationGroup"
+               tooltip="Importation Generale"/>
+      </actionSet>
+   </extension>
+</plugin>

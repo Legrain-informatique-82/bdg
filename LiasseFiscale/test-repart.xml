@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compta>
+    <repart>
+        <cle>A</cle>
+        <valeur>
+            <montant>10.0</montant>
+            <valeur>10.0</valeur>
+            <detail>
+                <compte numero="a" libelle="b" mtDebit="10.0" mtCredit="20.0"/>
+                <compte numero="c" libelle="d" mtDebit="30.0" mtCredit="40.0"/>
+            </detail>
+        </valeur>
+    </repart>
+    <repart>
+        <cle>C</cle>
+        <valeur>
+            <montant>30.0</montant>
+            <valeur>30.0</valeur>
+            <detail>
+                <compte numero="a" libelle="b" mtDebit="10.0" mtCredit="20.0"/>
+            </detail>
+        </valeur>
+    </repart>
+    <repart>
+        <cle>B</cle>
+        <valeur>
+            <montant>20.0</montant>
+            <valeur>20.0</valeur>
+            <detail>
+                <compte numero="a" libelle="b" mtDebit="10.0" mtCredit="20.0"/>
+                <compte numero="e" libelle="f" mtDebit="50.0" mtCredit="60.0"/>
+            </detail>
+        </valeur>
+    </repart>
+</compta>

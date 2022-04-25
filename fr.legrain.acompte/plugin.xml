@@ -1,0 +1,106 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.acompte.editor.AcompteMultiPageEditor"
+            icon="icons/money.png"
+            id="fr.legrain.editor.acompte.swt.multi"
+            name="Acompte">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.acompte.handlers.HandlerOuvreEditorAcompte"
+            description="Nouvelle facture d&apos;acompte"
+            id="fr.legrain.acompte"
+            name="Nouvelle facture d&apos;acompte">
+      </command>
+      <command
+            description="Annuler l&apos;affectation"
+            id="fr.legrain.Document.annulerAffectation"
+            name="Annuler l&apos;affectation">
+      </command>
+      <command
+            description="Modifier l&apos;affectation"
+            id="fr.legrain.Document.modifierAffectation"
+            name="Modifier l&apos;affectation">
+      </command>
+      <command
+            description="Enregistrer l&apos;affectation"
+            id="fr.legrain.Document.enregistrerAffectation"
+            name="Enregistrer l&apos;affectation">
+      </command>
+      <command
+            description="Insérer une affectation"
+            id="fr.legrain.Document.insererAffectation"
+            name="Insérer une affectation">
+      </command>
+      <command
+            description="Supprimer l&apos;affectation"
+            id="fr.legrain.Document.supprimerAffectation"
+            name="Supprimer l&apos;affectation">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.facture">
+         <command
+               commandId="fr.legrain.acompte"
+               icon="icons/money.png"
+               id="fr.legrain.acompte"
+               label="Facture d&apos;acompte">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.acompte">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar">
+         <command
+               commandId="fr.legrain.acompte"
+               icon="icons/money.png"
+               label="Facture d&apos;acompte">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.acompte.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.acompte.preferences.LgrAcomptePreferencePage"
+            id="fr.legrain.acompte.preferences.LgrAcomptePreferencePage"
+            name="Acompte">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="GestionCommerciale.introConfigId"
+            content="intro/introContent.xml">
+      </configExtension>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.acompte.divers.Impression"
+            TypeDoc="Acompte">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.acompte.preferences.PreferencesStore">
+      </Preferences>
+   </extension>
+</plugin>

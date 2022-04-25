@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="LibJBuilder"
+   name="LibJBuilder Plug-in"
+   version="2.0.14.qualifier"
+   provider-name="Le Grain SA">
+   <runtime>
+      <library name="dx.jar">
+         <export name="*"/>
+      </library>
+      <library name="dbswing.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="JayBird_2_0"/>
+   </requires>
+</plugin>

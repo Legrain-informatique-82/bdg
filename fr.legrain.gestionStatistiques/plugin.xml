@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.gestionstatistiques.handlers.HandlerEtat"
+            description="s"
+            id="fr.legrain.gestionStatistiques.editor.EditorEtatFamille"
+            name="Editions Etat Famille">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.gestionstatistiques.editors.EtatFamilleArticleMultiPageEditor"
+            icon="icons/report_add.png"
+            id="fr.legrain.editor.etatFamilleArticle.multi"
+            name="Edition Etat Famille et Article">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:">
+         <command
+               commandId="fr.legrain.gestionStatistiques.editor.EditorEtatFamille"
+               icon="icons/report_add.png"
+               label="Editions Etat Famille">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:Articles">
+         <separator
+               name="Dms.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="**fr.legrain.gestionStatistiques.editor.EditorEtatFamille"
+               icon="icons/report_add.png"
+               label="Editions Etat Famille">
+         </command>
+      </menuContribution>
+   </extension>
+   
+</plugin>

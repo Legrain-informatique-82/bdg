@@ -1,0 +1,82 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.apporteur.editor.ApporteurMultiPageEditor"
+            icon="icons/creditcards.png"
+            id="fr.legrain.editor.apporteur.swt.multi"
+            name="Facture apporteur">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.apporteur.handlers.HandlerOuvreEditorApporteur"
+            description="Nouvelle facture apporteur"
+            id="fr.legrain.apporteur"
+            name="Nouvelle facture apporteur">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.facture">
+         <command
+               commandId="fr.legrain.apporteur"
+               icon="icons/creditcards.png"
+               id="fr.legrain.apporteur"
+               label="Facture apporteur">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.apporteur">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar">
+         <command
+               commandId="fr.legrain.apporteur"
+               icon="icons/creditcards.png"
+               label="Facture apporteur">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.apporteur.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.apporteur.preferences.LgrApporteurPreferencePage"
+            id="fr.legrain.apporteur.preferences.LgrApporteurPreferencePage"
+            name="Facture Apporteur">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="GestionCommerciale.introConfigId"
+            content="intro/introContent.xml">
+      </configExtension>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.apporteur.divers.Impression"
+            TypeDoc="Apporteur">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.apporteur.preferences.PreferencesStore">
+      </Preferences>
+   </extension>
+
+</plugin>

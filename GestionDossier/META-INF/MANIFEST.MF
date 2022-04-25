@@ -1,0 +1,32 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GestionDossier Plug-in
+Bundle-SymbolicName: GestionDossier; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.gestionDossier.GestionDossierPlugin
+Bundle-Vendor: Le Grain SA
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ Lib,
+ librairiesLeGrain,
+ LibrairiesEcran,
+ gestComBd,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ L2FProd_6_2,
+ GestionCommerciale,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ LibMessageLGR,
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ Tiers;bundle-version="2.0.14"
+Eclipse-AutoStart: true
+Export-Package: fr.legrain.gestionDossier,
+ fr.legrain.gestionDossier.actions,
+ fr.legrain.gestionDossier.ecran,
+ fr.legrain.gestionDossier.handlers,
+ fr.legrain.gestionDossier.wizards

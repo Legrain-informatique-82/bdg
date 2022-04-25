@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Sauvegarde Plug-in
+Bundle-SymbolicName: Sauvegarde; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.sauvegarde.SauvegardePlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ log4j_1_2_8,
+ librairiesLeGrain,
+ gestComBd,
+ GestionCommerciale;bundle-version="2.0.14",
+ LibLgrMail,
+ LibrairiesEcran,
+ LibMessageLGR
+Eclipse-AutoStart: true
+Export-Package: fr.legrain.sauvegarde,
+ fr.legrain.sauvegarde.actions,
+ fr.legrain.sauvegarde.handlers,
+ fr.legrain.sauvegarde.preferences
+Bundle-Vendor: Le Grain SA

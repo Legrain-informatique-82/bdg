@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GenerationDocumentLGR Plug-in
+Bundle-SymbolicName: GenerationDocumentLGR;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: generationdocumentlgr.PluginGenerationDocumentLGR
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.core.expressions,
+ librairiesLeGrain,
+ LibrairiesEcran,
+ Facture,
+ gestComBd,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ org.hibernate.eclipse,
+ LibMessageLGR,
+ Edition,
+ Tiers,
+ org.eclipse.birt.report.viewer,
+ LibLgrBirt,
+ SilentPdfPrint,
+ GestionCommerciale;bundle-version="2.0.14",
+ Document;bundle-version="1.8.9",
+ fr.legrain.generationdocument;bundle-version="1.0.0",
+ Prelevement;bundle-version="2.0.14"
+Eclipse-LazyStart: true
+Export-Package: fr.legrain.generationdocumentLGR.divers
+Bundle-Vendor: Le Grain SA

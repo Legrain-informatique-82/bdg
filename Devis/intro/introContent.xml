@@ -1,0 +1,21 @@
+<introContent>
+  	<extensionContent id="fr.legrain.devis" style="css/devis.css" name="Devis" path="documents/links-background/page-links/ancre_devis">
+		<group style-id="content-group" id="fr.legrain.devis-group">
+       		<link label="Ouvrir les devis" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Devis&amp;class=fr.legrain.devis.handlers.IntroActionDevis&amp;standby=true"
+       			id="link_devis_1" 
+       			style-id="content-link">
+          		<text>Gestion des devis</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+  	<extensionContent id="fr.legrain.devis" style="css/devis.css" name="Devis" path="root/links-background/page-links/ancre_devis">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=Devis&amp;class=fr.legrain.devis.handlers.IntroActionDevis&amp;standby=true"
+       		id="link_devis" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+  	
+</introContent>

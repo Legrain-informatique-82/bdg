@@ -1,0 +1,28 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.importinfosegroupeware.handlers.HandlerImportInfosEgw"
+            description="Import EGWNEW"
+            id="fr.legrain.ImportInfosEgwNew.import"
+            name="Import EGWNEW">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.ImportInfosEgw">
+         <command
+               commandId="fr.legrain.ImportInfosEgwNew.import"
+               icon="icons/egroupware_gpl.png"
+               label="Import EGWNEW"
+               tooltip="Import infos de Egroupware">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.ImportInfosEgw">
+         </toolbar>
+      </menuContribution>
+   </extension></plugin>

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: deGenouillac Fragment
+Bundle-SymbolicName: 2717
+Bundle-Version: 2.0.14.qualifier
+Fragment-Host: EditionsSpecifiques;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

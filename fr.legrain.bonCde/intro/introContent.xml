@@ -1,0 +1,20 @@
+<introContent>
+  	<extensionContent id="fr.legrain.boncmd" style="css/bon_cmd.css" name="Bon de commande" path="documents/links-background/page-links/ancre_bon_cmd">
+		<group style-id="content-group" id="fr.legrain.boncmd-group">
+       		<link label="Ouvrir les bons de commandes" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Boncde&amp;class=fr.legrain.boncde.handlers.IntroActionBonCde&amp;standby=true"
+       			id="link_bon_cmd" 
+       			style-id="content-link">
+          		<text>Gestion des bons de commandes</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+  	<extensionContent id="fr.legrain.boncmd" style="css/bon_cmd.css" name="Bon de commande" path="root/links-background/page-links/ancre_bon_cmd">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=Boncde&amp;class=fr.legrain.boncde.handlers.IntroActionBonCde&amp;standby=true"
+       		id="link_bon_cde" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+</introContent>

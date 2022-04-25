@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="bureau de gestion" id="GestionCommerciale.product" application="GestionCommerciale.application" version="2.0.14" useFeatures="true" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/GestionCommerciale/content/link_obj.gif"/>
+      <text>
+         %aboutText
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/GestionCommerciale/icons/logo_lgr_16.png" i32="/GestionCommerciale/icons/logo_lgr_32.png" i48="/GestionCommerciale/icons/logo_lgr_48.png"/>
+
+      <splash
+      location="GestionCommerciale"
+      startupProgressRect="10,276,250,9"
+      startupMessageRect="10,260,250,12"
+      startupForegroundColor="4D4D4D" />
+   <launcher name="GestionCommerciale">
+      <linux icon="/GestionCommerciale/icons/logo_lgr_48.xpm"/>
+      <solaris/>
+      <win useIco="true">
+         <ico path="/GestionCommerciale/icons/legrain_new.ico"/>
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+      <windows>jre1.6.0</windows>
+   </vm>
+
+   <plugins>
+      <plugin id="GestionCommerciale"/>
+      <plugin id="JayBird_2_0"/>
+      <plugin id="Lib"/>
+      <plugin id="LibJBuilder2006"/>
+      <plugin id="LibrairiesEcran"/>
+      <plugin id="Nebula"/>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="gestComBd"/>
+      <plugin id="librairiesLeGrain"/>
+      <plugin id="log4j_1_2_8"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.compatibility" fragment="true"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.gtk.linux.x86" fragment="true"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.console"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.intro"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.hibernate.eclipse"/>
+   </plugins>
+
+   <features>
+      <feature id="GestionCommerciale" version="1.8.9.1"/>
+      <feature id="GeoLocalisationFeature" version="1.8.9.1"/>
+      <feature id="ArticlesFeature" version="1.8.9.1"/>
+      <feature id="TiersFeature" version="1.8.9.1"/>
+      <feature id="FactureFeature" version="1.8.9.1"/>
+      <feature id="BonLivraisonFeature" version="1.8.9.1"/>
+      <feature id="DevisFeature" version="1.8.9.1"/>
+      <feature id="StocksFeature" version="1.8.9.1"/>
+      <feature id="SauvegardeFeature" version="1.8.9.1"/>
+      <feature id="ExportationFeature" version="1.8.9.1"/>
+      <feature id="UpdaterFeature" version="1.8.9.1"/>
+      <feature id="EditionsSpecifiquesFeatures" version="1.8.9.1"/>
+      <feature id="DocumentFiscalFeature" version="1.8.9.1"/>
+   </features>
+
+
+</product>

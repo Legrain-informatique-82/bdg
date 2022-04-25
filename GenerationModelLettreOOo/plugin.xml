@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.generationModelLettreOOo.handlers.HandlerGenerationLettreOOo"
+            description="Publipostage OpenOffice"
+            id="fr.legrain.GenerationModelLettreOOo.genere"
+            name="Publipostage OpenOffice">
+      </command>
+      <command
+            defaultHandler="fr.legrain.generationModelLettreOOo.handlers.HandlerCreateAttributeLettre"
+            description="Generation attribute lettre"
+            id="fr.legrain.GenerationModelLettreOOo.attributeletter"
+            name="Generation attribute lettre">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.GenerationModelLettreOOo">
+         <command
+               commandId="fr.legrain.GenerationModelLettreOOo.genere"
+               icon="icons/iconeOO1.png"
+               label="Publipostage OpenOffice"
+               style="push"
+               tooltip="Publipostage OpenOffice">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.GenerationModelLettreOOo">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="*menu:outils?after=fr.legrain.sauvegarde.sauvegarde">
+         <command
+               commandId="fr.legrain.GenerationModelLettreOOo.attributeletter"
+               icon="icons/page_edit.png"
+               label="Génération mots clé publipostage"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.generationModelLettreOOo.preferences.GenerationModelLettreOOoPreferencePage"
+            id="fr.legrain.generationModelLettreOOo.preferences.GenerationModelLettreOOoPreferencePage"
+            name="Publipostage OpenOffice">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.generationModelLettreOOo.preferences.PreferenceInitializerOOo">
+      </initializer>
+   </extension>
+
+</plugin>

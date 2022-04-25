@@ -1,0 +1,28 @@
+http://www.eclipse.org/birt/
+
+iText 1.3 
+The iText APIs are discussed at iText Homepage
+The itext-1.3.jar file needs to be copied to the plugins/org.eclipse.birt.report.engine.emitter.pdf_version/lib directory.
+
+prototype.js
+Lastly download prototype.js v1.4.0 from dev.conio.net. Copy it into the plugins/org.eclipse.birt.report.viewer_version/birt/ajax/lib directory.
+
+Driver JDBC dans plugins/org.eclipse.birt.report.data.oda.jdbc_2.0.1/drivers
+
+Axis (birt 2.0.0) => plugins/org.eclipse.birt.report.viewer_2.0.1/birt/WEB-INF/lib
+* axis
+* axis-ant
+* commons-discovery-0.2
+* jaxrpc
+* wsdl4j-1.5.1
+
+BIRT is currently tested with the following configurations:
+    * Eclipse 3.0.1, and 3.0.2.
+    * GEF 3.0.1.
+    * EMF 2.0.3.
+    * JRE 1.4.2. 
+And
+    * Eclipse 3.1.
+    * GEF 3.1.
+    * EMF 2.1.
+    * JRE 1.4.2/JRE 1.5. 

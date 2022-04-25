@@ -1,0 +1,3 @@
+		<!-- Champ supplementaire article -->
+		<class>fr.legrain.articles.champsupp.dao.TaChampSuppArt</class>
+		<class>fr.legrain.articles.champsupp.dao.TaRChampSuppArt</class>

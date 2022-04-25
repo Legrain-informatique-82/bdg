@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Demo
+Bundle-SymbolicName: fr.legrain.bdg.intro.demo;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: fr.legrain.bdg.intro.demo.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ GestionCommerciale;bundle-version="2.0.14"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

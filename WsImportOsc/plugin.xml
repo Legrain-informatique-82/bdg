@@ -1,0 +1,46 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.wsimportosc.handlers.HandlerImportOsc"
+            description="import osc"
+            id="fr.legrain.WsImportOsc.import"
+            name="Import Osc">
+      </command>
+      <command
+            description="Importer"
+            id="fr.legrain.wsimportosc.Importer"
+            name="Importer">
+      </command>
+      <command
+            id="fr.legrain.wsimportosc.SelectCF"
+            name="SelectCF">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.importOsc">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar.importOsc">
+         <command
+               commandId="fr.legrain.WsImportOsc.import"
+               icon="icons/book_go.png"
+               label="ImportOsc">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.wsimportosc.editor.EditorImportOscWs"
+            icon="icons/book_go.png"
+            id="fr.legrain.WsImportOsc.editor.import"
+            name="import osc">
+      </editor>
+   </extension>
+</plugin>

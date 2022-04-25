@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.15" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.2.2.r222_v20071226 Build &lt;2.2.2.v20080226-1155></property>
+    <property name="units">in</property>
+    <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">20</property>
+            <expression name="value">params["paramDriverJDBC"]</expression>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">20</property>
+            <expression name="value">params["paramUrlJDBC"]</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">20</property>
+            <expression name="value">params["paramUser"]</expression>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">20</property>
+            <expression name="value">params["paramPassword"]</expression>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">20</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">20</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">20</property>
+        </structure>
+    </list-property>
+    <text-property name="displayName">portrait</text-property>
+    <list-property name="libraries">
+        <structure>
+            <property name="fileName">libBdg.rptlibrary</property>
+            <property name="namespace">libBdg</property>
+        </structure>
+    </list-property>
+    <parameters>
+        <scalar-parameter name="paramUrlJDBC" id="621">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+                <property name="pattern">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="paramDriverJDBC" id="673">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">org.firebirdsql.jdbc.FBDriver</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="paramUser" id="674">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">admin</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="paramPassword" id="675">
+            <property name="hidden">true</property>
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">lgr82admin</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="GestCom" id="20">
+            <method name="beforeOpen"><![CDATA[//importPackage(Packages.fr.legrain.gestCom.Appli);
+
+//c = Const();
+
+//driver = c.getC_DRIVER_JDBC();
+//url = c.getC_URL_BDD()+c.getC_FICHIER_BDD();
+//user = "SYSDBA";
+//pass = c.getC_PASS2();
+
+//this.setExtensionProperty("odaDriverClass",driver);
+//this.setExtensionProperty("odaURL",url);
+//this.setExtensionProperty("odaUser",user);
+//this.setExtensionProperty("odaPassword",pass);]]></method>
+            <property name="odaDriverClass">org.firebirdsql.jdbc.FBDriver</property>
+            <property name="odaURL">jdbc:firebirdsql://localhost/C:/Projet/Java/Eclipse/GestionCommerciale/Run/lgrWorkspace/dossier/Bd/GEST_COM.FDB</property>
+            <property name="odaUser">admin</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">bGdyODJhZG1pbg==</encrypted-property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.birt.report.data.oda.jdbc.JdbcSelectDataSet" name="Info_Entreprise" id="654">
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID_INFO_ENTREPRISE</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">NOM_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ADRESSE1_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">ADRESSE2_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">ADRESSE3_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CODEPOSTAL_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">VILLE_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">PAYS_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">SIRET_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CAPITAL_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">APE_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">TVA_INTRA_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">TEL_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">FAX_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">EMAIL_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">WEB_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">RCS_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">DATEDEB_INFO_ENTREPRISE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">DATEFIN_INFO_ENTREPRISE</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">CODEXO_INFO_ENTREPRISE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">GestCom</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ID_INFO_ENTREPRISE</property>
+                    <property name="nativeName">ID_INFO_ENTREPRISE</property>
+                    <property name="dataType">integer</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">NOM_INFO_ENTREPRISE</property>
+                    <property name="nativeName">NOM_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ADRESSE1_INFO_ENTREPRISE</property>
+                    <property name="nativeName">ADRESSE1_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">ADRESSE2_INFO_ENTREPRISE</property>
+                    <property name="nativeName">ADRESSE2_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">ADRESSE3_INFO_ENTREPRISE</property>
+                    <property name="nativeName">ADRESSE3_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">CODEPOSTAL_INFO_ENTREPRISE</property>
+                    <property name="nativeName">CODEPOSTAL_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">VILLE_INFO_ENTREPRISE</property>
+                    <property name="nativeName">VILLE_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">PAYS_INFO_ENTREPRISE</property>
+                    <property name="nativeName">PAYS_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">SIRET_INFO_ENTREPRISE</property>
+                    <property name="nativeName">SIRET_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">CAPITAL_INFO_ENTREPRISE</property>
+                    <property name="nativeName">CAPITAL_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">APE_INFO_ENTREPRISE</property>
+                    <property name="nativeName">APE_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">TVA_INTRA_INFO_ENTREPRISE</property>
+                    <property name="nativeName">TVA_INTRA_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">TEL_INFO_ENTREPRISE</property>
+                    <property name="nativeName">TEL_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">FAX_INFO_ENTREPRISE</property>
+                    <property name="nativeName">FAX_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">EMAIL_INFO_ENTREPRISE</property>
+                    <property name="nativeName">EMAIL_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">16</property>
+                    <property name="name">WEB_INFO_ENTREPRISE</property>
+                    <property name="nativeName">WEB_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">17</property>
+                    <property name="name">RCS_INFO_ENTREPRISE</property>
+                    <property name="nativeName">RCS_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">18</property>
+                    <property name="name">DATEDEB_INFO_ENTREPRISE</property>
+                    <property name="nativeName">DATEDEB_INFO_ENTREPRISE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">19</property>
+                    <property name="name">DATEFIN_INFO_ENTREPRISE</property>
+                    <property name="nativeName">DATEFIN_INFO_ENTREPRISE</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">20</property>
+                    <property name="name">CODEXO_INFO_ENTREPRISE</property>
+                    <property name="nativeName">CODEXO_INFO_ENTREPRISE</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <property name="queryText">select * from v_info_entreprise;</property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="titre" id="669">
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontSize">xx-large</property>
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="sous_titre" id="670">
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="TitreTable" id="671">
+            <property name="fontWeight">bold</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+        </style>
+        <style name="TotauxTable" id="672"/>
+        <style name="Currency" id="434">
+            <structure name="numberFormat">
+                <property name="category">Currency</property>
+                <property name="pattern">#,##0.00</property>
+            </structure>
+            <structure name="stringFormat">
+                <property name="category">Custom</property>
+            </structure>
+            <property name="textAlign">right</property>
+            <property name="showIfBlank">true</property>
+        </style>
+        <style name="Texte Gras" id="436">
+            <property name="fontWeight">bold</property>
+        </style>
+        <style name="TexteADroite" id="435">
+            <property name="textAlign">right</property>
+        </style>
+        <style name="Totaux" id="390">
+            <property name="backgroundPositionX">right</property>
+            <property name="fontFamily">"Times New Roman"</property>
+            <property name="fontWeight">bold</property>
+            <property name="textAlign">right</property>
+        </style>
+        <style name="Trait" id="570">
+            <property name="backgroundColor">#C0C0C0</property>
+            <property name="backgroundPositionX">center</property>
+            <property name="backgroundPositionY">center</property>
+            <property name="fontWeight">bold</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.5cm</property>
+            <property name="leftMargin">0.5cm</property>
+            <property name="bottomMargin">0.5cm</property>
+            <property name="rightMargin">0.5cm</property>
+            <page-footer>
+                <grid id="7">
+                    <property name="width">100%</property>
+                    <column id="8">
+                        <property name="width">1.1041666667in</property>
+                    </column>
+                    <column id="9"/>
+                    <row id="10">
+                        <cell id="11">
+                            <text id="13">
+                                <property name="textAlign">left</property>
+                                <property name="contentType">html</property>
+                                <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                            </text>
+                            <grid id="656">
+                                <property name="width">100%</property>
+                                <column id="657"/>
+                                <column id="658"/>
+                                <column id="659"/>
+                                <row id="660">
+                                    <cell id="661">
+                                        <auto-text id="662">
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="663">
+                                        <text id="664">
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="665">
+                                        <auto-text id="666">
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                        <cell id="12">
+                            <text-data id="655">
+                                <property name="textAlign">right</property>
+                                <property name="dataSet">Info_Entreprise</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">ID_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["ID_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">integer</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">NOM_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["NOM_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">ADRESSE1_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["ADRESSE1_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">ADRESSE2_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["ADRESSE2_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">ADRESSE3_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["ADRESSE3_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">CODEPOSTAL_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["CODEPOSTAL_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">VILLE_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["VILLE_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">PAYS_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["PAYS_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">SIRET_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["SIRET_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">CAPITAL_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["CAPITAL_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">APE_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["APE_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">TVA_INTRA_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["TVA_INTRA_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">TEL_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["TEL_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">FAX_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["FAX_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">EMAIL_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["EMAIL_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">WEB_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["WEB_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">RCS_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["RCS_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">DATEDEB_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["DATEDEB_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">date-time</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">DATEFIN_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["DATEFIN_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">date-time</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">CODEXO_INFO_ENTREPRISE</property>
+                                        <expression name="expression">dataSetRow["CODEXO_INFO_ENTREPRISE"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr">row["NOM_INFO_ENTREPRISE"]+" au capital de "+row["CAPITAL_INFO_ENTREPRISE"]+" € - APE : "+row["APE_INFO_ENTREPRISE"]+" - RCS : "+row["RCS_INFO_ENTREPRISE"]+" - SIRET : "+row["SIRET_INFO_ENTREPRISE"]</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <text-data id="667">
+            <property name="style">titre</property>
+            <property name="textAlign">center</property>
+            <expression name="valueExpr">Titre</expression>
+            <property name="contentType">html</property>
+        </text-data>
+        <text-data id="668">
+            <property name="style">Trait</property>
+            <property name="textAlign">center</property>
+            <expression name="valueExpr">Sous titre</expression>
+            <property name="contentType">html</property>
+        </text-data>
+    </body>
+</report>

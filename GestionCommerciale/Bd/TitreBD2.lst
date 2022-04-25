@@ -1,0 +1,704 @@
+#modifié par isa le 23/07/2008
+#Nom des champs tels qu'ils doivent apparaitre dans l'application
+
+DB_KEY=DB_KEY
+
+#TA_TIERS
+idTiers=ID_TIERS
+codeTiers=CODE TIERS
+codeCompta=CODE COMPTA
+compte=COMPTE
+nomTiers=NOM
+prenomTiers=PRENOM
+surnomTiers=SURNOM
+actifTiers=ACTIF
+ttcTiers=TTC
+ID_I_COMMENTAIRE=COMMENTAIRE
+ID_I_BANQUE=BANQUE
+IP_ACCES=CONNECTION
+
+#TA_T_CIVILITE
+idTCivilite=ID_T_CIVILITE
+codeTCivilite=CODE CIVILITE
+
+#TA_T_TIERS
+idTTiers=ID
+codeTTiers=TYPE TIERS
+libelleTTiers=LIBELLE
+compteTTiers=COMPTE RATTACHE
+
+#TA_ENTREPRISE
+idEntreprise=id Entreprise
+nomEntreprise=nom Entreprise
+contact=contact
+
+#TA_T_ENTITE
+idTEntite=ID_T_ENTITE
+codeTEntite=ENTITE
+liblTEntite=LIBELLE LONG
+
+#TA_COMMENTAIRE
+idCommentaire=ID_COMMENTAIRE
+commentaire=COMMENTAIRE
+
+#TA_COMPTE_BANQUE
+idCompteBanque=ID_BANQUE
+codeBanque=BANQUE
+LIBC_BANQUE=LIBELLE COURT
+LIBL_BANQUE=LIBELLE LONG
+
+#TA_ADRESSE
+idAdresse=ID_ADRESSE
+adresse1Adresse=ADRESSE (1)
+adresse2Adresse=ADRESSE (2)
+adresse3Adresse=ADRESSE (3)
+codepostalAdresse=C.P
+villeAdresse=VILLE
+paysAdresse=PAYS
+
+#TA_R_ADR
+idRAdr=ID_R_ADR
+
+#TA_T_ADR
+idTAdr=ID_T_ADR
+codeTAdr=TYPE ADRESSE
+liblTAdr=LIBELLE LONG
+
+#TA_R_ADR_T_ADR
+idRAdrTAdr=ID_R_ADR_T_ADR
+
+#TA_TELEPHONE
+idTelephone=ID_TELEPHONE
+numeroTelephone=NUMERO
+posteTelephone=POSTE
+contact=CONTACT
+
+#TA_T_TEL
+idTTel=ID_T_TEL
+codeTTel=TYPE TELEPHONE
+liblTTel=LIBELLE LONG
+
+
+#TA_EMAIL
+idEmail=ID_EMAIL
+adresseEmail=ADRESSE EMAIL
+
+#TA_T_EMAIL
+idTEmail=ID_T_EMAIL
+codeTEmail=TYPE EMAIL
+liblTEmail=LIBELLE LONG
+
+#TA_R_EMAIL
+idREmail=ID_R_EMAIL
+
+
+#TA_WEB
+idWeb=ID_WEB
+adresseWeb=ADRESSE WEB
+
+#TA_T_WEB
+idTWeb=ID_T_WEB
+codeTWeb=TYPE WEB
+liblTWeb=LIBELLE LONG
+
+#TA_LIENS
+idLiens=ID_LIENS
+adresseLiens=ADRESSE LIENS
+
+#TA_T_LIENS
+idTLiens=ID_T_LIENS
+codeTLiens=TYPE LIENS
+liblTLiens=LIBELLE LONG
+
+
+#TA_ARTICLE
+idArticle=ID_ARTICLE
+codeArticle=CODE ARTICLE
+libellecArticle=LIBELLE
+libellelArticle=DESCRIPTION
+numcptArticle=COMPTE
+diversArticle=DIVERS
+commentaireArticle=COMMENTAIRE
+stockMinArticle=STOCK MINI
+
+#TA_PRIX
+idPrix=ID
+prixPrix=PRIX HT
+prixttcPrix=PRIX TTC
+idRefPrix=REF
+
+#TA_TVA
+idTva=ID_TVA
+codeTva=CODE TVA
+libelleTva=LIBELLE
+tauxTva=TAUX
+numcptTva=COMPTE
+
+#TA_FAMILLE
+idFamille=ID_FAMILLE
+codeFamille=FAMILLE
+libcFamille=LIBELLE
+liblFamille=DESCRIPTION
+
+#TA_UNITE
+idUnite=ID_UNITE
+codeUnite=UNITE
+liblUnite=LIBELLE
+codeFamille=FAMILLE UNITE
+
+#TA_COMPL
+idCompl=ID_COMPL
+tvaIComCompl=Tva intra-com.
+siretCompl=N° SIRET
+
+#TA_REF_PRIX
+idRefPrix=ID_REF_PRIX
+
+#TA_T_TVA
+idTTva=ID_T_TVA
+codeTTva=Exigibilité
+libTTva=Libellé type d'exigibilité
+
+#TA_L_FACTURE
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigne_l_facture=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+u1LDocument=Unité 1
+u2Lacture =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_FACTURE
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idadresse = ID_ADRESSE
+idAdresse_LIV= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+regleDocument = Mt réglé
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+mtTtcAvantRemiseGlobaleCalc=mt Ttc Avant Remise
+resteARegler=reste A Regler
+acomptes=acomptes
+libellePaiement=libelle Paiement
+
+#TA_INFOS_FACTURE
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =adresse 1
+adresse2 =adresse 2
+adresse3 =adresse 3
+codepostal =code postal
+ville =ville
+pays =	pays	
+adresse1Liv =adresse 1
+adresse2Liv =adresse 2
+adresse3Liv =adresse 3
+codepostalLiv =code postal
+villeLiv =ville
+paysLiv =pays
+    
+adresse1Adresseliv=ADRESSE (1)
+adresse2Adresseliv=ADRESSE (2)
+adresse3Adresseliv=ADRESSE (3)
+codepostalAdresseliv=C.P
+villeAdresseliv=VILLE
+paysAdresseliv=PAYS 
+
+mtTtcCalc = Mt TTC
+mtHtCalc = Mt HT
+mtTvaCalc = Mt TVA
+netTtcCalc = Net TTC
+netHtCalc = Net HT
+netTvaCalc = Net TVA
+
+#TA_C_PAIEMENT
+idCPaiement=ID_C_PAIEMENT
+codeCPaiement=Code paiement
+libCPaiement=libellé
+ID_TIERS=ID_TIERS
+ID_T_PAIEMENT=ID_T_PAIEMENT
+reportCPaiement=Report
+finMoisCPaiement=Fin de mois
+
+#TA_T_PAIEMENT
+idTPaiement=ID_T_PAIEMENT
+codeTPaiement=Code
+libTPaiement=Libellé
+compte=Compte financier
+
+#TA_MAIL_MAJ
+ID_MAIL_MAJ=ID_MAIL_MAJ
+SUJET_MAIL_MAJ=SUJET
+NOM_SITE_MAIL_MAJ=Nom du site de MAJ
+URL_MAIL_MAJ=URL site de MAJ
+FAIT_MAIL_MAJ=Fait le
+A_FAIRE_MAIL_MAJ=A Faire
+FROM_MAIL_MAJ=FROM
+DATE_MAIL_MAJ=Date
+
+
+
+
+#TA_INFO_ENTREPRISE
+nomInfoEntreprise=RAISON SOCIALE
+adresse1InfoEntreprise=ADRESSE 1
+adresse2InfoEntreprise=ADRESSE 2
+adresse3InfoEntreprise=ADRESSE 3
+codepostalInfoEntreprise=CODE POSTAL
+villeInfoEntreprise=VILLE
+paysInfoEntreprise=PAYS
+siretInfoEntreprise=N° SIRET
+capitalInfoEntreprise=CAPITAL
+apeInfoEntreprise=CODE APE
+tvaIntraInfoEntreprise=TVA INTRACOMMUNAUTAIRE
+telInfoEntreprise=TELEPHONE
+faxInfoEntreprise=FAX
+emailInfoEntreprise=EMAIL
+webInfoEntreprise=ADRESSE WEB
+rcsInfoEntreprise=RCS
+datedebInfoEntreprise=DATE DEBUT
+datefinInfoEntreprise=DATE FIN
+codexoInfoEntreprise=CODE EXERCICE
+
+
+#TA_R_COMMERCIAL
+ID_R_COMMERCIAL =ID_R_COMMERCIAL
+COMMERCIAL = COMMERCIAL
+ID_TIERS_COM=ID_TIERS_COM
+
+
+
+#TA_L_DEVIS
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigneLDocument=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+qte2LDocument=Quantité 2
+u1LDocument=Unité 1
+u2LDocument =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_DEVIS
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idAdresse = ID_ADRESSE
+idAdresseLiv= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+commentaire=Commentaire
+    
+    
+#TA_L_BONLIV
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigneLDocument=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+qte2LDocument=Quantité 2
+u1LDocument=Unité 1
+u2LDocument =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_BONLIV
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idAdresse = ID_ADRESSE
+idAdresseLiv= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+commentaire=Commentaire
+
+#TA_INFOS_BONLIV
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =ADRESSE 1
+adresse2 =ADRESSE 2
+adresse3 =ADRESSE 3
+codepostal =CODE POSTAL
+ville =VILLE
+pays =	PAYS	
+adresse1Liv =ADRESSE 1
+adresse2Liv =ADRESSE 2
+adresse1_LIV =ADRESSE 3
+codepostalLiv =CODE POSTAL
+villeLiv =VILLE
+paysLiv =PAYS
+
+    
+#TA_L_PROFORMA
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigneLDocument=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+qte2LDocument=Quantité 2
+u1LDocument=Unité 1
+u2LDocument =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_PROFORMA
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idAdresse = ID_ADRESSE
+idAdresseLiv= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+commentaire=Commentaire
+adresse1Adresseliv=ADRESSE (1)
+adresse2Adresseliv=ADRESSE (2)
+adresse3Adresseliv=ADRESSE (3)
+codepostalAdresseliv=C.P
+villeAdresseliv=VILLE
+paysAdresseliv=PAYS 
+
+mtTtcCalc = Mt TTC
+mtHtCalc = Mt HT
+mtTvaCalc = Mt TVA
+netTtcCalc = Net TTC
+netHtCalc = Net HT
+netTvaCalc = Net TVA
+
+#TA_INFOS_DEVIS
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =ADRESSE 1
+adresse2 =ADRESSE 2
+adresse3 =ADRESSE 3
+codepostal =CODE POSTAL
+ville =VILLE
+pays =	PAYS	
+adresse1Liv =ADRESSE 1
+adresse2Liv =ADRESSE 2
+adresse1_LIV =ADRESSE 3
+codepostalLiv =CODE POSTAL
+villeLiv =VILLE
+paysLiv =PAYS
+
+#TA_INFOS_PROFORMA
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =ADRESSE 1
+adresse2 =ADRESSE 2
+adresse3 =ADRESSE 3
+codepostal =CODE POSTAL
+ville =VILLE
+pays =	PAYS	
+adresse1Liv =ADRESSE 1
+adresse2Liv =ADRESSE 2
+adresse1_LIV =ADRESSE 3
+codepostalLiv =CODE POSTAL
+villeLiv =VILLE
+paysLiv =PAYS
+
+
+
+
+
+
+#TA_BONCDE
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idAdresse = ID_ADRESSE
+idAdresseLiv= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+commentaire=Commentaire
+adresse1Adresseliv=ADRESSE (1)
+adresse2Adresseliv=ADRESSE (2)
+adresse3Adresseliv=ADRESSE (3)
+codepostalAdresseliv=C.P
+villeAdresseliv=VILLE
+paysAdresseliv=PAYS 
+
+#TA_L_BONCDE
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigneLDocument=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+qte2LDocument=Quantité 2
+u1LDocument=Unité 1
+u2LDocument =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+#TA_INFOS_BONCDE
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =ADRESSE 1
+adresse2 =ADRESSE 2
+adresse3 =ADRESSE 3
+codepostal =CODE POSTAL
+ville =VILLE
+pays =	PAYS	
+adresse1Liv =ADRESSE 1
+adresse2Liv =ADRESSE 2
+adresse1_LIV =ADRESSE 3
+codepostalLiv =CODE POSTAL
+villeLiv =VILLE
+paysLiv =PAYS
+
+
+#TA_L_APPORTEUR
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigne_l_facture=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+u1LDocument=Unité 1
+u2Lacture =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_APPORTEUR
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idadresse = ID_ADRESSE
+idAdresse_LIV= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+regleDocument = Mt réglé
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+
+#TA_INFOS_APPORTEUR
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =adresse 1
+adresse2 =adresse 2
+adresse3 =adresse 3
+codepostal =code postal
+ville =ville
+pays =	pays	
+adresse1Liv =adresse 1
+adresse2Liv =adresse 2
+adresse3Liv =adresse 3
+codepostalLiv =code postal
+villeLiv =ville
+paysLiv =pays
+
+
+#TA_L_AVOIR
+idLDocument=ID_L_DOCUMENT
+idDocument=ID_DOCUMENT
+idTLigne=ID_T_LIGNE
+idArticle=ID_ARTICLE
+numLigne_l_facture=N° ligne
+libLDocument=LIBELLE
+qteLDocument=Quantité
+u1LDocument=Unité 1
+u2LDocument =Unité 2
+prixULDocument=Prix
+tauxTvaLDocument=Taux Tva
+codeTvaLDocument=Code Tva
+codeTTvaLDocument=Exigibilité Tva
+mtHtLDocument= Montant HT
+mtTtcLDocument= Montant TTC
+remTxLDocument= Taux Remise
+remHtLDocument= Mt Remise
+   	
+
+    
+#TA_AVOIR
+idDocument = ID_DOCUMENT
+codeDocument = Code 
+dateDocument = Date
+dateEchDocument = Date échéance
+dateLivDocument = Date livraison
+libelleDocument= Libellé
+idadresse = ID_ADRESSE
+idAdresse_LIV= ID_ADRESSE_LIV
+idTiers= ID_TIERS
+idTPaiement = ID_T_PAIEMENT
+regleDocument = Mt réglé
+remHtDocument= Remise HT
+txRemHtDocument= Taux Remise HT
+remTtcDocument= Mt Remise TTC
+txRemTtcDocument= Taux Remise TTC
+nbEDocument= Nb edition
+ttc=Saisie TTC
+export=Export
+
+#TA_INFOS_AVOIR
+idInfosDocument=ID_INFOS_DOCUMENT
+adresse1 =adresse 1
+adresse2 =adresse 2
+adresse3 =adresse 3
+codepostal =code postal
+ville =ville
+pays =	pays	
+adresse1Liv =adresse 1
+adresse2Liv =adresse 2
+adresse3Liv =adresse 3
+codepostalLiv =code postal
+villeLiv =ville
+paysLiv =pays
+
+#TA_OPERATION
+dateOperation =Date opération
+codeTOperation =Type d'opération
+codeTPaiement =Type règlement
+codeJournalCaisse = journal de caisse
+montantOperation =montant
+liblOperation =libellé
+compte =compte
+tva =tva
+
+#TA_T_OPERATION
+codeTOperation =Type d'opération
+liblTOperation =libellé
+
+#TA_DEPOT
+dateDepot =Date
+codeTPaiement =Type règlement
+codeJournalCaisse = journal de caisse
+montantDepot =montant
+liblDepot =libellé
+
+#TA_STOCK
+codeArticle = Code article
+libelleArticle = Libellé article
+mouvStock = mouvement
+dateStock = date stock
+libelleStock = libellé stock
+qte1Stock = qte 1 
+un1Stock = unté 1
+qte2Stock = qté 2
+un2Stock = unité 2
+
+#TA_RAPPORT_UNITE
+codeArticle = code Article;
+codeUnite1 = code Unite1;
+codeUnite2 = code Unite2;
+rapport = rapport;
+nbDecimal = nb Decimal;
+
+
+#TA_ETABLISSEMENT
+nomEtablissement = nom etablissement
+codeJournalCaisse = journal de caisse
+contact = contact
+
+
+

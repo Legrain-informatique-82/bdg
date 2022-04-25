@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.generationdocument.facture.handlers.HandlerGenerationDocument"
+            description="C"
+            id="fr.legrain.generationdocument.facture.editor.EditorSelectionGenerationDocument"
+            name="Selection génération document">
+      </command>
+      <command
+            description="Editeur liste tiers"
+            id="fr.legrain.generationdocument.facture.EditeurListeTiers"
+            name="Editeur liste tiers">
+      </command>
+      <command
+            description="Rajouter liste tiers"
+            id="fr.legrain.generationdocument.facture.Rajouter"
+            name="Rajouter">
+      </command>
+      <command
+            description="Réinitialiser liste tiers"
+            id="fr.legrain.generationdocument.facture.Reinitialiser"
+            name="Réinitialiser">
+      </command>
+      <command
+            description="Charger le fichier"
+            id="fr.legrain.generationdocument.facture.ChargerFichier"
+            name="Charger le fichier">
+      </command>
+      <command
+            description="Remonter le document"
+            id="fr.legrain.generationdocument.facture.RemonterDoc"
+            name="Remonter le document">
+      </command>
+      <command
+            description="Imprimer le document"
+            id="fr.legrain.generationdocument.facture.ImprimerDoc"
+            name="Imprimer le document">
+      </command>
+      <command
+            description="Réinitialiser liste document"
+            id="fr.legrain.generationdocument.facture.ReinitDocCree"
+            name="Reinitialiser liste document">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.generationdocument.facture.editor.EditorSelectionGenerationDocument"
+            icon="icons/legrain.gif"
+            id="fr.legrain.generationdocument.facture.editor.EditorSelectionGenerationDocument"
+            name="Selection génération document">
+      </editor>
+      <editor
+            class="fr.legrain.generationdocument.facture.editor.EditorEditeurListeTiers"
+            icon="icons/legrain.gif"
+            id="fr.legrain.generationdocument.facture.editor.EditorEditeurListeTiers"
+            name="Editeur liste tiers">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:">
+         <command
+               commandId="fr.legrain.generationdocument.facture.editor.EditorSelectionGenerationDocument"
+               icon="icons/group.png"
+               label="Génération des factures">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:generation.doc">
+         <separator
+               name="GenerationDocument.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="fr.legrain.generationdocument.facture.editor.EditorSelectionGenerationDocument"
+               icon="icons/group.png"
+               label="Génération des factures">
+         </command>
+      </menuContribution>
+   </extension>
+</plugin>

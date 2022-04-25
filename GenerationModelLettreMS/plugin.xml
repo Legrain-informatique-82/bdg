@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.generationModelLettreMS.handlers.HandlerGenerationLettreWS"
+            description="Publipostage MS Office"
+            id="fr.legrain.GenerationModelLettreMS.genere"
+            name="Publipostage MS Office">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.GenerationModelLettreMS">
+         <command
+               commandId="fr.legrain.GenerationModelLettreMS.genere"
+               icon="icons/page_word.png"
+               label="Publipostage MS Office"
+               style="push"
+               tooltip="Publipostage MS Office">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.GenerationModelLettreMS">
+         </toolbar>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.generationModelLettreWS.preferences.GenerationModelLettreWSPreferencePage"
+            id="fr.legrain.generationModelLettreWS.preferences.GenerationModelLettreWSPreferencePage"
+            name="Publipostage MS Office">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.generationModelLettreWS.preferences.PreferenceInitializerWS">
+      </initializer>
+   </extension>
+
+</plugin>

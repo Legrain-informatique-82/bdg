@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="fr.legrain.liasseFiscale.ecran.DescriptionDocumentXML">
+
+		<map-to xml="document" />
+
+		<field name="Pages"
+			type="fr.legrain.liasseFiscale.ecran.Page" collection="arraylist"
+			container="false">
+			<bind-xml name="pages" />
+		</field>
+		
+		<field name="Titre" type="java.lang.String">
+			<bind-xml name="titre" node="attribute" />
+		</field>
+
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.ecran.Page">
+
+		<field name="Champs"
+			type="fr.legrain.liasseFiscale.ecran.Champ" collection="arraylist"
+			container="false">
+			<bind-xml name="champs" />
+		</field>
+		
+		<field name="Numero" type="java.lang.Integer">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.ecran.Champ">
+		<field name="Code" type="java.lang.String">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+		<field name="Enable" type="java.lang.Boolean">
+			<bind-xml name="enable" node="attribute" />
+		</field>
+		<field name="Label" type="java.lang.String">
+			<bind-xml name="label" node="attribute" />
+		</field>
+		<field name="Order" type="java.lang.Integer">
+			<bind-xml name="order" node="attribute" />
+		</field>
+		<field name="Type" type="java.lang.String">
+			<bind-xml name="type" node="attribute" />
+		</field>
+		<field name="Valeur" type="java.lang.String">
+			<bind-xml name="valeur" node="attribute" />
+		</field>
+		<field name="Visible" type="java.lang.Boolean">
+			<bind-xml name="visible" node="attribute" />
+		</field>
+	</class>
+
+</mapping>

@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Articles Plug-in
+Bundle-SymbolicName: Articles; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.articles.ArticlesPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Lib,
+ librairiesLeGrain,
+ LibrairiesEcran,
+ gestComBd,
+ GenerationLabelEtiquette;bundle-version="2.0.14",
+ LibJBuilder2006,
+ log4j_1_2_8,
+ org.eclipse.core.databinding,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.core.expressions,
+ org.hibernate.eclipse,
+ org.eclipse.core.resources,
+ LibMessageLGR,
+ org.eclipse.ui.intro,
+ Edition,
+ Visualisation,
+ LibLgrBirt;bundle-version="1.8.9",
+ org.eclipse.core.databinding.property;bundle-version="1.2.0",
+ fr.legrain.javascript.editors;bundle-version="2.0.14",
+ Tiers;bundle-version="2.0.14",
+ fr.legrain.publipostage.gui;bundle-version="2.0.14"
+Eclipse-AutoStart: true
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.articles,
+ fr.legrain.articles.actions,
+ fr.legrain.articles.divers,
+ fr.legrain.articles.ecran,
+ fr.legrain.articles.editor,
+ fr.legrain.articles.handlers,
+ fr.legrain.articles.preferences,
+ fr.legrain.gestioncapsules.controllers,
+ fr.legrain.gestioncapsules.ecrans,
+ fr.legrain.gestioncapsules.editors

@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Rappeler Plug-in
+Bundle-SymbolicName: fr.legrain.rappeler;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.rappeler.RappelerPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Tiers;bundle-version="1.8.9",
+ log4j_1_2_8;bundle-version="1.2.8",
+ librairiesLeGrain;bundle-version="1.8.9",
+ LibrairiesEcran;bundle-version="1.8.9",
+ LibMessageLGR;bundle-version="1.8.9",
+ gestComBd;bundle-version="1.8.9",
+ org.eclipse.core.databinding;bundle-version="1.1.1",
+ org.eclipse.core.databinding.beans;bundle-version="1.1.1",
+ org.eclipse.jface.databinding;bundle-version="1.2.1",
+ org.eclipse.core.expressions;bundle-version="3.4.1",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ Lib;bundle-version="1.8.9"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.rappeler,
+ fr.legrain.rappeler.ecran

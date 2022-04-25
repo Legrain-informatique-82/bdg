@@ -1,0 +1,99 @@
+/*
+ * Set up the content for the standby page.
+ */
+body {
+	background-repeat : no-repeat;
+}
+
+.page {
+	background-repeat : no-repeat;
+	background-position : bottom left;
+	min-width : 230px;
+	/* since IE doesn't support min-width, use expression */
+	width:expression(document.body.clientWidth < 230? "230px": "auto" );
+ 	min-height : 610px;
+	height : 100%;
+	height : expression(document.body.clientHeight < 450? "450px": "100%" );
+}
+
+html, body {
+	background-image : url("../graphics/standby/standbybckgrd.png");
+	background-position : center center;
+	background-attachment : fixed;
+	overflow : hidden;
+	overflow-clip: rect(0, auto, auto, 0);
+	background-color : gray;
+}
+
+/* 
+ * Set up the navigation bar.  It should be centered in the middle
+ * of the page
+ */
+#links-background {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	/*text-align: center;*/
+	/*border: 1px solid red;*/
+}
+
+#page-links {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	/*border: 1px solid yellow;*/
+}
+
+#page-links a {
+	position: absolute;
+	text-align: left;
+	padding-bottom: 2px;
+}
+
+a, a:hover {
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 63px;
+	height: 63px;
+	/*border: 1px solid red;*/
+	
+	/* Si pas d'image de fond et une seule colonne centrée en largeur */
+	
+	left: 50%;
+	margin-left: -31px;
+}
+
+/*1ere colonne*/
+a#link_aide_doc {
+	left: -70px;
+}
+/*2eme colonne*/
+a#link_aide_doc_topic {
+	left: 1px;
+}
+/*3eme colonne*/
+
+/*1ere ligne*/
+/*2eme ligne*/
+/*3eme ligne*/
+/*4eme ligne*/
+/*5eme ligne*/
+/*6eme ligne*/
+a#link_aide_doc, a#link_aide_doc_topic {
+	top: 5px;
+}
+/*7eme ligne*/
+
+/* Link images */
+a#link_aide_doc { background-image: url("../graphics/icons/PICTO 63PX/AIDE.png"); }
+a#link_aide_doc:hover { background-image: url("../graphics/icons/PICTO 63PX/AIDE.png"); }
+
+a#link_aide_doc_topic { background-image: url("../graphics/icons/PICTO 63PX/NOUVEAUTE.png"); }
+a#link_aide_doc_topic:hover { background-image: url("../graphics/icons/PICTO 63PX/NOUVEAUTE.png"); }
+
+#logo_lgr_standby {
+	position : absolute;
+	left: 20px;
+	bottom: 20px;
+	z-index: 20;
+}

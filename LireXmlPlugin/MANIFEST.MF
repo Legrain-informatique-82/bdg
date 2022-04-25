@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Main-Class: Interface.g_table_liaison_bdg
+Class-Path: lib/jdom.jar lib/mysql-connector-java-5.1.6-bin.jar lib/commons-io-1.2.jar lib/forms-1.1.0.jar
+
+

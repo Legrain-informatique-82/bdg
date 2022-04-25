@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests Plug-in
+Bundle-SymbolicName: fr.legrain.articles.tests
+Bundle-Version: 1.0.0
+Bundle-Activator: fr.legrain.articles.tests.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Articles,
+ org.junit
+Eclipse-LazyStart: true

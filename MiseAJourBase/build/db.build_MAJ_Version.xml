@@ -1,0 +1,64 @@
+<project name="GestCom" default="MAJ_Version">
+		
+    	<property name="jdbcDriver" value="org.firebirdsql.jdbc.FBDriver"/>
+		<property name="dbFile" value="${db}"/>
+		<property name="serveur" value="jdbc:firebirdsql:"/>
+		<property name="debutURL" value="${serveur}${debutURLLoc}"/>
+		<property name="dbURL" value="${debutURL}${dbFile}"/>
+		<property name="dbUser" value="${userLoc}"/>
+		<property name="dbPass" value="${passLoc}"/>
+		<property name="num_version" value="${num_versionLoc}"/>
+		
+	<property name="dbPath" value="${path}"/>
+	
+	<property name="isLinux" value="Unix" />
+    <property name="isWindows" value="Windows 2000, Windows XP"/>	
+	
+    <path id="jdbc.driver.class.path" >
+			<pathelement location="${osgi.syspath}"/>
+		</path>	
+				
+	<target name="MAJ_Version" >		
+		<sql driver="${jdbcDriver}"
+       		url="${dbURL}" userid="${dbUser}" password="${dbPass}" output="db.txt" delimitertype="row" delimiter="^"  keepformat="on">
+    		<classpath refid="jdbc.driver.class.path"/>
+    			<transaction>
+    				<fileset dir="MAJ" includes="MAJ_Version.SQL"/>    				
+    			</transaction>
+			<!--transaction-->
+				<!--fileset dir="MAJ" includes="MAJ_Temporaire.SQL"/-->    				
+			<!--/transaction-->			
+	    			
+  		</sql>
+		<antcall target="MAJ_Date_Version"></antcall>
+	</target>
+	
+	<target name="MAJ_Date_Version" >		
+		<sql driver="${jdbcDriver}"
+       		url="${dbURL}" userid="${dbUser}" password="${dbPass}" output="db.txt" delimitertype="row" delimiter="^"  keepformat="on">
+    		<classpath refid="jdbc.driver.class.path"/>
+    			<transaction>
+    				<fileset dir="MAJ" includes="MAJ_Date_Version.SQL"/>	
+    			</transaction>	    			
+  		</sql>
+		<!--antcall target="MAJ_FichiersToujours"></antcall-->
+	</target>
+	
+	<target name="MAJ_FichiersToujours" >		
+		<echo message="Debug : target MAJ_FichiersToujours" />
+		<copy file="IDBD.ini" toDir="${dbPath}/" />
+		<copy file="CtrlBD.ini" toDir="${dbPath}/" />
+		<copy file="ListeChampGrille.properties" toDir="${dbPath}/" />
+		<copy file="Modif.properties" toDir="${dbPath}/" />
+		<copy file="TitreBD2.lst" toDir="${dbPath}/" />
+		<copy file="GestCode.properties" toDir="${dbPath}/" />
+		<copy file="ChampMaj.ini" toDir="${dbPath}/" />
+		
+		<copy file="AttributeEtiquette.properties" toDir="${dbPath}/" />
+		<copy file="AttributeModelLettre.properties" toDir="${dbPath}/" />
+		<copy file="AttributeTableEdition.properties" toDir="${dbPath}/" />
+	</target>
+</project>
+
+
+

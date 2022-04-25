@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<!-- 
+		Si le nom de la classe ou du champs est en plusieurs parties (ex : AaaBbb),
+		indiquer explicitement le nom dans le fichier xml. (bind-xml et map-to)
+		Tout en mininuscule avec des underscore aux coupures
+	-->
+	<class
+		name="fr.legrain.analyseeconomique.actions.DonneesAnalyseEco">
+		<map-to xml="donnees_analyse_eco" />
+		<field name="agence"></field>
+		<field name="listeInfosCompta"
+			type="fr.legrain.analyseeconomique.actions.InfosCompta"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_infos_compta" />
+		</field>
+		<field name="listeInfosLiasse"
+			type="fr.legrain.analyseeconomique.actions.InfosLiasse"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_infos_liasse" />
+		</field>
+		<field name="listeInfosAnalytique"
+			type="fr.legrain.analyseeconomique.actions.InfosAnalytique"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_infos_analytique" />
+		</field>
+		<field name="listeInfosStocks"
+			type="fr.legrain.analyseeconomique.actions.InfosStocks"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_infos_stocks" />
+		</field>
+		<field name="listeAcquisition"
+			type="fr.legrain.analyseeconomique.actions.Acquisition"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_acquisition" />
+		</field>
+		<field name="listeDivers"
+			type="fr.legrain.analyseeconomique.actions.Divers"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_divers" />
+		</field>
+		<field name="listeQte"
+			type="fr.legrain.analyseeconomique.actions.InfosGrdLivreQte"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_qte" />
+		</field>
+		<field name="listeInfosDossier"
+			type="fr.legrain.liasseFiscale.actions.InfoComplement"
+			collection="arraylist" container="false">
+			<bind-xml name="liste_infos_dossier" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.analyseeconomique.actions.InfosCompta">
+		<map-to xml="infos_compta" />
+		<field name="c"
+			type="fr.legrain.liasseFiscale.actions.Compte">
+			<bind-xml name="compte" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.analyseeconomique.actions.InfosLiasse">
+		<map-to xml="infos_liasse" />
+		<field name="c" type="fr.legrain.liasseFiscale.actions.Cle">
+			<bind-xml name="cle" />
+		</field>
+		<field name="r"
+			type="fr.legrain.liasseFiscale.actions.Repartition">
+			<bind-xml name="repartition" />
+		</field>
+	</class>
+
+	<class
+		name="fr.legrain.analyseeconomique.actions.InfosAnalytique">
+		<map-to xml="infos_analytique" />
+		<field name="origine" type="java.lang.String" />
+		<field name="atelier" type="java.lang.String" />
+		<field name="libelleAtelier" type="java.lang.String">
+			<bind-xml name="libelle_atelier" />
+		</field>
+		<field name="compte" type="java.lang.String" />
+		<field name="designation" type="java.lang.String" />
+		<field name="totalCharges" type="java.lang.String">
+			<bind-xml name="total_charges" />
+		</field>
+		<field name="totalProduits" type="java.lang.String">
+			<bind-xml name="total_produits" />
+		</field>
+		<field name="qt1" type="java.lang.String" />
+		<field name="pu1" type="java.lang.String" />
+		<field name="qt2" type="java.lang.String" />
+		<field name="pu2" type="java.lang.String" />
+		<field name="codeActivite" type="java.lang.String">
+			<bind-xml name="code_activite" />
+		</field>
+		<field name="libelleActivite" type="java.lang.String">
+			<bind-xml name="libelle_activite" />
+		</field>
+		<field name="nbUniteAtelier" type="java.lang.String">
+			<bind-xml name="nb_unite_atelier" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.analyseeconomique.actions.InfosStocks">
+		<map-to xml="infos_stocks" />
+		<field name="origine" type="java.lang.String" />
+		<field name="compte" type="java.lang.String" />
+		<field name="designation" type="java.lang.String" />
+		<field name="qte" type="java.lang.String" />
+		<field name="prixUnitaire" type="java.lang.String">
+			<bind-xml name="prix_unitaire" />
+		</field>
+		<field name="decote" type="java.lang.String" />
+		<field name="montantHT" type="java.lang.String">
+			<bind-xml name="montant_hT" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Repartition">
+		<field name="montant" />
+		<field name="valeur" />
+		<field name="detail"
+			type="fr.legrain.liasseFiscale.actions.Compte" collection="arraylist"
+			container="false">
+			<!-- <bind-xml name="cpt" location="comptes" /> -->
+		</field>
+	</class>
+	
+	<class name="fr.legrain.analyseeconomique.actions.Acquisition">
+		<field name="c" type="fr.legrain.liasseFiscale.actions.CompteSimple">
+			<bind-xml name="compte" />
+		</field>
+	</class>
+	
+	<class name="fr.legrain.analyseeconomique.actions.Divers">
+		<field name="c" type="fr.legrain.liasseFiscale.actions.CompteSimple">
+			<bind-xml name="compte" />
+		</field>
+	</class>
+	
+	<class name="fr.legrain.liasseFiscale.actions.CompteSimple">
+		<field name="Numero" type="java.lang.String">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+		<field name="libelle">
+			<bind-xml name="libelle" node="attribute" />
+		</field>
+		<field name="mtDebit">
+			<bind-xml name="mtDebit" node="attribute" />
+		</field>
+		<field name="mtCredit">
+			<bind-xml name="mtCredit" node="attribute" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Compte">
+		<field name="Numero" type="java.lang.String">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+		<field name="libelle">
+			<bind-xml name="libelle" node="attribute" />
+		</field>
+		<field name="mtDebit">
+			<bind-xml name="mtDebitReport" node="attribute" />
+		</field>
+		<field name="mtCredit">
+			<bind-xml name="mtCreditReport" node="attribute" />
+		</field>
+		<field name="mtDebit2">
+			<bind-xml name="mtDebitMouvementSolde" node="attribute" />
+		</field>
+		<field name="mtCredit2">
+			<bind-xml name="mtCreditMouvementSolde" node="attribute" />
+		</field>
+		<field name="mtDebit3">
+			<bind-xml name="mtDebit" node="attribute" />
+		</field>
+		<field name="mtCredit3">
+			<bind-xml name="mtCredit" node="attribute" />
+		</field>
+		<field name="mtDebit4">
+			<bind-xml name="mtDebitMouvementReport" node="attribute" />
+		</field>
+		<field name="mtCredit4">
+			<bind-xml name="mtCreditMouvementReport" node="attribute" />
+		</field>
+				<field name="mtDebit5">
+			<bind-xml name="mtDebitMouvement" node="attribute" />
+		</field>
+		<field name="mtCredit5">
+			<bind-xml name="mtCreditMouvement" node="attribute" />
+		</field>
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.Cle">
+		<field name="cle" type="java.lang.String" />
+		<field name="sousCle" type="java.lang.String">
+			<bind-xml name="sous_cle" />
+		</field>
+	</class>
+	
+	<class name="fr.legrain.analyseeconomique.actions.InfosGrdLivreQte">
+		<map-to xml="infos_grd_livre_qte" />
+		<field name="compte" type="java.lang.String" />
+		<field name="qte" type="java.lang.String" />
+	</class>
+	
+	<class name="fr.legrain.liasseFiscale.actions.InfoComplement">
+		<map-to xml="info" />
+		<field name="cle" type="java.lang.String" />
+		<field name="valeur1" type="java.lang.String" />
+		<field name="valeur2" type="java.lang.String" />
+	</class>
+
+</mapping>

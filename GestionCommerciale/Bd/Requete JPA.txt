@@ -1,0 +1,6 @@
+Requete JPA
+
+L'ordre compte fortement
+
+indication possible remarquée :
+la vérification d'un objet null semble devoir intervenir en dernier

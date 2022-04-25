@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="fr.legrain.liasseFiscale.wizards.Document" auto-complete="true">
+		<field name="typeDocument" type="fr.legrain.liasseFiscale.wizards.EnumTypeDoc">
+		</field>
+	</class>
+
+</mapping>

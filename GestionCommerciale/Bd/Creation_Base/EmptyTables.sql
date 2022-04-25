@@ -1,0 +1,14 @@
+delete from TA_T_CIVILITE;
+delete from TA_TIERS;
+delete from TA_UNITE;
+delete from TA_TVA;
+delete from TA_ARTICLE;
+delete from TA_PRIX;
+delete from TA_ADRESSE;
+delete from TA_COMMENTAIRE;
+delete from TA_REF_PRIX;
+delete from TA_R_ADR;
+delete from TA_FACTURE;
+delete from TA_INFOS_FACTURE;
+delete from TA_L_FACTURE;
+delete from TA_INFO_ENTREPRISE;

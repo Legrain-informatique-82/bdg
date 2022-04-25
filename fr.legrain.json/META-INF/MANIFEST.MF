@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Json
+Bundle-SymbolicName: fr.legrain.json
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.json.Activator
+Bundle-Vendor: Le Grain SA
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/json_simple-1.1.jar,
+ .
+Export-Package: org.json,
+ org.json.simple,
+ org.json.simple.parser

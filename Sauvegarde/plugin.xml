@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.sauvegarde.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.sauvegarde.preferences.LgrSauvegardePreferencePage"
+            id="Sauvegarde.page3"
+            name="Sauvegarde">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.sauvegarde.handlers.HandlerRestauration"
+            description="Restauration"
+            id="fr.legrain.sauvegarde.restauration"
+            name="Restauration">
+      </command>
+      <command
+            defaultHandler="fr.legrain.sauvegarde.handlers.HandlerSauvegarde"
+            description="Sauvegarde"
+            id="fr.legrain.sauvegarde.sauvegarde"
+            name="Sauvegarde">
+      </command>
+      <command
+            defaultHandler="fr.legrain.sauvegarde.handlers.HandlerSauvegardeEtEnvoieParEmail"
+            description="Sauvegarde et envoie par E-mail"
+            id="fr.legrain.sauvegarde.sauvegarde.mail"
+            name="Sauvegarde et envoie par E-mail">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:outils">
+         <command
+               commandId="fr.legrain.sauvegarde.sauvegarde.mail"
+               icon="icons/email.png"
+               label="Sauvegarde et envoie par E-mail">
+         </command>
+         <command
+               commandId="fr.legrain.sauvegarde.sauvegarde"
+               icon="icons/disk.png"
+               label="Sauvegarde ...">
+         </command>
+         <command
+               commandId="fr.legrain.sauvegarde.restauration"
+               icon="icons/restaurer.png"
+               label="Restauration ...">
+         </command>
+         <separator
+               name="Sauvegarde.finSauvegarde"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+
+</plugin>

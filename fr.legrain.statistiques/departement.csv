@@ -1,0 +1,96 @@
+numDep;codeDep;nomDep;codeRegion;nomRegion
+01;FR-01;Ain;FR-V;Rhone-Alpes
+02;FR-02;Aisne;FR-R;Picardie
+03;FR-03;Allier;FR-C;Auvergne
+04;FR-04;Alpes-de-Haute-Provence;FR-U;Provence-Alpes-Cote d'Azur
+05;FR-05;Hautes-Alpes;FR-U;Provence-Alpes-Cote d'Azur
+06;FR-06;Alpes-Maritimes;FR-U;Provence-Alpes-Cote d'Azur
+07;FR-07;Ardeche;FR-V;Rhone-Alpes
+08;FR-08;Ardennes;FR-G;Champagne-Ardenne
+09;FR-09;Ariege;FR-N;Midi-Pyrenees
+10;FR-10;Aube;FR-G;Champagne-Ardenne
+11;FR-11;Aude;FR-K;Languedoc-Roussillon
+12;FR-12;Aveyron;FR-N;Midi-Pyrenees
+13;FR-13;Bouches-du-Rhone;FR-U;Provence-Alpes-Cote d'Azur
+14;FR-14;Calvados;FR-P;Basse-Normandie
+15;FR-15;Cantal;FR-C;Auvergne
+16;FR-16;Charente;FR-T;Poitou-Charentes
+17;FR-17;Charente-Maritime;FR-T;Poitou-Charentes
+18;FR-18;Cher;FR-F;Centre
+19;FR-19;Correze;FR-L;Limousin
+20;FR-20;Corse;FR-H;Corse
+21;FR-21;Cote-d'Or;FR-D;Bourgogne
+22;FR-22;Cotes-d'Armor;FR-E;Bretagne
+23;FR-23;Creuse;FR-L;Limousin
+24;FR-24;Dordogne;FR-B;Aquitaine
+25;FR-25;Doubs;FR-I;Franche-Comte
+26;FR-26;Drome;FR-V;Rhone-Alpes
+27;FR-27;Eure;FR-Q;Haute-Normandie
+28;FR-28;Eure-et-Loir;FR-F;Centre
+29;FR-29;Finistere;FR-E;Bretagne
+30;FR-30;Gard;FR-K;Languedoc-Roussillon
+31;FR-31;Haute-Garonne;FR-N;Midi-Pyrenees
+32;FR-32;Gers;FR-N;Midi-Pyrenees
+33;FR-33;Gironde;FR-B;Aquitaine
+34;FR-34;Herault;FR-K;Languedoc-Roussillon
+35;FR-35;Ille-et-Vilaine;FR-E;Bretagne
+36;FR-36;Indre;FR-F;Centre
+37;FR-37;Indre-et-Loire;FR-F;Centre
+38;FR-38;Isere;FR-V;Rhone-Alpes
+39;FR-39;Jura;FR-I;Franche-Comte
+40;FR-40;Landes;FR-B;Aquitaine
+41;FR-41;Loir-et-Cher;FR-F;Centre
+42;FR-42;Loire;FR-V;Rhone-Alpes
+43;FR-43;Haute-Loire;FR-C;Auvergne
+44;FR-44;Loire-Atlantique;FR-R;Pays de la Loire
+45;FR-45;Loiret;FR-F;Centre
+46;FR-46;Lot;FR-N;Midi-Pyrenees
+47;FR-47;Lot-et-Garonne;FR-B;Aquitaine
+48;FR-48;Lozere;FR-K;Languedoc-Roussillon
+49;FR-49;Maine-et-Loire;FR-R;Pays de la Loire
+50;FR-50;Manche;FR-P;Basse-Normandie
+51;FR-51;Marne;FR-G;Champagne-Ardenne
+52;FR-52;Haute-Marne;FR-G;Champagne-Ardenne
+53;FR-53;Mayenne;FR-R;Pays de la Loire
+54;FR-54;Meurthe-et-Moselle;FR-M;Lorraine
+55;FR-55;Meuse;FR-M;Lorraine
+56;FR-56;Morbihan;FR-E;Bretagne
+57;FR-57;Moselle;FR-M;Lorraine
+58;FR-58;Nievre;FR-D;Bourgogne
+59;FR-59;Nord;FR-O;Nord-Pas-de-Calais
+60;FR-60;Oise;FR-R;Picardie
+61;FR-61;Orne;FR-P;Basse-Normandie
+62;FR-62;Pas-de-Calais;FR-O;Nord-Pas-de-Calais
+63;FR-63;Puy-de-Dome;FR-C;Auvergne
+64;FR-64;Pyrenees-Atlantiques;FR-B;Aquitaine
+65;FR-65;Hautes-Pyrenees;FR-N;Midi-Pyrenees
+66;FR-66;Pyrenees-Orientales;FR-K;Languedoc-Roussillon
+67;FR-67;Bas-Rhin;FR-A;Alsace
+68;FR-68;Haut-Rhin;FR-A;Alsace
+69;FR-69;Rhone;FR-V;Rhone-Alpes
+70;FR-70;Haute-Saone;FR-I;Franche-Comte
+71;FR-71;Saone-et-Loire;FR-D;Bourgogne
+72;FR-72;Sarthe;FR-R;Pays de la Loire
+73;FR-73;Savoie;FR-V;Rhone-Alpes
+74;FR-74;Haute-Savoie;FR-V;Rhone-Alpes
+75;FR-75;Paris;FR-J;Ile-de-France
+76;FR-76;Seine-Maritime;FR-Q;Haute-Normandie
+77;FR-77;Seine-et-Marne;FR-J;Ile-de-France
+78;FR-78;Yvelines;FR-J;Ile-de-France
+79;FR-79;Deux-Sevres;FR-T;Poitou-Charentes
+80;FR-80;Somme;FR-R;Picardie
+81;FR-81;Tarn;FR-N;Midi-Pyrenees
+82;FR-82;Tarn-et-Garonne;FR-N;Midi-Pyrenees
+83;FR-83;Var;FR-U;Provence-Alpes-Cote d'Azur
+84;FR-84;Vaucluse;FR-U;Provence-Alpes-Cote d'Azur
+85;FR-85;Vendee;FR-R;Pays de la Loire
+86;FR-86;Vienne;FR-T;Poitou-Charentes
+87;FR-87;Haute-Vienne;FR-L;Limousin
+88;FR-88;Vosges;FR-M;Lorraine
+89;FR-89;Yonne;FR-D;Bourgogne
+90;FR-90;Territoire de Belfort;FR-I;Franche-Comte
+91;FR-91;Essonne;FR-J;Ile-de-France
+92;FR-92;Hauts-de-Seine;FR-J;Ile-de-France
+93;FR-93;Seine-Saint-Denis;FR-J;Ile-de-France
+94;FR-94;Val-de-Marne;FR-J;Ile-de-France
+95;FR-95;Val-d'Oise;FR-J;Ile-de-France

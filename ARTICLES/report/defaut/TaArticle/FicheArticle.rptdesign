@@ -1,0 +1,1440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="comments">Copyright 2007</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.1.v20110905 Build &lt;3.7.1.v20110905-1820></property>
+    <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <property name="units">in</property>
+    <text-property name="displayName">Blank Report</text-property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
+    <parameters>
+        <scalar-parameter name="paramIdArticle" id="19">
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">integer</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+    </parameters>
+    <data-sources>
+        <script-data-source name="Data Source" id="316"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="article" id="317">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ID_ATICLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">CODE_ARTICLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">LIBELLEC_ARTICLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DESCRIPTION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">CODE_FAMILLE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">COMPTE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">CODE_TVA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">EXIGIBILITE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">OBSERVATION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">COMMENTAIRE</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">STOCK_MIN</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ID_ATICLE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CODE_ARTICLE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">LIBELLEC_ARTICLE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">DESCRIPTION</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CODE_FAMILLE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">COMPTE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">CODE_TVA</property>
+                </structure>
+                <structure>
+                    <property name="columnName">EXIGIBILITE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">OBSERVATION</property>
+                </structure>
+                <structure>
+                    <property name="columnName">COMMENTAIRE</property>
+                </structure>
+                <structure>
+                    <property name="columnName">STOCK_MIN</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ID_ATICLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CODE_ARTICLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">LIBELLEC_ARTICLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DESCRIPTION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">CODE_FAMILLE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">COMPTE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">CODE_TVA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">EXIGIBILITE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">OBSERVATION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">COMMENTAIRE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">STOCK_MIN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="open"><![CDATA[count=0;
+//dao = new Packages.fr.legrain.articles.dao.TaArticleDAO();
+//art = dao.findById(params["paramIdArticle"]);
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+//liste = imprimeObjet.l;
+liste = imprimeObjet.m.get("TaArticle");]]></method>
+            <method name="fetch"><![CDATA[//if(count==0) {
+if(count< liste.size()) {
+	//if(true){
+	article = liste.get(count);
+	row["ID_ARTICLE"] = article.getIdArticle();
+	if(article.getCodeArticle()!=null){
+		row["CODE_ARTICLE"] = article.getCodeArticle();
+	}else{
+		row["CODE_ARTICLE"] = "";
+	}
+	if(article.getLibellecArticle()!=null){
+		row["LIBELLEC_ARTICLE"] = article.getLibellecArticle();
+	}else{
+		row["LIBELLEC_ARTICLE"] = "";
+	}
+	row["DESCRIPTION"] = article.getLibellelArticle();
+	if(article.getTaFamille()!=null){
+		row["CODE_FAMILLE"] = article.getTaFamille().getCodeFamille();
+	}else{
+		row["CODE_FAMILLE"] = "";
+	}
+	row["COMPTE"] = article.getNumcptArticle();
+	if(article.getTaTva()!=null ){
+		row["CODE_TVA"] = article.getTaTva().getCodeTva();
+	}else{
+		row["CODE_TVA"] = "";
+	}
+	if(article.getTaTTva()!=null){
+		row["EXIGIBILITE"] = article.getTaTTva().getCodeTTva();
+	}else{
+		row["EXIGIBILITE"] = "";
+	}
+	row["OBSERVATION"] = article.getDiversArticle();
+	row["COMMENAIRE"] = article.getCommentaireArticle();
+	row["STOCK_MIN"] = article.getStockMinArticle();
+	//}
+	
+
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="prix" id="328">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">codeUnite</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">prixHT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">prixTTC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">refPrix</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">prixHT</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prixTTC</property>
+                </structure>
+                <structure>
+                    <property name="columnName">refPrix</property>
+                </structure>
+                <structure>
+                    <property name="columnName">codeUnite</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">codeUnite</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">prixHT</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">prixTTC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">refPrix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="open"><![CDATA[count=0;
+//dao = new Packages.fr.legrain.articles.dao.TaArticleDAO();
+//art = dao.findById(params["paramIdArticle"]);
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+liste = imprimeObjet.l;
+
+article = liste.get(count);
+liste = article.getTaPrixes().toArray();
+]]></method>
+            <method name="fetch"><![CDATA[if(count<liste.length) {
+	prix = liste[count];
+	if(prix.getTaUnite()!=null){
+		row["codeUnite"] = prix.getTaUnite().getCodeUnite();
+	}else{
+		row["codeUnite"] = "";
+	}
+	row["prixHT"] = prix.getPrixPrix();
+	row["prixTTC"] = prix.getPrixttcPrix();
+	//row["refPrix"] = prix.getIdRefPrix();
+	if(prix.getIdRefPrix()){
+		row["refPrix"]= "Vrai";
+	}else{
+		row["refPrix"] = "Faux";
+	}
+	
+
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="InfoEntreprise" id="2624">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">dateStart</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">dateFin</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">nomInfoEntreprise</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">adresse1</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">adresse2</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">adresse3</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ville</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">codePostal</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">pays</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">tvaEntreprise</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">dateStart</property>
+                </structure>
+                <structure>
+                    <property name="columnName">dateFin</property>
+                </structure>
+                <structure>
+                    <property name="columnName">nomInfoEntreprise</property>
+                </structure>
+                <structure>
+                    <property name="columnName">adresse1</property>
+                </structure>
+                <structure>
+                    <property name="columnName">adresse2</property>
+                </structure>
+                <structure>
+                    <property name="columnName">adresse3</property>
+                </structure>
+                <structure>
+                    <property name="columnName">ville</property>
+                </structure>
+                <structure>
+                    <property name="columnName">codePostal</property>
+                </structure>
+                <structure>
+                    <property name="columnName">pays</property>
+                </structure>
+                <structure>
+                    <property name="columnName">tvaEntreprise</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">dateStart</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">dateFin</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">nomInfoEntreprise</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">adresse1</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">adresse2</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">adresse3</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ville</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">codePostal</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">pays</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">tvaEntreprise</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <method name="open"><![CDATA[count=0;
+taInfoEntreprise = null;
+
+entityManager = null;
+
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+entityManager = imprimeObjet.listEntityManager.get(0);
+
+jpql = "select tie from TaInfoEntreprise tie";
+	   
+//a = new Packages.fr.legrain.lib.data.JPABdLgr();	     			  
+//query = a.getEntityManager().createQuery(jpql);
+query = entityManager.createQuery(jpql);
+
+//imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+//imprimeObjet.l.clear();
+for (i = 0; i < query.getResultList().size(); i++) {
+	//imprimeObjet.l.add(query.getResultList().get(i));
+	taInfoEntreprise = query.getResultList().get(i);
+}
+//list = imprimeObjet.l;]]></method>
+            <method name="fetch"><![CDATA[libDate = new Packages.fr.legrain.lib.data.LibDate();
+
+//if(count< list.size()) {
+if(count<1) {
+	row["dateStart"] = libDate.dateToString(taInfoEntreprise.getDatedebInfoEntreprise());
+	row["dateFin"] =libDate.dateToString(taInfoEntreprise.getDatefinInfoEntreprise());
+	row["nomInfoEntreprise"] = taInfoEntreprise.getNomInfoEntreprise();
+	row["adresse1"] = taInfoEntreprise.getAdresse1InfoEntreprise();
+	row["adresse2"] = taInfoEntreprise.getAdresse2InfoEntreprise();
+	row["adresse3"] = taInfoEntreprise.getAdresse3InfoEntreprise();
+	row["ville"] = taInfoEntreprise.getVilleInfoEntreprise();
+	row["codePostal"] = taInfoEntreprise.getCodepostalInfoEntreprise();
+	row["pays"] = taInfoEntreprise.getPaysInfoEntreprise();
+	row["tvaEntreprise"] = taInfoEntreprise.getTvaIntraInfoEntreprise();
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab-cell" id="4">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">1cm</property>
+            <property name="leftMargin">1cm</property>
+            <property name="bottomMargin">1cm</property>
+            <property name="rightMargin">1cm</property>
+            <property name="headerHeight">0.5cm</property>
+            <property name="footerHeight">0.5cm</property>
+            <page-footer>
+                <grid id="272">
+                    <property name="width">100%</property>
+                    <column id="273">
+                        <property name="width">10%</property>
+                    </column>
+                    <column id="274">
+                        <property name="width">80%</property>
+                    </column>
+                    <column id="275">
+                        <property name="width">10%</property>
+                    </column>
+                    <row id="276">
+                        <cell id="277">
+                            <text-data id="2625">
+                                <expression name="valueExpr" type="javascript">var value =""; &#13;
+var weeks = new Array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi");&#13;
+var date = new Date();&#13;
+var day = date.getDay();&#13;
+var year = (date.getYear()+1900).toString();&#13;
+if((date.getMonth() + 1)>9){&#13;
+var month = (date.getMonth() + 1).toString();&#13;
+}&#13;
+else{&#13;
+var month = "0"+(date.getMonth() + 1).toString();&#13;
+}&#13;
+if(date.getDate()&lt;9){&#13;
+//var date = (date.getDate()+10).toString();&#13;
+var date = "0"+(date.getDate()).toString();&#13;
+}&#13;
+else{&#13;
+var date = (date.getDate()).toString();&#13;
+}&#13;
+//value = date+" / "+month+" / "+year+" -- "+weeks[day];&#13;
+value = date+" / "+month+" / "+year;</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="278">
+                            <text-data id="2626">
+                                <property name="textAlign">center</property>
+                                <property name="dataSet">InfoEntreprise</property>
+                                <list-property name="boundDataColumns">
+                                    <structure>
+                                        <property name="name">dateStart</property>
+                                        <expression name="expression">dataSetRow["dateStart"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">dateFin</property>
+                                        <expression name="expression">dataSetRow["dateFin"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">nomInfoEntreprise</property>
+                                        <expression name="expression">dataSetRow["nomInfoEntreprise"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">adresse1</property>
+                                        <expression name="expression">dataSetRow["adresse1"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">adresse2</property>
+                                        <expression name="expression">dataSetRow["adresse2"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">adresse3</property>
+                                        <expression name="expression">dataSetRow["adresse3"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">ville</property>
+                                        <expression name="expression">dataSetRow["ville"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">codePostal</property>
+                                        <expression name="expression">dataSetRow["codePostal"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">pays</property>
+                                        <expression name="expression">dataSetRow["pays"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                    <structure>
+                                        <property name="name">tvaEntreprise</property>
+                                        <expression name="expression">dataSetRow["tvaEntreprise"]</expression>
+                                        <property name="dataType">string</property>
+                                    </structure>
+                                </list-property>
+                                <expression name="valueExpr" type="javascript">var value = "";var nom_entrepris = "";&#13;
+if(row["nomInfoEntreprise"]==null){&#13;
+nom_entrepris = "N/A";&#13;
+}else{&#13;
+nom_entrepris = row["nomInfoEntreprise"];&#13;
+}&#13;
+value = nom_entrepris;</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="279">
+                            <grid id="1294">
+                                <property name="width">100%</property>
+                                <column id="1295">
+                                    <property name="textAlign">right</property>
+                                </column>
+                                <column id="1296">
+                                    <property name="textAlign">center</property>
+                                </column>
+                                <column id="1297">
+                                    <property name="textAlign">right</property>
+                                </column>
+                                <row id="1298">
+                                    <cell id="1299">
+                                        <auto-text id="1300">
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="1301">
+                                        <text id="1302">
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="1303">
+                                        <auto-text id="1304">
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="20">
+            <property name="width">100%</property>
+            <column id="21">
+                <property name="width">33%</property>
+            </column>
+            <column id="22">
+                <property name="width">33%</property>
+            </column>
+            <column id="23">
+                <property name="width">33%</property>
+            </column>
+            <row id="24">
+                <cell id="25">
+                    <property name="colSpan">3</property>
+                    <property name="rowSpan">1</property>
+                    <text id="36">
+                        <property name="fontSize">16pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textAlign">center</property>
+                        <property name="contentType">auto</property>
+                        <text-property name="content"><![CDATA[Fiche Article]]></text-property>
+                    </text>
+                </cell>
+            </row>
+            <row id="32">
+                <cell id="33">
+                    <text id="64"/>
+                </cell>
+                <cell id="34"/>
+                <cell id="35"/>
+            </row>
+        </grid>
+        <grid id="200">
+            <property name="width">100%</property>
+            <column id="201"/>
+            <column id="202"/>
+            <row id="203">
+                <cell id="204">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="233">
+                        <text-property name="text">CODE :</text-property>
+                    </label>
+                </cell>
+                <cell id="205">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="318">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CODE_ARTICLE</property>
+                                <text-property name="displayName">CODE_ARTICLE</text-property>
+                                <expression name="expression">dataSetRow["CODE_ARTICLE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CODE_ARTICLE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="206">
+                <cell id="207">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="234">
+                        <text-property name="text">Libellé : </text-property>
+                    </label>
+                </cell>
+                <cell id="208">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="319">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">LIBELLEC_ARTICLE</property>
+                                <text-property name="displayName">LIBELLEC_ARTICLE</text-property>
+                                <expression name="expression">dataSetRow["LIBELLEC_ARTICLE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">LIBELLEC_ARTICLE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="209">
+                <cell id="210">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="235">
+                        <text-property name="text">Description :</text-property>
+                    </label>
+                </cell>
+                <cell id="211">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="320">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">DESCRIPTION</property>
+                                <text-property name="displayName">DESCRIPTION</text-property>
+                                <expression name="expression">dataSetRow["DESCRIPTION"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">DESCRIPTION</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="212">
+                <cell id="213">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="237">
+                        <text-property name="text">Code Famille :</text-property>
+                    </label>
+                </cell>
+                <cell id="214">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="322">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CODE_FAMILLE</property>
+                                <text-property name="displayName">CODE_FAMILLE</text-property>
+                                <expression name="expression">dataSetRow["CODE_FAMILLE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CODE_FAMILLE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="215">
+                <cell id="216">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="238">
+                        <text-property name="text">Compte :</text-property>
+                    </label>
+                </cell>
+                <cell id="217">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="321">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">COMPTE</property>
+                                <text-property name="displayName">COMPTE</text-property>
+                                <expression name="expression">dataSetRow["COMPTE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">COMPTE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="218">
+                <cell id="219">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="239">
+                        <text-property name="text">Code Tva :</text-property>
+                    </label>
+                </cell>
+                <cell id="220">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="323">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">CODE_TVA</property>
+                                <text-property name="displayName">CODE_TVA</text-property>
+                                <expression name="expression">dataSetRow["CODE_TVA"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">CODE_TVA</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="221">
+                <cell id="222">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="240">
+                        <text-property name="text">Exigibilité :</text-property>
+                    </label>
+                </cell>
+                <cell id="223">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="324">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">EXIGIBILITE</property>
+                                <text-property name="displayName">EXIGIBILITE</text-property>
+                                <expression name="expression">dataSetRow["EXIGIBILITE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">EXIGIBILITE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="224">
+                <cell id="225">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="241">
+                        <text-property name="text">Observation :</text-property>
+                    </label>
+                </cell>
+                <cell id="226">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="325">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">OBSERVATION</property>
+                                <text-property name="displayName">OBSERVATION</text-property>
+                                <expression name="expression">dataSetRow["OBSERVATION"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">OBSERVATION</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="227">
+                <cell id="228">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="242">
+                        <text-property name="text">Commentaire :</text-property>
+                    </label>
+                </cell>
+                <cell id="229">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="326">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">COMMENTAIRE</property>
+                                <text-property name="displayName">COMMENTAIRE</text-property>
+                                <expression name="expression">dataSetRow["COMMENTAIRE"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">COMMENTAIRE</property>
+                    </data>
+                </cell>
+            </row>
+            <row id="230">
+                <cell id="231">
+                    <property name="fontWeight">bold</property>
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <property name="textAlign">left</property>
+                    <label id="243">
+                        <text-property name="text">Stock mini :</text-property>
+                    </label>
+                </cell>
+                <cell id="232">
+                    <property name="borderBottomColor">#000000</property>
+                    <property name="borderBottomStyle">solid</property>
+                    <property name="borderBottomWidth">thin</property>
+                    <property name="borderLeftColor">#000000</property>
+                    <property name="borderLeftStyle">solid</property>
+                    <property name="borderLeftWidth">thin</property>
+                    <property name="borderRightColor">#000000</property>
+                    <property name="borderRightStyle">solid</property>
+                    <property name="borderRightWidth">thin</property>
+                    <property name="borderTopColor">#000000</property>
+                    <property name="borderTopStyle">solid</property>
+                    <property name="borderTopWidth">thin</property>
+                    <data id="327">
+                        <property name="dataSet">article</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">STOCK_MIN</property>
+                                <text-property name="displayName">STOCK_MIN</text-property>
+                                <expression name="expression">dataSetRow["STOCK_MIN"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <property name="resultSetColumn">STOCK_MIN</property>
+                    </data>
+                </cell>
+            </row>
+        </grid>
+        <grid id="129">
+            <property name="width">100%</property>
+            <column id="130"/>
+            <column id="131"/>
+            <column id="132"/>
+            <row id="141">
+                <cell id="142">
+                    <text id="147">
+                        <property name="contentType">auto</property>
+                    </text>
+                </cell>
+                <cell id="143"/>
+                <cell id="144"/>
+            </row>
+        </grid>
+        <table id="329">
+            <property name="width">100%</property>
+            <property name="dataSet">prix</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">codeUnite</property>
+                    <text-property name="displayName">codeUnite</text-property>
+                    <expression name="expression">dataSetRow["codeUnite"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prixHT</property>
+                    <text-property name="displayName">prixHT</text-property>
+                    <expression name="expression">dataSetRow["prixHT"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prixTTC</property>
+                    <text-property name="displayName">prixTTC</text-property>
+                    <expression name="expression">dataSetRow["prixTTC"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">refPrix</property>
+                    <text-property name="displayName">refPrix</text-property>
+                    <expression name="expression">dataSetRow["refPrix"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="353"/>
+            <column id="354"/>
+            <column id="355"/>
+            <column id="356"/>
+            <header>
+                <row id="330">
+                    <property name="fontWeight">bold</property>
+                    <property name="textAlign">center</property>
+                    <cell id="331">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="332">
+                            <text-property name="text">Code Unite</text-property>
+                        </label>
+                    </cell>
+                    <cell id="333">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="334">
+                            <text-property name="text">Prix HT</text-property>
+                        </label>
+                    </cell>
+                    <cell id="335">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="336">
+                            <text-property name="text">Prix TTC</text-property>
+                        </label>
+                    </cell>
+                    <cell id="337">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="338">
+                            <text-property name="text">Réf Prix</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="339">
+                    <cell id="340">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="341">
+                            <property name="resultSetColumn">codeUnite</property>
+                        </data>
+                    </cell>
+                    <cell id="342">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="343">
+                            <property name="resultSetColumn">prixHT</property>
+                        </data>
+                    </cell>
+                    <cell id="344">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="345">
+                            <property name="resultSetColumn">prixTTC</property>
+                        </data>
+                    </cell>
+                    <cell id="346">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="347">
+                            <property name="resultSetColumn">refPrix</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+        </table>
+    </body>
+    <list-property name="images">
+        <structure>
+            <property name="name">eclipse_home_header.jpg</property>
+            <property name="data">
+                /9j/4AAQSkZJRgABAgAAZABkAAD/7AARRHVja3kAAQAEAAAAPAAA/+4ADkFkb2JlAGTAAAAAAf/bAIQA
+                BgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoKDBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8f
+                Hx8fHwEHBwcNDA0YEBAYGhURFRofHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f
+                Hx8fHx8fHx8f/8AAEQgARACDAwERAAIRAQMRAf/EAIsAAAICAwEAAAAAAAAAAAAAAAAEAQMCBQYHAQEB
+                AQEBAQEAAAAAAAAAAAAAAQIDBAUGEAABAgQEBAUDAgYDAQAAAAABAgMAEQQFMRITBvAhgTJBUWFxInIU
+                B5FCscFSYiMV8dIWJhEBAQADAAIABQQDAAAAAAAAAAERAgMhEjFRYXEEkaEichMjM//aAAwDAQACEQMR
+                AD8Ae1Ppw46x+ncUKekP24cdYBR2qB8Rhz484ilV1BnykeUBUX/OWEBGr7YQBq+2EBkHvUYQFqHvUYQD
+                TVR7YcdYBpL0x+3DjrFROp9OHHWANT6cOOsAan04cdYA1Ppw46wBqfThx1gDU+nDjrAKavthx1iKoeqP
+                bDjrALJzPOCUsPCFo31BtuoqWwpKJxx26NYYV+1qlhOd4aSPXu/SE6ZMNG8wlslKSesbmxgo48pJwBAj
+                WUQipQoyPxPrDIuDhHlhFFyHiPLCCGG6wJ8sIDP74f24cdYCU1gPlhx1gLQ9PApw46wBq+2HHWANX2w4
+                6wBq+2HHWAQW8Cnnl7eOsTIVW6R4giUFM2txOsJyjOw9z2E7aae369UEhZAKAQDISx94+d+RNr8G45nf
+                FbSPPOKakE85CO/KWRHmdY4NQkR6UZq27Ur2jW7o1m00dFUopHGDm1CpzJIggZZf5BGL1k2mpgpYdt3K
+                /it+wUyn7GnVVvl5eT/GjHLyMzF36TXGRrqGtDyJTnymknEiOqGFPS5CWEBCXSfLCAtC1S8MICdUjywh
+                kXNVJHKYw46wRfreo7eOsMg1vUdvHWGQa3qO3jrDIxqqPSKQEvDMmfyaH8lnnGJspf7TN+148vBof941
+                kegW/arNhsFsr1bZrNzXa8DVS3pOfbUbMxl1Q1mBUtKp8z+kufg6d7drJfWRqRs92qdpdsUN+ZttRZFr
+                qfs661rCiJlJUh1vPkIT8Zf8c8cun8sW+ykqNuzU22Kvdu4GX66lZeFLR2tJ01PvKlzUpJ7fl5+Bxwjp
+                03vtNdf1RzF+vm2bvaFmi2rUWW7BaCw+w5qsrbzfNK0KKJHLhyx8Y3zm8vm5gecpVD8FX1BS6Cq605IK
+                QFYsYAKjPS/7Z9iNf+P9qWe6019/2lK5UCjtL9TShc0BLyJZVDIsTI8jyjffpdZMfMjS/jOy0V03TZqW
+                tYedo6h7K+2pORKk6ajIqQvMOY8I6dN7NLYOwVfPxjR7mqdvK2k8/RtVi6Spuj1SrVQQ6UFSEJwQg4fI
+                EjHnHml67TPseGlu+0WbZ+RXdqmoUmmNSw2zVrAOVipylKlGaQSgLkT5iO3LvdtPYsdTuc7d2veXLQ9s
+                J2qtTASn/bPPPJW/NIJcQ6lJQOZwzDpHn0333mfbyuHn5ZRX3dbFtZWhiqqC3b2XDmWEOLk0lRmflIgE
+                x7tNrJ5ZegXjb7G3a5Fnt+xqzcaadKPv7w6iqSl9SkgqFPopyICZynz6ymfDO938+3r9PC4cx+Q7LTbf
+                v1K3SNuU9Fc6JquYpKkHVp9SYUyufPMhSfHn4Hnzjv8Aj9rtPJY57XH9vbx1j05ZGuP7e3jrDIirqqFS
+                kltbBGXnkaWkfoVYxIqpNTR/1Mjl4tKP84o9UpLtVbusNgZsG5kWe8WRApa+2Lfdo0VLKQkNrayq+Sgl
+                HkcTOXKfzt9PTa5mZWmq/JFqr6C20v8AvdzIrnVPpCbSp56rkQlR1VJK/jlw7fHGN8Lrb4hRZnLFuTYl
+                TsxdxpKC5orE19qcqkqZpnFAAFtRJPy7vGfMSBkYvbW67zfGZjCRrL/s9G2rMaq73O0CqmhFPbqeb7zm
+                ZUlKkFJISlPOcjHTn3m1xJTCx24Wo/hO90wqKZL67pTrQxlKVKSCzzDZVmVgeYjPSX/LL9CD8XV9rYpd
+                zatRTslyx1KEZklrMogSSMyvl9I5xfyZbNf7QjQfhtyl/wDb7dSC0Fmo5AMrCp6S/wBxMhG+3/Ojsav8
+                af8A1tzvFyvdnasBr3qmqqBUAuJQXytTOSQk6O0gnHzjz6fkY1xJcrhzO4L/AG3d/wCSaq5B5NJbKt5q
+                maqnUH4MICWtVYJT5Fco68NLpolelbfb37ZLhTO1O7LdUbWZWk1L71U282qnT3JQXElxKsvISVKPN09N
+                p41s2+yvLK/cFCne1dd7M2lNuZuH3VvRlypKW3AsSTyypUpJIHgDHs5S3TF+SV3u5mdw7luy7/s3d5/1
+                lahC3bW7cF0jtI4EhK0lorCQn4z5eM8RIx49JNPG0/ZXnW8qeqpLyyzXX5q/1iacFypaqF1SGiVq/wAI
+                cWTMiWY+8enjZfhMJWp1/VPbx1j1INf1T28dYDX6/wBPbx1jIzQSQCSlKSMTy4MaFyRTLGVSQ7y5E8h+
+                kUdlRUNvvNmKEJSiuaAKhh8xgr2UMfWOPr61XL1LeRS2HkSUk5VIUMCI6oSFHSIVmSgJPsBDAl1La5TA
+                MvGNCl8tlOUgEQGz2Xdk2LcdBfCzrooHdVLAVkz/ABKSAqSpY+UY66e2t1Cd4qGrherjdFNJbNdUPVOm
+                TmKdVZXlzSE5Zo58+eJ5XKtp8I5CQ5R1RmVU6jMpTOU5xLrAKqEgSEgJRZ4C63UqPMJPx8eMYztJRilS
+                EmYyzy8dYk1kMs9c+ae3jrFBrnzT28dYBAVBBmCkHLx1iZEioJPMgnL48YxchqndKlhKZEkRqUbq33Ry
+                ieSumcyuJxWMD5j1EWzI3VbWWm8MhypH2lfKQeQMyFS/qGMZksHP1NE+ycUuo8FIII/TGNBNQfPIIUPc
+                S/jFGApyebpEv6R/MwyJW8AJCQEuQiZCzj/PwwjORQX5f04cdYmRIqfUdvHWGRBqCfFPbx1iZGOv6p7e
+                OsMg1vVPbx1hkGt6p7eOsMg1vVPbx1hkJavqnt46xMjJLhKgBlJKeQ48YBoVQaTpoKSop+ax/ARrItZq
+                jMAEYRZQ99/8gAeSRIc4uRn9+ZY+EUYLrJ+PhDIXXVT8RhGchZyo9Rhx1iBdb+Pb28dYmRUXueKe3jrE
+                yI1fVPbx1hkGr6p7eOsMg1fVPbx1hkGr6p7eOsMg1fVPbx1hkGr6p7eOsMhX5RFWIz5FZO/x88vpFRCM
+                /hEDDOpm5Yy5e8aFqNXpAWDViiFasBWrViClWeCqVZ4yjD5QUfKAPlAHygD5QB8oA+UB/9k=
+            </property>
+        </structure>
+    </list-property>
+</report>

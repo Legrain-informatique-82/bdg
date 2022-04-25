@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Impression Document Plug-in
+Bundle-SymbolicName: fr.legrain.document.impression;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.document.impression.Activator
+Bundle-Vendor: Le Grain SA
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ log4j_1_2_8;bundle-version="1.2.8",
+ GestionCommerciale;bundle-version="2.0.14",
+ LibrairiesEcran;bundle-version="1.8.9",
+ librairiesLeGrain;bundle-version="1.8.9",
+ org.eclipse.core.expressions;bundle-version="3.4.1",
+ Document;bundle-version="1.8.9",
+ gestComBd;bundle-version="1.8.9",
+ Edition;bundle-version="1.8.9",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ LibMessageLGR;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

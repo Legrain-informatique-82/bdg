@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="GenerationLabelEtiquetteFeature"
+      label="GenerationLabelEtiquetteFeature Feature"
+      version="2.0.14.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="gestComBd"/>
+      <import plugin="org.eclipse.birt.report.designer.core"/>
+      <import plugin="org.eclipse.birt.report.viewer"/>
+      <import plugin="librairiesLeGrain"/>
+      <import plugin="LibLgrBirt"/>
+      <import plugin="LibrairiesEcran"/>
+      <import plugin="SilentPdfPrint"/>
+      <import plugin="org.eclipse.birt.report.engine" version="2.3.2" match="greaterOrEqual"/>
+      <import plugin="Lib"/>
+   </requires>
+
+   <plugin
+         id="GenerationLabelEtiquette"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

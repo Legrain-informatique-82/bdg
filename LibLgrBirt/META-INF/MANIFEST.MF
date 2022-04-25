@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LibLgrBirt Plug-in
+Bundle-SymbolicName: LibLgrBirt; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.libLgrBirt.LibLgrBirtPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.birt.report.engine,
+ org.eclipse.birt.report.viewer,
+ log4j_1_2_8,
+ SilentPdfPrint,
+ org.eclipse.help.ui,
+ com.ibm.icu;bundle-version="4.0.1",
+ org.eclipse.birt.chart.engine;bundle-version="2.5.1",
+ org.eclipse.birt.chart.engine.extension;bundle-version="2.5.1"
+Eclipse-LazyStart: true
+Export-Package: fr.legrain.libLgrBirt,
+ fr.legrain.libLgrBirt.chart,
+ fr.legrain.libLgrBirt.chart.test,
+ fr.legrain.libLgrBirt.chart.test.data,
+ fr.legrain.libLgrBirt.chart.test.data.test,
+ fr.legrain.libLgrBirt.test
+Bundle-Vendor: Le Grain SA

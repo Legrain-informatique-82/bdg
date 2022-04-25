@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.generationdocumentLGR.handlers.HandlerGenerationDocumentNMoins1"
+            description="C"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersNMoins1"
+            name="Editeur génération document N -1">
+      </command>
+      <command
+            description="Rajouter liste tiers"
+            id="fr.legrain.generationdocumentLGR.Rajouter"
+            name="Rajouter">
+      </command>
+      <command
+            description="Réinitialiser liste tiers"
+            id="fr.legrain.generationdocumentLGR.Reinitialiser"
+            name="Réinitialiser">
+      </command>
+      <command
+            description="Charger le fichier"
+            id="fr.legrain.generationdocumentLGR.ChargerFichier"
+            name="Charger le fichier">
+      </command>
+      <command
+            description="Remonter le document"
+            id="fr.legrain.generationdocumentLGR.RemonterDoc"
+            name="Remonter le document">
+      </command>
+      <command
+            description="Imprimer le document"
+            id="fr.legrain.generationdocumentLGR.ImprimerDoc"
+            name="Imprimer le document">
+      </command>
+      <command
+            description="Réinitialiser liste document"
+            id="fr.legrain.generationdocumentLGR.ReinitDocCree"
+            name="Reinitialiser liste document">
+      </command>
+      <command
+            description="Impressions diverses"
+            id="fr.legrain.generationdocumentLGR.ImpressionDiverses"
+            name="Impressions diverses">
+      </command>
+      <command
+            defaultHandler="fr.legrain.generationdocumentLGR.handlers.HandlerImpressionFacture"
+            description="Impression facture de Maintenance"
+            id="fr.legrain.generationdocumentLGR.impressionFacturesMaintenance"
+            name="Impression facture de Maintenance">
+      </command>
+      <command
+            defaultHandler="fr.legrain.generationdocumentLGR.handlers.HandlerGenerationDocument"
+            description="N"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiers"
+            name="Editeur génération document">
+      </command>
+      <command
+            defaultHandler="fr.legrain.generationdocumentLGR.handlers.HandlerGenerationPrelevement"
+            description="P"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersPrelevement"
+            name="Editeur génération Prélèvement">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiers"
+            icon="icons/legrain.gif"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiers"
+            name="Editeur liste tiers">
+      </editor>
+      <editor
+            class="fr.legrain.generationdocumentLGR.editor.EditorImpression"
+            icon="icons/printer.png"
+            id="fr.legrain.generationdocumentLGR.editor.EditorImpression"
+            name="Impression facture de Maintenance">
+      </editor>
+      <editor
+            class="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersNMoins1"
+            icon="icons/legrain.gif"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersNMoins1"
+            name="Editeur liste tiers N -1">
+      </editor>
+      <editor
+            class="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersPrelevement"
+            icon="icons/legrain.gif"
+            id="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersPrelevement"
+            name="Editeur liste tiers En prélèvement">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:">
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiers"
+               icon="icons/group.png"
+               label="Génération des factures LGR">
+         </command>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersNMoins1"
+               icon="icons/group.png"
+               label="Génération des factures LGR (N -1)">
+         </command>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersPrelevement"
+               icon="icons/group.png"
+               label="Génération des  Prélèvements LGR">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:documents">
+         <separator
+               name="GenerationDocumentLGR.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiers"
+               icon="icons/group.png"
+               label="Génération des factures LGR">
+         </command>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.impressionFacturesMaintenance"
+               icon="icons/printer.png"
+               id="fr.legrain.generationdocumentLGR.impressionFacturesMaintenance"
+               label="Impression factures de Maintenance">
+         </command>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersNMoins1"
+               icon="icons/group.png"
+               label="Génération des factures LGR (N -1)">
+         </command>
+         <command
+               commandId="fr.legrain.generationdocumentLGR.editor.EditorEditeurListeTiersPrelevement"
+               icon="icons/group.png"
+               label="Génération des  Prélèvements LGR">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.generationdocumentLGR.ImpressionDiverses"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M1+F11">
+      </key>
+   </extension>
+</plugin>

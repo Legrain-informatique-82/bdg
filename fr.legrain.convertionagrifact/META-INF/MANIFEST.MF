@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Convertionagrifact
+Bundle-SymbolicName: fr.legrain.convertionagrifact; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.convertionagrifact.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ gestComBd,
+ Tiers,
+ Articles,
+ log4j_1_2_8,
+ librairiesLeGrain,
+ LibrairiesEcran,
+ LibJBuilder2006,
+ Lib,
+ LibLgrBirt,
+ SilentPdfPrint,
+ GestionCommerciale,
+ org.eclipse.ui.forms,
+ LibMessageLGR,
+ org.hibernate.eclipse;bundle-version="3.2.4"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/sqljdbc4.jar,
+ .

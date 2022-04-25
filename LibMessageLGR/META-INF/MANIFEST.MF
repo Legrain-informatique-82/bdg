@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LibMessageLGR Plug-in
+Bundle-SymbolicName: LibMessageLGR
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.libMessageLGR.libmessagelgr
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Eclipse-LazyStart: true
+Export-Package: fr.legrain.libMessageLGR
+Bundle-Vendor: Le Grain SA

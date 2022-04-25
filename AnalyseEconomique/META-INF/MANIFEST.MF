@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AnalyseEconomique Plug-in
+Bundle-SymbolicName: AnalyseEconomique;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.analyseeconomique.Activator
+Bundle-Vendor: Le Grain SA
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LiasseFiscale,
+ log4j_1_2_8,
+ librairiesLeGrain,
+ org.apache.xerces,
+ Ftp,
+ LibrairiesEcran;bundle-version="2.0.14"
+Eclipse-LazyStart: true
+Bundle-ClassPath: lib/castor-1.1.1.jar,
+ .,
+ lib/commons-logging-1.1.jar
+Export-Package: fr.legrain.analyseeconomique,
+ fr.legrain.analyseeconomique.actions

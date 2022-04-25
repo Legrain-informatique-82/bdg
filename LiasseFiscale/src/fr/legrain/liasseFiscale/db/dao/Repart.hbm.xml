@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 7, 2006 10:37:19 AM by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+    <class name="fr.legrain.liasseFiscale.db.dao.Repart" table="REPART">
+        <id name="idRepart" type="java.lang.Integer">
+            <column name="ID_REPART" />
+            <generator class="assigned" />
+        </id>
+        <property name="numCpt" type="big_decimal">
+            <column name="NUM_CPT" precision="15" />
+        </property>
+        <property name="mtDebit" type="big_decimal">
+            <column name="MT_DEBIT" precision="15" />
+        </property>
+        <property name="mtCredit" type="big_decimal">
+            <column name="MT_CREDIT" precision="15" />
+        </property>
+        <property name="solde" type="big_decimal">
+            <column name="SOLDE" precision="15" />
+        </property>
+        <property name="mtDebit2" type="big_decimal">
+            <column name="MT_DEBIT_2" precision="15" />
+        </property>
+        <property name="mtCredit2" type="big_decimal">
+            <column name="MT_CREDIT_2" precision="15" />
+        </property>
+        <property name="solde2" type="big_decimal">
+            <column name="SOLDE_2" precision="15" />
+        </property>
+        <property name="mtDebit3" type="big_decimal">
+            <column name="MT_DEBIT_3" precision="15" />
+        </property>
+        <property name="mtCredit3" type="big_decimal">
+            <column name="MT_CREDIT_3" precision="15" />
+        </property>
+        <property name="solde3" type="big_decimal">
+            <column name="SOLDE_3" precision="15" />
+        </property>
+        <property name="regime" type="string">
+            <column name="REGIME" length="1" />
+        </property>
+        <property name="typeTraitement" type="string">
+            <column name="TYPE_TRAITEMENT" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

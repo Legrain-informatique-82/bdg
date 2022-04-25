@@ -1,0 +1,26 @@
+/BooleanAdapter.class
+/DateAdapter.class
+/IdBdgPresta.class
+/ListeID.class
+/ProductFeaturesAdapter.class
+<<<<<<< HEAD
+/UtilHTTP.class
+/WSPrestaUtil.class
+/WSPrestashop$1.class
+/WSPrestashop.class
+/WSPrestashopConfig.class
+/WSPrestashopProgress$1.class
+/WSPrestashopProgress.class
+/db2sql.class
+/doc.txt
+=======
+/db2sql.class
+/doc.txt
+/UtilHTTP.class
+/WSPrestashop$1.class
+/WSPrestashop.class
+/WSPrestashopConfig.class
+/WSPrestashopProgress$1.class
+/WSPrestashopProgress.class
+/WSPrestaUtil.class
+>>>>>>> branch 'b_2_0_13' of ssh://nicolas@git.legrain.dev/home/prog/git/bdg.git

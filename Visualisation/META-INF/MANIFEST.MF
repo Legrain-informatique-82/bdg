@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Visualisation Plug-in
+Bundle-SymbolicName: Visualisation;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: visualisation.VisualisationPlugIn
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibrairiesEcran,
+ librairiesLeGrain,
+ log4j_1_2_8,
+ gestComBd,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.birt.report.viewer,
+ LibJBuilder2006,
+ Edition,
+ LibLgrBirt;bundle-version="1.8.9",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ Lib;bundle-version="2.0.14"
+Eclipse-LazyStart: true
+Export-Package: fr.legrain.visualisation.controller,
+ fr.legrain.visualisation.editor,
+ visualisation
+Bundle-Vendor: Le Grain SA
+Eclipse-BuddyPolicy: registered

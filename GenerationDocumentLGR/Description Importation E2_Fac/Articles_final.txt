@@ -1,0 +1,6 @@
+ART_COD	ART_DIV	ART_FAM	ART_DES	ART_HT1	ART_TTC1	ART_TVA	ART_TVA2	ART_UN1	ART_UN2	ART_CPT	ART_CPT2	ART_GTVA	ART_HT2	ART_TTC2	ART_HT3	ART_TTC3	ART_PRF
+ARTICLE ISA	A	ACC	article isa test ttc	8.36	10	19.6	19.6	U	KG	7011	6022	E	16.72	20	25.08	30	10
+ARTICLE ISA	A	ACC	article isa test ttc	10	11.96	19.6	19.6	U	KG	7011	6022	E	20	23.92	30	35.88	10
+ARTICLE ISA	A	ACC	article isa test ttc	12.14	14.52	19.6	19.6	U	KG	7011	6022	E	24.28	29.04	36.42	43.56	12.14
+code	divers	famille	libelle	ht1	ttc1	tva1	tva2	un1	un2	compte1	compte 2	type tva 1	ht2	ttc2	ht3	ttc3	prix de reference
+code_article	divers_article	id_famille	libelleC_article	prix_prix(prix)	prixTTC_prix(prix)	id_tva	#	id_unité(prix)		numcpt_article	#	id_t_tva	prix_prix(prix)	prixTTC_prix(prix)	prix_prix(prix)	prixTTC_prix(prix)	id_prix(ref_prix)

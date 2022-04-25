@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.reglement.editor.ReglementMultipleMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.reglement.multi"
+            name="Règlement sur liste">
+      </editor>
+      <editor
+            class="fr.legrain.reglement.editor.EditorGestionReglement"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.reglement.editor.EditorGestionReglement"
+            name="modification réglement">
+      </editor>
+      <editor
+            class="fr.legrain.reglement.editor.FormEditorReglement"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.reglement.reglementSurListe"
+            name="Gestion des règlements sur liste">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.reglement.handler.HandlerReglementMultiple"
+            description="Règlement sur liste"
+            id="fr.legrain.reglement.editor.reglement"
+            name="Règlement sur liste">
+      </command>
+      <command
+            id="fr.legrain.document.reglement.affecter"
+            name="Affecter règlement">
+      </command>
+      <command
+            id="fr.legrain.Reglement.toutDeRegle"
+            name="Tout régler">
+      </command>
+      <command
+            defaultHandler="fr.legrain.reglement.handler.HandlerReglement"
+            description="Gestion des règlements sur liste"
+            id="fr.legrain.reglement.reglementSurListe"
+            name="Gestion des règlements sur liste">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion">
+         <command
+               commandId="fr.legrain.reglement.editor.reglement"
+               icon="icons/logo_lgr_16.png"
+               label="Règlement sur liste"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:gestion.support?after=fr.legrain.abonnement.separator4">
+         <command
+               commandId="fr.legrain.reglement.reglementSurListe"
+               icon="icons/logo_lgr_16.png"
+               label="Gestion des règlements"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.reglement.separator5">
+         </separator>
+      </menuContribution>
+   </extension>
+
+</plugin>

@@ -1,0 +1,347 @@
+InfosDossier
+InfosDossier;Dossier;91944
+InfosDossier;Code_Exercice;06
+InfosDossier;Nom_Exercice;2006
+InfosDossier;Raison sociale;E.A.R.L DUCOM LABASTIDE
+InfosDossier;Debut;01/07/2005
+InfosDossier;Fin;30/06/2006
+InfosDossier;Adresse1;"GRAND BLAYE"
+InfosDossier;Adresse2;.
+InfosDossier;cp;40500
+InfosDossier;ville;FARGUES
+InfosDossier;Gestion derog;Faux
+5B1;compte;debit;credit
+5B1;2313;1000;0
+5B2;compte;debit;credit
+5B2;2154;327.13;0
+6B1;compte;debit;credit
+6B1;205;125.53;0
+6B1;2121;1016.67;0
+6B1;21311;4648.4;0
+6B1;2154;16926.91;0
+6B1;2461;232.35;0
+6B2;compte;debit;credit
+6B2;;;0
+6A3;compte;debit;credit
+6A3;2154;327.13;0
+6C4;compte;debit;credit
+6C5;compte;debit;credit
+Bilan;Compte;Debit_Report;Credit_Report;Debit_base;Credit_base;debit_total;credit_total
+Bilan;1010;0;176078.61;0;0;0;176078.61
+Bilan;1052;0;43683.99;0;0;0;43683.99
+Bilan;106;0;8225.8;0;0;0;8225.8
+Bilan;129;12856.72;0;0;0;0;0
+Bilan;151;0;0;0;0;0;4708.55
+Bilan;1642;0;50824.49;0;0;0;36377.05
+Bilan;16884;0;1253;0;0;0;898
+Bilan;205;168;0;0;0;168;0
+Bilan;2111;3811.23;0;0;0;3811.23;0
+Bilan;2121;3050;0;0;0;3050;0
+Bilan;21311;69166.5;0;0;0;69166.5;0
+Bilan;2154;138441.78;0;0;0;140409.1;0
+Bilan;2313;0;0;0;0;0;0
+Bilan;2461;2813.42;0;0;0;2813.42;0
+Bilan;261;0;0;0;0;0;0
+Bilan;2621;5124.21;0;0;0;5275.69;0
+Bilan;2751;1631.88;0;0;0;1631.88;0
+Bilan;2805;0;42.47;0;0;0;168
+Bilan;28121;0;765.32;0;0;0;1781.99
+Bilan;2813;0;23608.78;0;0;0;23608.78
+Bilan;281311;0;5187.31;0;0;0;9835.71
+Bilan;28154;0;92186.18;0;0;0;108785.96
+Bilan;2846;0;1910.11;0;0;0;1910.11
+Bilan;28461;0;424.73;0;0;0;657.08
+Bilan;3014801;433.95;0;0;0;1085.61;0
+Bilan;3021;630;0;0;0;272;0
+Bilan;3027801;252;0;0;0;0;0
+Bilan;3111;146135;0;0;0;126260;0
+Bilan;34110;2606.16;0;0;0;5394.27;0
+Bilan;34117;14312.32;0;0;0;17722.52;0
+Bilan;341315;3225.2;0;0;0;3309.72;0
+Bilan;3415;14307;0;0;0;16856;0
+Bilan;37417;5631;0;0;0;4085.4;0
+Bilan;37801;10320;0;0;0;12800;0
+Bilan;391;0;2099;0;0;0;2286
+Bilan;401;0;20582.95;0;0;0;10521.39
+Bilan;402;0;6571.46;0;0;0;8786.59
+Bilan;4081;0;7219.94;0;0;0;6632.47
+Bilan;411;2609.18;0;0;0;850;0
+Bilan;412;0;0;0;0;0;0
+Bilan;4181;316;0;0;0;316;0
+Bilan;431;0;2520.8;0;0;0;1002.6
+Bilan;4417;11852;0;0;0;11511;0
+Bilan;44562;0;0;0;0;392;0
+Bilan;44566;0;164.3;0;0;42.73;0
+Bilan;44567;0;0;0;0;0;0
+Bilan;445713;0;0;0;0;0;0
+Bilan;445714;0;0;0;0;0;0
+Bilan;445715;0;56.53;0;0;0;56.53
+Bilan;44583;1150;0;0;0;1735;0
+Bilan;44586;487.06;0;0;0;481.47;0
+Bilan;455;0;0;0;0;0;0
+Bilan;45515;0;62551.33;0;0;981.6;0
+Bilan;4552;83135.02;0;0;0;21976.6;0
+Bilan;4687;0;0;0;0;1729.15;0
+Bilan;486;7114.41;0;0;0;3559.56;0
+Bilan;5121;0;3005.34;0;0;2861.23;0
+Bilan;5191;0;12000;0;0;0;0
+Bilan;5191030;0;20166.15;0;0;0;25000
+Bilan;5198;0;451.45;0;0;0;139.56
+Bilan;601111;1381.57;0;0;0;2911.95;0
+Bilan;601117;8450.2;0;0;0;10898.82;0
+Bilan;6011801;7795.41;0;0;0;6688.58;0
+Bilan;601211;629.41;127.85;0;0;900.2;0
+Bilan;601217;5232.9;366;0;0;4557.33;0
+Bilan;6012801;433.08;0;0;0;1052.65;0
+Bilan;6013110;723.03;0;0;0;1571.62;0
+Bilan;601317;3928.45;242.6;0;0;4811.69;0
+Bilan;6013801;597.14;6.48;0;0;419.31;0
+Bilan;6014801;7934.88;0;0;0;12837.17;0
+Bilan;6015801;7706.97;0;0;0;3416.67;0
+Bilan;6017;36;0;0;0;0;0
+Bilan;6021;3966.38;953.25;0;0;5177.82;0
+Bilan;6022;0;0;0;0;0;3908
+Bilan;60220;235.13;0;0;0;186.56;0
+Bilan;6024;82.18;0;0;0;69.7;0
+Bilan;6025;19.5;0;0;0;8.32;0
+Bilan;6027801;1168.08;0;0;0;309.77;0
+Bilan;60314801;800;433.95;0;0;0;651.66
+Bilan;60321;345;630;0;0;358;0
+Bilan;60327801;0;252;0;0;252;0
+Bilan;6045801;4080;0;0;0;2286.73;0
+Bilan;605111;487.5;0;0;0;550;0
+Bilan;605117;3081.75;0;0;0;3018;0
+Bilan;6051801;2427.7;0;0;0;2802.96;0
+Bilan;605211;547.12;0;0;0;323;0
+Bilan;605217;5228.22;0;0;0;2467.14;0
+Bilan;6052315;1193.31;0;0;0;1274.77;0
+Bilan;6054801;1450.32;0;0;0;4124.42;0
+Bilan;6061;1238.78;238.18;0;0;1581.57;0
+Bilan;60630;1015.56;189.08;0;0;656.56;0
+Bilan;6064;790.2;0;0;0;718.29;0
+Bilan;6066;648.82;0;0;0;1752.01;0
+Bilan;6080801;5120;5120;0;0;0;0
+Bilan;6080802;1900;1900;0;0;0;0
+Bilan;6080803;2000;2000;0;0;0;0
+Bilan;6091;0;5.4;0;0;0;0
+Bilan;6131;11966.93;3954.09;0;0;6950.7;0
+Bilan;6151;3138.87;3050;0;0;531.68;0
+Bilan;6153;498.14;0;0;0;60.95;0
+Bilan;6155;4239.43;66;0;0;3753.92;0
+Bilan;6158;0;0;0;0;90.4;0
+Bilan;616;8088.92;4140.11;0;0;3195.64;0
+Bilan;6168;503.56;0;0;0;350.04;0
+Bilan;6183;86.14;0;0;0;179.19;0
+Bilan;6185;0;0;0;0;117.79;0
+Bilan;621;3905.75;0;0;0;4553.27;0
+Bilan;6225801;0;0;0;0;3090.68;0
+Bilan;6226;4758.16;1908;0;0;3064.54;0
+Bilan;6228;213;0;0;0;0;0
+Bilan;6231;0;0;0;0;11.3;0
+Bilan;6251;80;0;0;0;0;0
+Bilan;6256;181;0;0;0;0;0
+Bilan;626;95.98;0;0;0;141.74;0
+Bilan;627;760.13;0;0;0;642.87;0
+Bilan;6284801;1572.82;0;0;0;2231.57;0
+Bilan;6286;345;115;0;0;250;0
+Bilan;6313;56;19;0;0;18;0
+Bilan;6341110;36.28;0;0;0;44.08;0
+Bilan;634117;338.68;0;0;0;302.42;0
+Bilan;6344801;44.51;0;0;0;91.9;0
+Bilan;6357;21;0;0;0;0;0
+Bilan;6378;357;0;0;0;366;0
+Bilan;63781;1212;295;0;0;614;0
+Bilan;64111;0;0;0;0;1254;0
+Bilan;64115;0;0;0;0;2654;0
+Bilan;6413;21960;0;0;0;21960;0
+Bilan;6462;11924.98;7496.98;0;0;2406.8;0
+Bilan;658;6.16;0;0;0;10.33;0
+Bilan;6612;4133.53;1567.08;0;0;1971.57;0
+Bilan;6613;677.31;47.36;0;0;233.26;0
+Bilan;6614;720.46;61.39;0;0;972.89;0
+Bilan;6617;116.5;0;0;0;150.14;0
+Bilan;6618;23.75;0;0;0;0.01;0
+Bilan;6718;0.01;0;0;0;0;0
+Bilan;6752;653.19;0;0;0;0;0
+Bilan;681115;42.47;0;0;0;125.53;0
+Bilan;6811221;765.32;0;0;0;1016.67;0
+Bilan;68112311;5187.31;0;0;0;4648.4;0
+Bilan;6811254;18654.59;0;0;0;16926.91;0
+Bilan;6811461;424.73;0;0;0;232.35;0
+Bilan;68151;0;0;0;0;4708.55;0
+Bilan;681731;1794;0;0;0;492;0
+Bilan;7010110;0;2891.88;0;0;0;3060.08
+Bilan;701017;0;30763.55;0;0;0;27137.98
+Bilan;7045801;0;13478.18;0;0;0;74459.79
+Bilan;7045803;0;6000;0;0;0;0
+Bilan;7045804;0;19352.92;0;0;0;0
+Bilan;7045806;0;1981.84;0;0;0;8816.08
+Bilan;708017;5120;5120;0;0;0;0
+Bilan;708018;1900;1900;0;0;0;0
+Bilan;7080181;2000;2000;0;0;0;0
+Bilan;70830;316.33;948;0;0;0;632
+Bilan;713111;125877;146135;0;0;19875;0
+Bilan;7134110;1947.58;2606.16;0;0;0;2788.11
+Bilan;7134117;14659.82;14312.32;0;0;0;3865.52
+Bilan;71341315;2030.45;3299.23;0;0;370.8;0
+Bilan;713415;17391;14307;0;0;0;2549
+Bilan;7137417;1560;5631;0;0;1545.6;0
+Bilan;7137801;8880;10320;0;0;0;2480
+Bilan;7260170;0;60;0;0;0;99.2
+Bilan;7260800;0;0;0;0;0;600
+Bilan;7424;0;0;0;0;0;3337.12
+Bilan;743;0;4258.46;0;0;0;2771.62
+Bilan;74408;0;15066.49;0;0;0;17670.83
+Bilan;7450;0;759.47;0;0;0;509
+Bilan;7450110;1035.5;2595.31;0;0;0;1094.17
+Bilan;745017;12540.51;30419.86;0;0;0;15934.6
+Bilan;7450315;0;2474.01;0;0;0;4232.36
+Bilan;7450399;615;2435.74;0;0;0;2390.37
+Bilan;74508;0;0;0;0;0;102.84
+Bilan;758;0;0.58;0;0;0;0.18
+Bilan;768;0;198.87;0;0;0;198.47
+Bilan;7718;0;0;0;0;0;0.03
+Bilan;7752;0;300;0;0;0;0
+Bilan;781731;0;474;0;0;0;305
+5A3;Compte;Débit;Crédit
+5A3;2154;2294.45;0
+5A3;2313;1000;0
+5A3;2621;151.48;0
+8B1VS;Compte;Débit;Crédit
+8B1VS;Tous;13333;0
+8B1VT;Compte;Débit;Crédit
+8B1VT;Tous;66.2;0
+8B2VC;Compte;Debit;Credit
+8B2VC;1643;775.21;0
+8B2VD;Compte;Debit;Credit
+8B2VD;164;83.86;0
+8B3VC;Compte;Debit;Credit
+8B3VC;1643;2494.92;0
+8B3VD;Compte;Debit;Credit
+8B3VD;164;380.58;0
+8B4VC;Compte;Debit;Credit
+8B4VC;1643;0;0
+8B4VD;Compte;Debit;Credit
+8B4VD;164;442.88;0
+9WM;Compte;Debit;Credit
+9WM;Tous;0;0
+Analytique;Atelier;Libellé atelier;Compte;Désignation;Total charges;Total produits;Qt1;PU 1;Qt2;PU 2;Code activité;Libellé activité;Nb Unité Atelier
+Analytique;BAFO;Batiment et foncier;6131;FERMAGES;6950.7;0;40.16;173.08;0.00;0.00;CS;Charges de structure;0
+Analytique;BAFO;Batiment et foncier;6151;ENTR.TERRAINS;531.68;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;BAFO;Batiment et foncier;6153;ENTR.CONSTRUCTIONS;60.95;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;BAFO;Batiment et foncier;68151;Dotat. pour risques et charges;4708.55;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;BAFO;Batiment et foncier;7424;IND ASS BATIMENT;0;3337.12;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;60220;PRODUITS ENTRETIEN;186.56;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6024;FOURNITURES  BUREAU;69.7;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6025;VETEMENTS;8.32;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6061;EAU;1581.57;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;60630;ELECTRICITE;656.56;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6064;CARBURANTS;718.29;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6158;MAINTENANCE;90.4;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;616;ASSURANCES;3195.64;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6168;ASSURANCE PRETS;350.04;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6183;DOCUMENTATION;179.19;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6185;FRAIS COLLOQUES...;117.79;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6226;HONORAIRES COMPTABLES;3064.54;0;41.50;73.84;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6231;ANNONCES;11.3;0;1.00;11.30;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;626;TELEPHONE;141.74;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;627;SERVICES BANCAIRES;642.87;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6286;COTISATIONS PROFESSIONNELLES;250;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6313;FAFEA GILLES;18;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6378;TAXE ADAR;366;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;63781;CSG DED.GILLES;614;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;658;CHARGES GESTION;10.33;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6612;INTERETS ELMT;1971.57;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6613;INTERETS C.T;233.26;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6614;INTERETS OCC;972.89;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6617;INTERETS FOURNIS.;150.14;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;6618;INTERETS DAV;0.01;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;74508;AIDE CONCOURS;0;102.84;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;758;PRODUIT GESTION;0;0.18;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;DIVE;Charges diverses;7718;PROD.EXCEPTION.COUR.;0;0.03;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;70830;LOYER VIGNE;0;632;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;713415;V.S AAC C.S;0;2549;0.50;5 098.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;743;INDEMNITE CALAMITES;0;2771.62;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;7450;AUTRES IND ET SUBV;0;509;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;7450110;AIDE BLE;0;0;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;745017;AIDE MAIS;0;0;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;7450399;AIDE  JACHERE;0;0;0.00;0.00;0.00;0.00;EE;Elements exceptionnels;0
+Analytique;ELEM;Eléments divers;768;AUTRES PROD FINANC.;0;198.47;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;M--O;Main d'oeuvre;621;SALAIRE PERSONNEL EXTER.;4553.27;0;343.50;13.26;0.00;0.00;CS;Charges de structure;0
+Analytique;M--O;Main d'oeuvre;6413;REMUNERATIONS ASSOCI;21960;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;M--O;Main d'oeuvre;6462;MSA GILLES;2406.8;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;MECA;Charges de mécanisation;6021;FUEL ET HUILE;5177.82;0;10 132.00;0.51;0.00;0.00;CS;Charges de structure;0
+Analytique;MECA;Charges de mécanisation;60321;V.S CARBURANT;358;0;1 000.00;0.36;0.00;0.00;CS;Charges de structure;0
+Analytique;MECA;Charges de mécanisation;6066;PETIT EQUIPEMENT;1752.01;0;0.00;0.00;0.00;0.00;CS;Charges de structure;0
+Analytique;MECA;Charges de mécanisation;6155;ENTR.MATERIEL;3753.92;0;0.00;0.00;0.00;0.00;1;Céréales;0
+Analytique;MA-C;Maïs consommation;601117;ENGRAIS MAIS;10898.82;0;876.50;12.43;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;601217;SEMENCES MAIS;4557.33;0;47.00;96.96;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;601317;TRAITEMENTS MAIS;4811.69;0;538.00;8.94;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;605117;RECOLTE MAIS;3018;0;37.72;80.01;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;605217;TRAVAUX HORS RECOLTE;2467.14;0;684.25;3.61;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;634117;TAXES MAIS;302.42;0;2 936.22;0.10;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;701017;VENTES MAIS;0;27137.98;2 936.82;9.24;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;708017;CESSION MAIS;0;4723;458.49;10.30;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;7134117;V.S MAIS TERRE;0;3865.52;0.00;0.00;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;71341315;V.S MAIS ENSIL.TERRE;0;3309.72;-2.00;-1 654.86;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;7137417;V.S MAIS;1545.6;0;164.88;9.37;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;7260170;AUTOC.MAIS;0;99.2;10.00;9.92;0.00;0.00;1;Céréales;1.6
+Analytique;MA-C;Maïs consommation;745017;AIDE MAIS;0;15934.6;36.52;436.33;0.00;0.00;3;Plantes fourragères et jachère;1.6
+Analytique;JACH;Jachère;7450399;AIDE  JACHERE;0;2390.37;5.59;427.62;0.00;0.00;8;Productions animales;1.22
+Analytique;BONE;Bovin viande naisseur engraisseur;6011801;ENGRAIS PRAIRIES;6688.58;0;260.00;25.73;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6012801;SEMENCES PRAIRIES;1052.65;0;250.00;4.21;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6013801;PHYTO PRAIRIES;419.31;0;64.00;6.55;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6014801;ALIMENT BOVINS;12837.17;0;524.63;24.47;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6015801;PRDTS VETOS;3416.67;0;0.00;0.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6027801;FOURNITURES BOVINS;309.77;0;17.00;18.22;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;60314801;V.S ALIMENT BOVINS;0;651.66;-35.00;-18.62;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;60327801;V.S FOURNITURES BOVINS;252;0;12.00;21.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6045801;ACHAT ANIMAUX;2286.73;0;1.00;2 286.73;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6051801;TRAVAUX BOVINS;2802.96;0;1 008.00;2.78;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6052315;TRAVAUX MAIS ENSIL.;1274.77;0;8.70;146.53;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6054801;AUTRES FRAIS BOVINS;4124.42;0;378.60;10.89;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6080801;CESSION MAIS;4723;0;458.49;10.30;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6080802;CESSION TRITICALE;780;0;90.00;8.67;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6080803;CESSION PAILLE;2110;0;30 400.00;0.07;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6225801;HONORAIRES VETOS;3090.68;0;118.00;26.19;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6284801;COTISATIONS BOVINS;2231.57;0;0.00;0.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;6344801;TAXES BOVINS;91.9;0;0.00;0.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;681731;DOT.PROV.DEPR.BOVINS;492;0;0.00;0.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;7045801;BOVINS;0;74459.79;29.00;2 567.58;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;7045806;VEAUX;0;8816.08;10.00;881.61;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;713111;V.I BOVINS;19875;0;8.00;2 484.38;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;71341315;V.S MAIS ENSIL.TERRE;3680.52;0;1.00;3 680.52;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;7137801;V.S FOIN-ENSILAGE;0;2480;-28.00;-88.57;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;7260800;AUTOC.VEAU;0;600;1.00;600.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;74408;PRIME BOVINS;0;17670.83;0.00;0.00;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;7450315;AIDE MAIS ENSILAGE;0;4232.36;9.70;436.33;0.00;0.00;8;Productions animales;1
+Analytique;BONE;Bovin viande naisseur engraisseur;781731;REPR.PROV.DOT.DEPR.BOVINS;0;305;0.00;0.00;0.00;0.00;1;Céréales;1
+Analytique;BLE;Blé;601111;ENGRAIS BLE;2911.95;0;102.00;28.55;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;601211;SEMENCE BLE;900.2;0;1 650.00;0.55;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;6013110;PHYTO BLE;1571.62;0;25.00;62.86;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;605111;RECOLTE BLE;550;0;6.88;79.94;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;605211;TRAVAUX BLE;323;0;190.00;1.70;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;6341110;TAXES BLE;44.08;0;288.08;0.15;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;7010110;VENTE BLE;0;3060.08;288.08;10.62;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;708018;CESSION TRITICALE;0;780;90.00;8.67;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;7080181;CESSION PAILLE;0;2110;30 400.00;0.07;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;7134110;V.S BLE TERRE;0;2788.11;0.00;0.00;0.00;0.00;1;Céréales;1.36
+Analytique;BLE;Blé;7450110;AIDE BLE;0;1094.17;3.70;295.72;0.00;0.00;1;Céréales;1.36
+Stocks;Compte;Désignation;Qté;Prix Unitaire;Décote;Montant HT
+Stocks;3014801;NATURAMIX;30;32.22;0;966.69
+Stocks;3014801;PAILLE;20;5.95;0;118.92
+Stocks;3021;FUEL;500;0.54;0;272
+Stocks;3111;BOVINS;106;1191.13;0;126260
+Stocks;34110;BLE EN TERRE;1;5394.27;0;5394.27
+Stocks;34117;MAIS EN TERRE;1;17722.52;0;17722.52
+Stocks;341315;MAIS HUMIDE EN TERRE;1;827.43;0;827.43
+Stocks;341315;MAIS ENSIL.EN TERRE;1;2482.29;0;2482.29
+Stocks;3415;MAIS TERRE CS;6.4;312.5;0;2000
+Stocks;3415;MAIS TERRE CS;34.27;312.84;0;10721
+Stocks;3415;BLE TERRE CS;11.25;367.56;0;4135
+Stocks;37417;MAIS 05;371.4;11;0;4085.4
+Stocks;37801;FOIN;100;80;0;8000
+Stocks;37801;HERBE ENRUBANNEE;60;80;0;4800
+GLivreQte;Compte;Qt1
+GLivreQte;64111;12
+GLivreQte;64115;20

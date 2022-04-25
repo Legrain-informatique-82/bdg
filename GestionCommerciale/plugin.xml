@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension-point id="GestionCommercialeExtentionPoints" name="GestionCommercialeExtention" schema="schema/GestionCommercialeExtentionPoints.exsd"/>
+   <extension-point id="messageEditeur" name="Message dans editeur" schema="schema/messageEditeur.exsd"/>
+   <extension-point id="ImpressionTraite" name="Impression des traites" schema="schema/ImpressionTraite.exsd"/>
+   <extension-point id="verificationDemo" name="Verification verrouillage demo" schema="schema/verificationDemo.exsd"/>
+   <extension-point id="ImpressionDocument" name="Gestion impression des Documents" schema="schema/ImpressionDocument.exsd"/>
+   <extension-point id="Preferences" name="Gestion des Préférences" schema="schema/Preferences.exsd"/>
+   <extension-point id="execLancement" name="Execution de code au lancement" schema="schema/execLancement.exsd"/>
+   <extension-point id="SupportAbonnement" name="SupportAbonnement" schema="schema/SupportAbonnement.exsd"/>
+   <extension-point id="Abonnement" name="gestion des abonnements" schema="schema/Abonnement.exsd"/>
+   <extension-point id="branding" name="Branding" schema="schema/branding.exsd"/>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="fr.legrain.gestionCommerciale.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="fr.legrain.gestionCommerciale.Perspective"
+            icon="icons/lgr_default_persp.gif"
+            id="GestionCommerciale.perspective"
+            name="Bureau">
+      </perspective>
+   </extension>
+   
+   
+   <!--
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/legrain.gif"
+            id="gestionCommerciale.introID">
+      </intro>
+      <introProductBinding
+            introId="gestionCommerciale.introID"
+            productId="GestionCommerciale.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="gestionCommerciale.introID"
+            content="introContent.xml"
+            id="GestionCommerciale.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   -->
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="GestionCommerciale.application"
+            name="bureau de gestion">
+         <property
+               name="aboutImage"
+               value="content/link_obj.gif"/>
+         <property
+               name="aboutText"
+               value="%aboutText"/>
+         <property
+               name="windowImages"
+               value="icons/logo_lgr_16.png,icons/logo_lgr_32.png,icons/logo_lgr_48.png"/>
+         <property
+               name="appName"
+               value="bureau de gestion">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="4D4D4D">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="10,260,250,12">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="10,276,250,9">
+         </property>
+         <property name="introBrandingImage" value="product:icons/logo_lgr_32.png"/>
+		 <property name="introTitle" value="Bureau de gestion"/>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="GestionCommerciale.perspective">
+         <perspectiveShortcut id="fr.legrain.perspertive.facture"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.gestionCommerciale.aide"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F1"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.annuler"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="ESC"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.enregsitrer"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F3"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.fermer"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F4"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.imprimer"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F11"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.inserer"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F6"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.modifier"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F2"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.supprimer"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F10"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.refresh"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F5"/>
+      <scheme
+            description="Gestion Commerciale (org.eclipse.ui.defaultAcceleratorConfiguration)"
+            id="fr.legrain.scheme.gestionCommerciale"
+            name="Gestion Commerciale"
+            parentId="org.eclipse.ui.defaultAcceleratorConfiguration"/>
+      <key
+            commandId="fr.legrain.gestionCommerciale.suivant"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="PAGE_DOWN">
+      </key>
+      <key
+            commandId="fr.legrain.gestionCommerciale.precedent"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="PAGE_UP">
+      </key>
+      <key
+            commandId="fr.legrain.gestionCommerciale.selection"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M3+S">
+      </key>
+      <key
+            commandId="fr.legrain.gestionCommerciale.ctrlSpace"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M4+space">
+      </key>
+      <key
+            commandId="fr.legrain.gestionCommerciale.detail"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F7">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Aide"
+            id="fr.legrain.gestionCommerciale.aide"
+            name="Aide"/>
+      <command
+            description="Annuler"
+            id="fr.legrain.gestionCommerciale.annuler"
+            name="Annuler"/>
+      <command
+            description="Enregistrer"
+            id="fr.legrain.gestionCommerciale.enregsitrer"
+            name="Enregistrer"/>
+      <command
+            description="Fermer"
+            id="fr.legrain.gestionCommerciale.fermer"
+            name="Fermer"/>
+      <command
+            description="Imprimer"
+            id="fr.legrain.gestionCommerciale.imprimer"
+            name="Imprimer"/>
+      <command
+            description="Insérer"
+            id="fr.legrain.gestionCommerciale.inserer"
+            name="Insérer"/>
+      <command
+            description="Modifier"
+            id="fr.legrain.gestionCommerciale.modifier"
+            name="Modifier"/>
+      <command
+            description="Supprimer"
+            id="fr.legrain.gestionCommerciale.supprimer"
+            name="Supprimer"/>
+      <command
+            description="Rafraîchir"
+            id="fr.legrain.gestionCommerciale.refresh"
+            name="Rafraîchir"/>
+      <command
+            id="fr.legrain.gestionCommerciale.precedent"
+            name="Précédent">
+      </command>
+      <command
+            description="Suivant"
+            id="fr.legrain.gestionCommerciale.suivant"
+            name="Suivant">
+      </command>
+      <command
+            description="Détail"
+            id="fr.legrain.gestionCommerciale.detail"
+            name="Détail">
+      </command>
+      <context
+            id="GestionCommerciale.contextGlobal"
+            name="contextGlobal"
+            parentId="org.eclipse.ui.contexts.dialogAndWindow">
+      </context>
+      <command
+            description="Selection"
+            id="fr.legrain.gestionCommerciale.selection"
+            name="Sélection">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerMiseAJourBase"
+            description="Mise à jour de la base"
+            id="fr.legrain.miseAJourBase.maj"
+            name="Mise_a_jour">
+      </command>
+      <command
+            description="Aide Ctrl+Space"
+            id="fr.legrain.gestionCommerciale.ctrlSpace"
+            name="Aide Ctrl+Space">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerOuvreFichierLog"
+            description="Fichiers de logs"
+            id="fr.legrain.gestionCommerciale.fichierlog"
+            name="Fichiers de logs">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerOuvreFichierLogMetadata"
+            description="Fichiers de log Eclipse"
+            id="fr.legrain.gestionCommerciale.fichierlogeclispe"
+            name="Fichiers de log Eclipse">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerOuvreRepertoireDossier"
+            description="Répertoire dossier"
+            id="fr.legrain.gestionCommerciale.repertoire.dossier"
+            name="Répertoire dossier">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerOuvreRepertoireProgramme"
+            description="Répertoire programme"
+            id="fr.legrain.gestionCommerciale.repertoire.programme"
+            name="Répertoire programme">
+      </command>
+      <command
+            description="Support d&apos;abonnement !!!"
+            id="fr.legrain.gestionCommerciale.supportAbon"
+            name="Support d&apos;abonnement !!!">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionCommerciale.handlers.HandlerChangelog"
+            description="Changements"
+            id="fr.legrain.gestionCommerciale.changelog"
+            name="Changements">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/logo_lgr_16.png"
+            id="GestionCommerciale.intro"
+            label="Bienvenue dans le Bureau de gestion">
+      </intro>
+      
+      <introProductBinding
+            introId="GestionCommerciale.intro"
+            productId="GestionCommerciale.product">
+      </introProductBinding>
+      <!--
+      <introProductBinding
+            introId="org.eclipse.ui.intro.universal"
+            productId="GestionCommerciale.product">
+      </introProductBinding>
+      -->
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="intro/introContent.xml"
+            id="GestionCommerciale.introConfigId"
+            introId="GestionCommerciale.intro">
+         <presentation
+               home-page-id="root"
+               standby-page-id="standby">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="themes/legrain/html/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:outils">
+         <command
+               commandId="fr.legrain.miseAJourBase.maj"
+               icon="icons/database_refresh.png"
+               label="Mise à jour base">
+         </command>
+         <separator
+               name="miseAJourBase.separator"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.outils">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar.outils">
+         <command
+               commandId="fr.legrain.gestionCommerciale.selection"
+               icon="icons/magnifier.png"
+               label="Recherche"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:help">
+         <menu
+               icon="icons/script.png"
+               id="help.log"
+               label="Logs">
+         </menu>
+         <command
+               commandId="fr.legrain.gestionCommerciale.changelog"
+               label="Changements"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:help.log">
+         <command
+               commandId="fr.legrain.gestionCommerciale.fichierlog"
+               label="Fichiers de logs"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.fichierlogeclispe"
+               label="Fichiers de log Eclipse"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.repertoire.dossier"
+               label="Répertoire dossier"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.repertoire.programme"
+               label="Répertoire programme"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.gestionCommerciale.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.gestionCommerciale.preferences.GestionCommercialePreferencePage"
+            id="fr.legrain.gestionCommerciale.preferences.GestionCommercialePreferencePage"
+            name="Gestion des alias">
+      </page>
+      <page
+            class="fr.legrain.gestionCommerciale.preferences.GestionCommercialePreferenceGeneralesPage"
+            id="fr.legrain.gestionCommerciale.preferences.GestionCommercialePreferenceGeneralesPage"
+            name="Général">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.splashHandlers">
+      <splashHandler
+            class="fr.legrain.gestionCommerciale.handlers.SplashHandler"
+            id="fr.legrain.bdg.branding.splashHandler">
+      </splashHandler>
+      <splashHandlerProductBinding
+            productId="GestionCommerciale.product"
+            splashId="fr.legrain.bdg.branding.splashHandler">
+      </splashHandlerProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="org.eclipse.ui.intro.universalConfig"
+            content="intro/sample.xml">
+      </configExtension>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.themes">
+      <theme
+            id="GestionCommerciale.theme.lgr"
+            name="Thème Le Grain">
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_TAB_BG_END"
+               value="0,0,200">
+         </colorOverride>
+         <colorOverride
+               id="org.eclipse.ui.workbench.ACTIVE_TAB_BG_START"
+               value="0,200,0">
+         </colorOverride>
+      </theme>
+   </extension>
+   -->
+
+</plugin>

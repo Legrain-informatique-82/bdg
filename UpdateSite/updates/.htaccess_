@@ -1,0 +1,8 @@
+AuthUserFile /donnees/Projet/Java/Eclipse/GestionCommerciale/UpdateSite/updates/htuser
+AuthGroupFile /donnees/Projet/Java/Eclipse/GestionCommerciale/UpdateSite/updates/htgrp
+AuthName "Protection par mot de passe"
+AuthType Basic
+
+<LIMIT GET POST>
+Require valid-user
+</LIMIT>

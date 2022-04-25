@@ -1,0 +1,40 @@
+Récupérer les table de paramètres communes
+
+- select * from Tva
+
+
+
+Récupérer les tables de paramètres pour les articles
+
+- select * from Famille
+- select * from ListeChoix where NomChoix like ('ListeUnite')
+
+- select * from Produit //selection des produits
+
+
+Récupérer les tables paramètres pour les clients
+
+- select * from TelephoneEntreprise
+- select * from Groupe (* !!! à faire !!!)
+- select * from ListeChoix where NomChoix like ('FormeJuridique')
+- select * from ListeChoix where NomChoix like ('ListeCategorie')
+- select * from ListeChoix where NomChoix like ('ListeCibleCommercial')
+- select * from ListeChoix where NomChoix like ('ListeModeReglement')
+- select * from Tarif (* !!! à faire !!!)
+
+
+
+
+- select * from Entreprise where Client =  'true'
+  * voir ce que l'on importe comme code client (numérique ou alpha) si pas déjà une table des codes clients
+  sinon utiliser genereCode automatique
+  * voir si existe compte compta, sinon 411
+  - TypeEntreprise, nOrganisme, nMaisonMere (* !!! à faire !!!)
+  - pour les remises au client, n'existe pas pour le moment dans Bdg !!!!!
+  - FormeJuridique (* !!! à faire !!!)
+  - CibleCommercial   (* !!! à faire !!!)
+  - Banque, rib   (* !!! à faire !!!)
+  - SuffixePostal  (* !!! à faire !!!)
+  - nTarif  (* !!! à faire !!!)
+  
+   

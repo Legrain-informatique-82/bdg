@@ -1,0 +1,20 @@
+** Pour la création de la base **
+Passer à la version:
+Insert into TA_VERSION (num_version,old_version)values ('1.0.4','1.0.4');
+
+** Pour la mise à jour des bases de données existantes : **
+
+Old_Version 1.0.2 :
+voir fichier de mise à jour correspondant : MAJ_1.0.2-1
+
+Old_Version 1.0.3 :
+voir fichier de mise à jour correspondant : MAJ_1.0.3-1
+
+S'il n'y a pas de différence entre le old_version et le num_version, alors c'est juste
+une sauvegarde qui se fait à l'entrée du programme.
+Sinon, il y a une sauvegarde qui se fait avant la MAJ de la Base...
+
+En ce qui concerne la sauvegarde et restauration automatique à l'entrée du 
+Programme ou avant la mise à jour de la base, il faut impérativement :
+copier le fichier gbak.exe et fbclient.dll dans le répertoire de l'install
+du bureau de gestion. Sinon, ça ne fonctionne pas, et ça ne prévient même pas...

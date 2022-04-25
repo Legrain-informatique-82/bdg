@@ -1,0 +1,1238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<HTML>
+
+<HEAD>
+
+<TITLE>Hibernate Mappings - Table Summary</TITLE>
+
+<LINK REL ="stylesheet" TYPE="text/css" HREF="../../assets/doc-style.css" TITLE="Style">
+
+</HEAD>
+
+<BODY>
+
+<H1>Hibernate Mapping Documentation</H1>
+
+<H2>List of Tables for Schema: default</H2>
+
+<TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0">
+	<THEAD>
+		<TR>
+			<TH COLSPAN="2" CLASS="MainTableHeading">
+				Tables
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='FINAL.html' TARGET="generalFrame">
+					<B>FINAL</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_FINAL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								CLE
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								VALEUR
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								ID_DETAIL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='FINAL_DETAIL.html' TARGET="generalFrame">
+					<B>FINAL_DETAIL</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_FINAL_DETAIL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								ID_DETAIL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								NUM_CPT
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								TYPE_TRAITEMENT
+							</TD>
+							<TD>
+								varchar(1)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='INITIAL.html' TARGET="generalFrame">
+					<B>INITIAL</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_INITIAL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								NUM_CPT
+							</TD>
+							<TD>
+								varchar(9)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								LIBELLE_CPT
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='INITIAL_COMPL.html' TARGET="generalFrame">
+					<B>INITIAL_COMPL</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_INITIAL_COMPL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								ID_COMPL
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								VALEUR
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								EMPLACEMENT
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='REPART.html' TARGET="generalFrame">
+					<B>REPART</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_REPART
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								NUM_CPT
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE_2
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_DEBIT_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								MT_CREDIT_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								SOLDE_3
+							</TD>
+							<TD>
+								numeric(15,2)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								REGIME
+							</TD>
+							<TD>
+								varchar(1)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								TYPE_TRAITEMENT
+							</TD>
+							<TD>
+								varchar(1)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='TA_ACCES.html' TARGET="generalFrame">
+					<B>TA_ACCES</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_ACCES
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								PASSWORD_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								IP_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								USER_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_CREE_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_CREE_ACCES
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_MODIF_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_MODIF_ACCES
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								VERSION
+							</TD>
+							<TD>
+								varchar(20)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='TA_MODIF.html' TARGET="generalFrame">
+					<B>TA_MODIF</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_MODIF
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								TABLE_MODIF
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								CHAMP_MODIF
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								VALEUR_MODIF
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								IP_ACCES
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_CREE_MODIF
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_CREE_MODIF
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_MODIF_MODIF
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_MODIF_MODIF
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								VERSION
+							</TD>
+							<TD>
+								varchar(20)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='TA_VERSION.html' TARGET="generalFrame">
+					<B>TA_VERSION</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_VERSION
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								NUM_VERSION
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								OLD_VERSION
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_CREE_VERSION
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_CREE_VERSION
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUI_MODIF_VERSION
+							</TD>
+							<TD>
+								varchar(50)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								QUAND_MODIF_VERSION
+							</TD>
+							<TD>
+								timestamp
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								IP_ACCES
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	<TBODY>
+		<TR>
+			<TD>
+				<A HREF='TOTAUX.html' TARGET="generalFrame">
+					<B>TOTAUX</B>
+				</A>
+			</TD>
+			<TD>
+				<TABLE BORDER="1" CELLPADDING="3" CELLSPACING="0">
+					<THEAD>
+						<TR>
+							<TH WIDTH="50%">
+								Name
+							</TH>
+							<TH WIDTH="30%">
+								SQL Type
+							</TH>
+							<TH WIDTH="15%">
+								Nullable
+							</TH>
+							<TH WIDTH="15%">
+								Unique
+							</TH>
+						</TR>
+					</THEAD>
+					<TBODY>
+						<TR>
+							<TD>
+								ID_TOTAUX
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								CLE
+							</TD>
+							<TD>
+								integer
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								LISTE_CLE
+							</TD>
+							<TD>
+								varchar(255)
+							</TD>
+							<TD ALIGN="CENTER">
+								true
+							</TD>
+							<TD ALIGN="CENTER">
+								false
+							</TD>
+						</TR>
+					</TBODY>
+				</TABLE>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+
+</BODY>

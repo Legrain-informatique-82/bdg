@@ -1,0 +1,20 @@
+<introContent>
+  	<extensionContent id="fr.legrain.apporteur" style="css/apporteur.css" name="Apporteur" path="documents/links-background/page-links/ancre_apporteur">
+		<group style-id="content-group" id="fr.legrain.apporteur-group">
+       		<link label="Ouvrir les factures apporteur" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Apporteur&amp;class=fr.legrain.apporteur.handlers.IntroActionApporteur&amp;standby=true"
+       			id="link_apporteur" 
+       			style-id="content-link">
+          		<text>Gestion des factures apporteur</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+  	
+  	<extensionContent id="fr.legrain.apporteur" style="css/apporteur.css" name="Apporteur" path="root/links-background/page-links/ancre_apporteur">
+       	<link label="" 
+       		url="http://org.eclipse.ui.intro/runAction?pluginId=Apporteur&amp;class=fr.legrain.apporteur.handlers.IntroActionApporteur&amp;standby=true"
+       		id="link_facture_apporteur" 
+       		style-id="content-link">
+       	</link>
+  	</extensionContent>
+</introContent>

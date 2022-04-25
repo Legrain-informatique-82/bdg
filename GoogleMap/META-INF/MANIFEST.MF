@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GoogleMap Plug-in
+Bundle-SymbolicName: GoogleMap;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: googlemap.googlemapPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ log4j_1_2_8;bundle-version="1.2.8",
+ gestComBd
+Eclipse-LazyStart: true
+Export-Package: googlemap,
+ googlemap.navigateur
+Bundle-Vendor: Le Grain SA

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Documents">
+ <anchor id="fr.legrain.document.devis.help"/>
+ <anchor id="fr.legrain.document.acompte.help"/>
+ <anchor id="fr.legrain.document.apporteur.help"/>
+ <anchor id="fr.legrain.document.avoir.help"/>
+ <anchor id="fr.legrain.document.boncde.help"/>
+ <anchor id="fr.legrain.document.bonlivraison.help"/>
+ <anchor id="fr.legrain.document.facture.help"/>
+ <anchor id="fr.legrain.document.prelevement.help"/>
+ <anchor id="fr.legrain.document.proforma.help"/>
+</toc>

@@ -1,0 +1,81 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.prelevement.handlers.HandlerOuvreEditorPrelevement"
+            description="Nouvel avis de prélèvement"
+            id="fr.legrain.prelevement"
+            name="Nouvel avis de prélèvement">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.prelevement.editor.PrelevementMultiPageEditor"
+            icon="icons/money.png"
+            id="fr.legrain.editor.prelevement.swt.multi"
+            name="Nouvel avis de prélèvement">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.facture">
+         <command
+               commandId="fr.legrain.prelevement"
+               icon="icons/money.png"
+               id="fr.legrain.prelevement"
+               label="Avis de prélèvement">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.prelevement">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar">
+         <command
+               commandId="fr.legrain.prelevement"
+               icon="icons/money.png"
+               label="Avis de prélèvement">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.prelevement.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.prelevement.preferences.LgrPrelevementPreferencePage"
+            id="fr.legrain.prelevement.preferences.LgrPrelevementPreferencePage"
+            name="Avis de prélèvement">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="GestionCommerciale.introConfigId"
+            content="intro/introContent.xml">
+      </configExtension>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.prelevement.divers.Impression"
+            TypeDoc="Prelevement">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.prelevement.preferences.PreferencesStore">
+      </Preferences>
+   </extension>
+</plugin>

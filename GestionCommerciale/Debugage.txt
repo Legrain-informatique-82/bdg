@@ -1,0 +1,77 @@
+Articles
+Edition : 
+ - Liste (edition defaut) -> ce n'est pas une liste, mais la fiche de 
+l'article séléctionné
+ - Chiffres d'affaires sur l'article séléctionné
+sur l'année en cours : ne fonctionne pas
+- Chiffres d'affaires sur l'article séléctionné
+sur le mois en cours : ne fonctionne pas
+
+- edition par défaut : fonctionne mais elle est nommé : COMMENTAIRE LISTE EDITION DYNAMIQUE PAR DEFAUTE
+- Copyright 2007
+- list edition Aricle
+- Tout ce qui est pour l'article séléctionné ne fonctionne pas, par contre si pour tous
+les articles, alors ok
+
+ 
+ 
+Tiers : Edition
+- Articles facturés(Pour le tiers séléctionné) -- JPA ne fonctionne pas
+- Chiffres d'affaires par année et département -- JPA ne fonctionne pas 
+- Chiffres d'affaires par département et année -- JPA ne fonctionne pas
+- Chiffres d'affaires par tiers, année et département ne fonctionne pas 
+- Liste des Bons de Livraison sur l'exercice en cours (pour le tiers sélectionné) -- JPA ne fonctionne pas
+- Liste des Devis sur l'exercice en cours (pour le tiers sélectionné) -- JPA ne fonctionne pas 
+- Liste des BL et Devis sur l'exercice en cours, non facturés (pour le tiers sélectionné) -- JPA "OK"
+- Liste des documents sur l'exercice en cours (pour le tiers sélectionné) -- JPA ne fonctionne pas
+- Liste des Factures sur l'exercice en cours (pour le tiers sélectionné) -- 11 ne fonctionne pas
+- Liste des factures sur l'exercice en cours (pour tous les tiers) -- JPA "ok"
+- COMMENTAIRE LISTE EDITION DYNAMIQUE PAR DEFAUTE : liste des tiers "ok"
+ 
+ 
+ 
+ 
+ 
+Factures : 
+
+- Sélection des articles, ils ne sont pas triés par code
+- les dates d'échéance et de livraison ne suivent pas la date de facture 
+(elles peuvent être inférieures à celle-ci )
+
+
+ENTITE : 
+Le code entité n'est pas passé en majuscule automatiquement
+
+
+
+constaté gros problème de ralentissement, il faudrait tester en dehors d'éclipse
+ 
+ 
+
+Editions : 
+
+- Edition des factures : 
+   2 éditions proposées
+   liste (edition par défaut) édite la facture, les totaux sont collés aux lignes, la tva ne s'affiche pas, 
+   il faut la finaliser. Peut-être, reprendre l'ancienne édition ?
+   liste facture (jpa) : semble vouloir imprimer toutes les factures, ne doit pas apparaître dans cette écran.
+- Edition des devis : comme les factures, sauf que la tva s'affiche. les libellés sont décalés par
+rapport aux valeurs   
+- Edition des bons de livraisons : idem devis
+
+*** Tous les autres documents sont à faire au niveau des éditions ***
+
+- edition des adresses: ne fonctionne pas
+- edition des téléphones : idem
+- edition des adresses web : idem
+- edition des emails : idem
+- edition des liens : idem
+- edition des commerciaux : à faire
+- edition des entreprises :  à faire
+- edition des banques : erreur idem
+- edition des familles : le bouton ne semble pas branché 
+
+
+
+
+

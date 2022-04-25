@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-codec-1.5.jar"/>
+	<classpathentry kind="lib" path="lib/jersey-bundle-1.14.jar"/>
+	<classpathentry kind="lib" path="lib/apache-http/httpclient-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-http/httpcore-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-http/httpclient-cache-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/moxy/org.eclipse.persistence.asm_3.3.1.v201206041142.jar"/>
+	<classpathentry kind="lib" path="lib/moxy/org.eclipse.persistence.core_2.4.1.v20121003-ad44345.jar"/>
+	<classpathentry kind="lib" path="lib/moxy/org.eclipse.persistence.moxy_2.4.1.v20121003-ad44345.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/endorsed/geronimo-jaxws_2.2_spec-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/endorsed/jaxb-api-2.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-manifest.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-services-sts-core-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-services-ws-discovery-api-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-services-ws-discovery-service-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-services-wsn-api-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-services-wsn-core-2.7.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-xjc-boolean-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-xjc-bug671-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-xjc-dv-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-xjc-runtime-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/cxf-xjc-ts-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/javax.ws.rs-api-2.0-m10.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/jaxb-api-2.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/jaxb-impl-2.2.5.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/jaxb-xjc-2.2.5.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/stax2-api-3.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/wsdl4j-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/wss4j-1.6.7.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xml-resolver-1.2.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xmlbeans-2.5.0.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xmlschema-core-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xmlsec-1.5.2.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xmltooling-1.3.2-1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-cxf-2.7/xsdlib-2010.1.jar"/>
+	<classpathentry kind="lib" path="lib/apache-http/httpmime-4.2.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

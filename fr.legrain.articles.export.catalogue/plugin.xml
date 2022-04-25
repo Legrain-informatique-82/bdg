@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.article.export.catalogue.preferences.ExportCataloguePreferencePage"
+            id="fr.legrain.articles.export.catalogue.page1"
+            name="Boutique Prestashop">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.article.export.catalogue.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerExportationCatalogueWeb"
+            id="fr.legrain.articles.export.catalogue.web"
+            name="Exportation article catalogue web">
+      </command>
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerImportationCommandeWeb"
+            id="fr.legrain.articles.import.commande.web"
+            name="Importation tiers et commandes Web">
+      </command>
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerImportationArticle"
+            id="fr.legrain.articles.import.article.logiciel.tiers"
+            name="Importation articles">
+      </command>
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerUpdateInstallPHPModule"
+            id="fr.legrain.articles.export.catalogue.install.boutique"
+            name="MAJ / Installation module serveur">
+      </command>
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerOuvrirBoutique"
+            id="fr.legrain.articles.export.catalogue.ouvrir.boutique"
+            name="Boutique">
+      </command>
+      <command
+            defaultHandler="fr.legrain.article.export.catalogue.handlers.HandlerImportationFournisseur"
+            id="fr.legrain.articles.import.fournisseur.logiciel.tiers"
+            name="Importation fournisseur">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:boutique.prestashop">
+         <command
+               commandId="fr.legrain.articles.export.catalogue.web"
+               icon="icons/export_wiz.gif"
+               label="Mise à jour de la boutique"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.import.commande.web"
+               icon="icons/import_wiz.gif"
+               label="Importation des dernières commandes"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.export.catalogue.importation"
+               icon="icons/import_wiz.gif"
+               label="Importation commandes boutique (détails)"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.export.catalogue.ouvrir.boutique"
+               icon="icons/logo_presta_16.png"
+               label="Accès à la boutique"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.articles.export.catalogue.separator2"
+               visible="true">
+         </separator>
+         <separator
+               name="fr.legrain.articles.export.catalogue.separator1"
+               visible="true">
+         </separator>
+         <menu
+               icon="icons/wrench.png"
+               id="boutique.prestashop.outils"
+               label="Outils Prestashop">
+         </menu>
+         <menu
+               id="boutique.prestashop.espace3000"
+               label="Espace 3000">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:boutique">
+         <menu
+               icon="icons/logo_presta_16.png"
+               id="boutique.prestashop"
+               label="Prestashop">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:boutique.prestashop.espace3000">
+         <command
+               commandId="fr.legrain.articles.import.article.logiciel.tiers"
+               icon="icons/logo_lgr_16.png"
+               label="Importation des articles Espace 3000"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.import.fournisseur.logiciel.tiers"
+               icon="icons/logo_lgr_16.png"
+               label="Importation des fournisseurs Espace 3000"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:boutique.prestashop.outils">
+         <command
+               commandId="fr.legrain.articles.export.catalogue.correspondanceID"
+               icon="icons/logo_lgr_16.png"
+               label="Correspondance ID"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.export.catalogue.install.boutique"
+               icon="icons/logo_lgr_16.png"
+               label="MAJ / Installation du module serveur"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.articles.export.catalogue.prestashop.correspondances.HandlerCorrespondanceIDBoutique"
+            id="fr.legrain.articles.export.catalogue.correspondanceID"
+            name="Correspondance ID">
+      </command>
+      <command
+            defaultHandler="fr.legrain.articles.importation.handlers.HandlerImport"
+            id="fr.legrain.articles.export.catalogue.importation"
+            name="Importation boutique">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.articles.export.catalogue.prestashop.correspondances.EditorCorrespondanceIDBoutique"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.articles.export.catalogue.prestashop.EditorCorrespondanceIDBoutique"
+            name="Correspondance ID Boutique">
+      </editor>
+      <editor
+            class="fr.legrain.articles.importation.editors.FormEditorImport"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.articles.importation.editors.FormEditorImport"
+            name="Importation">
+      </editor>
+   </extension>
+
+</plugin>

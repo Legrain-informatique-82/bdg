@@ -1,0 +1,192 @@
+<introContent>
+	<page alt-style="../themes/legrain/swt/root.properties" style="../themes/legrain/html/root.css"
+		id="root" style-id="page">
+
+		<head src="../themes/legrain/html/root_css_ie.html" />
+
+		<img id="logo_lgr" src="../themes/legrain/graphics/icons/logoLgr.png" />
+
+		<!-- 
+		<text style-id="intro-title">
+			BUREAU DE GESTION
+		</text>
+		-->
+
+		<group id="links-background">
+			<group id="page-links">
+				
+				<text style-id="intro-title"> BUREAU DE GESTION </text>
+
+				<link label="" url="http://org.eclipse.ui.intro/showHelp" id="link_aide_doc" style-id="content-link">
+					<!-- 
+					<text>Ouverture de l'aide</text>
+					 -->
+				</link>
+				
+				<link label=""
+					url="http://org.eclipse.ui.intro/showHelpTopic?id=/fr.legrain.bdg.help/html/nouveautes.html"
+					id="link_aide_doc_topic" style-id="content-link">
+					<!--  
+					<text>Voir la liste des dernières modifications</text>
+					-->
+				</link>	
+
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Articles&amp;class=fr.legrain.articles.actions.IntroActionArticle&amp;standby=true"
+					id="link_article" style-id="content-img">
+					<!-- 
+					<text>Article</text>
+					 -->
+				</link>
+
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Tiers&amp;class=fr.legrain.tiers.actions.IntroActionTiers&amp;standby=true"
+					id="link_tiers" style-id="content-img">
+					<!--  
+					<text>Tiers</text>
+					-->
+				</link>
+
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Facture&amp;class=fr.legrain.facture.actions.IntroActionFacture&amp;standby=true"
+					id="link_facture" style-id="content-img">
+					<!--  
+					<text>Facture</text>
+					-->
+				</link>
+				
+				<!--  -->
+				<!-- 
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Devis&amp;class=fr.legrain.devis.handlers.IntroActionDevis&amp;standby=true"
+					id="link_devis" style-id="content-img">
+				</link>
+				-->
+				<anchor id="ancre_devis" />
+				
+				<!-- 
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Boncde&amp;class=fr.legrain.boncde.handlers.IntroActionBonCde&amp;standby=true"
+					id="link_bon_cde" style-id="content-img">
+				</link>
+				 -->
+				<anchor id="ancre_bon_cmd" />
+				
+				<!--  
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Proforma&amp;class=fr.legrain.proforma.handlers.IntroActionProforma&amp;standby=true"
+					id="link_proforma" style-id="content-img">
+				</link>
+				-->
+				<anchor id="ancre_proforma" />
+				
+				<!-- 
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=BonLivraison&amp;class=fr.legrain.bonlivraison.handlers.IntroActionBL&amp;standby=true"
+					id="link_bl" style-id="content-img">
+				</link>
+				 -->
+				<anchor id="ancre_bon_liv" />
+				
+				<!--  
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Apporteur&amp;class=fr.legrain.apporteur.handlers.IntroActionApporteur&amp;standby=true"
+					id="link_facture_apporteur" style-id="content-img">
+				</link>
+				-->
+				<anchor id="ancre_apporteur" />
+				
+				<!--  
+				<link label=""
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Avoir&amp;class=fr.legrain.avoir.handlers.IntroActionAvoir&amp;standby=true"
+					id="link_facture_avoir" style-id="content-img">
+				</link>
+				-->
+				<anchor id="ancre_avoir" />
+				<!--  -->
+
+				<!--  
+				<link label="Documents" url="http://org.eclipse.ui.intro/showPage?id=documents"
+					id="link_page_documents" style-id="content-img">
+				</link>
+				-->
+
+				<!--  
+				<html id="idhtml" src="http://accueil.legrain.fr/bidon.html"></html>
+				-->
+			</group>
+		</group>
+
+	</page>
+
+	<page id="documents" alt-style="../themes/legrain/swt/documents.properties"
+		style="../themes/legrain/html/documents.css" style-id="page">
+
+		<title style-id="intro-header">
+			Documents title
+		</title>
+
+		<group id="links-background" style-id="content-group">
+			<group id="page-links">
+				<link label="Aide" url="http://org.eclipse.ui.intro/showHelp" id="link_aide_doc" style-id="content-link">
+					<text>Ouverture de l'aide</text>
+				</link>
+				
+				<link label="Aide Doc" url="http://org.eclipse.ui.intro/showHelpTopic?id=/fr.legrain.document.help/html/maintopic.html" id="link_aide_doc_topic" style-id="content-link">
+					<text>Ouverture de l'aide des documents</text>
+				</link>
+
+				<link label="Ouvrir les factures"
+					url="http://org.eclipse.ui.intro/runAction?pluginId=Facture&amp;class=fr.legrain.facture.actions.IntroActionFacture&amp;standby=true"
+					id="test3" style-id="content-link">
+					<text>Gestion des factures</text>
+				</link>
+
+				<anchor id="ancre_devis" />
+				<anchor id="ancre_bon_liv" />
+				<anchor id="ancre_bon_cmd" />
+				<anchor id="ancre_avoir" />
+				<anchor id="ancre_apporteur" />
+				<anchor id="ancre_acompte" />
+				<anchor id="ancre_proforma" />
+				<anchor id="ancre_prelevement" />
+			</group>
+		</group>
+
+	</page>
+
+	<page id="standby" alt-style="../themes/legrain/swt/standby.properties"
+		style="../themes/legrain/html/standby.css" style-id="page">
+		
+
+		<title style-id="intro-header">
+			Stand by page
+		</title>
+
+		
+		
+		<group id="links-background">
+			<group id="page-links">
+	
+		<link label=""
+			url="http://org.eclipse.ui.intro/showHelp"
+			id="link_aide_doc" style-id="content-img">
+			<!--  <text>TEST desc</text>-->
+		</link>
+
+		<link label=""
+			url="http://org.eclipse.ui.intro/showHelpTopic?id=/fr.legrain.bdg.help/html/nouveautes.html"
+			id="link_aide_doc_topic" style-id="content-img">
+			<!--  <text>TEST desc</text>-->
+		</link>
+		
+			</group>
+			
+		</group>
+		
+
+		<img id="logo_lgr_standby" src="../themes/legrain/graphics/icons/logoLgr.png"></img>
+
+	</page>
+
+</introContent>

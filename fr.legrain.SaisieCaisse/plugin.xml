@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.saisiecaisse.handlers.HandlerEtablissement"
+            description="Etablissement"
+            id="fr.legrain.saisiecaisse.editor.EditorEtablissement"
+            name="Etablissement">
+      </command>
+      <command
+            defaultHandler="fr.legrain.saisiecaisse.handlers.HandlerTOperation"
+            description="Type Opération"
+            id="fr.legrain.saisiecaisse.editor.EditorTOperation"
+            name="Type Opération">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.saisiecaisse.editor.SaisieCaisseMultiPageEditor"
+            icon="icons/house.png"
+            id="fr.legrain.editor.saisieCaisse.multi"
+            name="Etablissement">
+      </editor>
+      <editor
+            class="fr.legrain.saisiecaisse.editor.EditorTOperation"
+            icon="icons/legrain.gif"
+            id="fr.legrain.saisiecaisse.editor.EditorTOperation"
+            name="Type Opération">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.SaisieCaisse">
+         <command
+               commandId="fr.legrain.saisiecaisse.editor.EditorEtablissement"
+               icon="icons/money.png"
+               label="Gestion Saisie de caisse">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:SaisieCaisse">
+         <command
+               commandId="fr.legrain.saisiecaisse.editor.EditorEtablissement"
+               icon="icons/money.png"
+               label="Gestion Saisie de caisse">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.saisiecaisse.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.saisiecaisse.preferences.SaisieCaissePreferencePage"
+            id="fr.legrain.saisiecaisse.preferences.SaisieCaissePreferencePage"
+            name="Saisie de Caisse">
+      </page>
+   </extension>
+</plugin>

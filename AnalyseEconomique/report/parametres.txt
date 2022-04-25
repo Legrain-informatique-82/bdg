@@ -1,0 +1,5 @@
+<context-param>
+	<param-name>BIRT_RESOURCE_PATH</param-name>
+	<param-value>/var/tomcat/apache-tomcat-5.5.23/webapps/birt/report</param-value>
+</context-param>
+

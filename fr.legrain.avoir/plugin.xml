@@ -1,0 +1,82 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.avoir.editor.AvoirMultiPageEditor"
+            icon="icons/creditcards.png"
+            id="fr.legrain.editor.avoir.swt.multi"
+            name="Facture d&apos;avoir">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.avoir.handlers.HandlerOuvreEditorAvoir"
+            description="Nouvelle facture d&apos;avoir"
+            id="fr.legrain.avoir"
+            name="Nouvelle facture d&apos;avoir">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.facture">
+         <command
+               commandId="fr.legrain.avoir"
+               icon="icons/table.png"
+               id="fr.legrain.avoir"
+               label="Facture d&apos;avoir">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.avoir">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar">
+         <command
+               commandId="fr.legrain.avoir"
+               icon="icons/table.png"
+               label="Facture d&apos;avoir">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.avoir.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.avoir.preferences.LgrAvoirPreferencePage"
+            id="fr.legrain.avoir.preferences.LgrAvoirPreferencePage"
+            name="Facture d&apos;avoir">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="GestionCommerciale.introConfigId"
+            content="intro/introContent.xml">
+      </configExtension>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.avoir.divers.Impression"
+            TypeDoc="Avoir">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.avoir.preferences.PreferencesStore">
+      </Preferences>
+   </extension>
+
+</plugin>

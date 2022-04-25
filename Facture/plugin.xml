@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="fr.legrain.perspective.facture.ext.actionSet"
+            label="ActionSet Facture"
+            visible="true">
+         <menu
+               id="facture"
+               label="Facture"
+               path="/">
+            <separator name="factureGroup"/>
+         </menu>
+         <action
+               class="fr.legrain.facture.actions.ImpressionFactureAction"
+               icon="icons/printer.png"
+               id="fr.legrain.facture.perspective.impressionFacture"
+               label="Impression facture"
+               menubarPath="f--acture/factureGroup"
+               style="push"
+               tooltip="Impression facture"/>
+         <action
+               class="fr.legrain.facture.actions.OuvreEditorFactureAction"
+               icon="icons/table.png"
+               id="fr.legrain.facture.perspective.perpectiveAction"
+               label="Nouvelle Facture"
+               menubarPath="--facture/factureGroup"
+               tooltip="Nouvelle facture"/>
+         <action
+               class="fr.legrain.facture.actions.TestPerfJPA"
+               id="Facture.action2"
+               label="Test Perf JPA"
+               style="push">
+         </action>
+      </actionSet>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="fr.legrain.facture.perspective.PerspectiveFacture"
+            fixed="true"
+            icon="icons/table.png"
+            id="fr.legrain.perspertive.facture"
+            name="Facture"/>
+   </extension>
+   <extension
+         id="test.views"
+         name="views"
+         point="org.eclipse.ui.views">
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewAdresseFacturation"
+            icon="icons/book_open.png"
+            id="fr.legrain.view.adresseFacturation.swt"
+            name="Adresse de facturation"/>
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewAdresseLivraison"
+            icon="icons/lorry.png"
+            id="fr.legrain.view.adresseLivraison.swt"
+            name="Adresse de livraison"/>
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewConditionPaiement"
+            icon="icons/money.png"
+            id="fr.legrain.view.conditionPaiement.swt"
+            name="Condition de paiement"/>
+   </extension>
+   -->
+   <extension
+         id="test.editors"
+         name="editors"
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.facture.editor.FactureMultiPageEditor"
+            icon="icons/table_add.png"
+            id="fr.legrain.editor.facture.swt.multi"
+            name="Facture">
+      </editor>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="fr.legrain.perspertive.facture">
+         <actionSet id="fr.legrain.perspective.facture.ext.actionSet"/>
+         <viewShortcut id="fr.legrain.view.adresseFacturation.swt"/>
+         <viewShortcut id="fr.legrain.view.adresseLivraison.swt"/>
+      </perspectiveExtension>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="fr.legrain.view.tiers.actions"
+            targetID="fr.legrain.view.tiers">
+         <action
+               class="fr.legrain.facture.actions.NouveauTiersAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.view.tiers.action.nouveau"
+               label="Nouveau"
+               style="push"
+               toolbarPath="aa"
+               tooltip="Nouveau"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.conditionPaiement.actions"
+            targetID="fr.legrain.view.conditionPaiement">
+         <action
+               class="fr.legrain.facture.actions.ConditonPaiementFactureAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewCondition.ConditionPaiementFactureAction"
+               label="Autre condition de paiement"
+               style="push"
+               toolbarPath="c"
+               tooltip="Autre condition de paiement"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseFacturation.actions"
+            targetID="fr.legrain.view.adresseFacturation">
+         <action
+               class="fr.legrain.facture.actions.AdresseFacturationAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewAdresseFacturation.AdresseFacturationAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseLivraison.actions"
+            targetID="fr.legrain.view.adresseLivraison">
+         <action
+               class="fr.legrain.facture.actions.AdresseLivraisonAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewAdresseLivraison.AdresseLivraisonAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseFacturation.actions.swt"
+            targetID="fr.legrain.view.adresseFacturation.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTAdresseFacturationAction"
+               icon="icons/book_open.png"
+               id="fr.legrain.facture.swtViewAdresseFacturation.SWTAdresseFacturationAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseLivraison.actions.swt"
+            targetID="fr.legrain.view.adresseLivraison.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTAdresseLivraisonAction"
+               icon="icons/book_open.png"
+               id="fr.legrain.facture.swtViewAdresseLivraison.SWTAdresseLivraisonAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.conditionPaiement.actions.swt"
+            targetID="fr.legrain.view.conditionPaiement.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTConditonPaiementFactureAction"
+               icon="icons/money.png"
+               id="fr.legrain.facture.swtViewCondition.SWTConditionPaiementFactureAction"
+               label="Autre condition de paiement"
+               style="push"
+               toolbarPath="c"
+               tooltip="Autre condition de paiement"/>
+      </viewContribution>
+   </extension>
+   -->
+   
+    <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.ligneFacture.ajout"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F6---a asupprimer"/>
+      <key
+            commandId="fr.legrain.ligneFacture.aideTva"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="UP"/>
+      <key
+            commandId="fr.legrain.ligneFacture.changeTva"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F8">
+      </key>
+
+            
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.facture.handlers.HandlerOuvreEditorFactureNew"
+            description="Nouvelle Facture"
+            id="fr.legrain.facture.new"
+            name="Nouvelle Facture">
+      </command>
+      <command
+            description="Ajouter"
+            id="fr.legrain.ligneFacture.ajout"
+            name="fr.legrain.ligneFacture.ajout"/>
+      <command
+            description="Aide TVA"
+            id="fr.legrain.ligneFacture.aideTva"
+            name="Aide TVA"/>
+      <command
+            description="Annuler l&apos;affectation"
+            id="fr.legrain.Document.annulerAffectation"
+            name="Annuler l&apos;affectation">
+      </command>
+      <command
+            description="Enregistrer l&apos;affectation"
+            id="fr.legrain.Document.enregistrerAffectation"
+            name="Enregistrer l&apos;affectation">
+      </command>
+      <command
+            description="Insérer une affectation"
+            id="fr.legrain.Document.insererAffectation"
+            name="Insérer une affectation">
+      </command>
+      <command
+            description="Supprimer l&apos;affectation"
+            id="fr.legrain.Document.supprimerAffectation"
+            name="Supprimer l&apos;affectation">
+      </command>
+      <command
+            description="Modifier l&apos;affectation"
+            id="fr.legrain.Document.modifierAffectation"
+            name="Modifier l&apos;affectation">
+      </command>
+      <command
+            description="Enregistrer l&apos;affectation de l&apos;avoir"
+            id="fr.legrain.Document.enregistrerAffectationAvoir"
+            name="Enregistrer l&apos;affectation de l&apos;avoir">
+      </command>
+      <command
+            description="Modifier l&apos;affectation de l&apos;avoir"
+            id="fr.legrain.Document.modifierAffectationAvoir"
+            name="Modifier l&apos;affectation de l&apos;avoir">
+      </command>
+      <command
+            description="Supprimer l&apos;affectation de l&apos;avoir"
+            id="fr.legrain.Document.supprimerAffectationAvoir"
+            name="Supprimer l&apos;affectation de l&apos;avoir">
+      </command>
+      <command
+            description="Insérer une affectation de l&apos;avoir"
+            id="fr.legrain.Document.insererAffectationAvoir"
+            name="Insérer une affectation de l&apos;avoir">
+      </command>
+      <command
+            description="Annuler l&apos;affectation de l&apos;avoir"
+            id="fr.legrain.Document.annulerAffectationAvoir"
+            name="Annuler l&apos;affectation de l&apos;avoir">
+      </command>
+      <command
+            description="Change TVA"
+            id="fr.legrain.ligneFacture.changeTva"
+            name="Change TVA">
+      </command>
+      <command
+            id="fr.legrain.facture.email"
+            name="Email facture">
+      </command>
+            
+            
+            
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.facture.preferences.LgrFacturePreferencePage"
+            id="fr.legrain.facture.preferences.LgrFacturePreferencePage"
+            name="Facture">
+      </page>
+      <page
+            category="fr.legrain.facture.preferences.LgrFacturePreferencePage"
+            class="fr.legrain.facture.preferences.LgrFacturePreferencePageAffichage"
+            id="fr.legrain.facture.preferences.LgrFacturePreferencePageAffichage"
+            name="Affichage">
+      </page>
+      <page
+            category="fr.legrain.facture.preferences.LgrFacturePreferencePage"
+            class="fr.legrain.facture.preferences.LgrFacturePreferencePageEdition"
+            id="fr.legrain.facture.preferences.LgrFacturePreferencePageEdition"
+            name="Impression">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.facture.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.nouveau.document">
+         <command
+               commandId="fr.legrain.facture.new"
+               icon="icons/table_add.png"
+               id="fr.legrain.facture.new"
+               label="Facture">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.facture">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar.facture">
+         <command
+               commandId="fr.legrain.facture.new"
+               icon="icons/table_add.png"
+               label="Facture">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.facture.divers.Impression"
+            TypeDoc="Facture">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.facture.preferences.PreferencesStore"
+            idPlugin="Facture.Preferences2">
+      </Preferences>
+   </extension>
+
+</plugin>

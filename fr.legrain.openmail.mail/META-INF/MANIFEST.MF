@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Mail
+Bundle-SymbolicName: fr.legrain.openmail.mail;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.openmail.mail.Activator
+Bundle-Vendor: Le Grain SA
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.legrain.json;bundle-version="2.0.14",
+ log4j_1_2_8;bundle-version="1.2.8",
+ fr.legrain.services;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: lib/commons-codec-1.6.jar,
+ .
+Export-Package: fr.legrain.openmail.mail,
+ fr.legrain.openmail.mail.preferences,
+ fr.legrain.openmail.mail.ui

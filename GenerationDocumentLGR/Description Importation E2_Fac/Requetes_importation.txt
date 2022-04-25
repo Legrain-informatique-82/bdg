@@ -1,0 +1,827 @@
+Pour importations des documents
+
+create table Documents_E2Fac(
+FAC_NUM varchar(8),
+FAC_TYP varchar(2),
+FAC_DAT Date,
+FAC_ECH Date,
+FAC_COD varchar(8),
+FAC_NOM varchar(31),
+FAC_CPT varchar(8),
+FAC_COL varchar(9),
+FAC_AD1 varchar(31),
+FAC_AD2 varchar(31),
+FAC_CP varchar(6),
+FAC_VIL varchar(26),
+FAC_PAY varchar(21),
+FAC_REF varchar(41),
+FAC_PMT varchar(2),
+FAC_PRI varchar(2),
+FAC_HT numeric(15,2),
+FAC_TTC numeric(15,2),
+FAC_REMP numeric(15,2),
+FAC_REM numeric(15,2),
+FAC_REMT numeric(15,2),
+FAC_ESCP numeric(15,2),
+FAC_ESC numeric(15,2),
+FAC_MES1 varchar(69),
+FAC_MES2 varchar(69),
+FAC_MES3 varchar(69),
+FAC_CPTA integer,
+FAC_EDITE integer,
+FAC_FAC varchar(8),
+FAC_ACT numeric(15,2),
+FAC_CIAL varchar(8),
+FAC_MREG numeric(15,2))
+
+//Sélection des documents
+
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG from fac f
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG from dev d
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG from act a
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG from bon b
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG from App ap
+order by fac_typ
+
+
+CREATE PROCEDURE IMPORTATION_DOCS_E2FAC 
+AS
+DECLARE VARIABLE COMPTEUR INTEGER;
+DECLARE VARIABLE FAC_NUM VARCHAR(8);
+DECLARE VARIABLE FAC_TYP VARCHAR(2);
+DECLARE VARIABLE FAC_DAT DATE;
+DECLARE VARIABLE FAC_ECH DATE;
+DECLARE VARIABLE FAC_COD VARCHAR(8);
+DECLARE VARIABLE FAC_NOM VARCHAR(31);
+DECLARE VARIABLE FAC_CPT VARCHAR(8);
+DECLARE VARIABLE FAC_COL VARCHAR(9);
+DECLARE VARIABLE FAC_AD1 VARCHAR(31);
+DECLARE VARIABLE FAC_AD2 VARCHAR(31);
+DECLARE VARIABLE FAC_CP VARCHAR(6);
+DECLARE VARIABLE FAC_VIL VARCHAR(26);
+DECLARE VARIABLE FAC_PAY VARCHAR(21);
+DECLARE VARIABLE FAC_REF VARCHAR(41);
+DECLARE VARIABLE FAC_PMT VARCHAR(2);
+DECLARE VARIABLE FAC_PRI VARCHAR(2);
+DECLARE VARIABLE FAC_HT NUMERIC(15,2);
+DECLARE VARIABLE FAC_TTC NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMP NUMERIC(15,2);
+DECLARE VARIABLE FAC_REM NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMT NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESCP NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESC NUMERIC(15,2);
+DECLARE VARIABLE FAC_MES1 VARCHAR(69);
+DECLARE VARIABLE FAC_MES2 VARCHAR(69);
+DECLARE VARIABLE FAC_MES3 VARCHAR(69);
+DECLARE VARIABLE FAC_CPTA INTEGER;
+DECLARE VARIABLE FAC_EDITE INTEGER;
+DECLARE VARIABLE FAC_FAC VARCHAR(8);
+DECLARE VARIABLE FAC_ACT NUMERIC(15,2);
+DECLARE VARIABLE FAC_CIAL VARCHAR(8);
+DECLARE VARIABLE FAC_MREG NUMERIC(15,2);
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_PAIEMENT INTEGER;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_FACTURE INTEGER;
+DECLARE VARIABLE CIVILITE VARCHAR(20);
+DECLARE VARIABLE TVAINTRA VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE TYPE_DOCS VARCHAR(1);
+DECLARE VARIABLE FLI_NUM varchar(8);
+DECLARE VARIABLE FLI_LIG INTEGER;
+DECLARE VARIABLE FLI_COD varchar(15);
+DECLARE VARIABLE FLI_DES varchar(53);
+DECLARE VARIABLE FLI_QT1 NUMERIC(15,2);
+DECLARE VARIABLE FLI_QT2 NUMERIC(15,2);
+DECLARE VARIABLE FLI_PHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_PTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_REM NUMERIC(15,2);
+DECLARE VARIABLE FLI_MHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_TXTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_CPT varchar(9);
+DECLARE VARIABLE FLI_TMP varchar(2);
+DECLARE VARIABLE FLI_EXIG varchar(2);
+DECLARE VARIABLE FLI_LOT varchar(16);
+DECLARE VARIABLE FLI_NBL varchar(8);
+DECLARE VARIABLE FLI_UN1 varchar(3);
+DECLARE VARIABLE FLI_UN2 varchar(3);
+DECLARE VARIABLE T_LIGNE_H INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE REMISET NUMERIC(15,2);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE T_LIGNE_C INTEGER;
+DECLARE VARIABLE T_LIGNE INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='H' into :t_ligne_h;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='C' into :t_ligne_c;
+for select d.fac_num,d.fac_typ,d.fac_dat,d.fac_ech,d.fac_cod,d.fac_nom,d.fac_cpt,d.fac_col
+,d.fac_ad1,d.fac_ad2,d.fac_cp,d.fac_vil,d.fac_pay,d.fac_ref,d.fac_pmt,d.fac_pri,d.fac_ht,d.fac_ttc,d.fac_remp
+,d.fac_rem,d.fac_remt,d.fac_escp,d.fac_esc,d.fac_mes1,d.fac_mes2,d.fac_mes3,d.fac_cpta
+,d.fac_edite,d.fac_fac,d.fac_act,d.fac_cial,d.fac_mreg from documents_e2fac d where upper(d.fac_typ)='F'
+into
+fac_num,fac_typ,fac_dat,fac_ech,fac_cod,fac_nom,fac_cpt,fac_col
+,fac_ad1,fac_ad2,fac_cp,fac_vil,fac_pay,fac_ref,fac_pmt,fac_pri,fac_ht,fac_ttc,fac_remp
+,fac_rem,fac_remt,fac_escp,fac_esc,fac_mes1,fac_mes2,fac_mes3,fac_cpta
+,fac_edite,fac_fac,fac_act,fac_cial,fac_mreg
+do begin
+commentaire ='';
+select cp.id_c_paiement, cp.code_c_paiement,cp.lib_c_paiement,cp.report_c_paiement,
+  cp.fin_mois_c_paiement from ta_c_paiement cp where cp.code_c_paiement = :fac_pmt into
+  :id_c_paiement,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+       select id_tiers from ta_tiers where Upper(code_tiers) = upper(:fac_cod) into :id_tiers;
+       if (:fac_ref is not null) then commentaire = :fac_ref ||CRLF;
+       if (:fac_mes1 is not null) then commentaire = :commentaire ||:fac_mes1||CRLF;
+       if (:fac_mes2 is not null) then commentaire = :commentaire ||:fac_mes2||CRLF;
+       if (:fac_mes3 is not null) then commentaire = :commentaire ||:fac_mes3||CRLF;
+       id_facture = gen_id(num_id_facture,1);
+       insert into ta_facture values(:id_facture,:fac_num,:fac_dat,:fac_ech,:fac_dat,'Facture E2-Fac N°'||:fac_num,0,0,
+       :id_tiers,null,:id_c_paiement,:fac_mreg,:fac_remp,:fac_rem,:fac_escp,:fac_esc,:fac_edite,:fac_pri,:fac_cpta,
+       :commentaire,null,null,null,null,null,null);
+       select v.code_t_civilite,v.tva_i_com_compl from v_tiers v into :civilite,:tvaintra;
+
+       insert into ta_infos_facture values(null,:id_facture,:fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,
+       :fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,:fac_cpt,:fac_col,:fac_nom,null,null,:civilite,null,:tvaIntra,
+       :code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,null,null,null,null,null,null);
+       rang=1;
+       for select l.type_docs,l.fli_num,l.fli_lig,l.fli_cod,l.fli_des,l.fli_qt1,l.fli_qt2
+       ,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,l.fli_mtva,l.fli_txtva,l.fli_cpt
+       ,l.fli_tmp,l.fli_exig,l.fli_lot,l.fli_nbl,l.fli_un1,l.fli_un2 from lignes_docs_e2fac l
+       where l.fli_num = :fac_num and l.type_docs = 'F' into
+       type_docs,fli_num,fli_lig,fli_cod,fli_des,fli_qt1,fli_qt2
+       ,fli_pht,fli_ptc,fli_rem,fli_mht,fli_mtc,fli_mtva,fli_txtva,fli_cpt
+       ,fli_tmp,fli_exig,fli_lot,fli_nbl,fli_un1,fli_un2
+       do begin
+       remiseT =0;
+       if (:fli_cpt is null) then t_ligne = :t_ligne_c;
+       else t_ligne = :t_ligne_h;
+       if (:fli_pht is not null and :fli_pht<>0) then
+         remiset = (:fli_pht - fli_mht)/(:fli_pht*100);
+       select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva and t.numcpt_tva like('4457%') into :code_tva;
+       if (:code_tva is null) then
+          select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva into :code_tva;
+            select id_article from ta_article where code_article = :fli_cod into :id_article;
+            insert into ta_l_facture values(null,:id_facture,:t_ligne,:id_article,:rang,:fli_des,:fli_qt1,:fli_un1,:fli_un2,
+            :fli_ptc,:fli_txtva,:fli_cpt,:code_tva,:fli_exig,:fli_mht,:fli_mtc,:remiseT,:fli_rem,null,null,null,null,null,null);
+
+            rang=:rang+1;
+          end
+   end
+  suspend;
+end
+^
+
+
+//Création table lignes documents
+
+create table lignes_Docs_E2Fac()
+Type_Docs varchar(1),
+FLI_NUM varchar(8),
+FLI_LIG integer,
+FLI_COD varchar(15),
+FLI_DES varchar(53),
+FLI_QT1 numeric(15,2),	
+FLI_QT2	 numeric(15,2),
+FLI_PHT	 numeric(15,2),
+FLI_PTC	 numeric(15,2),
+FLI_REM	 numeric(15,2),
+FLI_MHT	 numeric(15,2),
+FLI_MTC	 numeric(15,2),
+FLI_MTVA numeric(15,2),
+FLI_TXTVA numeric(15,2),	
+FLI_CPT	 varchar(9),
+FLI_TMP	 varchar(2),
+FLI_EXIG varchar(2),
+FLI_LOT	 varchar(16),
+FLI_NBL	 varchar(8),
+FLI_UN1	 varchar(3),
+FLI_UN2 varchar(3))
+
+//sélection des lignes de documents
+
+select
+cast('F'as varchar(1)), 
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from facdet
+union
+select
+cast('P'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from devdet
+union
+select
+cast('C'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from actdet
+union
+select
+cast('B'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from bondet
+union
+select
+cast('X'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from appdet
+order by 1
+
+/*puis vérifier que tous les taux de tva existent*/
+select l.fli_txtva,l.fli_num from lignes_docs_e2fac l where  not exists(
+select taux_tva from ta_tva t where T.taux_tva=l.fli_txtva)
+and l.fli_txtva<>0 and l.fli_txtva is not null
+
+//Pour importations des clients
+
+create table clients_E2Fac(
+CLI_COD varchar(8),
+CLI_NOM varchar(31),
+CLI_CPT varchar(8),
+CLI_COL varchar(9),
+CLI_AD1 varchar(31),
+CLI_AD2 varchar(31),
+CLI_CP varchar(6),
+CLI_VIL varchar(26),
+CLI_PAY varchar(21),
+CLI_TVA varchar(15),
+CLI_OBS varchar(31),
+CLI_RSP varchar(31),
+CLI_TEL varchar(16),
+CLI_FAX varchar(16),
+CLI_PMT varchar(2),
+CLI_PRI varchar(2),
+CLI_BQE varchar(31),
+CLI_RIB varchar(24),
+CLI_LAD1 varchar(31),
+CLI_LAD2 varchar(31),
+CLI_LCP varchar(6),
+CLI_LVIL varchar(26),
+CLI_LPAY varchar(21),
+CLI_REP varchar(8),
+CLI_CIV varchar(13),
+CLI_FAM varchar(4),
+CLI_TEL0 varchar(16),
+CLI_FAX0 varchar(16),
+PMT_INT varchar(31),
+PMT_DELAI integer,
+PMT_JOUR integer,
+PMT_LCR varchar(2))
+
+//sélection des clients et des commerciaux
+select
+c.CLI_COD,
+c.CLI_NOM,
+c.CLI_CPT,
+c.CLI_COL,
+c.CLI_AD1,
+c.CLI_AD2,
+c.CLI_CP,
+c.CLI_VIL,
+c.CLI_PAY,
+c.CLI_TVA,
+c.CLI_OBS,
+c.CLI_RSP,
+c.CLI_TEL,
+c.CLI_FAX,
+c.CLI_PMT,
+c.CLI_PRI,
+c.CLI_BQE,
+c.CLI_RIB,
+c.CLI_LAD1,
+c.CLI_LAD2,
+c.CLI_LCP,
+c.CLI_LVIL,
+c.CLI_LPAY,
+c.CLI_REP,
+c.CLI_CIV,
+cast('C' as varchar(4))as CLI_FAM,
+c.CLI_TEL0,
+c.CLI_FAX0,
+p.PMT_INT,
+p.PMT_DELAI,
+p.PMT_JOUR,
+p.PMT_LCR
+
+
+from clients c
+join PMTREG p on(c.CLI_PMT=p.PMT_COD)
+
+union
+
+select
+cast(cc.CCL_COD as varchar(8)),
+cast(cc.CCL_NOM as varchar(31)),
+cast('' as varchar(8)),
+cast('' as varchar(9)),
+cast(cc.CCL_AD1 as varchar(31)),
+cast(cc.CCL_AD2 as varchar(31)),
+cast(cc.CCL_CP as varchar(6)),
+cast(cc.CCL_VIL as varchar(26)),
+cast(cc.CCL_PAY as varchar(21)),
+cast('' as varchar(15)),
+cast('' as varchar(31)),
+cast('' as varchar(31)),
+cast('' as varchar(16)),
+cast('' as varchar(16)),
+cast('' as varchar(2)),
+cast('' as varchar(2)),
+cast('' as varchar(31)),
+cast('' as varchar(24)),
+cast('' as varchar(31)),
+cast('' as varchar(31)),
+cast('' as varchar(6)),
+cast('' as varchar(26)),
+cast('' as varchar(21)),
+cast('' as varchar(8)),
+cast('' as varchar(13)),
+cast('COM' as varchar(4)),
+cast('' as varchar(16)),
+cast('' as varchar(16)),
+cast('' as varchar(31)),
+cast(0 as integer),
+cast(0 as integer),
+cast('' as varchar(2))
+
+from cciaux cc
+order by CLI_FAM desc
+
+
+CREATE PROCEDURE IMPORTATION_CLIENTS_E2FAC 
+AS
+DECLARE VARIABLE CLI_COD VARCHAR(8);
+DECLARE VARIABLE CLI_NOM VARCHAR(31);
+DECLARE VARIABLE CLI_CPT VARCHAR(8);
+DECLARE VARIABLE CLI_COL VARCHAR(9);
+DECLARE VARIABLE CLI_AD1 VARCHAR(31);
+DECLARE VARIABLE CLI_AD2 VARCHAR(31);
+DECLARE VARIABLE CLI_CP VARCHAR(6);
+DECLARE VARIABLE CLI_VIL VARCHAR(26);
+DECLARE VARIABLE CLI_PAY VARCHAR(21);
+DECLARE VARIABLE CLI_TVA VARCHAR(15);
+DECLARE VARIABLE CLI_OBS VARCHAR(31);
+DECLARE VARIABLE CLI_RSP VARCHAR(31);
+DECLARE VARIABLE CLI_TEL VARCHAR(16);
+DECLARE VARIABLE CLI_FAX VARCHAR(16);
+DECLARE VARIABLE CLI_PMT VARCHAR(2);
+DECLARE VARIABLE CLI_PRI VARCHAR(2);
+DECLARE VARIABLE CLI_BQE VARCHAR(31);
+DECLARE VARIABLE CLI_RIB VARCHAR(24);
+DECLARE VARIABLE CLI_LAD1 VARCHAR(31);
+DECLARE VARIABLE CLI_LAD2 VARCHAR(31);
+DECLARE VARIABLE CLI_LCP VARCHAR(6);
+DECLARE VARIABLE CLI_LVIL VARCHAR(26);
+DECLARE VARIABLE CLI_LPAY VARCHAR(21);
+DECLARE VARIABLE CLI_REP VARCHAR(8);
+DECLARE VARIABLE CLI_CIV VARCHAR(13);
+DECLARE VARIABLE CLI_FAM VARCHAR(4);
+DECLARE VARIABLE CLI_TEL0 VARCHAR(16);
+DECLARE VARIABLE CLI_FAX0 VARCHAR(16);
+DECLARE VARIABLE PMT_INT VARCHAR(31);
+DECLARE VARIABLE PMT_DELAI INTEGER;
+DECLARE VARIABLE PMT_JOUR INTEGER;
+DECLARE VARIABLE PMT_LCR VARCHAR(2);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TEL INTEGER;
+DECLARE VARIABLE ID_T_ADR INTEGER;
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = 'C' into :id_t_tiers;
+  select ttel.id_t_tel from ta_t_tel ttel where ttel.code_t_tel = 'FAX' into :id_t_tel;
+  select tadr.id_t_adr from ta_t_adr tadr where tadr.code_t_adr = 'FACT' into :id_t_adr;
+
+  for select * from clients_e2fac c into
+:CLI_COD,:CLI_NOM,:CLI_CPT,:CLI_COL,:CLI_AD1,:CLI_AD2,:CLI_CP,:CLI_VIL,:CLI_PAY,:CLI_TVA,
+:CLI_OBS,:CLI_RSP,:CLI_TEL,:CLI_FAX,:CLI_PMT,:CLI_PRI,:CLI_BQE,:CLI_RIB,:CLI_LAD1,:CLI_LAD2,
+:CLI_LCP,:CLI_LVIL,:CLI_LPAY,:CLI_REP,:CLI_CIV,:CLI_FAM,:CLI_TEL0,:CLI_FAX0,:PMT_INT,:PMT_DELAI,
+:PMT_JOUR,:PMT_LCR
+  do begin
+
+     end
+  suspend;
+end
+^
+
+
+//Pour importations des articles
+
+select 
+a.ART_COD,
+a.ART_DIV,
+a.ART_FAM,
+a.ART_DES,
+a.ART_HT1,
+a.ART_TTC1,
+a.ART_TVA,
+a.ART_UN1,
+a.ART_UN2,
+a.ART_CPT,
+a.ART_GTVA,
+a.ART_HT2,
+a.ART_TTC2,
+a.ART_HT3,
+a.ART_TTC3,
+a.ART_PRF,
+f.FAM_DES,
+f.FAM_NAR
+from ARTICLES.dbf a
+join FAMART.dbf f on(a.ART_FAM=f.FAM_COD)
+
+create table articles_fac(
+ART_COD varchar(14),
+ART_DIV varchar(2),
+ART_FAM varchar(4),
+ART_DES varchar(53),
+ART_HT1 numeric,
+ART_TTC1 numeric,
+ART_TVA varchar(14),
+ART_UN1 varchar(14),
+ART_UN2 varchar(14),
+ART_CPT varchar(8),
+ART_GTVA varchar(1),
+ART_HT2 numeric,
+ART_TTC2 numeric,
+ART_HT3 numeric,
+ART_TTC3 numeric,
+ART_PRF numeric,
+FAM_DES varchar(31),
+FAM_NAR integer)
+
+
+CREATE PROCEDURE IMPORTATION_ARTICLES_E2FAC (
+    ART_COD VARCHAR(14),
+    ART_DIV VARCHAR(2),
+    ART_FAM VARCHAR(4),
+    ART_DES VARCHAR(53),
+    ART_HT1 NUMERIC(15,2),
+    ART_TTC1 NUMERIC(15,2),
+    ART_TVA VARCHAR(14),
+    ART_UN1 VARCHAR(14),
+    ART_UN2 VARCHAR(14),
+    ART_CPT VARCHAR(8),
+    ART_GTVA VARCHAR(1),
+    ART_HT2 NUMERIC(15,2),
+    ART_TTC2 NUMERIC(15,2),
+    ART_HT3 NUMERIC(15,2),
+    ART_TTC3 NUMERIC(15,2),
+    ART_PRF NUMERIC(15,2),
+    FAM_DES VARCHAR(31),
+    FAM_NAR INTEGER)
+AS
+DECLARE VARIABLE ID_FAMILLE INTEGER;
+DECLARE VARIABLE ID_TVA INTEGER;
+DECLARE VARIABLE ID_T_TVA INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE ID_UNITE INTEGER;
+DECLARE VARIABLE ID_PRIX INTEGER;
+begin
+  for select * from articles_fac a into
+:ART_COD,
+ART_DIV,
+ART_FAM,
+ART_DES,
+ART_HT1,
+ART_TTC1,
+ART_TVA,
+ART_UN1,
+ART_UN2,
+ART_CPT,
+ART_GTVA,
+ART_HT2,
+ART_TTC2,
+ART_HT3,
+ART_TTC3,
+ART_PRF,
+FAM_DES,
+FAM_NAR
+  do begin
+  /*famille article*/
+  if (:ART_FAM<>'' and not(:ART_FAM is null) and not exists(select fam.code_famille from ta_famille fam where fam.code_famille = :ART_FAM )) then
+    begin
+      insert into ta_famille (code_famille,libc_famille) values (:ART_FAM,:fam_des);
+    end
+  select fam.id_famille from ta_famille fam where fam.code_famille = :ART_FAM into :id_famille;
+
+  /*code tva article*/
+  if (:ART_TVA<>'' and not(:ART_TVA is null) and not exists(select tva.code_tva from ta_tva tva where tva.code_tva = :ART_TVA )) then
+    begin
+      insert into ta_tva (code_tva) values (:ART_TVA);
+    end
+  select tva.id_tva from ta_tva tva where tva.code_tva = :ART_TVA into :id_tva;
+
+  /*type tva article*/
+  if (:art_gtva<>'' and not(:art_gtva is null) and not exists(select ttva.code_t_tva from ta_t_tva ttva where ttva.code_t_tva = :art_gtva )) then
+    begin
+      insert into ta_t_tva (code_t_tva) values (:art_gtva);
+    end
+  select ttva.id_t_tva from ta_t_tva ttva where ttva.code_t_tva = :art_gtva into :id_t_tva;
+
+  id_article=gen_id(num_id_article,1);
+  insert into ta_article values(:id_article,:art_cod,:art_des,:art_des,:id_famille,:id_tva,:id_t_tva,:art_cpt,
+  :art_div,null,0,null,null,null,null, null,null);
+
+  /*Prix 1*/
+  if (:art_ht1 is not null and :art_ht1<> 0) then
+    begin
+      /*unite article*/
+      if (:art_un1<>'' and not(:art_un1 is null) and not exists(select u.code_unite from ta_unite U
+          where u.code_unite = :art_un1 )) then
+            begin
+              insert into ta_unite (code_unite) values (:art_un1);
+            end
+          select u.id_unite from ta_unite u where u.code_unite = :art_un1 into :id_unite;
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,:id_unite,:art_ht1,:art_ttc1,null,null,null,null,null,null);
+       if (:art_prf=art_ht1) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+
+  /*Prix 2*/
+  if (:art_ht2 is not null and :art_ht2<> 0) then
+    begin
+      /*unite article*/
+      if (:art_un2<>'' and not(:art_un2 is null) and not exists(select u.code_unite from ta_unite U
+          where u.code_unite = :art_un2 )) then
+            begin
+              insert into ta_unite (code_unite) values (:art_un2);
+            end
+          select u.id_unite from ta_unite u where u.code_unite = :art_un2 into :id_unite;
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,:id_unite,:art_ht2,:art_ttc2,null,null,null,null,null,null);
+       if (:art_prf=art_ht2) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+
+  /*Prix 3*/
+  if (:art_ht3 is not null and :art_ht3<> 0) then
+    begin
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,null,:art_ht3,:art_ttc3,null,null,null,null,null,null);
+       if (:art_prf=art_ht3) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+  end
+
+  suspend;
+end
+^

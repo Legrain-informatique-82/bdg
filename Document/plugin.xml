@@ -1,0 +1,369 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.document.preferences.DocumentPreferencePage"
+            id="fr.legrain.document.preferences.DocumentPreferencePage"
+            name="Documents">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.document.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.Document.reinitialiser"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M1+F1">
+      </key>
+      <key
+            commandId="fr.legrain.document.creationDoc"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M1+N">
+      </key>
+      <key
+            commandId="fr.legrain.Document.CreerDoc"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M1+F8">
+      </key>
+      <key
+            commandId="fr.legrain.Document.CreerModele"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="M1+M">
+      </key>
+      <key
+            commandId="fr.legrain.Document.aideReglement"
+            contextId="org.eclipse.ui.contexts.dialogAndWindow"
+            platform="--fr.legrain.librairiesEcran.contextReglement"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="F1">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            description="Reinitialiser"
+            id="fr.legrain.Document.reinitialiser"
+            name="Reinitialiser">
+      </command>
+      <command
+            defaultHandler="fr.legrain.document.handlers.HandlerCreationDoc"
+            description="Création document"
+            id="fr.legrain.document.creationDoc"
+            name="Création Document">
+      </command>
+      <command
+            id="fr.legrain.gestionCommerciale.document.creer"
+            name="Valide creation doc">
+      </command>
+            <command
+            description="Génération Modèle"
+            id="fr.legrain.Document.CreerModele"
+            name="Génération Modèle">
+      </command>
+            <command
+                  defaultHandler="fr.legrain.tiers.handlers.HandlerTPaiement"
+                  description="Type de paiement"
+                  id="fr.legrain.articles.editor.EditorTypePaiement"
+                  name="Type de paiement">
+            </command>
+            <command
+                  description="Rafraîchir l'adresse facturation"
+                  id="fr.legrain.Document.reinitAdrFact"
+                  name="Rafraîchir l'adresse facturation">
+            </command>
+            <command
+                  description="Rafraîchir l'adresse livraison"
+                  id="fr.legrain.Document.reinitAdrLiv"
+                  name="Rafraîchir l'adresse livraison">
+            </command>
+            <command
+                  description="Rafraîchir la condition paiement"
+                  id="fr.legrain.Document.reinitCPaiement"
+                  name="Rafraîchir la condition paiement">
+            </command>
+            <command
+                  description="Rafraîchir l'identité du tiers"
+                  id="fr.legrain.Document.reinitInfosTiers"
+                  name="Rafraîchir l'identité du tiers">
+            </command>
+            <command
+                  description="Génération Document"
+                  id="fr.legrain.Document.CreerDoc"
+                  name="Génération Document">
+            </command>
+            <command
+                  description="Annuler le réglement"
+                  id="fr.legrain.Document.annulerReglement"
+                  name="Annuler le réglement">
+            </command>
+            <command
+                  description="Enregistrer le réglement"
+                  id="fr.legrain.Document.enregistrerReglement"
+                  name="Enregistrer le réglement">
+            </command>
+            <command
+                  description="Modifier le réglement"
+                  id="fr.legrain.Document.modifierReglement"
+                  name="Modifier le réglement">
+            </command>
+            <command
+                  description="Inserer le réglement"
+                  id="fr.legrain.Document.insererReglement"
+                  name="Inserer le réglement">
+            </command>
+            <command
+                  description="Supprimer le réglement"
+                  id="fr.legrain.Document.supprimerReglement"
+                  name="Supprimer le réglement">
+            </command>
+            <command
+                  description="Aide"
+                  id="fr.legrain.Document.aideReglement"
+                  name="Aide">
+            </command>
+            <command
+                  description="Afficher fiche tiers"
+                  id="fr.legrain.Document.afficherTiers"
+                  name="Afficher fiche tiers">
+            </command>
+            <command
+                  description="Afficher tous"
+                  id="fr.legrain.Document.afficherTous"
+                  name="Afficher tous">
+            </command>
+            <command
+                  description="Afficher fiche"
+                  id="fr.legrain.Document.afficherSeul"
+                  name="Afficher fiche">
+            </command>
+            <command
+                  defaultHandler="fr.legrain.document.handlers.HandlerCPaiementDoc"
+                  description="Paiement - Echéance"
+                  id="fr.legrain.articles.editor.EditorCondPaiementDoc"
+                  name="Paiement - Echéance">
+            </command>
+            <command
+                  description="Appliquer la condition paiement"
+                  id="fr.legrain.document.appliquerCPaiement"
+                  name="Appliquer la condition paiement">
+            </command>
+            <command
+                  defaultHandler="fr.legrain.document.handlers.HandlerDocumentEditable"
+                  description="Documents éditables"
+                  id="fr.legrain.document.editor.EditorDocumentEditable"
+                  name="Documents éditables">
+            </command>
+            <command
+                  id="fr.legrain.gestionCommerciale.document.ouvrircourrier"
+                  name="Ouvrir courrier">
+            </command>
+            <command
+                  description="Liste des documents"
+                  id="fr.legrain.Document.listeDocument"
+                  name="Liste des documents">
+            </command>
+            <command
+                  defaultHandler="fr.legrain.document.handlers.HandlerEtat"
+                  description="Etat document"
+                  id="fr.legrain.document.editor.EditorEtat"
+                  name="Etat document">
+            </command>
+            <command
+                  defaultHandler="fr.legrain.document.handlers.HandlerCreationListeDoc"
+                  description="Création et visualistion Document"
+                  id="fr.legrain.document.creationListeDoc"
+                  name="Création et visualistion Document">
+            </command>
+            <command
+                  defaultHandler="fr.legrain.document.RechercheDocument.handlers.HandlerEtatRechercheDocument"
+                  description="Accès rapide aux documents"
+                  id="fr.legrain.document.recherche.document"
+                  name="Accès rapide aux documents">
+            </command>
+            <command
+                  id="fr.legrain.gestionCommerciale.document.lister"
+                  name="Valide lister doc">
+            </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.document.editor.EditorCreationDoc"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.EditorCreationDoc"
+            name="Nouveau document">
+      </editor>
+      <editor
+            class="fr.legrain.tiers.editor.EditorTypePaiement"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.articles.editor.EditorTypePaiement"
+            name="Type Paiement">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorReglement"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.Reglement"
+            name="Nouveau Reglement">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorCondPaiementDoc"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.articles.editor.EditorCondPaiementDoc"
+            name="Paiement - Echeance">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorDocumentEditable"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.EditorDocumentEditable"
+            name="Documents éditables">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorListeDocument"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.EditorListeDocument"
+            name="Etat d&apos;exportation des documents">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorEtat"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.EditorEtat"
+            name="Etat Document">
+      </editor>
+      <editor
+            class="fr.legrain.document.editor.EditorListeCreationDoc"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.editor.EditorListeCreationDoc"
+            name="Nouveau document isa">
+      </editor>
+      <editor
+            class="fr.legrain.document.RechercheDocument.editor.FormEditorRechercheDocument"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.document.recherche.document"
+            name="Accès rapide aux documents">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.documents">
+         <command
+               commandId="fr.legrain.document.creationDoc"
+               icon="icons/add.png"
+               label="Nouveau document">
+         </command>
+         <command
+               commandId="fr.legrain.document.recherche.document"
+               icon="icons/page_find.png"
+               id="fr.legrain.document.recherche.document"
+               label="Accès rapide aux documents">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.documents">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:documents">
+         <command
+               commandId="fr.legrain.document.creationDoc"
+               icon="icons/add.png"
+               id="fr.legrain.document.creationDoc"
+               label="Nouveau document">
+         </command>
+         <command
+               commandId="fr.legrain.document.recherche.document"
+               icon="icons/page_find.png"
+               id="fr.legrain.document.recherche.document"
+               label="Accès rapide aux documents">
+         </command>
+         <separator
+               name="separator.nouveau.document"
+               visible="true">
+         </separator>
+         <separator
+               name="separator.facture">
+         </separator>
+         <separator
+               name="separator.devis">
+         </separator>
+         <separator
+               name="separator.bon.de.livraison">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:types">
+         <menu
+               id="param.document"
+               label="Document">
+         </menu>
+         <separator
+               name="DOCUMENT.separator3"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:param.document">
+         <command
+               commandId="fr.legrain.articles.editor.EditorTypePaiement"
+               icon="icons/logo_lgr_16.png"
+               label="Type de paiement">
+         </command>
+         <command
+               commandId="fr.legrain.relancefacture.editors.EditorTypeRelance"
+               icon="icons/logo_lgr_16.png"
+               label="Type de relance"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.articles.editor.EditorCondPaiementDoc"
+               icon="icons/logo_lgr_16.png"
+               label="Paiement - Echeance"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.document.editor.EditorDocumentEditable"
+               icon="icons/logo_lgr_16.png"
+               label="Documents éditables"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.document.editor.EditorEtat"
+               icon="icons/logo_lgr_16.png"
+               label="Etat document"
+               style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:documents">
+         <menu
+               id="generation.doc"
+               label="Génération documents">
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.contexts">
+      <context
+            id="fr.legrain.document.contextReglement"
+            name="contextReglement"
+            parentId="fr.legrain.document.contextReglement">
+      </context>
+   </extension>
+</plugin>

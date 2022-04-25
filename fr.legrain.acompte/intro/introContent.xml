@@ -1,0 +1,12 @@
+<introContent>
+  	<extensionContent id="fr.legrain.acompte" style="css/acompte.css" name="Accompte" path="documents/links-background/page-links/ancre_acompte">
+		<group style-id="content-group" id="fr.legrain.acompte-group">
+       		<link label="Ouvrir les acomptes" 
+       			url="http://org.eclipse.ui.intro/runAction?pluginId=Acompte&amp;class=fr.legrain.acompte.handlers.IntroActionAcompte&amp;standby=true"
+       			id="link_acompte" 
+       			style-id="content-link">
+          		<text>Gestion des acomptes</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

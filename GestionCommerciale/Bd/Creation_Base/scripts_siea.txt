@@ -1,0 +1,196 @@
+CREATE TABLE TA_SIEA (
+    id_client	    DID3  primary key,
+    CLIENT          VARCHAR(255),
+    CIVILITE        VARCHAR(255),
+    LIBCIVILITE     VARCHAR(255),
+    NOM             VARCHAR(255),
+    PRENOM          VARCHAR(255),
+    ADRESSE1        VARCHAR(255),
+    ADRESSE2        VARCHAR(255),
+    REGION          VARCHAR(255),
+    CODEPOSTAL      VARCHAR(255),
+    VILLE           VARCHAR(255),
+    PAYS            VARCHAR(255),
+    TEL             VARCHAR(20),
+    FAX             VARCHAR(20),
+    TARIF           VARCHAR(10),
+    TRI             VARCHAR(255),
+    REPRES          VARCHAR(10),
+    CONTACT         VARCHAR(10),
+    COMMANDE        VARCHAR(10),
+    CPT             VARCHAR(10),
+    FACT            VARCHAR(10),
+    CPT_BANQUE1     VARCHAR(10),
+    CPT_BANQUE2     VARCHAR(10),
+    CPT_BANQUE3     VARCHAR(10),
+    CPT_BANQUE_CLE  VARCHAR(10),
+    DIVERS1         VARCHAR(255),
+    DIVERS2         VARCHAR(255),
+    REF             VARCHAR(255)
+);
+
+CREATE PROCEDURE IMPORTATION_TIERS (
+    ID_DEB INTEGER,
+    ID_FIN INTEGER)
+AS
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_T_TEL INTEGER;
+DECLARE VARIABLE ID_T_ADR INTEGER;
+DECLARE VARIABLE CODE VARCHAR(20);
+DECLARE VARIABLE CIVILITE VARCHAR(255);
+DECLARE VARIABLE NOM VARCHAR(255);
+DECLARE VARIABLE PRENOM VARCHAR(255);
+DECLARE VARIABLE COMPTE VARCHAR(20);
+DECLARE VARIABLE ADRESSE1 VARCHAR(255);
+DECLARE VARIABLE ADRESSE2 VARCHAR(255);
+DECLARE VARIABLE VILLE VARCHAR(255);
+DECLARE VARIABLE PAYS VARCHAR(255);
+DECLARE VARIABLE CODEPOSTAL VARCHAR(255);
+DECLARE VARIABLE TEL VARCHAR(20);
+DECLARE VARIABLE FAX VARCHAR(20);
+DECLARE VARIABLE DIVERS1 VARCHAR(255);
+DECLARE VARIABLE DIVERS2 VARCHAR(255);
+DECLARE VARIABLE TTC VARCHAR(1);
+DECLARE VARIABLE CODETMP VARCHAR(7);
+DECLARE VARIABLE I INTEGER;
+DECLARE VARIABLE CODETMP2 VARCHAR(7);
+begin
+compte = '411';
+pays = 'France';
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = 'C' into :id_t_tiers;
+  select ttel.id_t_tel from ta_t_tel ttel where ttel.code_t_tel = 'FAX' into :id_t_tel;
+  select tadr.id_t_adr from ta_t_adr tadr where tadr.code_t_adr = 'FACT' into :id_t_adr;
+  for select SIEA.client,SIEA.libcivilite,SIEA.nom,SIEA.prenom,SIEA.adresse1,SIEA.adresse2,SIEA.codepostal,SIEA.ville,
+  SIEA.pays,SIEA.tel,SIEA.fax,SIEA.cpt,SIEA.fact,SIEA.divers1,SIEA.divers2 from TA_SIEA SIEA where SIEA.id_client
+  between :id_deb and :id_fin into :code,:civilite,:nom,:prenom,:adresse1,:adresse2
+  ,:codepostal,:ville,:pays,:tel,:fax,:compte,:ttc,:divers1,:divers2 do
+  begin
+    if (:civilite<>'' and not exists(select civ.code_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite )) then
+    begin
+      insert into ta_t_civilite (code_t_civilite) values (:civilite);
+    end
+  select civ.id_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :civilite into :id_civilite;
+
+  id_tiers=gen_id(num_id_tiers,1);
+  if (:nom is null) then nom= :code;
+  if (upper(:ttc) = 'H') then ttc = 0; else ttc = 1;
+
+  ttc = 1;
+
+
+  i=1;
+  codetmp='';
+  while (:i<=strlen(:code) and (strlen(:codetmp)<5))do
+  begin
+    codetmp=:codetmp||substr(:code,i,i);
+    codetmp=ltrim(:codetmp);
+    codetmp=rtrim(:codetmp);
+    i=i+1;
+  end
+  code=codetmp;
+
+  i=1;
+  codetmp2=:codetmp;
+  while (exists(select t.code_tiers from ta_tiers t where t.code_tiers=:codetmp2)) do begin
+   i=i+1;
+   codetmp2=substr(:code, 1,5)||i;
+  end
+  code=codetmp2;
+  codetmp=:codetmp2;
+
+  insert into ta_tiers values(:id_tiers,:code,:codetmp,:compte,:nom,:prenom,null,1,:ttc,:id_civilite,null,:id_t_tiers,null,null,
+  null, null,null,null,null,null);
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:ville is null) then ville=' ';
+  if (:pays is null) then  pays=' ';
+  if ((:codepostal is not null) and (:codepostal <> ' 0000')) then begin
+  insert into ta_adresse values(:id_adresse,:adresse1,:adresse2,null, :codepostal,:ville,:pays,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:tel is not null) then begin
+  insert into ta_telephone values(:id_telephone,:tel,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:fax is not null) then begin
+  insert into ta_telephone values(:id_telephone,:fax,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel,null,null,null,null,null,null);
+  end
+
+  if (:divers1<>'' or (:divers2<>'') )then
+  begin
+    insert into ta_commentaire values(null,:divers1||:divers2,:id_tiers,null,null,null,null,null,null);
+  end
+  end
+end
+^
+
+CREATE PROCEDURE NEW_PROCEDURE 
+AS
+DECLARE VARIABLE I INTEGER;
+begin
+i=1;
+  while (i<8000)do begin
+  insert into TA_SIEA values(:i,:i,null,null,:i,null,'1 chemin des pins',
+  null,null,'31000','Toulouse','France','05.63.30.01.64','05.63.02.95.28',
+  null,null,null,null,null,'4110010',null,null,null,null,null,'divers1','divers2',null);
+  i=:i+1;
+  end
+  suspend;
+end
+^
+
+
+CREATE PROCEDURE IMPORT_FACTURES (
+    DEB SMALLINT,
+    FIN SMALLINT)
+AS
+DECLARE VARIABLE I SMALLINT;
+DECLARE VARIABLE J SMALLINT;
+begin
+i=deb;
+while (:i<=:fin)do
+begin
+   insert into ta_facture values(:i,'A600'||:i,'NOW','NOW','NOW','facture n°: '||'A600'||:i,15,15,15,3,
+         null,0,0,0,0,0,0,null, null,null,null,null, null);
+   j=1;
+   execute procedure VIDE_DOCUMENT_TEMP('facture');
+   while (:j<=2)do
+   begin
+   insert into ta_l_facture_temp values(null,:i,1,1,:j,'ligne '||:j,1,1,null,100.00,19.6,
+   'A3',100.00,119.6,0,0,null,null,null,null,null,null);
+   j=:j+1;
+   end
+   execute procedure enregistre_lignes_facture(i);
+   insert into ta_infos_facture values(null,:i,'15 chemin des marronniers','bp 100',null,'31100','TOULOUSE','FRANCE',
+   '15 chemin des marronniers','bp 100',null,'31100','TOULOUSE','FRANCE','ABRASSART','4110010','ABRASSART','EMILE',null,8,null, 
+   null,'C',null,0,31,null, null,null,null,null,null);
+   i=:i+1;
+end
+  suspend;
+end
+^
+
+
+CREATE PROCEDURE MAJ_TIERS_SIEA 
+AS
+DECLARE VARIABLE CODE VARCHAR(255);
+DECLARE VARIABLE ID INTEGER;
+begin
+  for select t.code_tiers,id_tiers from ta_tiers t into :code,id
+  do begin
+    select resultat from "TRIM"(:code) into :code;
+    update ta_tiers set code_compta = substring(:code from 1 for 7)
+    where id_tiers=:id;
+  end
+end
+^

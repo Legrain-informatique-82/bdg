@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GenerationModelLettreMS Plug-in
+Bundle-SymbolicName: GenerationModelLettreMS;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: generationmodellettrems.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Lib;bundle-version="1.8.9",
+ log4j_1_2_8;bundle-version="1.2.8",
+ LibrairiesEcran;bundle-version="1.8.9",
+ librairiesLeGrain;bundle-version="1.8.9",
+ gestComBd;bundle-version="1.8.9",
+ org.apache.xerces;bundle-version="2.9.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/commons-io-1.2.jar,
+ .,
+ lib/castor-1.2.jar

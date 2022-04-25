@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Sample Action Set"
+            visible="true"
+            id="AnalyseEconomique.actionSet">
+         <action
+               label="Analyse Economique"
+               icon="icons/chart_curve.png"
+               class="fr.legrain.analyseeconomique.actions.SampleAction"
+               tooltip="Analyse Economique"
+               menubarPath="liasse/sampleGroup"
+               id="fr.legrain.analyseeconomique.actions.SampleAction">
+         </action>
+         <action
+               class="fr.legrain.analyseeconomique.direct.ActionHeadlessAE"
+               icon="icons/chart_curve.png"
+               id="AnalyseEconomique.action2"
+               label="Analyse Economique (Simplifié)"
+               menubarPath="liasse/sampleGroup"
+               tooltip="Analyse Economique (Simplifié)">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.analyseeconomique.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.analyseeconomique.preferences.AnalyseEcoPreferencePage"
+            id="fr.legrain.analyseeconomique.preferences.SamplePreferencePage"
+            name="Analyse Economique">
+      </page>
+   </extension>
+
+</plugin>

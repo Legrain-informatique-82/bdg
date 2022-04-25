@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="Sample Action Set"
+            visible="true"
+            id="Exportation.actionSet">
+         <menu
+               id="ExportationMenu"
+               label="Exportation"
+               path="/">
+            <separator
+                  name="ExportationGroup">
+            </separator>
+         </menu>
+         <action
+               icon="icons/export_wiz.gif"
+               id="fr.legrain.exportation.actions.ExportationAction"
+               label="Exportation"
+               menubarPath="--ExportationMenu/ExportationGroup"
+               tooltip="Exportation">
+         </action>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.exportation.editor.ExportationMultiPageEditor"
+            icon="icons/export_wiz.gif"
+            id="fr.legrain.exportation.editor.Exportation.multi"
+            name="Exportation">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.exportation.handlers.HandlerExportation"
+            description="Exportation"
+            id="fr.legrain.exportation.editor.Exportation.multi"
+            name="Exportation">
+      </command>
+      <command
+            description="Par Dates"
+            id="fr.legrain.Document.suivantDates"
+            name="SuivantDates">
+      </command>
+      <command
+            description="Par reference"
+            id="fr.legrain.Document.suivantReference"
+            name="SuivantReference">
+      </command>
+      <command
+            description="Imprimer les règlements"
+            id="fr.legrain.Document.imprimerReglement"
+            name="Imprimer les règlements">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:toolbar.exportation">
+         <command
+               commandId="fr.legrain.exportation.editor.Exportation.multi"
+               icon="icons/export_wiz.gif"
+               label="Exportation">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:ExportationMenu">
+         <command
+               commandId="fr.legrain.exportation.editor.Exportation.multi"
+               icon="icons/export_wiz.gif"
+               label="Exportation">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.exportation.preferences.ExportationPreferencePage"
+            id="fr.legrain.exportation.preferences.ExportationPreferencePage"
+            name="Exportation">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.exportation.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+
+</plugin>

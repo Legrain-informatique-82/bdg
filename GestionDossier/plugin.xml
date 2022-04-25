@@ -1,0 +1,169 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="fr.legrain.gestionDossier"
+            label="Dossier"
+            visible="true">
+         <menu
+               id="Dossier"
+               label="Dossier"
+               path="/">
+            <groupMarker name="DossierGroup2"/>
+         </menu>
+         <action
+               class="fr.legrain.gestionDossier.actions.InfoEntrepriseAction"
+               icon="icons/house.png"
+               id="fr.legrain.gestionDossier.actions.InfoEntrepriseAction"
+               label="Info Entreprise"
+               menubarPath="-Dossier/DossierGroup2"
+               style="push"
+               tooltip="Info Entreprise"/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="fr.legrain.GestionDossier"
+            name="Dossier"/>
+      <wizard
+            canFinishEarly="false"
+            category="fr.legrain.GestionDossier"
+            class="fr.legrain.gestionDossier.wizards.NouveauDossierWizard"
+            icon="icons/legrain.gif"
+            id="fr.legrain.gestionDossier.wizards.NouveauDossierWizard"
+            name="Nouveau dossier"
+            project="true"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="GestionCommerciale.perspective">
+         <newWizardShortcut id="fr.legrain.gestionDossier.wizards.NouveauDossierWizard"/>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.gestionDossier.handlers.HandlerIdentiteEntreprise"
+            description="Identité entreprise"
+            id="fr.legrain.gestionCommerciale.infos.entreprise"
+            name="Identité entreprise">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionDossier.handlers.HandlerOuvrirDossier"
+            description="Ouvrir un dossier"
+            id="fr.legrain.gestionCommerciale.dossier.ouvrir"
+            name="Ouvrir">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionDossier.handlers.HandlerNouveauDossier"
+            description="Nouveau dossier"
+            id="fr.legrain.gestionCommerciale.dossier.nouveau"
+            name="Nouveau">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionDossier.handlers.HandlerRenommerDossier"
+            description="Renommer un dossier"
+            id="fr.legrain.gestionCommerciale.dossier.renommer"
+            name="Renommer">
+      </command>
+      <command
+            id="fr.legrain.gestionCommerciale.infosentreprise.detail"
+            name="Détail Infos Entreprise">
+      </command>
+      <command
+            defaultHandler="fr.legrain.gestionDossier.handlers.HandlerExercice"
+            description="Exercice"
+            id="fr.legrain.gestionCommerciale.infos.exercice"
+            name="Exercice">
+      </command>
+      <command
+            id="fr.legrain.gestionCommerciale.infos.deverrouille"
+            name="Dévérrouille les dates">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.gestionDossier.editor.EditorInfoEntreprise"
+            icon="icons/house.png"
+            id="fr.legrain.gestionDossier.editor.EditorInfoEntreprise"
+            name="Exercice">
+      </editor>
+      <editor
+            class="fr.legrain.gestionDossier.editor.IdentiteEntrepriseTiersMultiPageEditor"
+            default="false"
+            icon="icons/house.png"
+            id="fr.legrain.editor.infosentreprise.tiers.multi"
+            name="Identité entreprise">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:Dossier">
+         <command
+               commandId="fr.legrain.gestionCommerciale.infos.entreprise"
+               icon="icons/house.png"
+               label="Identité entreprise">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.infos.exercice"
+               icon="icons/house.png"
+               label="Exercice"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.dossier.ouvrir"
+               icon="icons/folder_go.png"
+               label="Ouvrir">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.dossier.nouveau"
+               icon="icons/folder_add.png"
+               label="Nouveau">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.dossier.renommer"
+               icon="icons/folder_go.png"
+               label="Renommer">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:Dossier__a_mettre_dans_dossier_quand_action_ok">
+         <command
+               commandId="fr.legrain.gestionCommerciale.dossier.ouvrir"
+               icon="icons/folder_go.png"
+               label="Ouvrir">
+         </command>
+         <command
+               commandId="fr.legrain.gestionCommerciale.dossier.nouveau"
+               icon="icons/folder_add.png"
+               label="Nouveau">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.gestionDossier.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.gestionDossier.preferences.GestionDossierPreferencePage"
+            id="GestionDossier.page1"
+            name="Gestion des dossiers">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.gestionCommerciale.infos.deverrouille"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="fr.legrain.scheme.gestionCommerciale"
+            sequence="CTRL+SHIFT+D">
+      </key>
+   </extension>
+</plugin>

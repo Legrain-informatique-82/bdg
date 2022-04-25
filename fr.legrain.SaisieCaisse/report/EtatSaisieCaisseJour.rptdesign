@@ -1,0 +1,1874 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
+    <property name="units">in</property>
+    <property name="comments">saisieCaisseJour..</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <data-sources>
+        <script-data-source name="DataSourceScript" id="1290"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="DataSetPeriod" id="1551">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">dateJour</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">dateJour</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">dateJour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[dateJour = null;
+count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeSaisiecaisseDateJour = imprimeObjet.mapEdition.get("saisiecaisseDateJour");
+dateJour = listeSaisiecaisseDateJour.get(0);
+]]></method>
+            <method name="fetch"><![CDATA[libDate = new Packages.fr.legrain.lib.data.LibDate();
+if(count<1) {
+	row["dateJour"] = libDate.dateToString(dateJour);
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetScript1" id="1291">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">codeTPaiement</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">codeTOperation</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">montantOperation</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">codeTPaiement</property>
+                </structure>
+                <structure>
+                    <property name="columnName">codeTOperation</property>
+                </structure>
+                <structure>
+                    <property name="columnName">montantOperation</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">codeTPaiement</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">codeTOperation</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">montantOperation</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeSaisiecaisseOperationJour = imprimeObjet.mapEdition.get("saisiecaisseOperationJour");
+]]></method>
+            <method name="fetch"><![CDATA[
+if(count< listeSaisiecaisseOperationJour.size()) {
+	operation = listeSaisiecaisseOperationJour.get(count);
+	
+	//row["codeTPaiement"] = operation.getTaTPaiement().getCodeTPaiement();
+	row["codeTPaiement"] = operation.getTaTPaiement().getLibTPaiement();
+	//row["codeTOperation"] = operation.getTaTOperation().getCodeTOperation();
+	row["codeTOperation"] = operation.getTaTOperation().getLiblTOperation();
+	row["montantOperation"] = operation.getMontantOperation();
+
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetScriptDepot" id="1591">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">montant</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">typeDepot</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">date</property>
+                    <property name="dataType">date</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">montant</property>
+                </structure>
+                <structure>
+                    <property name="columnName">typeDepot</property>
+                </structure>
+                <structure>
+                    <property name="columnName">date</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">montant</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">typeDepot</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">date</property>
+                        <property name="dataType">date</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeSaisiecaisseDepotJour = imprimeObjet.mapEdition.get("saisiecaisseDepotJour");
+//liste = imprimeObjet.list2;]]></method>
+            <method name="fetch"><![CDATA[
+if(count< listeSaisiecaisseDepotJour.size()) {
+	depot = listeSaisiecaisseDepotJour.get(count);
+	
+	row["montant"] = depot.getMontantDepot().floatValue()+0;
+	row["typeDepot"] = depot.getTaTPaiement().getLibTPaiement();
+	row["date"] = depot.getDateDepot();
+	
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetScriptAchat" id="1672">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">ttc</property>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">tva</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ttc</property>
+                </structure>
+                <structure>
+                    <property name="columnName">tva</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">ttc</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">tva</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[ttc = 0;
+tva = 0;
+count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeSaisiecaisseAchatJour = imprimeObjet.mapEdition.get("saisiecaisseAchatJour");
+//liste = imprimeObjet.list3;
+
+for (i = 0; i < listeSaisiecaisseAchatJour.size(); i++) {
+	taAchatTTC = new Packages.fr.legrain.saisieCaisse.dao.TaAchatTTC();
+	taAchatTTC = listeSaisiecaisseAchatJour.get(i);
+	valueTTC = taAchatTTC.getMontant().floatValue();
+	if(taAchatTTC.getTva()==null){
+		valueTVA = 0;
+	}
+	else{
+		valueTVA = taAchatTTC.getTva().floatValue();
+	}
+	tva += valueTVA;
+	ttc += valueTTC;
+}
+
+]]></method>
+            <method name="fetch"><![CDATA[if(count<1) {
+	row["ttc"] = ttc;
+	row["tva"] = tva;
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetChiffreJour" id="1712">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">codeTPaiement</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">montantOperation</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">codeTPaiement</property>
+                </structure>
+                <structure>
+                    <property name="columnName">montantOperation</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">codeTPaiement</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">montantOperation</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+//liste1 = imprimeObjet.LinkedList1;
+//liste2 = imprimeObjet.LinkedList2;
+
+mapChiffreJour = imprimeObjet.mapEditionComplexe.get("saisiecaisseChiffreJour");
+ff = mapChiffreJour.keySet().iterator();
+//ddd = mapChiffreJour.keySet().toArray(); 
+]]></method>
+            <method name="fetch"><![CDATA[if(ff.hasNext()) {
+
+	key = ff.next();
+	row["codeTPaiement"] = key;
+	row["montantOperation"] = mapChiffreJour.get(key).get(0);
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetEtablissement" id="1793">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">nom</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">nom</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">nom</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[taEtablissement = null;
+count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listTaEtablissement = imprimeObjet.mapEdition.get("saisiecaisseEtablissementJour");
+taEtablissement = listTaEtablissement.get(0);]]></method>
+            <method name="fetch"><![CDATA[if(count<1) {
+	row["nom"] = taEtablissement.getNomEtablissement();
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetReportJour" id="1827">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">nomReportJour</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">valueReportJour</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">nomReportJour</property>
+                </structure>
+                <structure>
+                    <property name="columnName">valueReportJour</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">nomReportJour</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">valueReportJour</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+list = null
+taSumDepot = null;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeReportJournaux = imprimeObjet.mapEdition.get("saisiecaisseReportJour");
+list = listeReportJournaux;
+]]></method>
+            <method name="fetch"><![CDATA[if(count< list.size()) {
+	taSumDepot = list.get(count);
+	
+	row["nomReportJour"] = taSumDepot.getLiblTPaiement();
+	row["valueReportJour"] = taSumDepot.getMontantOperation().floatValue();
+		
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+        <script-data-set name="DataSetFinJour" id="1846">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">0</property>
+                    <property name="name">typePaiement</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">value</property>
+                    <property name="dataType">float</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">typePaiement</property>
+                </structure>
+                <structure>
+                    <property name="columnName">value</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">typePaiement</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">value</property>
+                        <property name="dataType">float</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+listeFinJournaux = imprimeObjet.mapEdition.get("saisiecaisseFinJour");
+
+]]></method>
+            <method name="fetch"><![CDATA[if(count< listeFinJournaux.size()) {
+	taSumDepot = listeFinJournaux.get(count);
+	
+	//row["typePaiement"] = taSumDepot.getLiblTPaiement()+" fin de journée";
+	row["typePaiement"] = taSumDepot.getCodeTPaiement()+" fin de journée";
+	row["value"] = taSumDepot.getMontantOperation().floatValue();		
+	count++;
+	return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="4">
+            <property name="fontFamily">"Verdana"</property>
+            <property name="fontSize">10pt</property>
+        </style>
+        <style name="crosstab-cell" id="5">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="6">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <property name="type">a4</property>
+            <property name="topMargin">0.25in</property>
+            <property name="leftMargin">0.25in</property>
+            <property name="bottomMargin">0.25in</property>
+            <property name="rightMargin">0.25in</property>
+            <property name="headerHeight">0.25cm</property>
+            <property name="footerHeight">0.5cm</property>
+            <page-footer>
+                <grid id="346">
+                    <property name="fontFamily">serif</property>
+                    <property name="width">100%</property>
+                    <column id="347">
+                        <property name="width">45%</property>
+                    </column>
+                    <column id="348">
+                        <property name="width">45%</property>
+                    </column>
+                    <column id="349">
+                        <property name="width">10%</property>
+                    </column>
+                    <row id="350">
+                        <cell id="351">
+                            <property name="paddingTop">1pt</property>
+                        </cell>
+                        <cell id="352">
+                            <property name="paddingTop">1pt</property>
+                        </cell>
+                        <cell id="353">
+                            <property name="paddingTop">1pt</property>
+                        </cell>
+                    </row>
+                    <row id="354">
+                        <cell id="355">
+                            <property name="paddingTop">1pt</property>
+                            <text-data id="526">
+                                <property name="marginTop">0pt</property>
+                                <expression name="valueExpr">var value =""; 
+var weeks = new Array("Dimanche","Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi");
+var date = new Date();
+var day = date.getDay();
+var year = (date.getYear()+1900).toString();
+if((date.getMonth() + 1)>9){
+var month = (date.getMonth() + 1).toString();
+}
+else{
+var month = "0"+(date.getMonth() + 1).toString();
+}
+if(date.getDate()&lt;9){
+var date = (date.getDate()+10).toString();
+}
+else{
+var date = (date.getDate()).toString();
+}
+//value = date+" / "+month+" / "+year+" -- "+weeks[day];
+value = date+" / "+month+" / "+year;</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="356">
+                            <property name="paddingTop">1pt</property>
+                            <text-data id="738">
+                                <expression name="valueExpr">var value = "";
+value = "" + params["NomEntreprise"];</expression>
+                                <property name="contentType">html</property>
+                            </text-data>
+                        </cell>
+                        <cell id="357">
+                            <property name="paddingTop">1pt</property>
+                            <grid id="358">
+                                <property name="marginTop">0pt</property>
+                                <property name="verticalAlign">bottom</property>
+                                <property name="width">100%</property>
+                                <column id="359"/>
+                                <column id="360"/>
+                                <column id="361"/>
+                                <row id="362">
+                                    <cell id="363">
+                                        <auto-text id="364">
+                                            <property name="textAlign">right</property>
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="365">
+                                        <text id="366">
+                                            <property name="textAlign">center</property>
+                                            <property name="contentType">plain</property>
+                                            <text-property name="content"><![CDATA[/]]></text-property>
+                                        </text>
+                                    </cell>
+                                    <cell id="367">
+                                        <auto-text id="368">
+                                            <property name="textAlign">right</property>
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <grid id="1777">
+            <property name="width">100%</property>
+            <column id="1778"/>
+            <column id="1779"/>
+            <column id="1780"/>
+            <row id="1781">
+                <cell id="1782"/>
+                <cell id="1783">
+                    <text-data id="1794">
+                        <property name="fontFamily">serif</property>
+                        <property name="fontSize">13pt</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="textUnderline">underline</property>
+                        <property name="marginTop">0pt</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">DataSetEtablissement</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">nom</property>
+                                <expression name="expression">dataSetRow["nom"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">row["nom"]</expression>
+                        <property name="contentType">html</property>
+                    </text-data>
+                </cell>
+                <cell id="1784"/>
+            </row>
+            <row id="1785">
+                <cell id="1786"/>
+                <cell id="1787">
+                    <text-data id="1796">
+                        <property name="fontFamily">serif</property>
+                        <property name="fontWeight">bold</property>
+                        <property name="color">black</property>
+                        <property name="textAlign">center</property>
+                        <property name="dataSet">DataSetPeriod</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">dateJour</property>
+                                <expression name="expression">dataSetRow["dateJour"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                        </list-property>
+                        <expression name="valueExpr">var value = null;
+value = "Date : "+row["dateJour"];</expression>
+                        <property name="contentType">plain</property>
+                    </text-data>
+                </cell>
+                <cell id="1788"/>
+            </row>
+            <row id="1789">
+                <cell id="1790"/>
+                <cell id="1791"/>
+                <cell id="1792"/>
+            </row>
+        </grid>
+        <grid id="1798">
+            <property name="width">100%</property>
+            <column id="1799"/>
+            <column id="1800"/>
+            <column id="1801"/>
+            <row id="1802">
+                <cell id="1803">
+                    <table id="1814">
+                        <property name="fontFamily">serif</property>
+                        <property name="width">100%</property>
+                        <property name="dataSet">DataSetReportJour</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">nomReportJour</property>
+                                <property name="displayName">nomReportJour</property>
+                                <expression name="expression">dataSetRow["nomReportJour"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">valueReportJour</property>
+                                <property name="displayName">valueReportJour</property>
+                                <expression name="expression">dataSetRow["valueReportJour"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <column id="1824"/>
+                        <column id="1825"/>
+                        <header>
+                            <row id="1815">
+                                <cell id="1816">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1826">
+                                        <property name="fontFamily">serif</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Report Journaux</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="1818">
+                                <cell id="1819">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1828">
+                                        <property name="resultSetColumn">nomReportJour</property>
+                                    </data>
+                                </cell>
+                                <cell id="1820">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1829">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.00€</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">valueReportJour</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                    </table>
+                </cell>
+                <cell id="1804"/>
+                <cell id="1805"/>
+            </row>
+            <row id="1806">
+                <cell id="1807"/>
+                <cell id="1808"/>
+                <cell id="1809"/>
+            </row>
+            <row id="1810">
+                <cell id="1811"/>
+                <cell id="1812"/>
+                <cell id="1813"/>
+            </row>
+        </grid>
+        <table id="1716">
+            <property name="fontFamily">serif</property>
+            <property name="width">100%</property>
+            <property name="dataSet">DataSetScript1</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">codeTPaiement</property>
+                    <property name="displayName">codeTPaiement</property>
+                    <expression name="expression">dataSetRow["codeTPaiement"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">codeTOperation</property>
+                    <property name="displayName">codeTOperation</property>
+                    <expression name="expression">dataSetRow["codeTOperation"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">montantOperation</property>
+                    <property name="displayName">montantOperation</property>
+                    <expression name="expression">dataSetRow["montantOperation"]</expression>
+                    <property name="dataType">float</property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation1</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>codeTPaiement</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["montantOperation"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation2</property>
+                    <property name="dataType">float</property>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["montantOperation"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+                <structure>
+                    <property name="name">Aggregation3</property>
+                    <property name="dataType">float</property>
+                    <simple-property-list name="aggregateOn">
+                        <value>codeTOperation</value>
+                    </simple-property-list>
+                    <property name="aggregateFunction">SUM</property>
+                    <list-property name="arguments">
+                        <structure>
+                            <property name="name">Expression</property>
+                            <expression name="value">row["montantOperation"]</expression>
+                        </structure>
+                    </list-property>
+                </structure>
+            </list-property>
+            <column id="1732"/>
+            <column id="1733"/>
+            <column id="1734"/>
+            <column id="1735"/>
+            <header>
+                <row id="1717">
+                    <property name="fontWeight">bold</property>
+                    <property name="textAlign">center</property>
+                    <cell id="1718">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="1737">
+                            <text-property name="text">Type de paiement</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1719">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="1738">
+                            <text-property name="text">Type d'opération</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1720">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="1739">
+                            <text-property name="text">Montant</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1721">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="1740">
+                            <text-property name="text">Mouvement du jour</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <group id="1742">
+                <property name="groupName">codeTPaiement</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr">row["codeTPaiement"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue">row["codeTPaiement"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <header>
+                    <row id="1743">
+                        <property name="backgroundColor">silver</property>
+                        <cell id="1744">
+                            <property name="backgroundColor">silver</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <data id="1753">
+                                <property name="fontWeight">bold</property>
+                                <property name="textUnderline">underline</property>
+                                <property name="resultSetColumn">codeTPaiement</property>
+                            </data>
+                        </cell>
+                        <cell id="1745">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                        </cell>
+                        <cell id="1746">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <data id="1770">
+                                <property name="fontWeight">bold</property>
+                                <property name="fontStyle">italic</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">###0.00€</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation1</property>
+                            </data>
+                        </cell>
+                        <cell id="1747">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <data id="1771">
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">###0.00€</property>
+                                </structure>
+                                <property name="textAlign">right</property>
+                                <property name="resultSetColumn">Aggregation1</property>
+                            </data>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <group id="1755">
+                <property name="groupName">codeTOperation</property>
+                <property name="interval">none</property>
+                <property name="sortDirection">asc</property>
+                <expression name="keyExpr">row["codeTOperation"]</expression>
+                <structure name="toc">
+                    <expression name="expressionValue">row["codeTOperation"]</expression>
+                </structure>
+                <property name="repeatHeader">true</property>
+                <property name="hideDetail">false</property>
+                <property name="pageBreakAfter">auto</property>
+                <property name="pageBreakBefore">auto</property>
+                <property name="pageBreakInside">auto</property>
+                <header>
+                    <row id="1756">
+                        <cell id="1757">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                        </cell>
+                        <cell id="1758">
+                            <property name="backgroundColor">silver</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <data id="1766">
+                                <property name="fontWeight">bold</property>
+                                <property name="fontStyle">italic</property>
+                                <property name="resultSetColumn">codeTOperation</property>
+                            </data>
+                        </cell>
+                        <cell id="1759">
+                            <property name="backgroundColor">silver</property>
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                            <data id="1795">
+                                <property name="fontWeight">bold</property>
+                                <structure name="numberFormat">
+                                    <property name="category">Currency</property>
+                                    <property name="pattern">###0.00€</property>
+                                </structure>
+                                <property name="resultSetColumn">Aggregation3</property>
+                            </data>
+                        </cell>
+                        <cell id="1760">
+                            <property name="borderBottomColor">#000000</property>
+                            <property name="borderBottomStyle">solid</property>
+                            <property name="borderBottomWidth">thin</property>
+                            <property name="borderLeftColor">#000000</property>
+                            <property name="borderLeftStyle">solid</property>
+                            <property name="borderLeftWidth">thin</property>
+                            <property name="borderRightColor">#000000</property>
+                            <property name="borderRightStyle">solid</property>
+                            <property name="borderRightWidth">thin</property>
+                            <property name="borderTopColor">#000000</property>
+                            <property name="borderTopStyle">solid</property>
+                            <property name="borderTopWidth">thin</property>
+                        </cell>
+                    </row>
+                </header>
+            </group>
+            <detail>
+                <row id="1722">
+                    <cell id="1723">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="1724">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                    <cell id="1725">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="1767">
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00€</property>
+                            </structure>
+                            <property name="textAlign">right</property>
+                            <property name="resultSetColumn">montantOperation</property>
+                        </data>
+                    </cell>
+                    <cell id="1726">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="1727">
+                    <cell id="1728">
+                        <property name="colSpan">2</property>
+                        <property name="rowSpan">1</property>
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <label id="1772">
+                            <property name="fontFamily">serif</property>
+                            <property name="fontWeight">bold</property>
+                            <property name="fontStyle">italic</property>
+                            <property name="textAlign">right</property>
+                            <text-property name="text">Total Jour :</text-property>
+                        </label>
+                    </cell>
+                    <cell id="1730">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <data id="1773">
+                            <property name="fontWeight">bold</property>
+                            <structure name="numberFormat">
+                                <property name="category">Currency</property>
+                                <property name="pattern">###0.00€</property>
+                            </structure>
+                            <property name="resultSetColumn">Aggregation2</property>
+                        </data>
+                    </cell>
+                    <cell id="1731">
+                        <property name="borderBottomColor">#000000</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftColor">#000000</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightColor">#000000</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopColor">#000000</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                    </cell>
+                </row>
+            </footer>
+        </table>
+        <grid id="1620">
+            <property name="width">100%</property>
+            <column id="1621"/>
+            <row id="1622">
+                <cell id="1623"/>
+            </row>
+        </grid>
+        <grid id="527">
+            <property name="width">100%</property>
+            <column id="528"/>
+            <row id="529">
+                <property name="height">3px</property>
+                <property name="backgroundColor">#C0C0C0</property>
+                <cell id="530"/>
+            </row>
+        </grid>
+        <grid id="1645">
+            <property name="width">100%</property>
+            <column id="1646"/>
+            <column id="1647"/>
+            <column id="1648"/>
+            <row id="1649">
+                <cell id="1650">
+                    <table id="1567">
+                        <property name="fontFamily">serif</property>
+                        <property name="width">100%</property>
+                        <property name="dataSet">DataSetScriptDepot</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">typeDepot</property>
+                                <property name="displayName">typeDepot</property>
+                                <expression name="expression">dataSetRow["typeDepot"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">date</property>
+                                <property name="displayName">date</property>
+                                <expression name="expression">dataSetRow["date"]</expression>
+                                <property name="dataType">date</property>
+                            </structure>
+                            <structure>
+                                <property name="name">montant</property>
+                                <property name="displayName">montant</property>
+                                <expression name="expression">dataSetRow["montant"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation1</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value">row["montant"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </list-property>
+                        <column id="1642"/>
+                        <column id="1644"/>
+                        <header>
+                            <row id="1653">
+                                <cell id="1654">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1656">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Dépôt Banque</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <group id="1593">
+                            <property name="groupName">typeDepot</property>
+                            <property name="interval">none</property>
+                            <property name="sortDirection">asc</property>
+                            <expression name="keyExpr">row["typeDepot"]</expression>
+                            <structure name="toc">
+                                <expression name="expressionValue">row["typeDepot"]</expression>
+                            </structure>
+                            <property name="repeatHeader">true</property>
+                            <property name="hideDetail">false</property>
+                            <property name="pageBreakAfter">auto</property>
+                            <property name="pageBreakBefore">auto</property>
+                            <property name="pageBreakInside">auto</property>
+                            <header>
+                                <row id="1628">
+                                    <cell id="1629">
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <data id="1602">
+                                            <property name="resultSetColumn">typeDepot</property>
+                                        </data>
+                                    </cell>
+                                    <cell id="1631">
+                                        <property name="borderBottomColor">#000000</property>
+                                        <property name="borderBottomStyle">solid</property>
+                                        <property name="borderBottomWidth">thin</property>
+                                        <property name="borderLeftColor">#000000</property>
+                                        <property name="borderLeftStyle">solid</property>
+                                        <property name="borderLeftWidth">thin</property>
+                                        <property name="borderRightColor">#000000</property>
+                                        <property name="borderRightStyle">solid</property>
+                                        <property name="borderRightWidth">thin</property>
+                                        <property name="borderTopColor">#000000</property>
+                                        <property name="borderTopStyle">solid</property>
+                                        <property name="borderTopWidth">thin</property>
+                                        <data id="1634">
+                                            <structure name="numberFormat">
+                                                <property name="category">Currency</property>
+                                                <property name="pattern">###0.00€</property>
+                                            </structure>
+                                            <property name="textAlign">right</property>
+                                            <property name="resultSetColumn">montant</property>
+                                        </data>
+                                    </cell>
+                                </row>
+                            </header>
+                        </group>
+                        <footer>
+                            <row id="1635">
+                                <cell id="1636">
+                                    <property name="colSpan">1</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1590">
+                                        <property name="fontSize">larger</property>
+                                        <property name="fontWeight">bold</property>
+                                        <property name="fontStyle">italic</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Totaux :</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1637">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1641">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.00€</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">Aggregation1</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+                <cell id="1651">
+                    <grid id="1657">
+                        <property name="fontFamily">serif</property>
+                        <property name="width">100%</property>
+                        <column id="1658"/>
+                        <column id="1659"/>
+                        <row id="1660">
+                            <cell id="1661">
+                                <property name="colSpan">2</property>
+                                <property name="rowSpan">1</property>
+                                <property name="fontWeight">bold</property>
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <property name="textAlign">center</property>
+                                <label id="1671">
+                                    <text-property name="text">Achats</text-property>
+                                </label>
+                            </cell>
+                        </row>
+                        <row id="1663">
+                            <cell id="1664">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="1669">
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">TTC :</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1665">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="1673">
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">###0.00€</property>
+                                    </structure>
+                                    <property name="textAlign">right</property>
+                                    <property name="dataSet">DataSetScriptAchat</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">ttc</property>
+                                            <property name="displayName">ttc</property>
+                                            <expression name="expression">dataSetRow["ttc"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">ttc</property>
+                                </data>
+                            </cell>
+                        </row>
+                        <row id="1666">
+                            <cell id="1667">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <label id="1670">
+                                    <property name="fontWeight">bold</property>
+                                    <text-property name="text">Dont TVA :</text-property>
+                                </label>
+                            </cell>
+                            <cell id="1668">
+                                <property name="borderBottomColor">#000000</property>
+                                <property name="borderBottomStyle">solid</property>
+                                <property name="borderBottomWidth">thin</property>
+                                <property name="borderLeftColor">#000000</property>
+                                <property name="borderLeftStyle">solid</property>
+                                <property name="borderLeftWidth">thin</property>
+                                <property name="borderRightColor">#000000</property>
+                                <property name="borderRightStyle">solid</property>
+                                <property name="borderRightWidth">thin</property>
+                                <property name="borderTopColor">#000000</property>
+                                <property name="borderTopStyle">solid</property>
+                                <property name="borderTopWidth">thin</property>
+                                <data id="1674">
+                                    <structure name="numberFormat">
+                                        <property name="category">Currency</property>
+                                        <property name="pattern">###0.00€</property>
+                                    </structure>
+                                    <property name="textAlign">right</property>
+                                    <property name="dataSet">DataSetScriptAchat</property>
+                                    <list-property name="boundDataColumns">
+                                        <structure>
+                                            <property name="name">tva</property>
+                                            <property name="displayName">tva</property>
+                                            <expression name="expression">dataSetRow["tva"]</expression>
+                                            <property name="dataType">float</property>
+                                        </structure>
+                                    </list-property>
+                                    <property name="resultSetColumn">tva</property>
+                                </data>
+                            </cell>
+                        </row>
+                    </grid>
+                </cell>
+                <cell id="1652"/>
+            </row>
+        </grid>
+        <grid id="1692">
+            <property name="width">100%</property>
+            <column id="1693"/>
+            <row id="1694">
+                <cell id="1695"/>
+            </row>
+        </grid>
+        <grid id="1688">
+            <property name="width">100%</property>
+            <column id="1689"/>
+            <row id="1690">
+                <property name="height">3px</property>
+                <property name="backgroundColor">#C0C0C0</property>
+                <cell id="1691"/>
+            </row>
+        </grid>
+        <grid id="1834">
+            <property name="width">100%</property>
+            <column id="1835"/>
+            <column id="1836"/>
+            <column id="1837"/>
+            <row id="1838">
+                <cell id="1839">
+                    <property name="colSpan">2</property>
+                    <property name="rowSpan">1</property>
+                    <table id="1847">
+                        <property name="fontFamily">serif</property>
+                        <property name="width">100%</property>
+                        <property name="dataSet">DataSetFinJour</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">typePaiement</property>
+                                <property name="displayName">typePaiement</property>
+                                <expression name="expression">dataSetRow["typePaiement"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">value</property>
+                                <property name="displayName">value</property>
+                                <expression name="expression">dataSetRow["value"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                        </list-property>
+                        <column id="1857"/>
+                        <column id="1858"/>
+                        <header>
+                            <row id="1848">
+                                <cell id="1849">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1862">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Soldes Fin de Journée</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="1851">
+                                <cell id="1852">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1860">
+                                        <property name="resultSetColumn">typePaiement</property>
+                                    </data>
+                                </cell>
+                                <cell id="1853">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1861">
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.00€</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">value</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="1854">
+                                <cell id="1855">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                </cell>
+                                <cell id="1856">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+                <cell id="1841"/>
+            </row>
+        </grid>
+        <grid id="1842">
+            <property name="width">100%</property>
+            <column id="1843"/>
+            <row id="1844">
+                <cell id="1845"/>
+            </row>
+        </grid>
+        <grid id="1830">
+            <property name="width">100%</property>
+            <column id="1831"/>
+            <row id="1832">
+                <property name="height">3px</property>
+                <property name="backgroundColor">#C0C0C0</property>
+                <cell id="1833"/>
+            </row>
+        </grid>
+        <grid id="1680">
+            <property name="width">100%</property>
+            <column id="1681"/>
+            <column id="1682"/>
+            <column id="1683"/>
+            <row id="1684">
+                <cell id="1685">
+                    <table id="1696">
+                        <property name="fontFamily">serif</property>
+                        <property name="width">100%</property>
+                        <property name="dataSet">DataSetChiffreJour</property>
+                        <list-property name="boundDataColumns">
+                            <structure>
+                                <property name="name">codeTPaiement</property>
+                                <property name="displayName">codeTPaiement</property>
+                                <expression name="expression">dataSetRow["codeTPaiement"]</expression>
+                                <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">montantOperation</property>
+                                <property name="displayName">montantOperation</property>
+                                <expression name="expression">dataSetRow["montantOperation"]</expression>
+                                <property name="dataType">float</property>
+                            </structure>
+                            <structure>
+                                <property name="name">Aggregation3</property>
+                                <property name="dataType">float</property>
+                                <property name="aggregateFunction">SUM</property>
+                                <list-property name="arguments">
+                                    <structure>
+                                        <property name="name">Expression</property>
+                                        <expression name="value">row["montantOperation"]</expression>
+                                    </structure>
+                                </list-property>
+                            </structure>
+                        </list-property>
+                        <column id="1706"/>
+                        <column id="1707"/>
+                        <header>
+                            <row id="1708">
+                                <cell id="1709">
+                                    <property name="colSpan">2</property>
+                                    <property name="rowSpan">1</property>
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1711">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="textAlign">center</property>
+                                        <text-property name="text">Chiffre d'affaire jour</text-property>
+                                    </label>
+                                </cell>
+                            </row>
+                        </header>
+                        <detail>
+                            <row id="1700">
+                                <cell id="1701">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1713">
+                                        <property name="resultSetColumn">codeTPaiement</property>
+                                    </data>
+                                </cell>
+                                <cell id="1702">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1714">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="fontStyle">italic</property>
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.00€</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">montantOperation</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </detail>
+                        <footer>
+                            <row id="1703">
+                                <cell id="1704">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <label id="1774">
+                                        <property name="fontWeight">bold</property>
+                                        <property name="fontStyle">italic</property>
+                                        <property name="textAlign">right</property>
+                                        <text-property name="text">Totaux :</text-property>
+                                    </label>
+                                </cell>
+                                <cell id="1705">
+                                    <property name="borderBottomColor">#000000</property>
+                                    <property name="borderBottomStyle">solid</property>
+                                    <property name="borderBottomWidth">thin</property>
+                                    <property name="borderLeftColor">#000000</property>
+                                    <property name="borderLeftStyle">solid</property>
+                                    <property name="borderLeftWidth">thin</property>
+                                    <property name="borderRightColor">#000000</property>
+                                    <property name="borderRightStyle">solid</property>
+                                    <property name="borderRightWidth">thin</property>
+                                    <property name="borderTopColor">#000000</property>
+                                    <property name="borderTopStyle">solid</property>
+                                    <property name="borderTopWidth">thin</property>
+                                    <data id="1776">
+                                        <property name="fontWeight">bold</property>
+                                        <structure name="numberFormat">
+                                            <property name="category">Currency</property>
+                                            <property name="pattern">###0.00€</property>
+                                        </structure>
+                                        <property name="textAlign">right</property>
+                                        <property name="resultSetColumn">Aggregation3</property>
+                                    </data>
+                                </cell>
+                            </row>
+                        </footer>
+                    </table>
+                </cell>
+                <cell id="1686"/>
+                <cell id="1687"/>
+            </row>
+        </grid>
+    </body>
+</report>

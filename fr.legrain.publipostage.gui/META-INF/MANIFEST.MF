@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Publipostage Gui
+Bundle-SymbolicName: fr.legrain.publipostage.gui;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.publipostage.gui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ fr.legrain.publipostage;bundle-version="2.0.14",
+ fr.legrain.publipostage.msword;bundle-version="2.0.14",
+ fr.legrain.publipostage.openoffice;bundle-version="2.0.14",
+ gestComBd;bundle-version="2.0.14",
+ LibrairiesEcran;bundle-version="2.0.14",
+ log4j_1_2_8;bundle-version="1.2.8",
+ librairiesLeGrain;bundle-version="2.0.14",
+ org.hibernate.eclipse;bundle-version="3.4.0",
+ GestionCommerciale;bundle-version="2.0.14"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: fr.legrain.publipostage.gui,
+ fr.legrain.publipostage.gui.preferences

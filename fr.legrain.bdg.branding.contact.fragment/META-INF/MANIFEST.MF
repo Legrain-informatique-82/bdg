@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Fragment
+Bundle-SymbolicName: fr.legrain.bdg.branding.contact.fragment
+Bundle-Version: 2.0.14.qualifier
+Fragment-Host: GestionCommerciale;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

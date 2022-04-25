@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tiers Plug-in
+Bundle-SymbolicName: Tiers; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.tiers.TiersPlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Lib,
+ librairiesLeGrain,
+ LibrairiesEcran,
+ gestComBd,
+ LibJBuilder2006,
+ log4j_1_2_8,
+ JayBird_2_0,
+ org.eclipse.core.databinding,
+ org.eclipse.core.databinding.beans,
+ org.eclipse.jface.databinding,
+ org.eclipse.core.expressions,
+ LibMessageLGR,
+ Edition,
+ Visualisation,
+ org.hibernate.eclipse,
+ GoogleMap;bundle-version="2.0.14",
+ org.eclipse.core.databinding.property;bundle-version="1.2.0",
+ LibLgrMail;bundle-version="2.0.14",
+ org.eclipse.ui.intro;bundle-version="3.3.1",
+ fr.legrain.publipostage;bundle-version="2.0.14",
+ fr.legrain.publipostage.msword;bundle-version="2.0.14",
+ fr.legrain.publipostage.openoffice;bundle-version="2.0.14",
+ fr.legrain.openmail.mail;bundle-version="2.0.14",
+ fr.legrain.openmail.sms;bundle-version="2.0.14",
+ fr.legrain.services;bundle-version="2.0.14"
+Eclipse-AutoStart: true
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.tiers,
+ fr.legrain.tiers.actions,
+ fr.legrain.tiers.divers,
+ fr.legrain.tiers.ecran,
+ fr.legrain.tiers.editor,
+ fr.legrain.tiers.handlers,
+ fr.legrain.tiers.preferences,
+ fr.legrain.tiers.views

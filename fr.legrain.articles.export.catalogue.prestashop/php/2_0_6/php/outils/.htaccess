@@ -1,0 +1,2 @@
+allow from all Options -Indexes
+php_value magic_quotes_gpc off

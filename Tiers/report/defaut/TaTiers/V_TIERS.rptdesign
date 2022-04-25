@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.22" id="1">
+    <property name="comments">Liste des Tiers</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 3.7.1.v20110905 Build &lt;3.7.1.v20110905-1820></property>
+    <data-sources>
+        <script-data-source name="DataSourceScript" id="26"/>
+    </data-sources>
+    <data-sets>
+        <script-data-set name="DataSetScript" id="27">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">codeTiers</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">nomEntreprise</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">nomTiers</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">prenomTiers</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">codepostalAdresse</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">villeAdresse</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">numeroTelephone</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">adresseEmail</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">actifTiers</property>
+                    <property name="dataType">integer</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">codeTiers</property>
+                </structure>
+                <structure>
+                    <property name="columnName">nomEntreprise</property>
+                </structure>
+                <structure>
+                    <property name="columnName">nomTiers</property>
+                </structure>
+                <structure>
+                    <property name="columnName">prenomTiers</property>
+                </structure>
+                <structure>
+                    <property name="columnName">codepostalAdresse</property>
+                </structure>
+                <structure>
+                    <property name="columnName">villeAdresse</property>
+                </structure>
+                <structure>
+                    <property name="columnName">numeroTelephone</property>
+                </structure>
+                <structure>
+                    <property name="columnName">adresseEmail</property>
+                </structure>
+                <structure>
+                    <property name="columnName">actifTiers</property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">codeTiers</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">nomEntreprise</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">nomTiers</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">prenomTiers</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">codepostalAdresse</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">villeAdresse</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">numeroTelephone</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">adresseEmail</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">actifTiers</property>
+                        <property name="dataType">integer</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">DataSourceScript</property>
+            <method name="open"><![CDATA[count=0;
+imprimeObjet = new Packages.fr.legrain.edition.ImprimeObjet();
+liste = imprimeObjet.m.get("TaTiers");]]></method>
+            <method name="fetch"><![CDATA[if(count< liste.size()) {
+TaTiers= liste.get(count);
+if(TaTiers.getCodeTiers() == null){
+row["codeTiers"]="";
+}
+else{
+row["codeTiers"]=TaTiers.getCodeTiers();
+}
+if(TaTiers.getTaEntreprise() == null || TaTiers.getTaEntreprise().getNomEntreprise() == null){
+row["nomEntreprise"]="";
+}
+else{
+row["nomEntreprise"]=TaTiers.getTaEntreprise().getNomEntreprise();
+}
+if(TaTiers.getNomTiers() == null){
+row["nomTiers"]="";
+}
+else{
+row["nomTiers"]=TaTiers.getNomTiers();
+}
+if(TaTiers.getPrenomTiers() == null){
+row["prenomTiers"]="";
+}
+else{
+row["prenomTiers"]=TaTiers.getPrenomTiers();
+}
+if(TaTiers.getTaAdresse() == null || TaTiers.getTaAdresse().getCodepostalAdresse() == null){
+row["codepostalAdresse"]="";
+}
+else{
+row["codepostalAdresse"]=TaTiers.getTaAdresse().getCodepostalAdresse();
+}
+if(TaTiers.getTaAdresse() == null || TaTiers.getTaAdresse().getVilleAdresse() == null){
+row["villeAdresse"]="";
+}
+else{
+row["villeAdresse"]=TaTiers.getTaAdresse().getVilleAdresse();
+}
+if(TaTiers.getTaTelephone() == null || TaTiers.getTaTelephone().getNumeroTelephone() == null){
+row["numeroTelephone"]="";
+}
+else{
+row["numeroTelephone"]=TaTiers.getTaTelephone().getNumeroTelephone();
+}
+if(TaTiers.getTaEmail() == null || TaTiers.getTaEmail().getAdresseEmail() == null){
+row["adresseEmail"]="";
+}
+else{
+row["adresseEmail"]=TaTiers.getTaEmail().getAdresseEmail();
+}
+if(TaTiers.getActifTiers() == null){
+row["actifTiers"]="";
+}
+else{
+row["actifTiers"]=TaTiers.getActifTiers();
+}
+count++;
+return true;
+}
+return false;]]></method>
+        </script-data-set>
+    </data-sets>
+    <styles>
+        <style name="crosstab-cell" id="2">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+        <style name="crosstab" id="3">
+            <property name="borderBottomColor">#CCCCCC</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">1pt</property>
+            <property name="borderLeftColor">#CCCCCC</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">1pt</property>
+            <property name="borderRightColor">#CCCCCC</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">1pt</property>
+            <property name="borderTopColor">#CCCCCC</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">1pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Page Master" id="4">
+            <property name="type">a4</property>
+            <property name="orientation">landscape</property>
+            <property name="topMargin">0cm</property>
+            <property name="leftMargin">1cm</property>
+            <property name="bottomMargin">0cm</property>
+            <property name="rightMargin">1cm</property>
+            <property name="headerHeight">0.25in</property>
+            <property name="footerHeight">0.25in</property>
+            <page-footer>
+                <grid name="gridFooter" id="5">
+                    <property name="width">100%</property>
+                    <column id="6">
+                        <property name="width">10%</property>
+                    </column>
+                    <column id="7">
+                        <property name="width">80%</property>
+                    </column>
+                    <column id="8">
+                        <property name="width">10%</property>
+                    </column>
+                    <row id="9">
+                        <cell id="10">
+                            <property name="textAlign">left</property>
+                            <label id="11">
+                                <text-property name="text">28/02/2012</text-property>
+                            </label>
+                        </cell>
+                        <cell id="12">
+                            <property name="textAlign">center</property>
+                            <label id="13">
+                                <text-property name="text">Bureau de Gestion : ETPS PENISSON</text-property>
+                            </label>
+                        </cell>
+                        <cell id="14">
+                            <property name="textAlign">right</property>
+                            <grid name="gridFooterPage" id="15">
+                                <column id="16"/>
+                                <column id="17"/>
+                                <column id="18"/>
+                                <row id="19">
+                                    <cell id="20">
+                                        <property name="textAlign">right</property>
+                                        <auto-text id="21">
+                                            <property name="type">page-number</property>
+                                        </auto-text>
+                                    </cell>
+                                    <cell id="22">
+                                        <property name="textAlign">right</property>
+                                        <label id="23">
+                                            <text-property name="text">/</text-property>
+                                        </label>
+                                    </cell>
+                                    <cell id="24">
+                                        <property name="textAlign">right</property>
+                                        <auto-text id="25">
+                                            <property name="type">total-page</property>
+                                        </auto-text>
+                                    </cell>
+                                </row>
+                            </grid>
+                        </cell>
+                    </row>
+                </grid>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <table name="table" id="54">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="width">100%</property>
+            <property name="dataSet">DataSetScript</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">codeTiers</property>
+                    <expression name="expression">dataSetRow["codeTiers"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">nomEntreprise</property>
+                    <expression name="expression">dataSetRow["nomEntreprise"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">nomTiers</property>
+                    <expression name="expression">dataSetRow["nomTiers"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prenomTiers</property>
+                    <expression name="expression">dataSetRow["prenomTiers"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">codepostalAdresse</property>
+                    <expression name="expression">dataSetRow["codepostalAdresse"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">villeAdresse</property>
+                    <expression name="expression">dataSetRow["villeAdresse"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">numeroTelephone</property>
+                    <expression name="expression">dataSetRow["numeroTelephone"]</expression>
+                    <property name="dataType">boolean</property>
+                </structure>
+                <structure>
+                    <property name="name">adresseEmail</property>
+                    <expression name="expression">dataSetRow["adresseEmail"]</expression>
+                    <property name="dataType">boolean</property>
+                </structure>
+                <structure>
+                    <property name="name">actifTiers</property>
+                    <expression name="expression">dataSetRow["actifTiers"]</expression>
+                    <property name="dataType">boolean</property>
+                </structure>
+            </list-property>
+            <property name="pageBreakInterval">600</property>
+            <column id="113">
+                <property name="width">11%</property>
+            </column>
+            <column id="114">
+                <property name="width">14%</property>
+            </column>
+            <column id="115">
+                <property name="width">10%</property>
+            </column>
+            <column id="116">
+                <property name="width">13%</property>
+            </column>
+            <column id="117">
+                <property name="width">10%</property>
+            </column>
+            <column id="118">
+                <property name="width">11%</property>
+            </column>
+            <column id="119">
+                <property name="width">4%</property>
+            </column>
+            <column id="120">
+                <property name="width">4%</property>
+            </column>
+            <column id="121">
+                <property name="width">4%</property>
+            </column>
+            <header>
+                <row id="55">
+                    <cell id="56">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="codeTiers" id="57">
+                            <text-property name="text">Code Tiers</text-property>
+                        </label>
+                    </cell>
+                    <cell id="58">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="nomEntreprise" id="59">
+                            <text-property name="text">Nom Entreprise</text-property>
+                        </label>
+                    </cell>
+                    <cell id="60">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="nomTiers" id="61">
+                            <text-property name="text">Nom</text-property>
+                        </label>
+                    </cell>
+                    <cell id="62">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="prenomTiers" id="63">
+                            <text-property name="text">Prenom</text-property>
+                        </label>
+                    </cell>
+                    <cell id="64">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="codepostalAdresse" id="65">
+                            <text-property name="text">CP</text-property>
+                        </label>
+                    </cell>
+                    <cell id="66">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="villeAdresse" id="67">
+                            <text-property name="text">Ville</text-property>
+                        </label>
+                    </cell>
+                    <cell id="68">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="numeroTelephone" id="69">
+                            <text-property name="text">Numero telephone</text-property>
+                        </label>
+                    </cell>
+                    <cell id="70">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="adresseEmail" id="71">
+                            <text-property name="text">EMail</text-property>
+                        </label>
+                    </cell>
+                    <cell id="72">
+                        <property name="fontWeight">bold</property>
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <label name="actifTiers" id="73">
+                            <text-property name="text">Actif</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="74">
+                    <cell id="75">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_codeTiers" id="76">
+                            <property name="resultSetColumn">codeTiers</property>
+                        </data>
+                    </cell>
+                    <cell id="77">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_nomEntreprise" id="78">
+                            <property name="resultSetColumn">nomEntreprise</property>
+                        </data>
+                    </cell>
+                    <cell id="79">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_nomTiers" id="80">
+                            <property name="resultSetColumn">nomTiers</property>
+                        </data>
+                    </cell>
+                    <cell id="81">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_prenomTiers" id="82">
+                            <property name="resultSetColumn">prenomTiers</property>
+                        </data>
+                    </cell>
+                    <cell id="83">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_codepostalAdresse" id="84">
+                            <property name="resultSetColumn">codepostalAdresse</property>
+                        </data>
+                    </cell>
+                    <cell id="85">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_villeAdresse" id="86">
+                            <property name="resultSetColumn">villeAdresse</property>
+                        </data>
+                    </cell>
+                    <cell id="87">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_numeroTelephone" id="88">
+                            <property name="resultSetColumn">numeroTelephone</property>
+                        </data>
+                    </cell>
+                    <cell id="89">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_adresseEmail" id="90">
+                            <property name="resultSetColumn">adresseEmail</property>
+                        </data>
+                    </cell>
+                    <cell id="91">
+                        <property name="borderBottomStyle">solid</property>
+                        <property name="borderBottomWidth">thin</property>
+                        <property name="borderLeftStyle">solid</property>
+                        <property name="borderLeftWidth">thin</property>
+                        <property name="borderRightStyle">solid</property>
+                        <property name="borderRightWidth">thin</property>
+                        <property name="borderTopStyle">solid</property>
+                        <property name="borderTopWidth">thin</property>
+                        <property name="textAlign">center</property>
+                        <data name="data_actifTiers" id="92">
+                            <property name="resultSetColumn">actifTiers</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="93">
+                    <cell id="94"/>
+                    <cell id="95"/>
+                    <cell id="96"/>
+                    <cell id="97"/>
+                    <cell id="98"/>
+                    <cell id="99"/>
+                    <cell id="100"/>
+                    <cell id="101"/>
+                    <cell id="102"/>
+                </row>
+                <row id="103">
+                    <cell id="104"/>
+                    <cell id="105"/>
+                    <cell id="106"/>
+                    <cell id="107"/>
+                    <cell id="108"/>
+                    <cell id="109"/>
+                    <cell id="110"/>
+                    <cell id="111"/>
+                    <cell id="112"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>

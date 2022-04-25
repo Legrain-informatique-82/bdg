@@ -1,0 +1,221 @@
+/*******************************************************************************
+ * Copyright (c) 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials 
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     IBM Corporation - initial API and implementation
+ *******************************************************************************/
+ 
+/*
+ Themes de base d'eclipse dans le repertoire : eclipse/plugins/org.eclipse.ui.intro.universal_3.2.300.v20090526
+*/ 
+ 
+/* Hide the extra div for links in the normal state. */
+a .link-extra-div {
+	display: none;
+}
+
+/*
+ * Set up the content for the root page.
+ */
+html,body {
+	background-image: url("../graphics/rootpage/welcomebckgrd.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	overflow: hidden;
+	overflow-clip: rect(0, auto, auto, 0);
+	background-color: gray;
+}
+
+#root {
+	min-height: 450px;
+	height: expression(document.body.clientHeight <   450 ?   "450px" :   "100%")
+		;
+	min-width: 940px;
+	width: expression(document.body.clientWidth <   940 ?   "940px" :   "auto")
+		;
+	overflow: hidden;
+}
+
+/* 
+ * Set up the navigation bar.  It should be centered in the middle
+ * of the page
+ */
+#links-background {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	/*border: 1px solid red;*/
+}
+
+#page-links {
+	position: relative;
+	left: 0px;
+	top: 0x;
+	/*border: 1px solid yellow;*/
+}
+
+#page-links a {
+	position: absolute;
+	text-align: left;
+	padding-bottom: 2px;
+}
+
+.intro-title {
+	position: absolute;
+	color: white;
+	left: -90px;
+	top: -217px;
+	width: 180px;
+	height: 30px;
+	/*border: 1px solid red;*/
+}
+
+#logo_lgr { 
+	/*logo => 90x57 px*/
+	position: absolute;
+	/*right: 20px;*/
+	left: 50%;
+	bottom: 20px;
+	margin-left: -45px;
+	z-index: 100;
+}
+
+#page-links a,
+#page-links a:hover {
+	background-repeat: no-repeat;
+	position: absolute;
+	width: 68px;
+	height: 68px;
+	/*border: 1px solid red;*/
+}
+
+/*1ere ligne*/
+a#link_page_documents, a#link_page_documents:hover, 
+a#link_aide_doc, 
+a#link_aide_doc_topic, 
+a#link_proforma, a#link_proforma:hover,
+a#link_devis, a#link_devis:hover,
+a#link_bon_cde, a#link_bon_cde:hover,
+a#link_bl, a#link_bl:hover,
+a#link_facture_apporteur, a#link_facture_apporteur,
+a#link_facture_avoir, a#link_facture_avoir:hover,
+a#link_article, a#link_article:hover,
+a#link_facture, a#link_facture:hover,
+a#link_tiers, a#link_tiers:hover {
+	top: -175px;
+}
+	
+/*2eme ligne*/
+/*
+a#link_tiers, a#link_tiers:hover {
+	top: -104px;
+}
+*/
+
+/*3eme ligne*/
+/*
+a#link_facture, a#link_facture:hover {
+	top: -34px;
+}
+*/
+
+/*1ere colonne*/
+a#link_aide_doc {
+	left: -419px;
+}
+/*2eme colonne*/
+a#link_aide_doc_topic {
+	left: -347px;
+}
+/*3eme colonne*/
+a#link_proforma, a#link_proforma:hover  {
+	left: -278px;
+}
+/*4eme colonne*/
+a#link_devis, a#link_devis:hover {
+	left: -209px;
+}
+/*5eme colonne*/
+a#link_page_documents, a#link_page_documents:hover,
+a#link_bon_cde, a#link_bon_cde:hover {
+	left: -139px;
+}
+/*6eme colonne*/
+a#link_bl, a#link_bl:hover {
+	left: -68px;
+}
+/*7eme colonne*/
+a#link_facture_apporteur, a#link_facture_apporteur {
+	left: 1px;
+}
+/*8eme colonne*/
+a#link_facture_avoir, a#link_facture_avoir:hover {
+	left: 73px;
+}
+/*9eme colonne*/
+a#link_facture, a#link_facture:hover {
+	left: 142px;
+}
+/*10eme colonne*/
+a#link_article, a#link_article:hover {
+	left: 211px;
+}
+/*11eme colonne*/
+a#link_tiers, a#link_tiers:hover {
+	left: 282px;
+}
+/*12eme colonne*/
+/* left: 360px; */
+
+/* Link images */
+a#link_article { background-image: url("../graphics/icons/PICTO 63PX/ARTICLE.png"); }
+a#link_article:hover { background-image: url("../graphics/icons/PICTO 63PX/ARTICLE.png"); }
+
+a#link_tiers { background-image: url("../graphics/icons/PICTO 63PX/TIERS.png"); }
+a#link_tiers:hover { background-image: url("../graphics/icons/PICTO 63PX/TIERS.png"); }
+
+a#link_facture { background-image: url("../graphics/icons/PICTO 63PX/FACTURE.png"); }
+a#link_facture:hover { background-image: url("../graphics/icons/PICTO 63PX/FACTURE.png"); }
+
+a#link_devis { background-image: url("../graphics/icons/PICTO 63PX/DEVIS.png"); }
+a#link_devis:hover { background-image: url("../graphics/icons/PICTO 63PX/DEVIS.png"); }
+
+a#link_bon_cde { background-image: url("../graphics/icons/PICTO 63PX/BON-DE-COMMANDE.png"); }
+a#link_bon_cde:hover { background-image: url("../graphics/icons/PICTO 63PX/BON-DE-COMMANDE.png"); }
+
+a#link_proforma { background-image: url("../graphics/icons/PICTO 63PX/PROFORMA.png"); }
+a#link_proforma:hover { background-image: url("../graphics/icons/PICTO 63PX/PROFORMA.png"); }
+
+a#link_bl { background-image: url("../graphics/icons/PICTO 63PX/BON-DE-LIVRAISON.png"); }
+a#link_bl:hover { background-image: url("../graphics/icons/PICTO 63PX/BON-DE-LIVRAISON.png"); }
+
+a#link_facture_apporteur { background-image: url("../graphics/icons/PICTO 63PX/FACTURE-APPORTEUR.png"); }
+a#link_facture_apporteur:hover { background-image: url("../graphics/icons/PICTO 63PX/FACTURE-APPORTEUR.png"); }
+
+a#link_facture_avoir { background-image: url("../graphics/icons/PICTO 63PX/FACTURE-D-AVOIR.png"); }
+a#link_facture_avoir:hover { background-image: url("../graphics/icons/PICTO 63PX/FACTURE-D-AVOIR.png"); }
+
+a#link_aide_doc { background-image: url("../graphics/icons/PICTO 63PX/AIDE.png"); }
+a#link_aide_doc:hover { background-image: url("../graphics/icons/PICTO 63PX/AIDE.png"); }
+
+a#link_aide_doc_topic { background-image: url("../graphics/icons/PICTO 63PX/NOUVEAUTE.png"); }
+a#link_aide_doc_topic:hover { background-image: url("../graphics/icons/PICTO 63PX/NOUVEAUTE.png"); }
+
+a#link_page_documents { background-image: url("../graphics/icons/btn.png"); }
+a#link_page_documents:hover { background-image: url("../graphics/icons/package.png"); }
+
+#idhtml { 
+	/*background-color : white;*/
+	position: absolute;
+	left: -250px;
+	top: 75px;
+	width: 650px;
+	height: 250px;
+	/*border: 1px solid red;*/
+}

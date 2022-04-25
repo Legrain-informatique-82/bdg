@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="Tiers.editorPageTiers">
+      <editor
+            editorClass="fr.legrain.tiers.statistiques.editors.FormEditorStatistiquesTiers"
+            editorIcon="icons/chart_bar.png"
+            editorLabel="Statistiques">
+      </editor>
+   </extension>
+
+</plugin>

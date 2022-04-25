@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.abonnement.editors.FormEditorAbonnement"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.abonnement"
+            name="Gestion des avis d&apos;échéance">
+      </editor>
+      <editor
+            class="fr.legrain.abonnement.editors.ListeAbonnementMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.listeAbonnement.multi"
+            name="Liste des abonnements">
+      </editor>
+      <editor
+            class="fr.legrain.abonnement.editors.FormEditorEcheance"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.abonnement.Echeance"
+            name="Gestion des échéances d&apos;abonnement">
+      </editor>
+      <editor
+            class="fr.legrain.abonnement.editors.FormEditorFinalisationAbonnement"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.abonnement.FinalisationAbonnement"
+            name="Gestion des renouvellements d&apos;abonnement">
+      </editor>
+      <editor
+            class="fr.legrain.abonnement.editors.AbonnementMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.abonnement.multi"
+            name="gestion des abonnements">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.abonnement.handle.HandlerEtatAbonnement"
+            description="Gestion des abonnements"
+            id="fr.legrain.abonnement"
+            name="Gestion des abonnements">
+      </command>
+      <command
+            description="Tout cocher détail"
+            id="fr.legrain.gestionCommerciale.toutCocherDetail"
+            name="Tout cocher détail">
+      </command>
+      <command
+            description="Tout décocher détail"
+            id="fr.legrain.gestionCommerciale.toutDeCocherDetail"
+            name="Tout décocher détail">
+      </command>
+      <command
+            description="Inverser détail"
+            id="fr.legrain.gestionCommerciale.InverserDetail"
+            name="Inverser détail">
+      </command>
+      <command
+            defaultHandler="fr.legrain.abonnement.handle.HandlerEcheance"
+            description="Gestion des échéances d&apos;abonnement"
+            id="fr.legrain.abonnement.Echeance"
+            name="Gestion des échéances d&apos;abonnement">
+      </command>
+  
+      <command
+            defaultHandler="fr.legrain.abonnement.handle.HandlerRenouvellementAbonnement"
+            description="Gestion des renouvellements d&apos;abonnement"
+            id="fr.legrain.abonnement.FinalisationAbonnement"
+            name="Gestion des renouvellements d&apos;abonnement">
+      </command> </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion.support?after=fr.legrain.licence.separator3">
+         <command
+               commandId="fr.legrain.abonnement.Echeance"
+               icon="icons/logo_lgr_16.png"
+               label="Gestion des échéances d&apos;abonnement"
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.abonnement"
+               icon="icons/logo_lgr_16.png"
+               label="Gestion des avis d&apos;échéance"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.abonnement.separator4"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:gestion.support?after=fr.legrain.reglement.separator5">
+         <command
+               commandId="fr.legrain.abonnement.FinalisationAbonnement"
+               icon="icons/logo_lgr_16.png"
+               label="Gestion des renouvellements d&apos;abonnement"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="Tiers.editorPageFamilleTiers">
+      <editor
+            editorClass="fr.legrain.abonnement.editors.EditorPourcGroupe"
+            editorIcon="icons/chart_bar.png"
+            editorLabel="Pourcentage groupe">
+      </editor>
+   </extension>
+
+</plugin>

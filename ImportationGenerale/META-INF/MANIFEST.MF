@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ImportationGenerale Plug-in
+Bundle-SymbolicName: ImportationGenerale; singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: importationGenerale.ImportationGeneralePlugin
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ LibJBuilder2006,
+ librairiesLeGrain,
+ log4j_1_2_8,
+ gestComBd
+Eclipse-AutoStart: true
+Bundle-Vendor: Le Grain SA

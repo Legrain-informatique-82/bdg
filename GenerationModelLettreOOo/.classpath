@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/castor-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/agenda.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/aportisdoc.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/classes.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-io-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/commonwizards.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/fax.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/form.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/java_uno.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/js.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/juh.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jurt.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jut.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/letter.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/officebean.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/pexcel.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/pocketword.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/query.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/report.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ridl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ScriptFramework.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ScriptProviderForBeanShell.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ScriptProviderForJava.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/ScriptProviderForJavaScript.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/sdbc_hsqldb.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/table.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/unoil.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/unoloader.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/web.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmerge.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/XMergeBridge.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/XSLTFilter.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/XSLTValidate.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>	
+	<classpathentry kind="output" path="bin"/>
+</classpath>

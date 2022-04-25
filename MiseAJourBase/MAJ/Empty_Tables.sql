@@ -1,0 +1,22 @@
+Delete from TA_ACCES;
+Delete from TA_T_TIERS ;
+Delete from TA_T_CIVILITE;
+Delete from TA_BANQUE ;
+Delete from TA_T_ENTITE;
+Delete from TA_T_ADR ;
+Delete from TA_T_TEL ;
+Delete from TA_UNITE;
+Delete from TA_TVA ;
+Delete from TA_FAMILLE ;
+Delete from TA_T_TVA ;
+Delete from TA_T_LIGNE;
+Delete from TA_T_PAIEMENT ;
+
+Delete from TA_ARTICLE;
+Delete from TA_TIERS ;
+Delete from TA_BONLIV ;
+Delete from ta_facture ;
+Delete from ta_devis ;
+Delete from ta_entreprise;
+Delete from TA_T_TIERS ;
+Delete from TA_T_TIERS ;

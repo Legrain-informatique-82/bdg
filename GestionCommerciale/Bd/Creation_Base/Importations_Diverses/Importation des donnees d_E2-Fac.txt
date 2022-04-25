@@ -1,0 +1,515 @@
+Importation des donn�es d'E2-Fac
+
+Restaurer le dossier dans E2_fac (voir denis)
+
+Pour pouvoir consulter et executer les requetes de recup�ration de donn�es dans les diff�rentes tables, 
+renommer les fichier ".E2F" en ".DBF" pour les ouvrir dans dbExplorer qui permet de lire les fichiers ".dbf"
+- Executer les requetes ci-dessous dans dbExplorer et exporter les donn�es en fichier ".XLS"
+Pour pouvoir les exporter dans les tables bdg � partir du logiciel IbEasy
+
+
+
+1) Importation des articles
+  2 tables : 
+  FAMART (famille des articles)
+  ARTICLES
+Le lien entre les deux tables est le champ "ART_FAM" dans ARTICLES
+qui fait r�f�rence au champ "FAM_COD" dans FAMART
+
+
+Puis, selection des articles existants et exporter la requete en xls
+select 
+a.ART_COD,
+a.ART_DIV,
+a.ART_FAM,
+a.ART_DES,
+a.ART_HT1,
+a.ART_TTC1,
+a.ART_TVA,
+cast('' as varchar(8))as ART_CPT_TVA,
+a.ART_UN1,
+a.ART_UN2,
+a.ART_1A2,
+a.ART_CPT,
+a.ART_GTVA,
+a.ART_HT2,
+a.ART_TTC2,
+a.ART_HT3,
+a.ART_TTC3,
+a.ART_PRF,
+f.FAM_DES,
+f.FAM_NAR
+from ARTICLES.dbf a
+left join FAMART.dbf f on(a.ART_FAM=f.FAM_COD)
+order by a.ART_COD
+
+
+puis rajouter les comptes de tva dans la colonne cr��e � cet effet "ART_CPT_TVA"
+
+puis, dans ibeasy, importer les donn�es du fichier xls dans la table "articles_fac"
+puis, cr��r la proc�dure stock�e pour importation des articles
+
+
+   
+/// Importations des clients  ////////////////
+//////////////////////////////////////////////
+2� Importation des clients
+   3 tables :
+   CLIENTS
+   CCIAUX (commerciaux)
+   PMTREG (Conditions de r�glement)
+   Les 2 tables CLIENTS et CCIAUX vont dans la table clients au final, sauf qu'il y aura moins d'infos dans celle des commerciaux
+   Le lien entre la tables CLIENTS et CCIAUX est le champ "CLI_REP" dans CLIENTS et "CCL_COD" dans CCIAUX
+   Le lien entre la tables CLIENTS et PMTREG est le champ "CLI_PMT" dans CLIENTS et "PMT_COD" dans PMTREG
+  
+
+
+//Pour importations des clients
+
+
+
+//s�lection des clients et des commerciaux
+select
+c.CLI_COD,
+c.CLI_NOM,
+c.CLI_CPT,
+c.CLI_COL,
+c.CLI_AD1,
+c.CLI_AD2,
+c.CLI_CP,
+c.CLI_VIL,
+c.CLI_PAY,
+c.CLI_TVA,
+c.CLI_ASS,
+c.CLI_OBS,
+c.CLI_RSP,
+c.CLI_TEL,
+c.CLI_FAX,
+c.CLI_PMT,
+c.CLI_PRI,
+c.CLI_BQE,
+c.CLI_RIB,
+c.CLI_LAD1,
+c.CLI_LAD2,
+c.CLI_LCP,
+c.CLI_LVIL,
+c.CLI_LPAY,
+c.CLI_REP,
+c.CLI_CIV,
+c.CLI_FAM,
+c.CLI_TEL0,
+c.CLI_FAX0,
+p.PMT_INT,
+p.PMT_DELAI,
+p.PMT_JOUR,
+p.PMT_LCR,
+c.CLI_LOC
+
+
+from clients.dbf c
+left join PMTREG.dbf p on(c.CLI_PMT=p.PMT_COD)
+
+union
+
+select
+cast(cc.CCL_COD as varchar(8)),
+cast(cc.CCL_NOM as varchar(31)),
+cast(cc.CCL_COD as varchar(8)),
+cast('421' as varchar(9)),
+cast(cc.CCL_AD1 as varchar(31)),
+cast(cc.CCL_AD2 as varchar(31)),
+cast(cc.CCL_CP as varchar(6)),
+cast(cc.CCL_VIL as varchar(26)),
+cast(cc.CCL_PAY as varchar(21)),
+cast('' as varchar(15)),
+cast('' as varchar(13)),
+cast('' as varchar(31)),
+cast('' as varchar(31)),
+cast('' as varchar(16)),
+cast('' as varchar(16)),
+cast('' as varchar(2)),
+cast('' as varchar(2)),
+cast('' as varchar(31)),
+cast('' as varchar(24)),
+cast('' as varchar(31)),
+cast('' as varchar(31)),
+cast('' as varchar(6)),
+cast('' as varchar(26)),
+cast('' as varchar(21)),
+cast('' as varchar(8)),
+cast('' as varchar(13)),
+cast('COM' as varchar(4)),
+cast('' as varchar(16)),
+cast('' as varchar(16)),
+cast('' as varchar(31)),
+cast(0 as integer),
+cast(0 as integer),
+cast('' as varchar(2)),
+cast(1 as integer)
+
+from cciaux.dbf cc
+order by CLI_COD
+
+
+
+
+  
+//vérification doublon articles
+select * from articles_fac ar where 
+exists(select art_cod from articles_fac where id<>ar.id and art_cod=ar.art_cod)
+
+
+//vérification doublon clients
+select * from clients_e2fac ce where exists(select cli_cod from clients_e2fac
+where id<>ce.id and cli_cod=ce.cli_cod)
+
+//Vérification des conditions de paiement bien rempli
+select * from clients_e2fac ce where ce.cli_pmt is not null and ce.pmt_int is null
+  
+//Vérifier : 
+// les accents
+// les réglements et acomptes
+  
+///Importations des documents/////////////////////
+//////////////////////////////////////////////////  
+3) Importation des documents 
+   
+   ACT = Facture d'accompte            
+   ACTDET = lignes     
+   
+   
+   APP = Apporteur                
+   APPDET    
+   
+   BON = Bon de livraison        TA_BONLIV
+   BONDET                        TA_L_BONLIV  
+   
+   
+   DEV = Devis                   TA_DEVIS
+   DEVDET                        TA_L_DEVIS
+   
+   
+   FAC  = Facture                TA_FACTURE
+   FACDET                        TA_L_FACTURE    
+   
+   
+   
+
+
+//cr�ation d'une table de relation des documents
+create table Relation_Docs_E2Fac(
+type_dest varchar(1),
+type_source varchar(1),
+Num_dest varchar(8),
+Num_source varchar(8)
+)
+
+//S�lection des documents
+
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG,
+fac_loc from fac f
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG,
+fac_loc  from dev d
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG,
+fac_loc  from act a
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG,
+fac_loc  from bon b
+union
+select FAC_NUM,
+FAC_TYP,
+FAC_DAT ,
+FAC_ECH ,
+FAC_COD ,
+FAC_NOM ,
+FAC_CPT ,
+FAC_COL ,
+FAC_AD1 ,
+FAC_AD2 ,
+FAC_CP ,
+FAC_VIL ,
+FAC_PAY ,
+FAC_REF ,
+FAC_PMT,
+FAC_PRI ,
+FAC_HT ,
+FAC_TTC ,
+FAC_REMP,
+FAC_REM ,
+FAC_REMT,
+FAC_ESCP,
+FAC_ESC ,
+FAC_MES1 ,
+FAC_MES2 ,
+FAC_MES3 ,
+FAC_CPTA ,
+FAC_EDITE ,
+FAC_FAC ,
+FAC_ACT ,
+FAC_CIAL ,
+FAC_MREG,
+fac_loc  from App ap
+order by fac_typ
+
+
+
+
+//s�lection des lignes de documents
+
+select
+f.FAC_TYP, 
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from facdet fl join fac f on FAC_NUM=fl.fli_num
+union
+select
+cast('P'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from devdet
+union
+select
+cast('C'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from actdet
+union
+select
+cast('B'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from bondet
+union
+select
+cast('X'as varchar(1)),  
+FLI_NUM,
+FLI_LIG,
+FLI_COD,
+FLI_DES,	
+FLI_QT1,	
+FLI_QT2	,
+FLI_PHT	,
+FLI_PTC	,
+FLI_REM	,
+FLI_MHT	,
+FLI_MTC	,
+FLI_MTVA,	
+FLI_TXTVA,	
+FLI_CPT	,
+FLI_TMP	,
+FLI_EXIG,
+FLI_LOT	,
+FLI_NBL	,
+FLI_UN1	,
+FLI_UN2 from appdet
+order by 1
+
+
+/*puis v�rifier que tous les taux de tva existent*/
+select l.fli_txtva,l.fli_num from lignes_docs_e2fac l where  not exists(
+select taux_tva from ta_tva t where T.taux_tva=l.fli_txtva)
+and l.fli_txtva<>0 and l.fli_txtva is not null
+
+
+
+
+
+ 
+Attention !!! Vérifier s'il n'y a pas des lignes de document avec un article sans prix !!!
+   
+
+Attention !!! Vérifier s'il n'y a pas des acomptes en plus des reglements !!!

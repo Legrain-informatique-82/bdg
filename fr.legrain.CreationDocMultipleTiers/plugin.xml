@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.creationDocMultipleTiers.editor.creationDocMultipleTiersMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.creationDocMultipleTiers.multi"
+            name="Création Document sur multi tiers">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.creationDocMultipleTiers.handlers.HandlerCreationDocMultipleTiers"
+            description="Création Document sur multi tiers"
+            id="fr.legrain.creationDocMultipleTiers.editor.EditorInputAssociationDoc"
+            name="Création Document sur multi tiers">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:generation.doc">
+         <command
+               commandId="fr.legrain.creationDocMultipleTiers.editor.EditorInputAssociationDoc"
+               icon="icons/logo_lgr_16.png"
+               label="Création Document sur multi tiers"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

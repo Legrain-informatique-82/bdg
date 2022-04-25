@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="editorPageTableauDeBord" name="Page de tableau de bord" schema="schema/editorPageTableauDeBord.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.statistiques.handlers.HandlerStatistiques"
+            description="Statistiques"
+            id="fr.legrain.statistiques"
+            name="Statistiques">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.statistiques.editors.FormEditorStatistiques"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.statistiques.editors.FormEditorStatistiques"
+            name="Tableau de bord">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion">
+         <command
+               commandId="fr.legrain.statistiques"
+               icon="icons/logo_lgr_16.png"
+               label="Tableau de bord"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

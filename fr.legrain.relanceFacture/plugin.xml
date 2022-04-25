@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.relancefacture.editors.RelanceFactureMultiPageEditor"
+            default="false"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.relanceFacture.multi"
+            name="Relance factures">
+      </editor>
+      <editor
+            class="fr.legrain.relancefacture.editors.EditorTypeRelance"
+            icon="icons/logo_lgr_16.png"
+            id="fr.legrain.relancefacture.editors.EditorTypeRelance"
+            name="Type Relance">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.relancefacture.handlers.HandlerRelanceFacture"
+            description="Relance factures"
+            id="fr.legrain.relance.editor.EditorCritereRelanceFacture"
+            name="Relance factures">
+      </command>
+      <command
+            defaultHandler="fr.legrain.relancefacture.handlers.HandlerTRelance"
+            description="Type de relance"
+            id="fr.legrain.relancefacture.editors.EditorTypeRelance"
+            name="Type de relance">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:gestion">
+         <command
+               commandId="fr.legrain.relance.editor.EditorCritereRelanceFacture"
+               icon="icons/logo_lgr_16.png"
+               label="Relance factures"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.relancefacture.preferences.RelanceFacturePreferencePage"
+            id="fr.legrain.relanceFacture.page1"
+            name="Relance des factures">
+      </page>
+   </extension>
+   
+</plugin>

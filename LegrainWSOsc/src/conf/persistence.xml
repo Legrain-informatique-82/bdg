@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="LegrainWSOscPU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <class>fr.legrain.classDB.WsTaNombreConnect</class>
+    <class>fr.legrain.classDB.WsTaAcces</class>
+    <class>fr.legrain.classDB.WsTaArticle</class>
+    <class>fr.legrain.classDB.WsTaFamille</class>
+    <class>fr.legrain.classDB.WsTaTva</class>
+    <class>fr.legrain.classDB.WsTaTTva</class>
+    <class>fr.legrain.classDB.WsTaAdresse</class>
+    <class>fr.legrain.classDB.WsTaAvoir</class>
+    <class>fr.legrain.classDB.WsTaBanque</class>
+    <class>fr.legrain.classDB.WsTaBoncde</class>
+    <class>fr.legrain.classDB.WsTaBonliv</class>
+    <class>fr.legrain.classDB.WsTaTiers</class>
+    <class>fr.legrain.classDB.WsTaTPaiement</class>
+    <class>fr.legrain.classDB.WsTaCPaiement</class>
+    <class>fr.legrain.classDB.WsTaCommentaire</class>
+    <class>fr.legrain.classDB.WsTaCompl</class>
+    <class>fr.legrain.classDB.WsTaComDoc</class>
+    <class>fr.legrain.classDB.WsTaTDoc</class>
+    <class>fr.legrain.classDB.WsTaDevis</class>
+    <class>fr.legrain.classDB.WsTaEmail</class>
+    <class>fr.legrain.classDB.WsTaEntreprise</class>
+    <class>fr.legrain.classDB.WsTaTEntite</class>
+    <class>fr.legrain.classDB.WsTaFacture</class>
+    <class>fr.legrain.classDB.WsTaInfosBonliv</class>
+    <class>fr.legrain.classDB.WsTaInfosDevis</class>
+    <class>fr.legrain.classDB.WsTaInfosFacture</class>
+    <class>fr.legrain.classDB.WsTaInfoEntreprise</class>
+    <class>fr.legrain.classDB.WsTaLAvoir</class>
+    <class>fr.legrain.classDB.WsTaLBoncde</class>
+    <class>fr.legrain.classDB.WsTaLBonliv</class>
+    <class>fr.legrain.classDB.WsTaTLigne</class>
+    <class>fr.legrain.classDB.WsTaLDevis</class>
+    <class>fr.legrain.classDB.WsTaLFacture</class>
+    <class>fr.legrain.classDB.WsTaLModele</class>
+    <class>fr.legrain.classDB.WsTaMailMaj</class>
+    <class>fr.legrain.classDB.WsTaModele</class>
+    <class>fr.legrain.classDB.WsTaModif</class>
+    <class>fr.legrain.classDB.WsTaPrix</class>
+    <class>fr.legrain.classDB.WsTaUnite</class>
+    <class>fr.legrain.classDB.WsTaRefPrix</class>
+    <class>fr.legrain.classDB.WsTaRAdr</class>
+    <class>fr.legrain.classDB.WsTaTAdr</class>
+    <class>fr.legrain.classDB.WsTaRAdrTAdr</class>
+    <class>fr.legrain.classDB.WsTaREmail</class>
+    <class>fr.legrain.classDB.WsTaTelephone</class>
+    <class>fr.legrain.classDB.WsTaRTel</class>
+    <class>fr.legrain.classDB.WsTaReportStock</class>
+    <class>fr.legrain.classDB.WsTaRCommercial</class>
+    <class>fr.legrain.classDB.WsTaRTelTTel</class>
+    <class>fr.legrain.classDB.WsTaTTel</class>
+    <class>fr.legrain.classDB.WsTaRWeb</class>
+    <class>fr.legrain.classDB.WsTaWeb</class>
+    <class>fr.legrain.classDB.WsTaStock</class>
+    <class>fr.legrain.classDB.WsTaTCivilite</class>
+    <class>fr.legrain.classDB.WsTaTTiers</class>
+    <class>fr.legrain.classDB.wsTaTEntite</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <properties>
+      <!--logs SQL-->
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="use_sql_comments" value="true"/>
+      <!-- connexion JDBC -->
+      <property name="hibernate.connection.username" value="usrmajbdg"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+      <property name="hibernate.connection.password" value="pwd18jbdg03"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ws_genboucom"/>
+      <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
+      <property name="hibernate.archive.autodetection" value=""/>
+      <property name="hibernate.hbm2ddl.auto" value="create"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="use_sql_comments" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>

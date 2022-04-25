@@ -1,0 +1,10 @@
+
+a#link_devis_1 { 
+	/*background-image : url("../../icons/table.png");*/
+	background-repeat : no-repeat; 
+	width: 63px;
+	height: 63px;
+}
+
+a#link_devis_1 { background-image: url("../graphics/icons/devis.png"); }
+a#link_devis_1:hover { background-image: url("../graphics/icons/devis.png"); }

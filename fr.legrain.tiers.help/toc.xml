@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Tiers" topic="html/toc.html">
+	<topic label="Ecran des tiers"  href="html/maintopic.html"> 
+		<topic label="Création d&apos;un tiers" href="html/subtopic.html"/> 
+	</topic>
+</toc>

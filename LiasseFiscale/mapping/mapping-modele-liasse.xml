@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="fr.legrain.liasseFiscale.wizards.WizardDocumentFiscalModel">
+		<!-- 
+	private String cheminDossiers = 
+	private String cheminDocument = null;
+	private String nomDossier = null;
+	private boolean nouvelleLiasse;
+	private String cheminFichierCompta = null;
+	private EnumRegimeFiscal regime = null;
+	private EnumTypeDoc type = null;
+		 -->
+		 
+		<field name="cheminDossiers"></field>
+		<field name="cheminDocument"></field>
+		<field name="nomDossier"></field>
+		<field name="cheminFichierCompta"></field>
+		<field name="nouveauDocument"></field>
+		<field name="anneeDocumentPDF"></field>
+		<field name="anneeFiscale"></field>
+		<!-- <field name="automatique"></field> -->
+		<field name="typeDocument" type="fr.legrain.liasseFiscale.wizards.EnumTypeDoc"></field>
+		<field name="regime" type="fr.legrain.liasseFiscale.wizards.EnumRegimeFiscal"></field>
+		<!--
+		 <field name="Repart" type="fr.legrain.liasseFiscale.actions.Repart" transient="true"></field>
+		 <field name="InfosCompta" type="fr.legrain.liasseFiscale.actions.InfosCompta" transient="true"></field>
+		 -->
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.wizards.WizardLiasseModel" 
+					extends="fr.legrain.liasseFiscale.wizards.WizardDocumentFiscalModel"
+					auto-complete="true">
+		<map-to xml="liasse" />
+	</class>
+
+</mapping>

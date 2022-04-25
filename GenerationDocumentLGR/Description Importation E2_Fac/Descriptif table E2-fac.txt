@@ -1,0 +1,27 @@
+ACT	commande
+ACTDET	ligne commande
+APP	Apporteur
+APPDET	ligne Apporteur
+ARTICLES	articles
+BON	bon liv
+BONDET	ligne bon liv
+CCIAUX	commerciaux
+CLIENTS	clients
+CLIPERS	?
+COLOPAR	endommagé
+DESCLI	?
+DEV	devis
+DEVDET	ligne devis
+E2EXPOR	?
+FAC	facture
+FACDET	ligne facture
+FACFMT	?
+FAMART	famille article
+GENEPAR	?
+LOTS	lots
+MSG	?
+MVTSTK	?
+PARPRT	endommagé
+PMTREG	Conditions paiement
+TABIX	?
+TARIFS	tarifs

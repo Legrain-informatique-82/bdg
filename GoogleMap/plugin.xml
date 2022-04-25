@@ -1,0 +1,45 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="googlemap.GoogleHandler"
+            description="Itinéraire"
+            id="Google.commands.sampleCommand"
+            name="Google">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.Google Map">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:">
+         <command
+               commandId="Google.commands.sampleCommand"
+               icon="icons/map.png"
+               label="Géo-Localisation">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:tiers.autres">
+         <command
+               commandId="Google.commands.sampleCommand"
+               icon="icons/map.png"
+               id="Google.commands.sampleCommand"
+               label="Géo-Localisation">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="menu:tiers?after=Tiers.separator2">
+         <menu
+               id="tiers.autres"
+               label="Autres">
+         </menu>
+      </menuContribution>
+   </extension>
+ 
+</plugin>

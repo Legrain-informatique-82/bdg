@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
+<setAttribute key="additional_plugins"/>
+<booleanAttribute key="append.args" value="true"/>
+<stringAttribute key="application" value="GestionCommerciale.application"/>
+<booleanAttribute key="askclear" value="true"/>
+<booleanAttribute key="automaticAdd" value="false"/>
+<booleanAttribute key="automaticValidate" value="false"/>
+<stringAttribute key="bootstrap" value=""/>
+<stringAttribute key="checked" value="[NONE]"/>
+<booleanAttribute key="clearConfig" value="false"/>
+<booleanAttribute key="clearws" value="true"/>
+<booleanAttribute key="clearwslog" value="false"/>
+<stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Linux - GestionCommercialeComplet"/>
+<booleanAttribute key="default" value="false"/>
+<stringAttribute key="featureDefaultLocation" value="workspace"/>
+<stringAttribute key="featurePluginResolution" value="workspace"/>
+<booleanAttribute key="includeOptional" value="true"/>
+<stringAttribute key="location" value="${workspace_loc}/../runtime-GestionCommercialeCompletIC.product"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog --launcher.XXMaxPermSize 256m -data c:/lgrdoss/BureauDeGestion"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xms512m -Xmx2024m -Xms500m -Xmx500m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:+CMSClassUnloadingEnabled -XX:CompileCommand=exclude,org/hibernate/cfg/annotations/SimpleValueBinder,setType -Dfile.encoding=cp1252"/>
+<stringAttribute key="pde.version" value="3.3"/>
+<stringAttribute key="product" value="GestionCommerciale.product"/>
+<stringAttribute key="productFile" value="/GestionCommerciale/GestionCommercialeCompletIC.product"/>
+<booleanAttribute key="restart" value="false"/>
+<setAttribute key="selected_features">
+<setEntry value="ApporteurFeature:default"/>
+<setEntry value="ArchivageFeature:default"/>
+<setEntry value="ArticlesFeature:default"/>
+<setEntry value="AvoirFeature:default"/>
+<setEntry value="BonLivraisonFeature:default"/>
+<setEntry value="BoncdeFeature:default"/>
+<setEntry value="DevisFeature:default"/>
+<setEntry value="DocumentFeature:default"/>
+<setEntry value="DocumentFiscalFeature:default"/>
+<setEntry value="EditionFeature:default"/>
+<setEntry value="EditionsSpecifiquesFeatures:default"/>
+<setEntry value="ExportationFeature:default"/>
+<setEntry value="FactureFeature:default"/>
+<setEntry value="FeatureVisualisation:default"/>
+<setEntry value="GenerationDocumentFeature:default"/>
+<setEntry value="GenerationDocumentLGRFeature:default"/>
+<setEntry value="GenerationLabelEtiquetteFeature:default"/>
+<setEntry value="GenerationModelLettreMSFeature:default"/>
+<setEntry value="GenerationModelLettreOOoFeature:default"/>
+<setEntry value="GeoLocalisationFeature:default"/>
+<setEntry value="GestionCommercialeBase:default"/>
+<setEntry value="GestionCommercialeFeature:default"/>
+<setEntry value="LangueFeature:default"/>
+<setEntry value="LeGrainFeature:default"/>
+<setEntry value="LibJbuilderFeature:default"/>
+<setEntry value="LibLgrBirtFeature:default"/>
+<setEntry value="MiseAJourBaseFeature:default"/>
+<setEntry value="MiseAJourDesDossiersFeature:default"/>
+<setEntry value="ProformaFeature:default"/>
+<setEntry value="RestaurationFeature:default"/>
+<setEntry value="SauvegardeFeature:default"/>
+<setEntry value="StocksFeature:default"/>
+<setEntry value="TiersFeature:default"/>
+<setEntry value="UpdaterFeature:default"/>
+<setEntry value="VisualisationsFeature:default"/>
+<setEntry value="fr.legrain.CreationDocMultipleFeature:default"/>
+<setEntry value="fr.legrain.CreationDocMultipleTersFeature:default"/>
+<setEntry value="fr.legrain.LiaisonDocumentFeature:default"/>
+<setEntry value="fr.legrain.SaisieCaisseFeature:default"/>
+<setEntry value="fr.legrain.abonnementFeature:default"/>
+<setEntry value="fr.legrain.acompte.feature:default"/>
+<setEntry value="fr.legrain.ajouteredition.feature:default"/>
+<setEntry value="fr.legrain.ajoutereditiondemo.feature:default"/>
+<setEntry value="fr.legrain.articles.catalogue.feature:default"/>
+<setEntry value="fr.legrain.articles.statistiques.feature:default"/>
+<setEntry value="fr.legrain.articles.tests.feature:default"/>
+<setEntry value="fr.legrain.avisEcheanceFeature:default"/>
+<setEntry value="fr.legrain.bdg.demo.feature:default"/>
+<setEntry value="fr.legrain.bdg.tests.feature:default"/>
+<setEntry value="fr.legrain.bdg.ui.css.feature:default"/>
+<setEntry value="fr.legrain.document.etat.boncde.feature:default"/>
+<setEntry value="fr.legrain.document.etat.devis.feature:default"/>
+<setEntry value="fr.legrain.document.etat.prelevement.feature:default"/>
+<setEntry value="fr.legrain.document.etat.proforma.feature:default"/>
+<setEntry value="fr.legrain.document.impression.feature:default"/>
+<setEntry value="fr.legrain.etats:default"/>
+<setEntry value="fr.legrain.fragment.client.feature:default"/>
+<setEntry value="fr.legrain.generationdocument.facture.feature:default"/>
+<setEntry value="fr.legrain.gestionDmsFeature:default"/>
+<setEntry value="fr.legrain.gestionStatistiquesFeature:default"/>
+<setEntry value="fr.legrain.gestioncapsules.feature:default"/>
+<setEntry value="fr.legrain.gestiondossier.feature:default"/>
+<setEntry value="fr.legrain.licence.feature:default"/>
+<setEntry value="fr.legrain.licenceBDGFeature:default"/>
+<setEntry value="fr.legrain.licenceEpiceaFeature:default"/>
+<setEntry value="fr.legrain.licenceSaraFeature:default"/>
+<setEntry value="fr.legrain.majCompteLegrainFrFeature:default"/>
+<setEntry value="fr.legrain.messages.infos.feature:default"/>
+<setEntry value="fr.legrain.openmail.feature:default"/>
+<setEntry value="fr.legrain.pointsBonusFeature:default"/>
+<setEntry value="fr.legrain.prelevement.exportation.feature:default"/>
+<setEntry value="fr.legrain.prelevement.feature:default"/>
+<setEntry value="fr.legrain.publipostage.core.feature:default"/>
+<setEntry value="fr.legrain.publipostage.feature:default"/>
+<setEntry value="fr.legrain.publipostageTiers.feature:default"/>
+<setEntry value="fr.legrain.rechercherMultiCrit.feature:default"/>
+<setEntry value="fr.legrain.reglement.feature:default"/>
+<setEntry value="fr.legrain.relance.feature:default"/>
+<setEntry value="fr.legrain.remiseCheque.feature:default"/>
+<setEntry value="fr.legrain.restaurationFTP.feature:default"/>
+<setEntry value="fr.legrain.sauvegardeFTP.feature:default"/>
+<setEntry value="fr.legrain.statistiques.acompte.feature:default"/>
+<setEntry value="fr.legrain.statistiques.apporteur.feature:default"/>
+<setEntry value="fr.legrain.statistiques.avoir.feature:default"/>
+<setEntry value="fr.legrain.statistiques.commande.feature:default"/>
+<setEntry value="fr.legrain.statistiques.devis.feature:default"/>
+<setEntry value="fr.legrain.statistiques.features:default"/>
+<setEntry value="fr.legrain.statistiques.livraison.feature:default"/>
+<setEntry value="fr.legrain.statistiques.proforma.feature:default"/>
+<setEntry value="fr.legrain.supportHebergementFeature:default"/>
+<setEntry value="fr.legrain.tiers.statistiques.feature:default"/>
+<setEntry value="fr.legrain.tiers.tests.feature:default"/>
+<setEntry value="fr.legrain.traiteFeature:default"/>
+<setEntry value="fr.legrain.typeSupportFeature:default"/>
+<setEntry value="org.eclipse.birt.osgi.runtime:default"/>
+</setAttribute>
+<stringAttribute key="selected_target_plugins" value="org.eclipse.datatools.enablement.mysql@default:default,org.eclipse.birt.report.viewer.nl_fr@default:default,org.apache.batik.css@default:default,org.eclipse.equinox.http.registry.nl_fr@default:default,org.eclipse.equinox.simpleconfigurator.manipulator@default:default,org.w3c.css.sac@default:default,org.eclipse.birt.report.engine.emitter.prototype.excel@default:default,org.eclipse.ecf@default:default,org.eclipse.equinox.util@default:default,org.eclipse.core.commands@default:default,org.eclipse.equinox.p2.jarprocessor@default:default,org.eclipse.equinox.security@default:default,org.eclipse.datatools.enablement.hsqldb@default:default,org.eclipse.emf.ecore@default:default,org.eclipse.help.ui@default:default,org.eclipse.datatools.connectivity.apache.derby.dbdefinition@default:default,org.eclipse.birt.report.model.adapter.oda@default:default,org.hibernate.eclipse@default:default,org.eclipse.help.webapp.nl_fr@default:default,org.eclipse.equinox.p2.core@default:default,org.eclipse.birt.report.model@default:default,org.eclipse.birt.report.engine.emitter.postscript@default:default,org.eclipse.birt.report.data.bidi.utils@default:default,org.eclipse.birt.report.engine.emitter.ods.config@default:default,org.eclipse.birt.resources@default:default,org.apache.batik.xml@default:default,org.eclipse.birt.report.engine.emitter.wpml.config@default:default,org.eclipse.update.core@default:default,javax.servlet.jsp@default:default,org.eclipse.ui.workbench@default:default,org.eclipse.birt.report.data.oda.jdbc@default:default,javax.wsdl*1.6.2.v201012040545@default:default,org.eclipse.birt.report.engine.dataextraction.csv@default:default,org.eclipse.emf.common@default:default,org.eclipse.equinox.launcher.nl_fr@default:default,org.apache.xerces@default:default,org.apache.batik.parser@default:default,org.apache.commons.logging@default:default,org.apache.commons.codec@default:default,org.eclipse.ui.workbench.nl_fr@default:default,org.apache.axis@default:default,org.eclipse.datatools.enablement.postgresql@default:default,org.eclipse.help@default:default,org.eclipse.ecf.provider.filetransfer@default:default,org.eclipse.birt.report.engine@default:default,org.eclipse.birt.report.designer.core@default:default,org.eclipse.equinox.p2.reconciler.dropins@default:default,org.eclipse.equinox.preferences@default:default,org.eclipse.datatools.connectivity.oda.design@default:default,org.eclipse.birt.chart.reportitem@default:default,org.eclipse.equinox.registry@default:default,org.eclipse.birt.report.engine.dataextraction@default:default,org.eclipse.birt.core.script.function@default:default,org.eclipse.core.databinding.beans.nl_fr@default:default,org.eclipse.datatools.enablement.oda.ws@default:default,org.eclipse.datatools.connectivity.oda.consumer@default:default,org.eclipse.ui.intro.nl_fr@default:default,org.eclipse.update.ui@default:default,org.eclipse.swt@default:default,org.eclipse.ui.console@default:default,org.junit4@default:default,org.eclipse.datatools.connectivity.sqm.core@default:default,org.eclipse.equinox.p2.touchpoint.natives@default:default,org.eclipse.equinox.ds@default:default,org.eclipse.help.base@default:default,org.eclipse.equinox.frameworkadmin.equinox@default:default,org.eclipse.core.runtime.compatibility.auth.nl_fr@default:default,org.apache.batik.transcoder@default:default,org.sat4j.pb@default:default,org.hamcrest.core@default:default,org.eclipse.equinox.p2.artifact.repository@default:default,org.eclipse.datatools.modelbase.dbdefinition@default:default,org.eclipse.datatools.connectivity.db.generic@default:default,org.eclipse.birt.report.engine.emitter.postscript.config@default:default,org.eclipse.equinox.http.servlet.nl_fr@default:default,org.eclipse.core.databinding.property@default:default,org.eclipse.core.databinding@default:default,org.eclipse.datatools.connectivity.oda.profile@default:default,org.eclipse.equinox.http.servlet@default:default,org.eclipse.equinox.p2.ql@default:default,com.lowagie.text@default:default,org.apache.derby.core@default:default,javax.servlet@default:default,org.eclipse.equinox.app.nl_fr@default:default,org.eclipse.jface@default:default,org.eclipse.equinox.p2.updatesite@default:default,org.eclipse.jface.databinding@default:default,org.apache.batik.bridge@default:default,org.apache.batik.pdf@default:default,org.eclipse.osgi.services.nl_fr@default:default,org.eclipse.datatools.connectivity.oda@default:default,org.eclipse.birt.chart.engine@default:default,org.eclipse.ui.browser@default:default,org.eclipse.ui@default:default,org.eclipse.birt.chart.device.extension@default:default,org.eclipse.update.ui.nl_fr@default:default,org.eclipse.core.databinding.beans@default:default,org.eclipse.equinox.jsp.jasper.registry@default:default,org.eclipse.ecf.provider.filetransfer.ssl@default:default,org.eclipse.datatools.modelbase.derby@default:default,org.eclipse.core.variables.nl_fr@default:default,org.eclipse.swt.nl_fr@default:default,org.eclipse.equinox.p2.metadata@default:default,org.mozilla.javascript@default:default,org.eclipse.birt.report.data.oda.jdbc.dbprofile.sampledb@default:default,org.eclipse.datatools.connectivity.dbdefinition.genericJDBC@default:default,org.eclipse.equinox.security.win32.x86@default:default,org.eclipse.core.contenttype@default:default,org.eclipse.equinox.p2.ui.sdk@default:default,org.eclipse.core.resources@default:default,org.apache.xml.resolver@default:default,org.eclipse.birt.report.engine.emitter.html@default:default,org.eclipse.equinox.p2.repository@default:default,org.eclipse.birt.report.engine.emitter.ppt.config@default:default,org.eclipse.gef@default:default,org.eclipse.update.scheduler.nl_fr@default:default,org.eclipse.core.databinding.observable@default:default,org.eclipse.birt.chart.device.swt.nl_fr@default:default,org.eclipse.birt.chart.device.pdf@default:default,org.eclipse.rcp.nl_fr@default:default,org.eclipse.birt.report.data.oda.hive@default:default,org.eclipse.rcp@default:default,org.eclipse.ui.console.nl_fr@default:default,org.eclipse.birt.report.engine.nl_fr@default:default,org.eclipse.equinox.security.ui@default:default,org.eclipse.core.jobs@default:default,org.eclipse.birt.report.engine.fonts@default:default,org.eclipse.update.core.nl_fr@default:default,org.eclipse.ui.nl_fr@default:default,org.eclipse.osgi.nl_fr@default:default,org.eclipse.update.configurator@default:default,org.eclipse.equinox.http.jetty@default:default,javax.xml.soap@default:default,org.eclipse.equinox.common.nl_fr@default:default,org.eclipse.equinox.p2.publisher.eclipse@default:default,org.apache.lucene.analysis@default:default,org.eclipse.datatools.enablement.oda.xml@default:default,org.eclipse.birt.report.engine.emitter.odt.config@default:default,org.eclipse.equinox.registry.nl_fr@default:default,org.eclipse.ui.views@default:default,org.eclipse.emf.ecore.xmi@default:default,org.eclipse.equinox.common@default:default,org.apache.lucene*2.9.1.v201101211721@default:default,org.eclipse.jface.nl_fr@default:default,org.eclipse.ant.core.nl_fr@default:default,org.eclipse.birt.report.data.oda.sampledb@default:default,org.eclipse.ecf.identity@default:default,org.eclipse.ui.workbench.texteditor@default:default,org.eclipse.equinox.p2.ui@default:default,org.apache.batik.ext.awt@default:default,org.eclipse.birt.chart.device.extension.nl_fr@default:default,org.eclipse.core.runtime.compatibility.auth@default:default,org.eclipse.birt.report.engine.emitter.odp.config@default:default,org.eclipse.equinox.preferences.nl_fr@default:default,org.eclipse.ant.core@default:default,org.apache.batik.util.gui@default:default,org.eclipse.birt.chart.examples.core@default:default,org.eclipse.birt.report.engine.emitter.pdf.config@default:default,org.eclipse.draw2d@default:default,org.eclipse.jface.text.nl_fr@default:default,javax.xml.rpc@default:default,org.eclipse.core.runtime.compatibility.registry@default:default,org.eclipse.birt.report.viewer@default:default,org.eclipse.datatools.modelbase.sql@default:default,org.eclipse.jface.text@default:default,org.apache.commons.el@default:default,org.eclipse.core.runtime@default:default,org.eclipse.birt.report.item.crosstab.core@default:default,org.eclipse.core.databinding.nl_fr@default:default,org.eclipse.help.appserver.nl_fr@default:default,org.eclipse.update.configurator.nl_fr@default:default,org.eclipse.birt.report.engine.dataextraction.csv.nl_fr@default:default,org.eclipse.birt.report.engine.emitter.ppt@default:default,org.eclipse.ui.forms@default:default,org.eclipse.equinox.p2.extensionlocation@default:default,org.eclipse.core.filesystem.nl_fr@default:default,org.mortbay.jetty.util@default:default,org.apache.batik.svggen@default:default,org.eclipse.equinox.p2.director@default:default,org.eclipse.birt.report.data.oda.jdbc.dbprofile@default:default,org.eclipse.help.ui.nl_fr@default:default,org.eclipse.core.filesystem@default:default,org.eclipse.datatools.connectivity@default:default,org.eclipse.birt.report.data.adapter@default:default,org.eclipse.core.variables@default:default,org.w3c.dom.svg@default:default,org.eclipse.equinox.p2.operations@default:default,org.eclipse.equinox.simpleconfigurator@default:default,org.eclipse.birt.chart.device.svg@default:default,org.eclipse.equinox.p2.touchpoint.eclipse@default:default,org.eclipse.equinox.p2.metadata.repository@default:default,org.eclipse.birt.report.engine.emitter.odp@default:default,org.eclipse.core.runtime.compatibility.nl_fr@default:default,org.apache.batik.util@default:default,org.eclipse.datatools.connectivity.apache.derby@default:default,org.eclipse.birt.report.engine.emitter.odt@default:default,org.eclipse.birt.report.engine.emitter.ods@default:default,org.eclipse.datatools.enablement.mysql.dbdefinition@default:default,org.apache.commons.discovery@default:default,org.mortbay.jetty.server@default:default,org.apache.xml.serializer@default:default,org.apache.batik.dom@default:default,org.eclipse.text@default:default,org.eclipse.ui.browser.nl_fr@default:default,org.eclipse.equinox.p2.director.app@default:default,org.eclipse.help.nl_fr@default:default,org.eclipse.birt.report.engine.odf@default:default,org.eclipse.birt.core@default:default,org.eclipse.birt.chart.device.swt@default:default,org.eclipse.equinox.p2.repository.tools@default:default,org.eclipse.core.expressions.nl_fr@default:default,org.eclipse.datatools.connectivity.oda.flatfile@default:default,org.eclipse.core.jobs.nl_fr@default:default,org.eclipse.birt.chart.device.svg.nl_fr@default:default,org.apache.commons.httpclient@default:default,org.eclipse.equinox.p2.garbagecollector@default:default,org.eclipse.equinox.p2.engine@default:default,org.apache.ant@default:default,org.eclipse.birt.report.engine.emitter.excel.config@default:default,org.w3c.sac@default:default,org.eclipse.ui.views.nl_fr@default:default,org.eclipse.ecf.filetransfer@default:default,org.eclipse.help.base.nl_fr@default:default,org.eclipse.core.net@default:default,org.eclipse.datatools.enablement.postgresql.dbdefinition@default:default,org.eclipse.equinox.jsp.jasper@default:default,org.eclipse.emf@default:default,org.eclipse.equinox.p2.directorywatcher@default:default,org.eclipse.equinox.p2.ui.importexport@default:default,org.eclipse.equinox.http.registry@default:default,org.eclipse.birt.report.data.oda.xml@default:default,org.eclipse.emf.ecore.change@default:default,org.junit*4.8.2.v4_8_2_v20110321-1705@default:default,org.eclipse.birt.chart.engine.nl_fr@default:default,org.eclipse.equinox.launcher@default:default,org.eclipse.core.expressions@default:default,org.eclipse.datatools.enablement.hsqldb.dbdefinition@default:default,org.eclipse.birt.chart.engine.extension@default:default,org.eclipse.ui.intro@default:default,org.eclipse.swt.win32.win32.x86@default:default,org.eclipse.osgi.services@default:default,org.eclipse.birt.report.engine.emitter.config@default:default,org.eclipse.core.runtime.compatibility@default:default,org.eclipse.ecf.provider.filetransfer.httpclient.ssl@default:default,org.eclipse.equinox.launcher.win32.win32.x86@default:default,org.apache.jasper@default:default,org.eclipse.birt.report.engine.emitter.wpml@default:default,org.eclipse.help.webapp@default:default,org.sat4j.core@default:default,org.eclipse.equinox.p2.ui.sdk.scheduler@default:default,org.eclipse.core.resources.nl_fr@default:default,org.eclipse.core.runtime.nl_fr@default:default,org.eclipse.birt.report.engine.emitter.html.config@default:default,org.eclipse.birt.report.engine.emitter.pdf@default:default,org.w3c.dom.smil@default:default,org.eclipse.osgi@default:default,org.eclipse.update.scheduler@default:default,org.eclipse.equinox.p2.updatechecker@default:default,org.eclipse.equinox.p2.console@default:default,org.eclipse.equinox.frameworkadmin@default:default,org.apache.batik.dom.svg@default:default,javax.xml@default:default,org.eclipse.compare.core@default:default,org.eclipse.help.appserver@default:default,org.eclipse.core.commands.nl_fr@default:default,org.eclipse.ecf.ssl@default:default,org.eclipse.equinox.p2.transport.ecf@default:default,org.eclipse.birt.data@default:default,org.eclipse.core.contenttype.nl_fr@default:default,org.eclipse.birt.report.engine.script.javascript@default:default,com.ibm.icu@default:default,org.eclipse.equinox.app@default:default,org.eclipse.equinox.p2.publisher@default:default,org.eclipse.ecf.provider.filetransfer.httpclient@default:default,org.eclipse.core.net.nl_fr@default:default,org.eclipse.birt.data.aggregation@default:default,org.eclipse.ui.forms.nl_fr@default:default,"/>
+<stringAttribute key="selected_workspace_plugins" value="fr.legrain.document.etat.boncde@default:default,Apporteur@default:default,fr.legrain.statistiques.livraison@default:default,fr.legrain.statistiques.proforma@default:default,fr.legrain.publipostage.msword@default:default,fr.legrain.document.impression@default:default,Articles@default:default,Ftp@default:default,fr.legrain.CreationDocMultipleTiers@default:default,fr.legrain.articles.export.catalogue@default:default,fr.legrain.bdg.dossier.help@default:default,fr.legrain.articles.export.catalogue.magento@default:default,fr.legrain.document.devis.help@default:default,GoogleMap@default:default,MiseAJourBase@default:default,fr.legrain.generationdocument.help@default:default,fr.legrain.document.help@default:default,fr.legrain.statistiques@default:default,gestComBd@default:default,Avoir@default:default,fr.legrain.publipostage@default:default,fr.legrain.document.facture.help@default:default,Edition@default:default,EditionsSpecifiques@default:default,fr.legrain.publipostage.gui@default:default,fr.legrain.document.etat.proforma@default:default,Boncde@default:default,Lib@default:default,fr.legrain.articles.export.catalogue.prestashop@default:default,fr.legrain.articles.help@default:default,fr.legrain.prelevement.exportation@default:default,fr.legrain.document.boncde.help@default:default,Updater@default:default,fr.legrain.statistiques.devis@default:default,fr.legrain.document.bonlivraison.help@default:default,fr.legrain.document.etat.prelevement@default:default,fr.legrain.statistiques.commande@default:default,log4j_1_2_8@default:default,LibrairiesEcran@default:default,fr.legrain.javascript.editors@default:default,Proforma@default:default,fr.legrain.openmail.sms@default:default,GenerationModelLettreOOo@default:default,fr.legrain.stock.help@default:default,LibJBuilder2006@default:default,Stocks@default:default,fr.legrain.statistiques.acompte@default:default,GenerationModelLettreMS@default:default,fr.legrain.articles.statistiques@default:default,fr.legrain.relance.help@default:default,fr.legrain.messages.infos@default:default,SilentPdfPrint@default:default,fr.legrain.generationdocument.facture@default:default,fr.legrain.statistiques.avoir@default:default,fr.legrain.publipostage.help@default:default,librairiesLeGrain@default:default,fr.legrain.relanceFacture@default:default,fr.legrain.bdg.demo@default:default,JayBird_2_0@default:default,fr.legrain.rechercherMultiCrit@default:default,fr.legrain.restaurationFTP@default:default,Facture@default:default,fr.legrain.openmail.fax@default:default,fr.legrain.bdg.help@default:default,GestionCommercialeBase@default:default,Acompte@default:default,fr.legrain.statistiques.apporteur@default:default,fr.legrain.generationdocument@default:default,JavaMail@default:default,fr.legrain.publipostage.openoffice@default:default,fr.legrain.publipostageTiers@default:default,fr.legrain.services@default:default,fr.legrain.json@default:default,fr.legrain.document.apporteur.help@default:default,fr.legrain.reglement@default:default,fr.legrain.SaisieCaisse@default:default,fr.legrain.document.avoir.help@default:default,Devis@default:default,fr.legrain.document.acompte.help@default:default,fr.legrain.ajouteredition@default:default,LibLgrMail@default:default,fr.legrain.document.prelevement.help@default:default,CalculTva@default:default,fr.legrain.tiers.statistiques@default:default,GenerationLabelEtiquette@default:default,BonLivraison@default:default,GestionDossier@default:default,LibLgrBirt@default:default,LibMessageLGR@default:default,fr.legrain.reglement.help@default:default,fr.legrain.sauvegardeFTP@default:default,Visualisation@default:default,Nebula@default:default,Sauvegarde@default:default,fr.legrain.gestionDms@default:default,Exportation@default:default,fr.legrain.tiers.help@default:default,fr.legrain.openmail.mail@default:default,Prelevement@default:default,fr.legrain.document.etat.devis@default:default,Document@default:default,Tiers@default:default,fr.legrain.document.proforma.help@default:default,fr.legrain.gestionStatistiques@default:default,L2FProd_6_2@default:default,fr.legrain.etats@default:default,GestionCommerciale@default:default,"/>
+<booleanAttribute key="show_selected_only" value="false"/>
+<booleanAttribute key="tracing" value="false"/>
+<booleanAttribute key="useCustomFeatures" value="true"/>
+<booleanAttribute key="useDefaultConfig" value="true"/>
+<booleanAttribute key="useDefaultConfigArea" value="true"/>
+<booleanAttribute key="useProduct" value="true"/>
+<booleanAttribute key="usefeatures" value="false"/>
+</launchConfiguration>

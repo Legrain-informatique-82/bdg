@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.liaisondocument.handlers.HandlerCreationLiaisonDoc"
+            description="Liaison des documents"
+            id="fr.legrain.liaisonDocument.editor.EditorInputAssociationDoc"
+            name="Liaison des documents">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:generation.doc">
+         <command
+               commandId="fr.legrain.liaisonDocument.editor.EditorInputAssociationDoc"
+               icon="icons/legrain.gif"
+               label="Liaison des documents"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.liaisondocument.editors.creationLiaisonDocMultiPageEditor"
+            default="false"
+            icon="icons/legrain.gif"
+            id="fr.legrain.creationLiaisonDoc.multi"
+            name="Liaisons des documents">
+      </editor>
+   </extension>
+
+
+</plugin>

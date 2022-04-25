@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<project name="Sample-Metro-Project" default="client" basedir=".">
+<property name="metro.home" value="/usr/local/tomcat/shared" /> 
+  <property description="Location where all the build time artifacts are stored" name="build.home" value="bin" /> 
+<!--  setup Metro runtime classpath --> 
+ <path id="runtime.cp">
+  <fileset dir="${metro.home}/lib" includes="*.jar" excludes="metro-1_4.jar" /> 
+  <pathelement location="${build.home}" /> 
+  </path>
+ <!--  setup Metro tooltime classpath --> 
+ <path id="tool.cp">
+  <path refid="runtime.cp" /> 
+  <pathelement location="${metro.home}/lib/metro-1_4.jar" /> 
+  </path>
+ <!-- 
+ Setup Wsimport ant task. You would use this task in WSDL to Java case
+         to compile a WSDL and generate Java classes.
+    
+  --> 
+ <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+  <classpath refid="tool.cp" /> 
+  </taskdef>
+ <!-- 
+ Setup Wsgen ant task. You would use this task in Java to WSDL case to
+         generate a WSDL or wrapper classes.
+    
+  --> 
+ <taskdef name="wsgen" classname="com.sun.tools.ws.ant.WsGen">
+  <classpath refid="tool.cp" /> 
+  </taskdef>
+ <!-- 
+ Setup XJC ant task. you would use this task to generate Java classes from a
+         given schema(s).
+         
+  --> 
+ <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+  <classpath refid="tool.cp" /> 
+  </taskdef>
+ <target name="setup">
+  <mkdir dir="${build.home}" /> 
+  </target>
+ <target name="run">
+ <java classname="sample.HelloWorldClient" fork="true">
+  <arg value="${build.home}" /> 
+  <classpath refid="runtime.cp" /> 
+  </java>
+  </target>
+ <target name="wsdl2j" depends="setup">
+
+  <!-- pour la première essai(réussit)-->
+  <wsimport fork="false" debug="true" extension="true" keep="true" destdir="${build.home}/" sourceDestDir="${basedir}\src" verbose="false" package="fr.legrain.wsimportosc.client" wsdl="http://localhost:8080/WebServiceLegrain/EnvoyerInfosDB?wsdl"/>
+  
+ 	
+  </target>
+ <target name="client" depends="wsdl2j">
+ 	
+ <javac debug="true" destdir="${build.home}" srcdir="${basedir}/src/fr/legrain/wsimportosc/client" includes="**/*.java">
+  <classpath refid="tool.cp" /> 
+  </javac>
+  </target>
+ <target name="clean">
+  <delete dir="${build.home}" /> 
+  </target>
+ <target name="usage">
+  <echo message="Usage:" /> 
+  <echo message="ant client (runs wsimport and compiles client class and then runs the client" /> 
+  </target>
+  </project>

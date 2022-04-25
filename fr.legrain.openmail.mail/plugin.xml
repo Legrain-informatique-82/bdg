@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.openmail.mail.preferences.OpenMailPreferencePage"
+            id="fr.legrain.openmail.mail.preferences.OpenMailPreferencePage"
+            name="Open Mail">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.openmail.mail.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.openmail.mail.handlers.HandlerMonCompteOpenMail"
+            id="fr.legrain.openmail.mail.moncompte"
+            name="Mon compte OpenMail">
+      </command>
+      <command
+            defaultHandler="fr.legrain.openmail.mail.handlers.HandlerSendMailOpenMail"
+            id="fr.legrain.openmail.mail.sendMail"
+            name="Envoyer un email">
+      </command>
+      <command
+            defaultHandler="fr.legrain.openmail.mail.handlers.HandlerSendFaxOpenMail"
+            id="fr.legrain.openmail.mail.sendFax"
+            name="Envoyer un fax">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:openmail">
+         <command
+               commandId="fr.legrain.openmail.mail.moncompte"
+               icon="icons/icon_enveloppe16x16.png"
+               label="Mon compte OpenMail ..."
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.openmail.mail.separator1"
+               visible="true">
+         </separator>
+         <command
+               commandId="fr.legrain.openmail.mail.sendMail"
+               label="Envoyer un email ..."
+               style="push">
+         </command>
+         <command
+               commandId="fr.legrain.openmail.mail.sendFax"
+               label="Envoyer un fax ..."
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.openmail.mail.ui.EditorBrowserOpenMail"
+            default="false"
+            icon="icons/icon_enveloppe16x16.png"
+            id="fr.legrain.openmail.mail.ui.EditorBrowserOpenMail"
+            name="OpenMail">
+      </editor>
+   </extension>
+
+</plugin>

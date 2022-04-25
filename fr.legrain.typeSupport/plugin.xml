@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="Articles.editorPageArticles">
+      <editor
+            editorClass="fr.legrain.typesupport.editor.EditorTArticle"
+            editorIcon="icons/logo_lgr_16.png"
+            editorLabel="Type Support"></editor>
+   </extension>
+
+</plugin>

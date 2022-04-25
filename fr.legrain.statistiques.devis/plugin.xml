@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="fr.legrain.statistiques.editorPageTableauDeBord">
+      <editor
+            editorClass="fr.legrain.statistiques.devis.ecrans.PaFormPageDevis"
+            editorController="fr.legrain.statistiques.devis.controllers.FormPageControllerDevis"
+            editorIcon="icons/devis.png"
+            editorLabel="Devis"></editor>
+   </extension>
+
+</plugin>

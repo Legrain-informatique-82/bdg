@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE mapping PUBLIC "-//EXOLAB/Castor Object Mapping DTD Version 1.0//EN"
+                         "http://castor.org/mapping.dtd">
+
+<mapping>
+	<class name="fr.legrain.liasseFiscale.actions.InfosCompta">
+
+		<map-to xml="compta" />
+
+		<field name="ListeCompte"
+			type="fr.legrain.liasseFiscale.actions.Compte" collection="arraylist"
+			container="false">
+			<bind-xml name="comptes" />
+		</field>
+		
+		
+		<field name="ListeSaisieComplement" collection="map" container="false">
+			<bind-xml name="complement">
+				<class name="org.exolab.castor.mapping.MapItem">
+				<map-to xml="info" />
+					<field name="key"
+						type="fr.legrain.liasseFiscale.actions.Cle">
+						<bind-xml name="cle" />
+					</field>
+					<field name="value"
+						type="fr.legrain.liasseFiscale.actions.InfoComplement">
+						<bind-xml name="valeur" />
+					</field>
+				</class>
+			</bind-xml>
+		</field>
+
+<!--
+		<field name="ListeSaisieComplement"
+			type="fr.legrain.liasseFiscale.actions.InfoComplement"
+			collection="arraylist" container="false">
+			<bind-xml name="complement" />
+		</field>
+-->
+	</class>
+	
+	<class name="fr.legrain.liasseFiscale.actions.Cle">
+		<field name="cle" type="java.lang.String">
+			<bind-xml name="id-cle" node="attribute" />
+		</field>
+		<field name="sousCle" type="java.lang.String">
+			<bind-xml name="id-sous-cle" node="attribute" />
+		</field>
+	</class>
+	
+	<class name="fr.legrain.liasseFiscale.actions.InfosComptaTxtEpicea" extends="fr.legrain.liasseFiscale.actions.InfosCompta">
+		<map-to xml="compta" />
+	</class>
+
+	<!--
+		<class name="fr.legrain.liasseFiscale.actions.Compte" auto-complete="true">
+		<field name="Numero" type="java.lang.String">
+		<bind-xml name="numero" node="attribute" />
+		</field>
+		</class>
+	-->
+
+	<class name="fr.legrain.liasseFiscale.actions.Compte">
+		<map-to xml="cpt" />
+		<field name="Numero" type="java.lang.String">
+			<bind-xml name="numero" node="attribute" />
+		</field>
+		<field name="Origine" type="java.lang.String">
+			<bind-xml name="origine" node="attribute" />
+		</field>
+		<field name="libelle" />
+		<field name="mtDebit" />
+		<field name="mtCredit" />
+		<field name="solde" />
+		
+		<field name="mtDebit2" />
+		<field name="mtCredit2" />
+		<field name="solde2" />
+		
+		<field name="mtDebit3" />
+		<field name="mtCredit3" />
+		<field name="solde3" />
+		
+		<field name="mtDebit4" />
+		<field name="mtCredit4" />
+		<field name="solde4" />
+		
+		<field name="mtDebit5" />
+		<field name="mtCredit5" />
+		<field name="solde5" />
+	</class>
+
+	<class name="fr.legrain.liasseFiscale.actions.InfoComplement">
+		<!-- <map-to xml="info" /> -->
+		<field name="Cle" type="java.lang.String">
+			<bind-xml name="cle" node="attribute" />
+		</field>
+		<field name="Valeur1" type="java.lang.String">
+			<bind-xml name="valeur1" node="attribute" />
+		</field>
+		<field name="Valeur2" type="java.lang.String">
+			<bind-xml name="valeur2" node="attribute" />
+		</field>
+	</class>
+
+</mapping>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.majcomptelegrainfr.editors.EditorMajCompteLegrainFr"
+            icon="icons/export_wiz.gif"
+            id="fr.legrain.majCompteLegrainFr.editors.EditorMajCompteLegrainFr"
+            name="Mise à jour des comptes legrain.fr">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.majcomptelegrainfr.handlers.HandlerMAJCompteLegrainFr"
+            description="MAJ des comptes legrain.fr"
+            id="fr.legrain.majCompteLegrainFr.editors.EditorMajCompteLegrainFr"
+            name="Mise à jour des comptes legrain.fr">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="fr.legrain.majcomptelegrainfr.preferences.MAJCompteLegrainFrPreferencePage"
+            id="fr.legrain.majcomptelegrainfr.preferences.MAJCompteLegrainFrPreferencePage"
+            name="Mise à jour des comptes legrain.fr">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.majcomptelegrainfr.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:outils">
+         <command
+               commandId="fr.legrain.majCompteLegrainFr.editors.EditorMajCompteLegrainFr"
+               icon="icons/export_wiz.gif"
+               label="Mise à jour des comptes legrain.fr"
+               style="push">
+         </command>
+         <separator
+               name="fr.legrain.majCompteLegrainFr.separator1"
+               visible="true">
+         </separator>
+      </menuContribution>
+   </extension>
+   <!--
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="fr.legrain.facture.perspective.PerspectiveFacture"
+            fixed="true"
+            icon="icons/table.png"
+            id="fr.legrain.perspertive.facture"
+            name="Facture"/>
+   </extension>
+   <extension
+         id="test.views"
+         name="views"
+         point="org.eclipse.ui.views">
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewAdresseFacturation"
+            icon="icons/book_open.png"
+            id="fr.legrain.view.adresseFacturation.swt"
+            name="Adresse de facturation"/>
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewAdresseLivraison"
+            icon="icons/lorry.png"
+            id="fr.legrain.view.adresseLivraison.swt"
+            name="Adresse de livraison"/>
+      <view
+            class="fr.legrain.facture.ecran.poubelle.SWTViewConditionPaiement"
+            icon="icons/money.png"
+            id="fr.legrain.view.conditionPaiement.swt"
+            name="Condition de paiement"/>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension targetID="fr.legrain.perspertive.facture">
+         <actionSet id="fr.legrain.perspective.facture.ext.actionSet"/>
+         <viewShortcut id="fr.legrain.view.adresseFacturation.swt"/>
+         <viewShortcut id="fr.legrain.view.adresseLivraison.swt"/>
+      </perspectiveExtension>
+   </extension>
+   -->
+   <!--
+   <extension
+         point="org.eclipse.ui.viewActions">
+      <viewContribution
+            id="fr.legrain.view.tiers.actions"
+            targetID="fr.legrain.view.tiers">
+         <action
+               class="fr.legrain.facture.actions.NouveauTiersAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.view.tiers.action.nouveau"
+               label="Nouveau"
+               style="push"
+               toolbarPath="aa"
+               tooltip="Nouveau"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.conditionPaiement.actions"
+            targetID="fr.legrain.view.conditionPaiement">
+         <action
+               class="fr.legrain.facture.actions.ConditonPaiementFactureAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewCondition.ConditionPaiementFactureAction"
+               label="Autre condition de paiement"
+               style="push"
+               toolbarPath="c"
+               tooltip="Autre condition de paiement"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseFacturation.actions"
+            targetID="fr.legrain.view.adresseFacturation">
+         <action
+               class="fr.legrain.facture.actions.AdresseFacturationAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewAdresseFacturation.AdresseFacturationAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseLivraison.actions"
+            targetID="fr.legrain.view.adresseLivraison">
+         <action
+               class="fr.legrain.facture.actions.AdresseLivraisonAction"
+               icon="icons/legrain.gif"
+               id="fr.legrain.facture.viewAdresseLivraison.AdresseLivraisonAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseFacturation.actions.swt"
+            targetID="fr.legrain.view.adresseFacturation.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTAdresseFacturationAction"
+               icon="icons/book_open.png"
+               id="fr.legrain.facture.swtViewAdresseFacturation.SWTAdresseFacturationAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.adresseLivraison.actions.swt"
+            targetID="fr.legrain.view.adresseLivraison.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTAdresseLivraisonAction"
+               icon="icons/book_open.png"
+               id="fr.legrain.facture.swtViewAdresseLivraison.SWTAdresseLivraisonAction"
+               label="Nouvelle Adresse"
+               style="push"
+               toolbarPath="c"
+               tooltip="Nouvelle Adresse"/>
+      </viewContribution>
+      <viewContribution
+            id="fr.legrain.view.conditionPaiement.actions.swt"
+            targetID="fr.legrain.view.conditionPaiement.swt">
+         <action
+               class="fr.legrain.facture.actions.SWTConditonPaiementFactureAction"
+               icon="icons/money.png"
+               id="fr.legrain.facture.swtViewCondition.SWTConditionPaiementFactureAction"
+               label="Autre condition de paiement"
+               style="push"
+               toolbarPath="c"
+               tooltip="Autre condition de paiement"/>
+      </viewContribution>
+   </extension>
+   -->
+   
+
+</plugin>

@@ -1,0 +1,81 @@
+<plugin>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="fr.legrain.bonlivraison.editor.BLMultiPageEditor"
+            icon="icons/lorry.png"
+            id="fr.legrain.editor.Bl.swt.multi"
+            name="Bon de livraison">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="fr.legrain.bonlivraison.handlers.HandlerOuvreEditorBL"
+            description="Nouveau Bon de Livraison"
+            id="fr.legrain.Bl"
+            name="Nouveau Bon de Livraison">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:documents?after=separator.devis">
+         <command
+               commandId="fr.legrain.Bl"
+               icon="icons/lorry.png"
+               id="fr.legrain.Bl"
+               label="Bon de livraison">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="toolbar.Bl">
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:toolbar.Bl">
+         <command
+               commandId="fr.legrain.Bl"
+               icon="icons/lorry.png"
+               label="Bon de livraison">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.bonlivraison.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.preferences.DocumentPreferencePage"
+            class="fr.legrain.bonlivraison.preferences.LgrBLPreferencePage"
+            id="fr.legrain.bonlivraison.preferences.LgrBLPreferencePage"
+            name="Bon de livraison">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.configExtension">
+      <configExtension
+            configId="GestionCommerciale.introConfigId"
+            content="intro/introContent.xml">
+      </configExtension>
+   </extension>
+   <extension
+         point="GestionCommerciale.ImpressionDocument">
+      <impressionDocument
+            ClassImpressionDocument="fr.legrain.bonlivraison.divers.Impression"
+            TypeDoc="BonLivraison">
+      </impressionDocument>
+   </extension>
+   <extension
+         point="GestionCommerciale.Preferences">
+      <Preferences
+            ClassPreferences="fr.legrain.bonlivraison.preferences.PreferencesStore">
+      </Preferences>
+   </extension>
+</plugin>

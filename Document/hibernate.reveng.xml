@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	<table-filter match-name="TA_APPORTEUR"></table-filter>
+	<table-filter match-name="TA_AVOIR"></table-filter>
+	<table-filter match-name="TA_BONCDE"></table-filter>
+	<table-filter match-name="TA_BONLIV"></table-filter>
+	<table-filter match-name="TA_COM_DOC"></table-filter>
+	<table-filter match-name="TA_FACTURE"></table-filter>
+	<table-filter match-name="TA_INFOS_APPORTEUR"></table-filter>
+	<table-filter match-name="TA_INFOS_AVOIR"></table-filter>
+	<table-filter match-name="TA_INFOS_BONCDE"></table-filter>
+	<table-filter match-name="TA_INFOS_BONLIV"></table-filter>
+	<table-filter match-name="TA_INFOS_DEVIS"></table-filter>
+	<table-filter match-name="TA_INFOS_FACTURE"></table-filter>
+	<table-filter match-name="TA_INFOS_PROFORMA"></table-filter>
+	<table-filter match-name="TA_L_APPORTEUR"></table-filter>
+	<table-filter match-name="TA_L_APPORTEUR_TEMP"></table-filter>
+	<table-filter match-name="TA_L_AVOIR"></table-filter>
+	<table-filter match-name="TA_L_AVOIR_TEMP"></table-filter>
+	<table-filter match-name="TA_L_BONCDE"></table-filter>
+	<table-filter match-name="TA_L_BONCDE_TEMP"></table-filter>
+	<table-filter match-name="TA_L_BONLIV"></table-filter>
+	<table-filter match-name="TA_L_BONLIV_TEMP"></table-filter>
+	<table-filter match-name="TA_L_DEVIS"></table-filter>
+	<table-filter match-name="TA_L_DEVIS_TEMP"></table-filter>
+	<table-filter match-name="TA_L_FACTURE"></table-filter>
+	<table-filter match-name="TA_L_FACTURE_OSC"></table-filter>
+	<table-filter match-name="TA_L_FACTURE_TEMP"></table-filter>
+	<table-filter match-name="TA_L_MODELE"></table-filter>
+	<table-filter match-name="TA_L_PROFORMA"></table-filter>
+	<table-filter match-name="TA_L_PROFORMA_TEMP"></table-filter>
+	<table-filter match-name="TA_MODELE"></table-filter>
+	<table-filter match-name="TA_PROFORMA"></table-filter>
+	<table-filter match-name="TA_R_DOCUMENT"></table-filter>
+	<table-filter match-name="TA_T_DOC"></table-filter>
+	<table-filter match-name="TA_T_LIGNE"></table-filter>
+	<table-filter match-name="TA_T_PAIEMENT"></table-filter>
+	<table-filter match-name="TA_DEVIS"></table-filter>
+	<table-filter match-name="TA_ADRESSE"></table-filter>
+	<table-filter match-name="TA_ARTICLE"></table-filter>
+	<table-filter match-name="TA_C_PAIEMENT"></table-filter>
+	<table-filter match-name="TA_TIERS"></table-filter>
+</hibernate-reverse-engineering>

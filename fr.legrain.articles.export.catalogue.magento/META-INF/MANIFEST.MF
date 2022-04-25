@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: SOAP Web service Magento
+Bundle-SymbolicName: fr.legrain.articles.export.catalogue.magento
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.articles.export.catalogue.magento.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.apache.axis;bundle-version="1.4.0",
+ org.apache.commons.discovery;bundle-version="0.2.0",
+ javax.xml.rpc;bundle-version="1.1.0",
+ javax.xml.soap;bundle-version="1.2.0",
+ javax.wsdl;bundle-version="1.5.1",
+ log4j_1_2_8;bundle-version="1.2.8",
+ gestComBd;bundle-version="2.0.14",
+ librairiesLeGrain;bundle-version="2.0.14",
+ org.hibernate.eclipse;bundle-version="3.2.4",
+ org.apache.commons.logging;bundle-version="1.0.4"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: lib/commons-codec-1.5.jar,
+ .
+Export-Package: fr.legrain.articles.export.catalogue.magento

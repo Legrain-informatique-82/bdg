@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="fr.legrain.document.etat.prelevement.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="fr.legrain.document.etat.devis.echeance"
+            class="fr.legrain.document.etat.prelevement.preferences.EcheancePrelevementPreferencePage"
+            id="fr.legrain.document.etat.prelevement.preferences.EcheancePrelevementPreferencePage"
+            name="Prelevement">
+      </page>
+   </extension>
+   <extension
+         point="fr.legrain.document.etat.devis.editorPageEtatDocument">
+      <editor
+            editorClass="fr.legrain.document.etat.prelevement.ecrans.PaFormPagePrelevement"
+            editorController="fr.legrain.document.etat.prelevement.controllers.FormPageControllerPrelevement"
+            editorIcon="icons/logo_lgr_16.png"
+            editorLabel="Prelevement">
+      </editor>
+   </extension>
+
+</plugin>

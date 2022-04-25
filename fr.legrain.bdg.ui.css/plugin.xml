@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.e4.ui.css.swt.theme">
+      <theme
+            basestylesheeturi="css/default.css"
+            id="fr.legrain.bdg.ui.css.theme1"
+            label="default">
+      </theme>
+      <theme
+            basestylesheeturi="css/default2.css"
+            id="fr.legrain.bdg.ui.css.theme2"
+            label="default2">
+      </theme>
+      <theme
+            basestylesheeturi="css/dark-gradiant.css"
+            id="fr.legrain.bdg.ui.css.theme3"
+            label="dark">
+      </theme>
+      <theme
+            basestylesheeturi="css/bright-gradiant.css"
+            id="fr.legrain.bdg.ui.css.theme4"
+            label="bright">
+      </theme>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="fr.legrain.bdg.ui.css.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="fr.legrain.bdg.ui.css.commands.category"
+            id="fr.legrain.bdg.ui.css.commands.sampleCommand"
+            name="Sample Command">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="fr.legrain.bdg.ui.css.handlers.HandlerSelectionTheme"
+            commandId="fr.legrain.bdg.ui.css.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="fr.legrain.bdg.ui.css.commands.sampleCommand"
+            contextId="org.eclipse.ui.contexts.window"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="fr.legrain.bdg.ui.css.menus.sampleMenu"
+               label="Sample Menu"
+               mnemonic="M">
+            <command
+                  commandId="fr.legrain.bdg.ui.css.commands.sampleCommand"
+                  id="fr.legrain.bdg.ui.css.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="fr.legrain.bdg.ui.css.toolbars.sampleToolbar">
+            <command
+                  commandId="fr.legrain.bdg.ui.css.commands.sampleCommand"
+                  icon="icons/sample.gif"
+                  id="fr.legrain.bdg.ui.css.toolbars.sampleCommand"
+                  tooltip="Say hello world">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+</plugin>

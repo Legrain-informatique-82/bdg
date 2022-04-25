@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Edition Plug-in
+Bundle-SymbolicName: Edition;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.edition.Activator
+Require-Bundle: org.eclipse.ui,
+ librairiesLeGrain,
+ log4j_1_2_8,
+ org.eclipse.birt.report.engine,
+ org.eclipse.birt.report.designer.core,
+ org.eclipse.birt.report.viewer,
+ LibrairiesEcran,
+ LibLgrBirt;bundle-version="1.8.9",
+ SilentPdfPrint,
+ gestComBd,
+ LibJBuilder2006,
+ Lib,
+ org.hibernate.eclipse;bundle-version="3.2.0",
+ com.ibm.icu;bundle-version="4.0.1",
+ com.lowagie.text;bundle-version="2.1.7",
+ fr.legrain.openmail.mail;bundle-version="2.0.14"
+Eclipse-LazyStart: true
+Export-Package: 
+ fr.legrain.edition;uses:="org.eclipse.ui.plugin,org.osgi.framework",
+ fr.legrain.edition.actions;
+  uses:="org.eclipse.jface.action,
+   org.apache.log4j,
+   org.eclipse.ui,
+   org.eclipse.swt.custom,
+   fr.legrain.lib.gui.grille,
+   org.eclipse.jface.viewers,
+   org.eclipse.swt.widgets,
+   org.eclipse.birt.report.model.api",
+ fr.legrain.edition.divers,
+ fr.legrain.edition.dynamique,
+ fr.legrain.edition.preferences,
+ fr.legrain.extensionprovider
+Bundle-Vendor: Le Grain SA

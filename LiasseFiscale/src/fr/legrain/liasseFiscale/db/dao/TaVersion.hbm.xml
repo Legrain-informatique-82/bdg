@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 7, 2006 10:37:19 AM by Hibernate Tools 3.1.0.beta5 -->
+<hibernate-mapping>
+    <class name="fr.legrain.liasseFiscale.db.dao.TaVersion" table="TA_VERSION">
+        <id name="idVersion" type="java.lang.Integer">
+            <column name="ID_VERSION" />
+            <generator class="assigned" />
+        </id>
+        <property name="numVersion" type="string">
+            <column name="NUM_VERSION" />
+        </property>
+        <property name="oldVersion" type="string">
+            <column name="OLD_VERSION" />
+        </property>
+        <property name="quiCreeVersion" type="string">
+            <column name="QUI_CREE_VERSION" length="50" />
+        </property>
+        <property name="quandCreeVersion" type="timestamp">
+            <column name="QUAND_CREE_VERSION" length="19" />
+        </property>
+        <property name="quiModifVersion" type="string">
+            <column name="QUI_MODIF_VERSION" length="50" />
+        </property>
+        <property name="quandModifVersion" type="timestamp">
+            <column name="QUAND_MODIF_VERSION" length="19" />
+        </property>
+        <property name="ipAcces" type="java.lang.Integer">
+            <column name="IP_ACCES" />
+        </property>
+    </class>
+</hibernate-mapping>

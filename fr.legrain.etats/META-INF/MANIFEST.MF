@@ -1,0 +1,23 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Etats
+Bundle-SymbolicName: fr.legrain.etats;singleton:=true
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.etats.Activator
+Bundle-Vendor: Le Grain SA
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Lib;bundle-version="2.0.14",
+ LibrairiesEcran;bundle-version="2.0.14",
+ librairiesLeGrain;bundle-version="2.0.14",
+ log4j_1_2_8;bundle-version="1.2.8",
+ org.eclipse.ui.forms;bundle-version="3.5.100",
+ org.hibernate.eclipse;bundle-version="3.4.0",
+ gestComBd;bundle-version="2.0.14",
+ Edition;bundle-version="2.0.14",
+ LibLgrBirt;bundle-version="2.0.14",
+ org.eclipse.birt.report.viewer;bundle-version="3.7.1",
+ Articles;bundle-version="2.0.14",
+ Tiers;bundle-version="2.0.14"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy

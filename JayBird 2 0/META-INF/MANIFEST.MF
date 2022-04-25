@@ -1,0 +1,27 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: JayBird_2_0 Plug-in
+Bundle-SymbolicName: JayBird_2_0;singleton:=true
+Bundle-Version: 2.1.1
+Bundle-ClassPath: jaybird-full-2.1.1.jar
+Bundle-Localization: plugin
+Export-Package: javax.resource,
+ javax.resource.cci,
+ javax.resource.spi,
+ javax.resource.spi.security,
+ javax.sql,
+ javax.transaction.xa,
+ org.firebirdsql.encodings,
+ org.firebirdsql.event,
+ org.firebirdsql.gds,
+ org.firebirdsql.gds.impl,
+ org.firebirdsql.gds.impl.jni,
+ org.firebirdsql.gds.impl.wire,
+ org.firebirdsql.jca,
+ org.firebirdsql.jdbc,
+ org.firebirdsql.jdbc.field,
+ org.firebirdsql.logging,
+ org.firebirdsql.management,
+ org.firebirdsql.pool,
+ org.firebirdsql.pool.sun
+Require-Bundle: org.eclipse.ant.core

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compile fr.legrain.bdg.tests.feature" default="main">
+	<target name="main">
+		<ant antfile="build.xml" dir="../fr.legrain.tiers.tests" target="build.jars"/>
+		<ant antfile="build.xml" dir="../fr.legrain.articles.tests" target="build.jars"/>
+		<ant antfile="build.xml" dir="../fr.legrain.bdg.tests" target="build.jars"/>
+	</target>
+</project>

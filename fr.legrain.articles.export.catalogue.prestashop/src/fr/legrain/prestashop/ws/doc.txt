@@ -1,0 +1,17 @@
+http://dev2.pageweb.fr/
+http://dev2.pageweb.fr/admin2/
+http://dev2.pageweb.fr/api
+http://dev2.pageweb.fr/api/addresses/1
+
+https://github.com/vistiyos/java-api-prestashop
+
+http://www.vogella.com/articles/REST/article.html#first_client
+
+http://doc.prestashop.com/display/PS14/Tutoriel+Webservice+REST
+
+https://blogs.oracle.com/enterprisetechtips/entry/consuming_restful_web_services_with
+
+http://cxf.apache.org/docs/jax-rs.html
+
+http://hc.apache.org/httpcomponents-client-ga/examples.html
+

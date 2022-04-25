@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+<jar path="C:/Projet/Java/Eclipse/GestionCommerciale/Tiers/lib/Module_Tiers.jar"/>
+<options buildIfNeeded="true" compress="true" descriptionLocation="/Tiers/Module_Tiers.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" useSourceFolders="false"/>
+<manifest generateManifest="true" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+<sealing sealJar="false">
+<packagesToSeal/>
+<packagesToUnSeal/>
+</sealing>
+</manifest>
+<selectedElements exportClassFiles="true" exportJavaFiles="false" exportOutputFolder="false">
+<file path="/Tiers/Module_Tiers.jardesc"/>
+<javaElement handleIdentifier="=Gestion_Commerciale/src"/>
+</selectedElements>
+</jardesc>

@@ -1,0 +1,15 @@
+http://jaxenter.com/css-styling-in-eclipse-helios-32465.html
+http://www.slideshare.net/toedter_k/css-styling-for-eclipse-rcp-3x-and-4x
+http://www.toedter.com/blog/?p=295
+http://tomsondev.bestsolution.at/2010/04/26/a-week-at-e4-themeing-in-e4/
+http://www.vogella.de/blog/2010/06/15/eclipse-3-6-css-styling/
+http://wiki.eclipse.org/E4/CSS/SWT_Mapping
+http://wiki.eclipse.org/E4/Install
+http://dev.eclipse.org/viewcvs/viewvc.cgi/e4/org.eclipse.e4.ui/examples/org.eclipse.e4.ui.examples.css.rcp/
+http://wiki.eclipse.org/E4/CSS#Using_CSS_in_Eclipse_3.6
+
+Pour Eclipse 3.7,
+récupération des plugins d'E4 dans le CVS,
+suivre les instructions dans http://www.slideshare.net/toedter_k/css-styling-for-eclipse-rcp-3x-and-4x
+Modifier la variable dans la methode SWTBaseController#changeCouleur(Composite c).
+Pour le thème par defaut, appel de la methode dans ApplicationWorkbenchAdvisor#initialize(IWorkbenchConfigurer configurer).

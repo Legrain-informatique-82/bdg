@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tests Plug-in
+Bundle-SymbolicName: fr.legrain.articles.tests
+Bundle-Version: 2.0.14.qualifier
+Bundle-Activator: fr.legrain.articles.tests.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ Articles,
+ org.junit4
+Eclipse-LazyStart: true
+Bundle-Vendor: Le Grain SA
+Export-Package: fr.legrain.articles.tests

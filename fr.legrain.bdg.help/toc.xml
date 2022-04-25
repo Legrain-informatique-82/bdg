@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Bureau de gestion" topic="html/toc.html">
+	<topic label="Aide"  href="html/maintopic.html"> 
+	</topic>
+ <topic href="html/nouveautes.html" label="Nouveautés">
+ </topic>
+</toc>

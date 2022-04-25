@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analyse-economique version="">
+	<dossier>
+		<adherent>XXXX</adherent>
+		<annee>2007</annee>
+		<adresse-centre-cogere>adresse du centre</adresse-centre-cogere>
+		<tel-centre-cogere>numero tel</tel-centre-cogere>
+	</dossier>
+	<!-- ********************************************************************************************************************************** -->
+	<pages>
+		<page nom="descriptif de l'exploitation">
+			<descriptif-exploitation>
+				<mode-faire-valoir>
+					<propriete>1</propriete>
+					<fermage>2</fermage>
+					<mise-a-disp-propriete>3</mise-a-disp-propriete>
+					<mise-a-disp-fermage>4</mise-a-disp-fermage>
+					<metayage>5</metayage>
+					<non-sau>6</non-sau>
+					<bois>7</bois>
+				</mode-faire-valoir>
+				<assolements>
+					<assolement>
+						<culture>a</culture>
+						<surface>5</surface>
+						<dont-derobe>5</dont-derobe>
+						<dont-irrigue>5</dont-irrigue>
+						<rdt>10</rdt>
+					</assolement>
+					<assolement>
+						<culture>b</culture>
+						<surface>55</surface>
+						<dont-derobe>55</dont-derobe>
+						<dont-irrigue>55</dont-irrigue>
+						<rdt>100</rdt>
+					</assolement>
+					<!-- plusieurs <assolement/> -->
+				</assolements>
+				<stocks>
+					<stock>
+						<libelle>aa</libelle>
+						<qte-debut>0</qte-debut>
+						<entrees-a>0</entrees-a>
+						<entrees-n>0</entrees-n>
+						<entrees-ch>0</entrees-ch>
+						<entrees-pr>0</entrees-pr>
+						<sorties-v>0</sorties-v>
+						<sorties-pe>0</sorties-pe>
+						<sorties-co>0</sorties-co>
+						<sorties-ch>0</sorties-ch>
+						<sorties-ci>0</sorties-ci>
+						<qte-fin>0</qte-fin>
+						<tx-perte>0</tx-perte>
+					</stock>
+					<stock>
+						<libelle>b</libelle>
+						<qte-debut>1</qte-debut>
+						<entrees-a>1</entrees-a>
+						<entrees-n>1</entrees-n>
+						<entrees-ch>1</entrees-ch>
+						<entrees-pr>1</entrees-pr>
+						<sorties-v>1</sorties-v>
+						<sorties-pe>1</sorties-pe>
+						<sorties-co>1</sorties-co>
+						<sorties-ch>1</sorties-ch>
+						<sorties-ci>1</sorties-ci>
+						<qte-fin>1</qte-fin>
+						<tx-perte>1</tx-perte>
+					</stock>
+					<!-- plusieurs <stock/> -->
+				</stocks>
+				<main-oeuvre>
+					<non-salarie>
+						<detail>
+							<perm-nb>2</perm-nb>
+							<perm-tmp>2</perm-tmp>
+							<perm-uth>2</perm-uth>
+							<tempo-nb>2</tempo-nb>
+							<tempo-tmp>2</tempo-tmp>
+							<tempo-uth>2</tempo-uth>
+							<total-nb>2</total-nb>
+							<total-tmp>2</total-tmp>
+							<total-uth>2</total-uth>
+						</detail>
+					</non-salarie>
+					<aides-familiaux>
+						<detail>
+							<perm-nb>3</perm-nb>
+							<perm-tmp>3</perm-tmp>
+							<perm-uth>3</perm-uth>
+							<tempo-nb>3</tempo-nb>
+							<tempo-tmp>3</tempo-tmp>
+							<tempo-uth>3</tempo-uth>
+							<total-nb>3</total-nb>
+							<total-tmp>3</total-tmp>
+							<total-uth>3</total-uth>
+						</detail>
+					</aides-familiaux>
+					<salarie>
+						<!-- <detail/> -->
+					</salarie>
+				</main-oeuvre>
+			</descriptif-exploitation>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="bilan actif">
+			<bilan-actif>
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="1" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="1" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="1" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="2" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="2" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="3" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="3" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="3" />
+				<ligne un="1" deux="2" trois="3" quatre="4" grp="3" />
+			</bilan-actif>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="bilan passif">
+			<bilan-passif></bilan-passif>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="compte d'exploitation 1">
+			<compte-exploitation-1></compte-exploitation-1>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="compte d'exploitation 2">
+			<compte-exploitation-2></compte-exploitation-2>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="soldes intermediares de gestion">
+			<soldes-intermediaires>
+				<ligne>
+					<libelle>aaaa</libelle>
+					<valeur-n>10</valeur-n>
+					<valeur-n-1>11</valeur-n-1>
+					<valeur-n-2>12</valeur-n-2>
+				</ligne>
+				<ligne>
+					<libelle>bbbb</libelle>
+					<valeur-n>20</valeur-n>
+					<valeur-n-1>21</valeur-n-1>
+					<valeur-n-2>22</valeur-n-2>
+				</ligne>
+			</soldes-intermediaires>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="analyse technico economique">
+			<analyse-technico-economique>
+				<rentablilite-globale>
+					<taux>10</taux>
+					<commentaire>abcd...</commentaire>
+					<graph>
+						<ligne>
+							<x>n-2</x>
+							<y1>1</y1>
+							<y2>2</y2>
+							<y3>3</y3>
+						</ligne>
+						<ligne>
+							<x>n-1</x>
+							<y1>4</y1>
+							<y2>5</y2>
+							<y3>6</y3>
+						</ligne>
+						<ligne>
+							<x>n</x>
+							<y1>7</y1>
+							<y2>8</y2>
+							<y3>9</y3>
+						</ligne>
+					</graph>
+				</rentablilite-globale>
+				<charges-totales>
+					<graph>
+						<ligne>
+							<x>n-2</x>
+							<y1>1</y1>
+						</ligne>
+						<ligne>
+							<x>n-1</x>
+							<y1>2</y1>
+						</ligne>
+						<ligne>
+							<x>n</x>
+							<y1>3</y1>
+						</ligne>
+					</graph>
+					<analyse>
+						<ligne>
+							<libelle>aa</libelle>
+							<n>1</n>
+							<n-ha>2</n-ha>
+							<n-1>3</n-1>
+							<var>4</var>
+						</ligne>
+						<!-- 5 <ligne/> + total -->
+					</analyse>
+				</charges-totales>
+				<marges>
+					<marge-brute></marge-brute>
+					<marge-brute-calc></marge-brute-calc>
+					<resultat-net></resultat-net>
+					<graph>
+						<ligne>
+							<x>Blé</x>
+							<y1>-200</y1>
+						</ligne>
+						<ligne>
+							<x>Mais</x>
+							<y1>250</y1>
+						</ligne>
+						<ligne>
+							<x>Vigne</x>
+							<y1>600</y1>
+						</ligne>
+						<!-- plusieurs <lignes/> -->
+					</graph>
+				</marges>
+			</analyse-technico-economique>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="marge nette">
+			<marge-nette>
+				<marge-brute>
+					<ligne>
+						<x>Blé</x>
+						<y1>-200</y1>
+					</ligne>
+					<ligne>
+						<x>Mais</x>
+						<y1>250</y1>
+					</ligne>
+					<ligne>
+						<x>Vigne</x>
+						<y1>600</y1>
+					</ligne>
+					<!-- plusieurs <lignes/> -->
+				</marge-brute>
+				<charge-produit>
+					<ligne>
+						<x>Blé</x>
+						<y1>-200</y1>
+					</ligne>
+					<ligne>
+						<x>Mais</x>
+						<y1>250</y1>
+					</ligne>
+					<ligne>
+						<x>Vigne</x>
+						<y1>600</y1>
+					</ligne>
+					<!-- plusieurs <lignes/> -->
+				</charge-produit>
+				<marge-nette>
+					<ligne>
+						<x>Blé</x>
+						<y1>-200</y1>
+					</ligne>
+					<ligne>
+						<x>Mais</x>
+						<y1>250</y1>
+					</ligne>
+					<ligne>
+						<x>Vigne</x>
+						<y1>600</y1>
+					</ligne>
+					<!-- plusieurs <lignes/> -->
+				</marge-nette>
+				<graph-marge-nette>
+					<ligne>
+						<x>Blé</x>
+						<y1>-200</y1>
+					</ligne>
+					<ligne>
+						<x>Mais</x>
+						<y1>250</y1>
+					</ligne>
+					<ligne>
+						<x>Vigne</x>
+						<y1>600</y1>
+					</ligne>
+					<!-- plusieurs <lignes/> -->
+				</graph-marge-nette>
+				<ratio-eco>
+					<n></n>
+					<n-1></n-1>
+					<n-2></n-2>
+				</ratio-eco>
+			</marge-nette>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="tableau des flux financiers">
+			<flux-financiers>
+				<FL>
+					<FL1>
+						<valeur>114106.11</valeur>
+					</FL1>
+					<FL2>
+						<valeur>48042.91</valeur>
+					</FL2>
+					<FL3>
+						<valeur>-32258.03</valeur>
+					</FL3>
+					<FL4>
+						<valeur>0</valeur>
+					</FL4>
+					<FL5>
+						<valeur>129890.99</valeur>
+					</FL5>
+					<FL6>
+						<valeur>0</valeur>
+					</FL6>
+					<FL7>
+						<valeur>-355</valeur>
+					</FL7>
+					<FL8>
+						<valeur>-355</valeur>
+					</FL8>
+					<FL10>
+						<valeur>0</valeur>
+					</FL10>
+					<FL11>
+						<valeur>0</valeur>
+					</FL11>
+					<FL12>
+						<valeur>106589.89</valeur>
+					</FL12>
+					<FL13>
+						<valeur>-10116.4</valeur>
+					</FL13>
+					<FL14>
+						<valeur>96473.49</valeur>
+					</FL14>
+					<FL15>
+						<valeur>33772.5</valeur>
+					</FL15>
+					<FL16>
+						<valeur>0</valeur>
+					</FL16>
+					<FL17>
+						<valeur>0</valeur>
+					</FL17>
+					<FL18>
+						<valeur>0</valeur>
+					</FL18>
+					<FL19>
+						<valeur>198.47</valeur>
+					</FL19>
+					<FL20>
+						<valeur>198.47</valeur>
+					</FL20>
+					<FL21>
+						<valeur>6066.93</valeur>
+					</FL21>
+					<FL24>
+						<valeur>5868.46</valeur>
+					</FL24>
+					<FL25>
+						<valeur>2326.57</valeur>
+					</FL25>
+					<FL26>
+						<valeur>0</valeur>
+					</FL26>
+					<FL27>
+						<valeur>227249.74</valeur>
+					</FL27>
+					<FL28>
+						<valeur>0</valeur>
+					</FL28>
+					<FL29>
+						<valeur>252827.21</valeur>
+					</FL29>
+				</FL>
+				<exercice>
+					<ligne>
+						<libelle></libelle>
+						<emplois></emplois>
+						<ressource></ressource>
+					</ligne>
+					<!-- plusieurs <ligne/> -->
+				</exercice>
+				<ressources>
+					<ligne>
+						<libelle></libelle>
+						<montant></montant>
+					</ligne>
+					<!-- plusieurs <ligne/> -->
+				</ressources>
+				<emplois>
+					<ligne>
+						<libelle></libelle>
+						<montant></montant>
+					</ligne>
+					<!-- plusieurs <ligne/> -->
+				</emplois>
+				<annuites></annuites>
+				<prelevement-prive></prelevement-prive>
+				<apport-prive></apport-prive>
+				<variation></variation>
+			</flux-financiers>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="bilan comparatif sur 2 ans">
+			<bilan-comparatif>
+				<actif>
+					<ligne>
+						<x>n</x>
+						<y1>10</y1>
+						<y2>20</y2>
+						<y3>40</y3>
+					</ligne>
+					<ligne>
+						<x>n-1</x>
+						<y1>20</y1>
+						<y2>20</y2>
+						<y3>40</y3>
+					</ligne>
+					<ligne>
+						<x>n-2</x>
+						<y1>20</y1>
+						<y2>50</y2>
+						<y3>30</y3>
+					</ligne>
+				</actif>
+				<passif>
+					<ligne>
+						<x>n</x>
+						<y1>10</y1>
+						<y2>20</y2>
+						<y3>40</y3>
+					</ligne>
+					<ligne>
+						<x>n-1</x>
+						<y1>20</y1>
+						<y2>20</y2>
+						<y3>40</y3>
+					</ligne>
+					<ligne>
+						<x>n-2</x>
+						<y1>20</y1>
+						<y2>40</y2>
+						<y3>40</y3>
+					</ligne>
+				</passif>
+				<fonds-roulemant></fonds-roulemant>
+				<autonomie>
+					<ligne-ratio>
+						<libelle>a</libelle>
+						<n>1</n>
+						<n-1>2</n-1>
+						<n-2>3</n-2>
+					</ligne-ratio>
+					<ligne-ratio>
+						<libelle>aa</libelle>
+						<n>4</n>
+						<n-1>5</n-1>
+						<n-2>6</n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</autonomie>
+				<liquidite>
+					<ligne-ratio>
+						<libelle>b</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</liquidite>
+				<amortissement>
+					<ligne-ratio>
+						<libelle>c</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</amortissement>
+				<credit-cli>
+					<ligne-ratio>
+						<libelle>d</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</credit-cli>
+				<credit-frs>
+					<ligne-ratio>
+						<libelle>e</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</credit-frs>
+				<annuites>
+					<ligne-ratio>
+						<libelle>f</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</annuites>
+				<tx-rentabilite>
+					<ligne-ratio>
+						<libelle>g</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</tx-rentabilite>
+				<frais>
+					<ligne-ratio>
+						<libelle>h</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</frais>
+				<tresorerie>
+					<ligne-ratio>
+						<libelle>i</libelle>
+						<n></n>
+						<n-1></n-1>
+						<n-2></n-2>
+					</ligne-ratio>
+					<!-- plusieurs <ligne-ratio/> -->
+				</tresorerie>
+			</bilan-comparatif>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="tableau de financement">
+			<tableau-financement>
+				<resultat></resultat>
+				<dotation></dotation>
+				<augmentation-ca></augmentation-ca>
+				<diminution-ca></diminution-ca>
+				<aquisition-immo></aquisition-immo>
+				<cession-immo></cession-immo>
+				<subvention></subvention>
+				<emprunt-contracte></emprunt-contracte>
+				<emprunt-rembourse></emprunt-rembourse>
+				<prelevement-prive></prelevement-prive>
+				<apport-prive></apport-prive>
+				<variations>
+					<lignes>
+						<libelle></libelle>
+						<n-1></n-1>
+						<n></n>
+						<n-n-1></n-n-1>
+					</lignes>
+				</variations>
+			</tableau-financement>
+		</page>
+		<!-- ********************************************************************************************************************************** -->
+		<page nom="commentaire - synthese">
+			<synthese>
+				<commentaire></commentaire>
+			</synthese>
+		</page>
+	</pages>
+</analyse-economique>

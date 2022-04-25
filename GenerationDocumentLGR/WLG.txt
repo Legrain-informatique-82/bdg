@@ -1,0 +1,1604 @@
+CREATE TABLE TA_WLGR (
+    CODE_CLIENT           VARCHAR(4),
+    NUMERO_WLGR           VARCHAR(8),
+    LICENCE               VARCHAR(12),
+    NOM                   VARCHAR(50),
+    AD1                   VARCHAR(100),
+    AD2                   VARCHAR(100),
+    CP                    VARCHAR(5),
+    VILLE                 VARCHAR(50),
+    APPORTEUR             VARCHAR(50),
+    FIN_E2                DATE,
+    TYPE_E2               VARCHAR(1),
+    OPTIONS_E2            VARCHAR(10),
+    REDUC_E2              NUMERIC(15,2),
+    DUREE_E2_RETARD       INTEGER,
+    DUREE_E2              INTEGER,
+    TOTAL_HT_E2           NUMERIC(15,2),
+    FIN_F2                DATE,
+    TYPE_F2               VARCHAR(1),
+    OPTIONS_F2            VARCHAR(10),
+    REDUC_F2              NUMERIC(15,2),
+    DUREE_F2_RETARD       INTEGER,
+    DUREE_F2              INTEGER,
+    TOTAL_HT_F2           NUMERIC(15,2),
+    FIN_S2                DATE,
+    TYPE_S2               VARCHAR(1),
+    OPTIONS_S2            VARCHAR(10),
+    REDUC_S2              NUMERIC(15,2),
+    DUREE_S2_RETARD       INTEGER,
+    DUREE_S2              INTEGER,
+    TOTAL_HT_S2           NUMERIC(15,2),
+    PARTICIPATION_COGERE  NUMERIC(15,2),
+    TOTAL_HT              NUMERIC(15,2),
+    TVA                   NUMERIC(15,2),
+    TTC                   NUMERIC(15,2),
+    TRAITE                INTEGER,
+    CODE_DOC              DLGR_CODEL
+);
+
+
+CREATE TABLE TA_WLGR_EN_MAINTENANCE (
+    CODE_CLIENT  VARCHAR(4),
+    NUMERO_WLGR  VARCHAR(8),
+    LICENCE      VARCHAR(12)
+);
+
+
+CREATE OR ALTER PROCEDURE NEW_PROCEDURE 
+as
+declare variable codetmp varchar(4);
+declare variable code_client varchar(4);
+begin
+  for select code_client from ta_wlgr_en_maintenance into :code_client
+  do begin
+          codetmp=:code_client;
+          while (strlen(:codetmp)<4) do
+            codetmp='0'|| :codetmp;
+          update ta_wlgr_en_maintenance set code_client = :codetmp where code_client = :code_client;
+      end
+  suspend;
+end;
+
+
+/* Modifier les numero_wlgr
+update ta_wlgr set numero_wlgr = cast(substring(licence from 7) as integer)
+*/
+/* v�rifier qu'il n'y ai pas de code_client null
+*/
+
+
+CREATE TABLE ta_wlgr_en_maintenance (
+    CODE_CLIENT           VARCHAR(4),
+    NUMERO_WLGR           VARCHAR(8),
+    LICENCE               VARCHAR(12)
+    )
+;   
+/*clients facturés non mis à jour*/
+select
+distinct(V_FACTURE.code_tiers) ,
+V_FACTURE.nom_tiers
+from 
+v_l_facture,
+V_FACTURE ,
+v_article
+where V_FACTURE.ID_FACTURE=v_l_facture.ID_FACTURE 
+and v_article.id_article=v_l_facture.id_article
+and v_article.code_famille like('MAI')
+and cast ( V_FACTURE.DATE_FACTURE as date )
+between
+( select cast (TA_INFO_ENTREPRISE.DATEDEB_INFO_ENTREPRISE as date ) from TA_INFO_ENTREPRISE)
+and ( select cast (TA_INFO_ENTREPRISE.DATEFIN_INFO_ENTREPRISE as date ) from TA_INFO_ENTREPRISE)
+AND not exists(select w.code_client from ta_wlgr_en_maintenance w where w.code_client=V_FACTURE.code_tiers);
+ 
+/*Clients mis à jour non facturés*/
+select
+distinct(w.code_client) ,
+w.licence
+from  ta_wlgr_en_maintenance w
+where w.code_client not in(select
+distinct(v_facture.code_tiers)
+from 
+ta_l_facture,
+v_facture ,
+ta_article
+where v_facture.ID_FACTURE=ta_l_facture.ID_FACTURE
+and ta_article.id_article=ta_l_facture.id_article
+and ta_article.id_famille =21
+and cast ( v_facture.DATE_FACTURE as date )
+between
+( select cast (TA_INFO_ENTREPRISE.DATEDEB_INFO_ENTREPRISE as date ) from TA_INFO_ENTREPRISE)
+and ( select cast (TA_INFO_ENTREPRISE.DATEFIN_INFO_ENTREPRISE as date ) from TA_INFO_ENTREPRISE)
+and w.code_client=v_facture.code_tiers)
+order by 1
+/**/
+
+CREATE OR ALTER PROCEDURE IMPORTATION_ARTICLES_E2FAC 
+RETURNS (
+    ARTICLE VARCHAR(20))
+AS
+DECLARE VARIABLE ART_COD VARCHAR(14);
+DECLARE VARIABLE ART_DIV VARCHAR(2);
+DECLARE VARIABLE ART_FAM VARCHAR(4);
+DECLARE VARIABLE ART_DES VARCHAR(53);
+DECLARE VARIABLE ART_HT1 NUMERIC(15,2);
+DECLARE VARIABLE ART_TTC1 NUMERIC(15,2);
+DECLARE VARIABLE ART_TVA NUMERIC(15,2);
+DECLARE VARIABLE ART_CPT_TVA VARCHAR(8);
+DECLARE VARIABLE ART_UN1 VARCHAR(14);
+DECLARE VARIABLE ART_UN2 VARCHAR(14);
+DECLARE VARIABLE ART_CPT VARCHAR(8);
+DECLARE VARIABLE ART_GTVA VARCHAR(1);
+DECLARE VARIABLE ART_HT2 NUMERIC(15,2);
+DECLARE VARIABLE ART_TTC2 NUMERIC(15,2);
+DECLARE VARIABLE ART_HT3 NUMERIC(15,2);
+DECLARE VARIABLE ART_TTC3 NUMERIC(15,2);
+DECLARE VARIABLE ART_PRF NUMERIC(15,2);
+DECLARE VARIABLE FAM_DES VARCHAR(31);
+DECLARE VARIABLE FAM_NAR INTEGER;
+DECLARE VARIABLE ID_FAMILLE INTEGER;
+DECLARE VARIABLE ID_TVA INTEGER;
+DECLARE VARIABLE ID_T_TVA INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE ID_UNITE INTEGER;
+DECLARE VARIABLE ID_PRIX INTEGER;
+DECLARE VARIABLE CODEARTICLE VARCHAR(20);
+DECLARE VARIABLE I INTEGER;
+begin
+execute procedure MAJ_GENERATEUR  ;
+  for select ART_COD,ART_DIV,ART_FAM,ART_DES,ART_HT1,ART_TTC1,ART_TVA,ART_CPT_TVA,ART_UN1,
+ART_UN2,ART_CPT,ART_GTVA,ART_HT2,ART_TTC2,ART_HT3,ART_TTC3,ART_PRF,FAM_DES,FAM_NAR from articles_fac a
+where a.art_cod like('%09%')
+into
+:ART_COD,ART_DIV,ART_FAM,ART_DES,ART_HT1,ART_TTC1,ART_TVA,ART_CPT_TVA,ART_UN1,ART_UN2,ART_CPT,ART_GTVA,
+ART_HT2,ART_TTC2,ART_HT3,ART_TTC3,ART_PRF,FAM_DES,FAM_NAR
+  do begin
+  /*famille article*/
+  if (:ART_FAM<>'' and not(:ART_FAM is null) and not exists(select fam.code_famille from ta_famille fam where fam.code_famille = :ART_FAM )) then
+    begin
+      if (:fam_des is null) then fam_des = 'Famille '||:ART_FAM;
+      insert into ta_famille (code_famille,libc_famille,LIBL_FAMILLE) values (:ART_FAM,:fam_des,:fam_des);
+    end
+  select fam.id_famille from ta_famille fam where fam.code_famille = :ART_FAM into :id_famille;
+  /*tva article*/
+  if (:ART_TVA<>cast(0 as numeric(15,2)) and :ART_TVA is not null and not exists(
+     select tva.TAUX_TVA from ta_tva tva where cast(tva.TAUX_TVA as numeric(15,2)) = :ART_TVA )) then
+    begin
+      if (:ART_CPT_TVA is null) then ART_CPT_TVA='';
+      insert into ta_tva values (null,cast('V'||:art_tva as varchar(20)),cast('TVA sur '||:art_tva as varchar(255))
+      ,:ART_TVA,:ART_CPT_TVA,null,null, null,null,null,null);
+    end
+  select tva.id_tva from ta_tva tva where tva.TAUX_TVA = :ART_TVA and upper(tva.code_tva) like('V%') into :id_tva;
+  /*type tva article*/
+  if (:art_gtva<>'' and not(:art_gtva is null) and not exists(select ttva.code_t_tva from ta_t_tva ttva where ttva.code_t_tva = :art_gtva )) then
+    begin
+      insert into ta_t_tva (code_t_tva) values (:art_gtva);
+    end
+  select ttva.id_t_tva from ta_t_tva ttva where ttva.code_t_tva = :art_gtva into :id_t_tva;
+  id_article=gen_id(num_id_article,1);
+  codearticle=:art_cod;
+/*  i=1;
+  while (exists(select code_article from ta_article where code_article=:codearticle)) do
+  begin
+    codearticle=cast(:art_cod||i as varchar(20));
+  end */
+  if (:art_des is null) then art_des = 'Article '||:codearticle;
+  insert into ta_article values(:id_article,:codearticle,:art_des,:art_des,:id_famille,:id_tva,:id_t_tva,:art_cpt,
+  :art_div,null,0,null,null,null,null, null,null);
+  article = :codearticle;
+
+  /*Prix 1*/
+  id_unite=null;
+  if (:art_ht1 is not null and :art_ht1<> 0) then
+    begin
+      /*unite article*/
+      if (:art_un1<>'' and :art_un1 is not null and not exists(select u.code_unite from ta_unite U
+          where upper(u.code_unite) = upper(:art_un1 ))) then
+            begin
+              insert into ta_unite (code_unite,libl_unite) values (:art_un1,:art_un1);
+            end
+      select u.id_unite from ta_unite u where upper(u.code_unite) = upper(:art_un1)  into :id_unite ;
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,:id_unite,:art_ht1,:art_ttc1,null,null,null,null,null,null);
+       if (:art_prf=art_ht1) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+  /*Prix 2*/
+  id_unite=null;
+  if (:art_ht2 is not null and :art_ht2<> 0) then
+    begin
+      /*unite article*/
+      if (:art_un2<>'' and not(:art_un2 is null) and not exists(select u.code_unite from ta_unite U
+          where upper(u.code_unite) = upper(:art_un2) )) then
+            begin
+              insert into ta_unite (code_unite,libl_unite) values (:art_un2,:art_un2);
+            end
+          select u.id_unite from ta_unite u where upper(u.code_unite) = upper(:art_un2) into :id_unite;
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,:id_unite,:art_ht2,:art_ttc2,null,null,null,null,null,null);
+       if (:art_prf=art_ht2) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+
+  /*Prix 3*/
+  if (:art_ht3 is not null and :art_ht3<> 0) then
+    begin
+       id_prix = gen_id(num_id_prix,1);
+       insert into ta_prix values(:id_prix,:id_article,null,:art_ht3,:art_ttc3,null,null,null,null,null,null);
+       if (:art_prf=art_ht3) then
+         insert into ta_ref_prix values(null,:id_article,:id_prix,null,null,null,null,null,null);
+    end
+
+  suspend;
+  end
+
+end
+^
+
+CREATE OR ALTER PROCEDURE IMPORTATION_AVOIR_E2FAC 
+RETURNS (
+    DOCUMENTS VARCHAR(8))
+AS
+DECLARE VARIABLE COMPTEUR INTEGER;
+DECLARE VARIABLE FAC_NUM VARCHAR(8);
+DECLARE VARIABLE FAC_TYP VARCHAR(2);
+DECLARE VARIABLE FAC_DAT DATE;
+DECLARE VARIABLE FAC_ECH DATE;
+DECLARE VARIABLE FAC_COD VARCHAR(8);
+DECLARE VARIABLE FAC_NOM VARCHAR(31);
+DECLARE VARIABLE FAC_CPT VARCHAR(8);
+DECLARE VARIABLE FAC_COL VARCHAR(9);
+DECLARE VARIABLE FAC_AD1 VARCHAR(31);
+DECLARE VARIABLE FAC_AD2 VARCHAR(31);
+DECLARE VARIABLE FAC_CP VARCHAR(6);
+DECLARE VARIABLE FAC_VIL VARCHAR(26);
+DECLARE VARIABLE FAC_PAY VARCHAR(21);
+DECLARE VARIABLE FAC_REF VARCHAR(41);
+DECLARE VARIABLE FAC_PMT VARCHAR(2);
+DECLARE VARIABLE FAC_PRI VARCHAR(2);
+DECLARE VARIABLE FAC_HT NUMERIC(15,2);
+DECLARE VARIABLE FAC_TTC NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMP NUMERIC(15,2);
+DECLARE VARIABLE FAC_REM NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMT NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESCP NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESC NUMERIC(15,2);
+DECLARE VARIABLE FAC_MES1 VARCHAR(69);
+DECLARE VARIABLE FAC_MES2 VARCHAR(69);
+DECLARE VARIABLE FAC_MES3 VARCHAR(69);
+DECLARE VARIABLE FAC_CPTA INTEGER;
+DECLARE VARIABLE FAC_EDITE INTEGER;
+DECLARE VARIABLE FAC_FAC VARCHAR(8);
+DECLARE VARIABLE FAC_ACT NUMERIC(15,2);
+DECLARE VARIABLE FAC_CIAL VARCHAR(8);
+DECLARE VARIABLE FAC_MREG NUMERIC(15,2);
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_PAIEMENT INTEGER;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_FACTURE INTEGER;
+DECLARE VARIABLE CIVILITE VARCHAR(20);
+DECLARE VARIABLE TVAINTRA VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE TYPE_DOCS VARCHAR(1);
+DECLARE VARIABLE FLI_NUM VARCHAR(8);
+DECLARE VARIABLE FLI_LIG INTEGER;
+DECLARE VARIABLE FLI_COD VARCHAR(15);
+DECLARE VARIABLE FLI_DES VARCHAR(53);
+DECLARE VARIABLE FLI_QT1 NUMERIC(15,2);
+DECLARE VARIABLE FLI_QT2 NUMERIC(15,2);
+DECLARE VARIABLE FLI_PHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_PTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_REM NUMERIC(15,2);
+DECLARE VARIABLE FLI_MHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_TXTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_CPT VARCHAR(9);
+DECLARE VARIABLE FLI_TMP VARCHAR(2);
+DECLARE VARIABLE FLI_EXIG VARCHAR(2);
+DECLARE VARIABLE FLI_LOT VARCHAR(16);
+DECLARE VARIABLE FLI_NBL VARCHAR(8);
+DECLARE VARIABLE FLI_UN1 VARCHAR(3);
+DECLARE VARIABLE FLI_UN2 VARCHAR(3);
+DECLARE VARIABLE T_LIGNE_H INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE REMISET NUMERIC(15,2);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE T_LIGNE_C INTEGER;
+DECLARE VARIABLE T_LIGNE INTEGER;
+DECLARE VARIABLE PRIX NUMERIC(15,2);
+DECLARE VARIABLE LIGNEVIDE INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+execute procedure MAJ_GENERATEUR  ;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='H' into :t_ligne_h;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='C' into :t_ligne_c;
+for select d.fac_num,d.fac_typ,d.fac_dat,d.fac_ech,d.fac_cod,d.fac_nom,d.fac_cpt,d.fac_col
+,d.fac_ad1,d.fac_ad2,d.fac_cp,d.fac_vil,d.fac_pay,d.fac_ref,d.fac_pmt,d.fac_pri,d.fac_ht,d.fac_ttc,d.fac_remp
+,d.fac_rem,d.fac_remt,d.fac_escp,d.fac_esc,d.fac_mes1,d.fac_mes2,d.fac_mes3,d.fac_cpta
+,d.fac_edite,d.fac_fac,d.fac_act,d.fac_cial,d.fac_mreg from documents_e2fac d where upper(d.fac_typ)='B'
+into
+fac_num,fac_typ,fac_dat,fac_ech,fac_cod,fac_nom,fac_cpt,fac_col
+,fac_ad1,fac_ad2,fac_cp,fac_vil,fac_pay,fac_ref,fac_pmt,fac_pri,fac_ht,fac_ttc,fac_remp
+,fac_rem,fac_remt,fac_escp,fac_esc,fac_mes1,fac_mes2,fac_mes3,fac_cpta
+,fac_edite,fac_fac,fac_act,fac_cial,fac_mreg
+do begin
+commentaire ='';
+id_c_paiement=null;
+code_c_paiement=null;
+lib_c_paiement=null;
+report_c_paiement=null;
+fin_mois_c_paiement=null;
+documents = '';
+select cp.id_c_paiement, cp.code_c_paiement,cp.lib_c_paiement,cp.report_c_paiement,
+  cp.fin_mois_c_paiement from ta_c_paiement cp where cp.code_c_paiement = :fac_pmt into
+  :id_c_paiement,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+       select id_tiers from ta_tiers where Upper(code_tiers) = upper(:fac_cod) into :id_tiers;
+       if (:fac_ref is not null) then commentaire = :fac_ref ||CRLF;
+       if (:fac_mes1 is not null) then commentaire = :commentaire ||:fac_mes1||CRLF;
+       if (:fac_mes2 is not null) then commentaire = :commentaire ||:fac_mes2||CRLF;
+       if (:fac_mes3 is not null) then commentaire = :commentaire ||:fac_mes3||CRLF;
+       id_facture = gen_id(num_id_bonliv,1);
+       insert into ta_bonliv values(:id_facture,:fac_num,:fac_dat,:fac_ech,:fac_dat,'Bon de livraison E2-Fac N�'||:fac_num,0,0,
+       :id_tiers,null,:id_c_paiement,:fac_remp,:fac_rem,:fac_escp,:fac_esc,:fac_edite,:fac_pri,
+       :commentaire,null,null,null,null,null);
+       select v.code_t_civilite,v.tva_i_com_compl from v_tiers v where Upper(code_tiers) = upper(:fac_cod) into :civilite,:tvaintra;
+
+       insert into ta_infos_bonliv values(null,:id_facture,:fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,
+       :fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,:fac_cpt,:fac_col,:fac_nom,null,null,:civilite,null,:tvaIntra,
+       :code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,null,null,null,null,null,null);
+       rang=1;
+       for select l.type_docs,l.fli_num,l.fli_lig,l.fli_cod,l.fli_des,l.fli_qt1,l.fli_qt2
+       ,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,l.fli_mtva,l.fli_txtva,l.fli_cpt
+       ,l.fli_tmp,l.fli_exig,l.fli_lot,l.fli_nbl,l.fli_un1,l.fli_un2 from lignes_docs_e2fac l
+       where l.fli_num = :fac_num and l.type_docs = 'B' into
+       type_docs,fli_num,fli_lig,fli_cod,fli_des,fli_qt1,fli_qt2
+       ,fli_pht,fli_ptc,fli_rem,fli_mht,fli_mtc,fli_mtva,fli_txtva,fli_cpt
+       ,fli_tmp,fli_exig,fli_lot,fli_nbl,fli_un1,fli_un2
+       do begin
+       remiseT =0;
+       code_tva=null;
+       id_article=null;
+       prix=null;
+       if (:fac_pri=0) then prix=:fli_pht;
+       else prix=:fli_ptc;
+       if (:fli_cpt is null) then t_ligne = :t_ligne_c;
+       else t_ligne = :t_ligne_h;
+       if (:fli_rem is not null and :fli_rem<>0) then
+         remiset = (fli_rem)/(:prix*100);
+       select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva and t.numcpt_tva like('4457%') into :code_tva;
+       if (:code_tva is null) then
+          select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva into :code_tva;
+       select id_article from ta_article where code_article = :fli_cod into :id_article;
+       if (:id_article is null and :fli_des is null) then lignevide=:lignevide+1;
+       else lignevide=0;
+       if (:lignevide<3) then
+            insert into ta_l_bonliv values(null,:id_facture,:t_ligne,:id_article,:rang,:fli_des,:fli_qt1,:fli_un1,:fli_un2,
+            :prix,:fli_txtva,:fli_cpt,:code_tva,:fli_exig,:fli_mht,:fli_mtc,:remiseT,:fli_rem,null,null,null,null,null,null);
+
+            rang=:rang+1;
+          end
+   documents=:fac_num;
+  suspend;
+   end
+end
+^
+
+CREATE OR ALTER PROCEDURE IMPORTATION_BONLIV_E2FAC 
+RETURNS (
+    DOCUMENTS VARCHAR(8))
+AS
+DECLARE VARIABLE COMPTEUR INTEGER;
+DECLARE VARIABLE FAC_NUM VARCHAR(8);
+DECLARE VARIABLE FAC_TYP VARCHAR(2);
+DECLARE VARIABLE FAC_DAT DATE;
+DECLARE VARIABLE FAC_ECH DATE;
+DECLARE VARIABLE FAC_COD VARCHAR(8);
+DECLARE VARIABLE FAC_NOM VARCHAR(31);
+DECLARE VARIABLE FAC_CPT VARCHAR(8);
+DECLARE VARIABLE FAC_COL VARCHAR(9);
+DECLARE VARIABLE FAC_AD1 VARCHAR(31);
+DECLARE VARIABLE FAC_AD2 VARCHAR(31);
+DECLARE VARIABLE FAC_CP VARCHAR(6);
+DECLARE VARIABLE FAC_VIL VARCHAR(26);
+DECLARE VARIABLE FAC_PAY VARCHAR(21);
+DECLARE VARIABLE FAC_REF VARCHAR(41);
+DECLARE VARIABLE FAC_PMT VARCHAR(2);
+DECLARE VARIABLE FAC_PRI VARCHAR(2);
+DECLARE VARIABLE FAC_HT NUMERIC(15,2);
+DECLARE VARIABLE FAC_TTC NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMP NUMERIC(15,2);
+DECLARE VARIABLE FAC_REM NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMT NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESCP NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESC NUMERIC(15,2);
+DECLARE VARIABLE FAC_MES1 VARCHAR(69);
+DECLARE VARIABLE FAC_MES2 VARCHAR(69);
+DECLARE VARIABLE FAC_MES3 VARCHAR(69);
+DECLARE VARIABLE FAC_CPTA INTEGER;
+DECLARE VARIABLE FAC_EDITE INTEGER;
+DECLARE VARIABLE FAC_FAC VARCHAR(8);
+DECLARE VARIABLE FAC_ACT NUMERIC(15,2);
+DECLARE VARIABLE FAC_CIAL VARCHAR(8);
+DECLARE VARIABLE FAC_MREG NUMERIC(15,2);
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_PAIEMENT INTEGER;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_FACTURE INTEGER;
+DECLARE VARIABLE CIVILITE VARCHAR(20);
+DECLARE VARIABLE TVAINTRA VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE TYPE_DOCS VARCHAR(1);
+DECLARE VARIABLE FLI_NUM VARCHAR(8);
+DECLARE VARIABLE FLI_LIG INTEGER;
+DECLARE VARIABLE FLI_COD VARCHAR(15);
+DECLARE VARIABLE FLI_DES VARCHAR(53);
+DECLARE VARIABLE FLI_QT1 NUMERIC(15,2);
+DECLARE VARIABLE FLI_QT2 NUMERIC(15,2);
+DECLARE VARIABLE FLI_PHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_PTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_REM NUMERIC(15,2);
+DECLARE VARIABLE FLI_MHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_TXTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_CPT VARCHAR(9);
+DECLARE VARIABLE FLI_TMP VARCHAR(2);
+DECLARE VARIABLE FLI_EXIG VARCHAR(2);
+DECLARE VARIABLE FLI_LOT VARCHAR(16);
+DECLARE VARIABLE FLI_NBL VARCHAR(8);
+DECLARE VARIABLE FLI_UN1 VARCHAR(3);
+DECLARE VARIABLE FLI_UN2 VARCHAR(3);
+DECLARE VARIABLE T_LIGNE_H INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE REMISET NUMERIC(15,2);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE T_LIGNE_C INTEGER;
+DECLARE VARIABLE T_LIGNE INTEGER;
+DECLARE VARIABLE PRIX NUMERIC(15,2);
+DECLARE VARIABLE LIGNEVIDE INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+execute procedure MAJ_GENERATEUR  ;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='H' into :t_ligne_h;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='C' into :t_ligne_c;
+for select d.fac_num,d.fac_typ,d.fac_dat,d.fac_ech,d.fac_cod,d.fac_nom,d.fac_cpt,d.fac_col
+,d.fac_ad1,d.fac_ad2,d.fac_cp,d.fac_vil,d.fac_pay,d.fac_ref,d.fac_pmt,d.fac_pri,d.fac_ht,d.fac_ttc,d.fac_remp
+,d.fac_rem,d.fac_remt,d.fac_escp,d.fac_esc,d.fac_mes1,d.fac_mes2,d.fac_mes3,d.fac_cpta
+,d.fac_edite,d.fac_fac,d.fac_act,d.fac_cial,d.fac_mreg from documents_e2fac d where upper(d.fac_typ)='B'
+into
+fac_num,fac_typ,fac_dat,fac_ech,fac_cod,fac_nom,fac_cpt,fac_col
+,fac_ad1,fac_ad2,fac_cp,fac_vil,fac_pay,fac_ref,fac_pmt,fac_pri,fac_ht,fac_ttc,fac_remp
+,fac_rem,fac_remt,fac_escp,fac_esc,fac_mes1,fac_mes2,fac_mes3,fac_cpta
+,fac_edite,fac_fac,fac_act,fac_cial,fac_mreg
+do begin
+commentaire ='';
+id_c_paiement=null;
+code_c_paiement=null;
+lib_c_paiement=null;
+report_c_paiement=null;
+fin_mois_c_paiement=null;
+documents = '';
+select cp.id_c_paiement, cp.code_c_paiement,cp.lib_c_paiement,cp.report_c_paiement,
+  cp.fin_mois_c_paiement from ta_c_paiement cp where cp.code_c_paiement = :fac_pmt into
+  :id_c_paiement,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+       select id_tiers from ta_tiers where Upper(code_tiers) = upper(:fac_cod) into :id_tiers;
+       if (:fac_ref is not null) then commentaire = :fac_ref ||CRLF;
+       if (:fac_mes1 is not null) then commentaire = :commentaire ||:fac_mes1||CRLF;
+       if (:fac_mes2 is not null) then commentaire = :commentaire ||:fac_mes2||CRLF;
+       if (:fac_mes3 is not null) then commentaire = :commentaire ||:fac_mes3||CRLF;
+       id_facture = gen_id(num_id_bonliv,1);
+       insert into ta_bonliv values(:id_facture,:fac_num,:fac_dat,:fac_ech,:fac_dat,'Bon de livraison E2-Fac N�'||:fac_num,0,0,
+       :id_tiers,null,:id_c_paiement,:fac_remp,:fac_rem,:fac_escp,:fac_esc,:fac_edite,:fac_pri,
+       :commentaire,null,null,null,null,null);
+       select v.code_t_civilite,v.tva_i_com_compl from v_tiers v where Upper(code_tiers) = upper(:fac_cod) into :civilite,:tvaintra;
+
+       insert into ta_infos_bonliv values(null,:id_facture,:fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,
+       :fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,:fac_cpt,:fac_col,:fac_nom,null,null,:civilite,null,:tvaIntra,
+       :code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,null,null,null,null,null,null);
+       rang=1;
+       for select l.type_docs,l.fli_num,l.fli_lig,l.fli_cod,l.fli_des,l.fli_qt1,l.fli_qt2
+       ,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,l.fli_mtva,l.fli_txtva,l.fli_cpt
+       ,l.fli_tmp,l.fli_exig,l.fli_lot,l.fli_nbl,l.fli_un1,l.fli_un2 from lignes_docs_e2fac l
+       where l.fli_num = :fac_num and l.type_docs = 'B' into
+       type_docs,fli_num,fli_lig,fli_cod,fli_des,fli_qt1,fli_qt2
+       ,fli_pht,fli_ptc,fli_rem,fli_mht,fli_mtc,fli_mtva,fli_txtva,fli_cpt
+       ,fli_tmp,fli_exig,fli_lot,fli_nbl,fli_un1,fli_un2
+       do begin
+       remiseT =0;
+       code_tva=null;
+       id_article=null;
+       prix=null;
+       if (:fac_pri=0) then prix=:fli_pht;
+       else prix=:fli_ptc;
+       if (:fli_cpt is null) then t_ligne = :t_ligne_c;
+       else t_ligne = :t_ligne_h;
+       if (:fli_rem is not null and :fli_rem<>0) then
+         remiset = (fli_rem)/(:prix*100);
+       select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva and t.numcpt_tva like('4457%') into :code_tva;
+       if (:code_tva is null) then
+          select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva into :code_tva;
+       select id_article from ta_article where code_article = :fli_cod into :id_article;
+       if (:id_article is null and :fli_des is null) then lignevide=:lignevide+1;
+       else lignevide=0;
+       if (:lignevide<3) then
+            insert into ta_l_bonliv values(:id_facture,:t_ligne,:id_article,:rang,:fli_des,:fli_qt1,:fli_un1,:fli_un2,
+            :prix,:fli_txtva,:fli_cpt,:code_tva,:fli_exig,:fli_mht,:fli_mtc,:remiseT,:fli_rem,gen_id(num_id_l_bonliv,1),null,null,null,null,null,0);
+
+            rang=:rang+1;
+          end
+   documents=:fac_num;
+  suspend;
+   end
+end
+^
+
+CREATE OR ALTER PROCEDURE IMPORTATION_CLIENTS_E2FAC 
+RETURNS (
+    CLIENT VARCHAR(20))
+AS
+DECLARE VARIABLE CLI_COD VARCHAR(8);
+DECLARE VARIABLE CLI_NOM VARCHAR(31);
+DECLARE VARIABLE CLI_CPT VARCHAR(8);
+DECLARE VARIABLE CLI_COL VARCHAR(9);
+DECLARE VARIABLE CLI_AD1 VARCHAR(31);
+DECLARE VARIABLE CLI_AD2 VARCHAR(31);
+DECLARE VARIABLE CLI_CP VARCHAR(6);
+DECLARE VARIABLE CLI_VIL VARCHAR(26);
+DECLARE VARIABLE CLI_PAY VARCHAR(21);
+DECLARE VARIABLE CLI_TVA VARCHAR(15);
+DECLARE VARIABLE CLI_OBS VARCHAR(31);
+DECLARE VARIABLE CLI_RSP VARCHAR(31);
+DECLARE VARIABLE CLI_TEL VARCHAR(16);
+DECLARE VARIABLE CLI_FAX VARCHAR(16);
+DECLARE VARIABLE CLI_PMT VARCHAR(2);
+DECLARE VARIABLE CLI_PRI VARCHAR(2);
+DECLARE VARIABLE CLI_BQE VARCHAR(31);
+DECLARE VARIABLE CLI_RIB VARCHAR(24);
+DECLARE VARIABLE CLI_LAD1 VARCHAR(31);
+DECLARE VARIABLE CLI_LAD2 VARCHAR(31);
+DECLARE VARIABLE CLI_LCP VARCHAR(6);
+DECLARE VARIABLE CLI_LVIL VARCHAR(26);
+DECLARE VARIABLE CLI_LPAY VARCHAR(21);
+DECLARE VARIABLE CLI_REP VARCHAR(8);
+DECLARE VARIABLE CLI_CIV VARCHAR(13);
+DECLARE VARIABLE CLI_FAM VARCHAR(4);
+DECLARE VARIABLE CLI_TEL0 VARCHAR(16);
+DECLARE VARIABLE CLI_FAX0 VARCHAR(16);
+DECLARE VARIABLE PMT_INT VARCHAR(31);
+DECLARE VARIABLE PMT_DELAI INTEGER;
+DECLARE VARIABLE PMT_JOUR INTEGER;
+DECLARE VARIABLE PMT_LCR VARCHAR(2);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_T_TEL_FAX INTEGER;
+DECLARE VARIABLE ID_T_ADR_LIV INTEGER;
+DECLARE VARIABLE ID_T_ADR_FACT INTEGER;
+DECLARE VARIABLE ID_T_TIERS INTEGER;
+DECLARE VARIABLE ID_TELEPHONE INTEGER;
+DECLARE VARIABLE ID_ADRESSE INTEGER;
+DECLARE VARIABLE ID_BANQUE INTEGER;
+DECLARE VARIABLE ID_CIVILITE INTEGER;
+DECLARE VARIABLE ID_TIERS_COM INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE CODETMP VARCHAR(7);
+DECLARE VARIABLE I INTEGER;
+DECLARE VARIABLE CODETMP2 VARCHAR(7);
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+execute procedure MAJ_GENERATEUR  ;
+client='';
+  select ttel.id_t_tel from ta_t_tel ttel where upper(ttel.code_t_tel) = 'FAX' into :id_t_tel_Fax;
+  select tadr.id_t_adr from ta_t_adr tadr where upper(tadr.code_t_adr) = 'FACT' into :id_t_adr_Fact;
+  select tadr.id_t_adr from ta_t_adr tadr where upper(tadr.code_t_adr) = 'LIV' into :id_t_adr_Liv;
+
+  for select * from clients_e2fac c into
+:CLI_COD,:CLI_NOM,:CLI_CPT,:CLI_COL,:CLI_AD1,:CLI_AD2,:CLI_CP,:CLI_VIL,:CLI_PAY,:CLI_TVA,
+:CLI_OBS,:CLI_RSP,:CLI_TEL,:CLI_FAX,:CLI_PMT,:CLI_PRI,:CLI_BQE,:CLI_RIB,:CLI_LAD1,:CLI_LAD2,
+:CLI_LCP,:CLI_LVIL,:CLI_LPAY,:CLI_REP,:CLI_CIV,:CLI_FAM,:CLI_TEL0,:CLI_FAX0,:PMT_INT,:PMT_DELAI,
+:PMT_JOUR,:PMT_LCR
+  do begin
+  id_banque=null;
+  id_adresse=null;
+  id_c_paiement=null;
+  id_civilite=null;
+  id_telephone=null;
+  id_tiers_com=null;
+  id_t_tiers=null;
+  id_tiers=null;
+
+  if (:cli_pri is null) then cli_pri=0;
+  select ttiers.id_t_tiers from ta_t_tiers ttiers where upper(ttiers.code_t_tiers) = UPPER(:cli_fam) into :id_t_tiers;
+  if (:cli_civ<>'' and not exists(select civ.code_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :cli_civ )) then
+    begin
+      insert into ta_t_civilite (code_t_civilite) values (:cli_civ);
+    end
+  select civ.id_t_civilite from ta_t_civilite civ where civ.code_t_civilite = :cli_civ into :id_civilite;
+
+  if (:cli_bqe is not null and :cli_bqe<>'' and not
+    exists(select b.code_banque from ta_banque b where upper(b.code_banque) = upper(substr(:cli_bqe,1,20) ))) then
+    begin
+      insert into ta_banque values (null,upper(substr(:cli_bqe,1,20) ),:cli_bqe,null,null,null,null,null,null,null);
+    end
+  select b.id_banque from ta_banque b where b.code_banque = upper(substr(:cli_bqe,1,20) ) into :id_banque;
+
+  id_tiers=gen_id(num_id_tiers,1);
+  if (:cli_cpt is null) then cli_cpt=:cli_cod;
+  if (:cli_nom is null) then cli_nom= :cli_cod;
+  if (:cli_col is null) then cli_col='411';
+  insert into ta_tiers values(:id_tiers,:cli_cod,:cli_cpt,:cli_col,:cli_nom,null,null,1,:cli_pri,:id_civilite,
+    null,:id_t_tiers,null,:id_banque,  null, null,null,null,null,null);
+
+  if (:cli_pmt is not null and not exists(select code_c_paiement from ta_c_paiement where code_c_paiement=:cli_pmt)) then
+  begin
+     insert into ta_c_paiement values(null,:cli_pmt,:pmt_int,:id_tiers,:pmt_delai,:pmt_jour,null,null,null,null,null,null);
+  end
+
+  if (:cli_rep is not null ) then
+  begin
+    select t.id_tiers from ta_tiers t where t.code_tiers = :cli_rep into :id_tiers_com;
+    if (:id_tiers_com is not null) then
+      insert into ta_r_commercial values(null,:id_tiers,:id_tiers_com,null,null,null,null,null,null);
+  end
+
+  commentaire='';
+  if (:cli_obs is not null or (:cli_rsp is not null)) then
+  begin
+    if (:cli_rsp is not null) then   commentaire =:cli_rsp||CRLF;
+    if (:cli_obs is not null) then   commentaire =commentaire||:cli_obs;
+    insert into ta_commentaire values(null,:commentaire,:id_tiers,null,null,null,null,null,null);
+  end
+
+  if (:cli_tva is not null ) then
+  begin
+    insert into ta_compl values(null,:id_tiers,:cli_tva,null,null,null,null,null,null,null);
+  end
+
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:cli_vil is null) then cli_vil=' ';
+  if (:cli_pay is null) then  cli_pay=' ';
+  if (:cli_cp is not null)  then begin
+  insert into ta_adresse values(:id_adresse,:cli_ad1,:cli_ad2,null, :cli_cp,:cli_vil,:cli_pay,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr_Fact,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_adresse=gen_id(num_id_adresse,1);
+  if (:cli_lvil is null) then cli_lvil=' ';
+  if (:cli_lpay is null) then  cli_lpay=' ';
+  if (:cli_lcp is not null)  then begin
+  insert into ta_adresse values(:id_adresse,:cli_lad1,:cli_lad2,null, :cli_lcp,:cli_lvil,:cli_lpay,null,null,null,null, null,null);
+  insert into ta_r_adr values (null,:id_tiers,:id_adresse,null,null,null,null,null,null);
+  insert into ta_r_adr_t_adr values(null,:id_t_adr_Liv,:id_adresse,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:cli_tel is not null) then begin
+  insert into ta_telephone values(:id_telephone,:cli_tel,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:cli_fax is not null) then begin
+  insert into ta_telephone values(:id_telephone,:cli_fax,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel_Fax,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:cli_tel0 is not null) then begin
+  insert into ta_telephone values(:id_telephone,:cli_tel0,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  end
+
+  id_telephone = gen_id(num_id_telephone,1);
+  if (:cli_fax0 is not null) then begin
+  insert into ta_telephone values(:id_telephone,:cli_fax0,' ',null,null,null,null,null,null,null);
+  insert into ta_r_tel values(null,:id_tiers,:id_telephone,null,null,null,null,null,null);
+  insert into ta_r_tel_t_tel values(null,:id_telephone,:id_t_tel_Fax,null,null,null,null,null,null);
+  end
+
+  client=:cli_cod;
+  suspend;
+  end
+
+end
+^
+
+
+CREATE OR ALTER PROCEDURE IMPORTATION_DEVIS_E2FAC 
+RETURNS (
+    DOCUMENTS VARCHAR(8))
+AS
+DECLARE VARIABLE COMPTEUR INTEGER;
+DECLARE VARIABLE FAC_NUM VARCHAR(8);
+DECLARE VARIABLE FAC_TYP VARCHAR(2);
+DECLARE VARIABLE FAC_DAT DATE;
+DECLARE VARIABLE FAC_ECH DATE;
+DECLARE VARIABLE FAC_COD VARCHAR(8);
+DECLARE VARIABLE FAC_NOM VARCHAR(31);
+DECLARE VARIABLE FAC_CPT VARCHAR(8);
+DECLARE VARIABLE FAC_COL VARCHAR(9);
+DECLARE VARIABLE FAC_AD1 VARCHAR(31);
+DECLARE VARIABLE FAC_AD2 VARCHAR(31);
+DECLARE VARIABLE FAC_CP VARCHAR(6);
+DECLARE VARIABLE FAC_VIL VARCHAR(26);
+DECLARE VARIABLE FAC_PAY VARCHAR(21);
+DECLARE VARIABLE FAC_REF VARCHAR(41);
+DECLARE VARIABLE FAC_PMT VARCHAR(2);
+DECLARE VARIABLE FAC_PRI VARCHAR(2);
+DECLARE VARIABLE FAC_HT NUMERIC(15,2);
+DECLARE VARIABLE FAC_TTC NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMP NUMERIC(15,2);
+DECLARE VARIABLE FAC_REM NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMT NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESCP NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESC NUMERIC(15,2);
+DECLARE VARIABLE FAC_MES1 VARCHAR(69);
+DECLARE VARIABLE FAC_MES2 VARCHAR(69);
+DECLARE VARIABLE FAC_MES3 VARCHAR(69);
+DECLARE VARIABLE FAC_CPTA INTEGER;
+DECLARE VARIABLE FAC_EDITE INTEGER;
+DECLARE VARIABLE FAC_FAC VARCHAR(8);
+DECLARE VARIABLE FAC_ACT NUMERIC(15,2);
+DECLARE VARIABLE FAC_CIAL VARCHAR(8);
+DECLARE VARIABLE FAC_MREG NUMERIC(15,2);
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_PAIEMENT INTEGER;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_FACTURE INTEGER;
+DECLARE VARIABLE CIVILITE VARCHAR(20);
+DECLARE VARIABLE TVAINTRA VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE TYPE_DOCS VARCHAR(1);
+DECLARE VARIABLE FLI_NUM VARCHAR(8);
+DECLARE VARIABLE FLI_LIG INTEGER;
+DECLARE VARIABLE FLI_COD VARCHAR(15);
+DECLARE VARIABLE FLI_DES VARCHAR(53);
+DECLARE VARIABLE FLI_QT1 NUMERIC(15,2);
+DECLARE VARIABLE FLI_QT2 NUMERIC(15,2);
+DECLARE VARIABLE FLI_PHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_PTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_REM NUMERIC(15,2);
+DECLARE VARIABLE FLI_MHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_TXTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_CPT VARCHAR(9);
+DECLARE VARIABLE FLI_TMP VARCHAR(2);
+DECLARE VARIABLE FLI_EXIG VARCHAR(2);
+DECLARE VARIABLE FLI_LOT VARCHAR(16);
+DECLARE VARIABLE FLI_NBL VARCHAR(8);
+DECLARE VARIABLE FLI_UN1 VARCHAR(3);
+DECLARE VARIABLE FLI_UN2 VARCHAR(3);
+DECLARE VARIABLE T_LIGNE_H INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE REMISET NUMERIC(15,2);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE T_LIGNE_C INTEGER;
+DECLARE VARIABLE T_LIGNE INTEGER;
+DECLARE VARIABLE PRIX NUMERIC(15,2);
+DECLARE VARIABLE LIGNEVIDE INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+execute procedure MAJ_GENERATEUR  ;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='H' into :t_ligne_h;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='C' into :t_ligne_c;
+for select d.fac_num,d.fac_typ,d.fac_dat,d.fac_ech,d.fac_cod,d.fac_nom,d.fac_cpt,d.fac_col
+,d.fac_ad1,d.fac_ad2,d.fac_cp,d.fac_vil,d.fac_pay,d.fac_ref,d.fac_pmt,d.fac_pri,d.fac_ht,d.fac_ttc,d.fac_remp
+,d.fac_rem,d.fac_remt,d.fac_escp,d.fac_esc,d.fac_mes1,d.fac_mes2,d.fac_mes3,d.fac_cpta
+,d.fac_edite,d.fac_fac,d.fac_act,d.fac_cial,d.fac_mreg from documents_e2fac d where upper(d.fac_typ)='P'
+into
+fac_num,fac_typ,fac_dat,fac_ech,fac_cod,fac_nom,fac_cpt,fac_col
+,fac_ad1,fac_ad2,fac_cp,fac_vil,fac_pay,fac_ref,fac_pmt,fac_pri,fac_ht,fac_ttc,fac_remp
+,fac_rem,fac_remt,fac_escp,fac_esc,fac_mes1,fac_mes2,fac_mes3,fac_cpta
+,fac_edite,fac_fac,fac_act,fac_cial,fac_mreg
+do begin
+commentaire ='';
+id_c_paiement=null;
+code_c_paiement=null;
+lib_c_paiement=null;
+report_c_paiement=null;
+fin_mois_c_paiement=null;
+documents='';
+select cp.id_c_paiement, cp.code_c_paiement,cp.lib_c_paiement,cp.report_c_paiement,
+  cp.fin_mois_c_paiement from ta_c_paiement cp where cp.code_c_paiement = :fac_pmt into
+  :id_c_paiement,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+       select id_tiers from ta_tiers where Upper(code_tiers) = upper(:fac_cod) into :id_tiers;
+       if (:fac_ref is not null) then commentaire = :fac_ref ||CRLF;
+       if (:fac_mes1 is not null) then commentaire = :commentaire ||:fac_mes1||CRLF;
+       if (:fac_mes2 is not null) then commentaire = :commentaire ||:fac_mes2||CRLF;
+       if (:fac_mes3 is not null) then commentaire = :commentaire ||:fac_mes3||CRLF;
+       id_facture = gen_id(num_id_devis,1);
+       if (:fac_cpta is null) then fac_cpta=0;
+       insert into ta_devis values(:id_facture,:fac_num,:fac_dat,:fac_ech,:fac_dat,'Devis E2-Fac N�'||:fac_num,0,0,
+       :id_tiers,null,:id_c_paiement,:fac_remp,:fac_rem,:fac_escp,:fac_esc,:fac_edite,:fac_pri,:fac_cpta,
+       :commentaire,null,null,null,null,null,null);
+       select v.code_t_civilite,v.tva_i_com_compl from v_tiers v where Upper(code_tiers) = upper(:fac_cod) into :civilite,:tvaintra;
+
+       insert into ta_infos_devis values(null,:id_facture,:fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,
+       :fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,:fac_cpt,:fac_col,:fac_nom,null,null,:civilite,null,:tvaIntra,
+       :code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,null,null,null,null,null,null);
+       rang=1;
+       for select l.type_docs,l.fli_num,l.fli_lig,l.fli_cod,l.fli_des,l.fli_qt1,l.fli_qt2
+       ,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,l.fli_mtva,l.fli_txtva,l.fli_cpt
+       ,l.fli_tmp,l.fli_exig,l.fli_lot,l.fli_nbl,l.fli_un1,l.fli_un2 from lignes_docs_e2fac l
+       where l.fli_num = :fac_num and l.type_docs = 'P' into
+       type_docs,fli_num,fli_lig,fli_cod,fli_des,fli_qt1,fli_qt2
+       ,fli_pht,fli_ptc,fli_rem,fli_mht,fli_mtc,fli_mtva,fli_txtva,fli_cpt
+       ,fli_tmp,fli_exig,fli_lot,fli_nbl,fli_un1,fli_un2
+       do begin
+       remiseT =0;
+       code_tva=null;
+       id_article=null;
+       prix=null;
+       if (:fac_pri=0) then prix=:fli_pht;
+       else prix=:fli_ptc;
+       if (:fli_cpt is null) then t_ligne = :t_ligne_c;
+       else t_ligne = :t_ligne_h;
+       if (:fli_rem is not null and :fli_rem<>0) then
+         remiset = (fli_rem)/(:prix*100);
+       select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva and t.numcpt_tva like('4457%') into :code_tva;
+       if (:code_tva is null) then
+          select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva into :code_tva;
+       select id_article from ta_article where code_article = :fli_cod into :id_article;
+       if (:id_article is null and :fli_des is null) then lignevide=:lignevide+1;
+       else lignevide=0;
+       if (:lignevide<3) then
+            insert into ta_l_devis values(:id_facture,:t_ligne,:id_article,:rang,:fli_des,:fli_qt1,:fli_un1,:fli_un2,
+            :prix,:fli_txtva,:fli_cpt,:code_tva,:fli_exig,:fli_mht,:fli_mtc,:remiseT,:fli_rem,null,null,null,null,null,null,null);
+
+            rang=:rang+1;
+          end
+   documents=:fac_num;
+  suspend;
+   end
+end
+^
+
+CREATE OR ALTER PROCEDURE IMPORTATION_FACTURES_E2FAC 
+RETURNS (
+    DOCUMENTS VARCHAR(8))
+AS
+DECLARE VARIABLE COMPTEUR INTEGER;
+DECLARE VARIABLE FAC_NUM VARCHAR(8);
+DECLARE VARIABLE FAC_TYP VARCHAR(2);
+DECLARE VARIABLE FAC_DAT DATE;
+DECLARE VARIABLE FAC_ECH DATE;
+DECLARE VARIABLE FAC_COD VARCHAR(8);
+DECLARE VARIABLE FAC_NOM VARCHAR(31);
+DECLARE VARIABLE FAC_CPT VARCHAR(8);
+DECLARE VARIABLE FAC_COL VARCHAR(9);
+DECLARE VARIABLE FAC_AD1 VARCHAR(31);
+DECLARE VARIABLE FAC_AD2 VARCHAR(31);
+DECLARE VARIABLE FAC_CP VARCHAR(6);
+DECLARE VARIABLE FAC_VIL VARCHAR(26);
+DECLARE VARIABLE FAC_PAY VARCHAR(21);
+DECLARE VARIABLE FAC_REF VARCHAR(41);
+DECLARE VARIABLE FAC_PMT VARCHAR(2);
+DECLARE VARIABLE FAC_PRI VARCHAR(2);
+DECLARE VARIABLE FAC_HT NUMERIC(15,2);
+DECLARE VARIABLE FAC_TTC NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMP NUMERIC(15,2);
+DECLARE VARIABLE FAC_REM NUMERIC(15,2);
+DECLARE VARIABLE FAC_REMT NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESCP NUMERIC(15,2);
+DECLARE VARIABLE FAC_ESC NUMERIC(15,2);
+DECLARE VARIABLE FAC_MES1 VARCHAR(69);
+DECLARE VARIABLE FAC_MES2 VARCHAR(69);
+DECLARE VARIABLE FAC_MES3 VARCHAR(69);
+DECLARE VARIABLE FAC_CPTA INTEGER;
+DECLARE VARIABLE FAC_EDITE INTEGER;
+DECLARE VARIABLE FAC_FAC VARCHAR(8);
+DECLARE VARIABLE FAC_ACT NUMERIC(15,2);
+DECLARE VARIABLE FAC_CIAL VARCHAR(8);
+DECLARE VARIABLE FAC_MREG NUMERIC(15,2);
+DECLARE VARIABLE ID_TIERS INTEGER;
+DECLARE VARIABLE ID_T_PAIEMENT INTEGER;
+DECLARE VARIABLE COMMENTAIRE VARCHAR(1000);
+DECLARE VARIABLE CRLF CHAR(2);
+DECLARE VARIABLE ID_FACTURE INTEGER;
+DECLARE VARIABLE CIVILITE VARCHAR(20);
+DECLARE VARIABLE TVAINTRA VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE TYPE_DOCS VARCHAR(1);
+DECLARE VARIABLE FLI_NUM VARCHAR(8);
+DECLARE VARIABLE FLI_LIG INTEGER;
+DECLARE VARIABLE FLI_COD VARCHAR(15);
+DECLARE VARIABLE FLI_DES VARCHAR(53);
+DECLARE VARIABLE FLI_QT1 NUMERIC(15,2);
+DECLARE VARIABLE FLI_QT2 NUMERIC(15,2);
+DECLARE VARIABLE FLI_PHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_PTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_REM NUMERIC(15,2);
+DECLARE VARIABLE FLI_MHT NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTC NUMERIC(15,2);
+DECLARE VARIABLE FLI_MTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_TXTVA NUMERIC(15,2);
+DECLARE VARIABLE FLI_CPT VARCHAR(9);
+DECLARE VARIABLE FLI_TMP VARCHAR(2);
+DECLARE VARIABLE FLI_EXIG VARCHAR(2);
+DECLARE VARIABLE FLI_LOT VARCHAR(16);
+DECLARE VARIABLE FLI_NBL VARCHAR(8);
+DECLARE VARIABLE FLI_UN1 VARCHAR(3);
+DECLARE VARIABLE FLI_UN2 VARCHAR(3);
+DECLARE VARIABLE T_LIGNE_H INTEGER;
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE REMISET NUMERIC(15,2);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE T_LIGNE_C INTEGER;
+DECLARE VARIABLE T_LIGNE INTEGER;
+DECLARE VARIABLE PRIX NUMERIC(15,2);
+DECLARE VARIABLE LIGNEVIDE INTEGER;
+begin
+CRLF = ASCII_CHAR(13)||ASCII_CHAR(10);
+execute procedure MAJ_GENERATEUR  ;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='H' into :t_ligne_h;
+select tl.id_t_ligne from ta_t_ligne tl where upper(tl.code_t_ligne) ='C' into :t_ligne_c;
+for select d.fac_num,d.fac_typ,d.fac_dat,d.fac_ech,d.fac_cod,d.fac_nom,d.fac_cpt,d.fac_col
+,d.fac_ad1,d.fac_ad2,d.fac_cp,d.fac_vil,d.fac_pay,d.fac_ref,d.fac_pmt,d.fac_pri,d.fac_ht,d.fac_ttc,d.fac_remp
+,d.fac_rem,d.fac_remt,d.fac_escp,d.fac_esc,d.fac_mes1,d.fac_mes2,d.fac_mes3,d.fac_cpta
+,d.fac_edite,d.fac_fac,d.fac_act,d.fac_cial,d.fac_mreg from documents_e2fac d where upper(d.fac_typ)='F'
+/*and d.fac_num like ('A800958%') */
+into
+fac_num,fac_typ,fac_dat,fac_ech,fac_cod,fac_nom,fac_cpt,fac_col
+,fac_ad1,fac_ad2,fac_cp,fac_vil,fac_pay,fac_ref,fac_pmt,fac_pri,fac_ht,fac_ttc,fac_remp
+,fac_rem,fac_remt,fac_escp,fac_esc,fac_mes1,fac_mes2,fac_mes3,fac_cpta
+,fac_edite,fac_fac,fac_act,fac_cial,fac_mreg
+do begin
+commentaire ='';
+id_c_paiement=null;
+code_c_paiement=null;
+lib_c_paiement=null;
+report_c_paiement=null;
+fin_mois_c_paiement=null;
+documents='';
+select cp.id_c_paiement, cp.code_c_paiement,cp.lib_c_paiement,cp.report_c_paiement,
+  cp.fin_mois_c_paiement from ta_c_paiement cp where cp.code_c_paiement = :fac_pmt into
+  :id_c_paiement,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+       select id_tiers from ta_tiers where Upper(code_tiers) = upper(:fac_cod) into :id_tiers;
+       if (:fac_ref is not null) then commentaire = :fac_ref ||CRLF;
+       if (:fac_mes1 is not null) then commentaire = :commentaire ||:fac_mes1||CRLF;
+       if (:fac_mes2 is not null) then commentaire = :commentaire ||:fac_mes2||CRLF;
+       if (:fac_mes3 is not null) then commentaire = :commentaire ||:fac_mes3||CRLF;
+       id_facture = gen_id(num_id_facture,1);
+       insert into ta_facture values(:id_facture,:fac_num,:fac_dat,:fac_ech,:fac_dat,'Facture E2-Fac N�'||:fac_num,0,0,
+       :id_tiers,null,:id_c_paiement,:fac_mreg,:fac_remp,:fac_rem,:fac_escp,:fac_esc,:fac_edite,:fac_pri,:fac_cpta,
+       :commentaire,null,null,null,null,null,null);
+       select v.code_t_civilite,v.tva_i_com_compl from v_tiers v where Upper(code_tiers) = upper(:fac_cod) into :civilite,:tvaintra;
+
+       insert into ta_infos_facture values(null,:id_facture,:fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,
+       :fac_ad1,:fac_ad2,null,:fac_cp,:fac_vil,:fac_pay,:fac_cpt,:fac_col,:fac_nom,null,null,:civilite,null,:tvaIntra,
+       :code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,null,null,null,null,null,null,null,null,null);
+       rang=1;
+       for select l.type_docs,l.fli_num,l.fli_lig,l.fli_cod,l.fli_des,l.fli_qt1,l.fli_qt2
+       ,l.fli_pht,l.fli_ptc,l.fli_rem,l.fli_mht,l.fli_mtc,l.fli_mtva,l.fli_txtva,l.fli_cpt
+       ,l.fli_tmp,l.fli_exig,l.fli_lot,l.fli_nbl,l.fli_un1,l.fli_un2 from lignes_docs_e2fac l
+       where l.fli_num = :fac_num and l.type_docs = 'F' into
+       type_docs,fli_num,fli_lig,fli_cod,fli_des,fli_qt1,fli_qt2
+       ,fli_pht,fli_ptc,fli_rem,fli_mht,fli_mtc,fli_mtva,fli_txtva,fli_cpt
+       ,fli_tmp,fli_exig,fli_lot,fli_nbl,fli_un1,fli_un2
+       do begin
+       remiseT =0;
+       code_tva=null;
+       id_article=null;
+       prix=null;
+       if (:fac_pri=0) then prix=:fli_pht;
+       else prix=:fli_ptc;
+       if (:fli_cpt is null) then t_ligne = :t_ligne_c;
+       else t_ligne = :t_ligne_h;
+       if (:fli_rem is not null and :fli_rem<>0) then
+         remiset = (fli_rem)/(:prix*100);
+       select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva and t.numcpt_tva like('4457%') into :code_tva;
+       if (:code_tva is null) then
+          select t.code_tva from ta_tva t where t.taux_tva = :fli_txtva into :code_tva;
+       select id_article from ta_article where code_article = :fli_cod into :id_article;
+       if (:id_article is null and :fli_des is null) then lignevide=:lignevide+1;
+       else lignevide=0;
+       if (:lignevide<3) then
+       insert into ta_l_facture values(null,:id_facture,:t_ligne,:id_article,:rang,:fli_des,:fli_qt1,:fli_un1,:fli_un2,
+            :prix,:fli_txtva,:fli_cpt,:code_tva,:fli_exig,:fli_mht,:fli_mtc,:remiseT,:fli_rem,null,null,null,null,null,null);
+
+            rang=:rang+1;
+          end
+   documents=:fac_num;
+  suspend;
+   end
+end
+^
+
+
+CREATE OR ALTER PROCEDURE CA_ARTICLES_DETAIL (
+    CODEFACTURE VARCHAR(9),
+    ARTICLE INTEGER)
+RETURNS (
+    CODE_ARTICLE VARCHAR(20),
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+DECLARE VARIABLE ID_ARTICLE_DEB INTEGER;
+DECLARE VARIABLE ID_ARTICLE_FIN INTEGER;
+begin
+if (article is null) then
+    begin
+      id_article_deb = 0;
+      select max(id_article) from ta_article into :id_article_fin ;
+    end
+ else begin
+    id_article_deb=article;
+    id_article_fin=article;
+ end
+for select
+v_l_facture.code_article,
+sum(MTNETHT),
+sum(MTNETTVA),
+sum(MTNETTTC)
+from 
+v_l_facture,
+calcul_total_ligne_direct('facture',v_l_facture.id_l_facture)
+where
+v_l_facture.id_article  between :id_article_deb and :id_article_fin
+and v_l_facture.id_facture in (select id_facture from ta_facture where code_facture like(:codefacture||'%'))
+group by v_l_facture.code_article
+into  :code_article,ht,tva,ttc
+do begin
+        if (:codefacture = '96' or
+            :codefacture = '97' or
+            :codefacture = '98' or
+            :codefacture = '99' or
+            :codefacture = 'A0' or
+            :codefacture = 'A1' ) then
+            begin
+             ht = ht/6.55957;
+             tva = tva/6.55957;
+             ttc = ttc/6.55957;
+            end
+  suspend;
+end
+end
+^
+
+CREATE OR ALTER PROCEDURE CA_ARTICLES_SYNTHESE (
+    CODEFACTURE VARCHAR(9),
+    ARTICLE INTEGER)
+RETURNS (
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+DECLARE VARIABLE ID_ARTICLE_DEB INTEGER;
+DECLARE VARIABLE ID_ARTICLE_FIN INTEGER;
+begin
+if (article is null) then
+    begin
+      id_article_deb = 0;
+      select max(id_article) from ta_article into :id_article_fin ;
+    end
+ else begin
+    id_article_deb=article;
+    id_article_fin=article;
+ end
+select
+sum(MTNETHT),
+sum(MTNETTVA),
+sum(MTNETTTC)
+from 
+v_l_facture,
+calcul_total_ligne_direct('facture',v_l_facture.id_l_facture)
+where
+v_l_facture.id_article  between :id_article_deb and :id_article_fin
+and v_l_facture.id_facture in (select id_facture from ta_facture where code_facture like(:CODEFACTURE||'%'))
+into  :ht,tva,ttc;
+        if (:codefacture = '96' or
+            :codefacture = '97' or
+            :codefacture = '98' or
+            :codefacture = '99' or
+            :codefacture = 'A0' or
+            :codefacture = 'A1' ) then
+            begin
+             ht = ht/6.55957;
+             tva = tva/6.55957;
+             ttc = ttc/6.55957;
+            end
+  suspend;
+end
+^
+
+CREATE OR ALTER PROCEDURE CA_ARTICLE_FAMILLE_DETAIL (
+    CODEFACTURE VARCHAR(9),
+    FAMILLE INTEGER)
+RETURNS (
+    CODE_ARTICLE VARCHAR(20),
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+DECLARE VARIABLE ID_FAMILLE_DEB INTEGER;
+DECLARE VARIABLE ID_FAMILLE_FIN INTEGER;
+begin
+if (FAMILLE is null) then
+    begin
+      id_FAMILLE_deb = 0;
+      select max(id_FAMILLE) from ta_famille into :id_FAMILLE_fin ;
+    end
+ else begin
+    id_FAMILLE_deb=FAMILLE;
+    id_FAMILLE_fin=FAMILLE;
+ end
+for select
+v_l_facture.code_article,
+sum(MTNETHT),
+sum(MTNETTVA),
+sum(MTNETTTC)
+from 
+v_l_facture,
+calcul_total_ligne_direct('facture',v_l_facture.id_l_facture)
+where
+v_l_facture.id_article in(select id_article from ta_article where id_famille
+between :id_FAMILLE_deb and :id_FAMILLE_fin)
+and v_l_facture.id_facture in (select id_facture from ta_facture where code_facture like(:codefacture||'%'))
+group by v_l_facture.code_article
+into  :code_article,ht,tva,ttc
+do begin
+        if (:codefacture = '96' or
+            :codefacture = '97' or
+            :codefacture = '98' or
+            :codefacture = '99' or
+            :codefacture = 'A0' or
+            :codefacture = 'A1' ) then
+            begin
+             ht = ht/6.55957;
+             tva = tva/6.55957;
+             ttc = ttc/6.55957;
+            end
+  suspend;
+end
+end
+^
+
+CREATE OR ALTER PROCEDURE CA_ARTICLE_FAMILLE_SYNTHESE (
+    CODEFACTURE VARCHAR(9),
+    FAMILLE INTEGER)
+RETURNS (
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+DECLARE VARIABLE ID_FAMILLE_DEB INTEGER;
+DECLARE VARIABLE ID_FAMILLE_FIN INTEGER;
+begin
+if (FAMILLE is null) then
+    begin
+      id_FAMILLE_deb = 0;
+      select max(id_FAMILLE) from ta_famille into :id_FAMILLE_fin ;
+    end
+ else begin
+    id_FAMILLE_deb=FAMILLE;
+    id_FAMILLE_fin=FAMILLE;
+ end
+select
+sum(MTNETHT),
+sum(MTNETTVA),
+sum(MTNETTTC)
+from 
+v_l_facture,
+calcul_total_ligne_direct('facture',v_l_facture.id_l_facture)
+where
+v_l_facture.id_article in(select id_article from ta_article where id_famille  between :id_FAMILLE_deb and :id_FAMILLE_fin)
+and v_l_facture.id_facture in (select id_facture from ta_facture where code_facture like(:CODEFACTURE||'%'))
+into  :ht,tva,ttc;
+        if (:codefacture = '96' or
+            :codefacture = '97' or
+            :codefacture = '98' or
+            :codefacture = '99' or
+            :codefacture = 'A0' or
+            :codefacture = 'A1' ) then
+            begin
+             ht = ht/6.55957;
+             tva = tva/6.55957;
+             ttc = ttc/6.55957;
+            end
+  suspend;
+end
+^
+
+
+CREATE OR ALTER PROCEDURE GENERATIONFACTURE_LGR (
+    LIBELLEDOC VARCHAR(255),
+    CODEFIXE VARCHAR(10),
+    LENCOMPTEUR INTEGER,
+    CODE_TIERS_INPUT VARCHAR(8),
+    DATEDOC DATE,
+    COMMENTAIRE VARCHAR(2000))
+RETURNS (
+    NB_FACTURE INTEGER,
+    CODE_DOCUMENT VARCHAR(9),
+    TOTALFACTURE NUMERIC(15,2))
+AS
+DECLARE VARIABLE COMPTEUR INTEGER = 0;
+DECLARE VARIABLE CODEFACTURE_TMP VARCHAR(9);
+DECLARE VARIABLE ID_TIERS_TMP INTEGER;
+DECLARE VARIABLE ID_FACT_COURANT INTEGER;
+DECLARE VARIABLE ADRESSE1 VARCHAR(100);
+DECLARE VARIABLE ADRESSE2 VARCHAR(100);
+DECLARE VARIABLE ADRESSE3 VARCHAR(100);
+DECLARE VARIABLE CODEPOSTAL VARCHAR(5);
+DECLARE VARIABLE VILLE VARCHAR(100);
+DECLARE VARIABLE PAYS VARCHAR(100);
+DECLARE VARIABLE ADRESSE1_LIV VARCHAR(100);
+DECLARE VARIABLE ADRESSE2_LIV VARCHAR(100);
+DECLARE VARIABLE ADRESSE3_LIV VARCHAR(100);
+DECLARE VARIABLE CODEPOSTAL_LIV VARCHAR(5);
+DECLARE VARIABLE VILLE_LIV VARCHAR(100);
+DECLARE VARIABLE PAYS_LIV VARCHAR(100);
+DECLARE VARIABLE CODE_COMPTA VARCHAR(8);
+DECLARE VARIABLE COMPTE_ARTICLE VARCHAR(8);
+DECLARE VARIABLE NOM_TIERS VARCHAR(100);
+DECLARE VARIABLE PRENOM_TIERS VARCHAR(100);
+DECLARE VARIABLE SURNOM_TIERS VARCHAR(20);
+DECLARE VARIABLE CODE_T_CIVILITE VARCHAR(20);
+DECLARE VARIABLE CODE_T_ENTITE VARCHAR(20);
+DECLARE VARIABLE TVA_I_COM_COMPL VARCHAR(50);
+DECLARE VARIABLE CODE_C_PAIEMENT VARCHAR(20);
+DECLARE VARIABLE LIB_C_PAIEMENT VARCHAR(255);
+DECLARE VARIABLE REPORT_C_PAIEMENT INTEGER = 0;
+DECLARE VARIABLE FIN_MOIS_C_PAIEMENT INTEGER = 0;
+DECLARE VARIABLE ID_ADRESSE INTEGER = 0;
+DECLARE VARIABLE ID_ADRESSE_LIV INTEGER = 0;
+DECLARE VARIABLE ID_C_PAIEMENT INTEGER;
+DECLARE VARIABLE CODE_TIERS VARCHAR(8);
+DECLARE VARIABLE VERIF INTEGER = 0;
+DECLARE VARIABLE REM_HT_FACTURE NUMERIC(15,2);
+DECLARE VARIABLE TX_REM_HT_FACTURE NUMERIC(15,2);
+DECLARE VARIABLE REM_TTC_FACTURE NUMERIC(15,2);
+DECLARE VARIABLE TX_REM_TTC_FACTURE NUMERIC(15,2);
+DECLARE VARIABLE TTC SMALLINT;
+DECLARE VARIABLE ARTICLE VARCHAR(20);
+DECLARE VARIABLE ID_ARTICLE INTEGER;
+DECLARE VARIABLE LIB_ARTICLE VARCHAR(255);
+DECLARE VARIABLE QTE NUMERIC(15,2);
+DECLARE VARIABLE U VARCHAR(20);
+DECLARE VARIABLE PRIX NUMERIC(15,2);
+DECLARE VARIABLE TAUX NUMERIC(15,4);
+DECLARE VARIABLE COMPTE VARCHAR(8);
+DECLARE VARIABLE CODE_TVA VARCHAR(20);
+DECLARE VARIABLE TYPE_TVA VARCHAR(1);
+DECLARE VARIABLE MTHT NUMERIC(15,2);
+DECLARE VARIABLE MTTTC NUMERIC(15,2);
+DECLARE VARIABLE TAUX_REM NUMERIC(15,2);
+DECLARE VARIABLE REMISE NUMERIC(15,2);
+DECLARE VARIABLE TYPE_LIGNE INTEGER;
+DECLARE VARIABLE RANG INTEGER;
+DECLARE VARIABLE PARTICIPATION NUMERIC(15,2);
+DECLARE VARIABLE NETTTC NUMERIC(15,2);
+DECLARE VARIABLE CODE_ENTREPRISE VARCHAR(20);
+DECLARE VARIABLE LIBL_ENTREPRISE VARCHAR(100);
+DECLARE VARIABLE CODE_T_ENTITE_ENTREPRISE VARCHAR(20);
+begin
+/*datedoc='NOW';*/
+execute procedure maj_generateur;
+select max(SUBSTR(code_facture,:lencompteur , 9)) from ta_facture where
+  substr(code_facture,1,strlen(:codefixe))=:codefixe into :COMPTEUR;
+COMPTEUR=:compteur+1;
+nb_facture=0;
+code_document ='';
+totalfacture = 0;
+execute procedure vide_document_temp('facture');
+if (:code_tiers_input is null or (:code_tiers_input = '') ) then code_tiers_input = '%';
+
+select id_tiers from ta_tiers where code_tiers like(:code_tiers_input) into :id_tiers_tmp;
+select id_c_paiement, code_c_paiement,lib_c_paiement,report_c_paiement,fin_mois_c_paiement from ta_c_paiement c
+where c.id_tiers =:id_tiers_tmp into :id_c_paiement ,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement;
+
+for select t.id_tiers,t.code_tiers,t.code_compta,t.compte,t.nom_tiers,t.prenom_tiers,t.surnom_tiers
+  ,t.code_t_civilite,t.code_t_entite,t.tva_i_com_compl,t.code_entreprise,t.libl_entreprise,t.code_t_entite_entreprise from v_tiers T where T.code_tiers like (:code_tiers_input)
+  into:id_tiers_tmp,code_tiers,code_compta,compte,nom_tiers,prenom_tiers,surnom_tiers
+  ,code_t_civilite,code_t_entite,tva_i_com_compl,code_entreprise,libl_entreprise,code_t_entite_entreprise
+  do
+  begin
+      /*R�cup�rer toutes les infos du tiers*/
+      /*Adresse facturation*/
+      select id_adresse,va.adresse1_adresse,va.adresse2_adresse,va.adresse3_adresse,va.codepostal_adresse
+      ,va.ville_adresse,va.pays_adresse from V_ADRESSE Va where Va.id_tiers = :id_tiers_tmp and va.code_t_adr='FACT'
+      into :verif,adresse1,adresse2,adresse3,codepostal,ville,pays;
+      if (:verif=0 or (:verif is null) ) then
+          begin
+              select va.adresse1_adresse,va.adresse2_adresse,va.adresse3_adresse,va.codepostal_adresse
+              ,va.ville_adresse,va.pays_adresse from V_ADRESSE Va where Va.id_tiers = :id_tiers_tmp
+              order by id_adresse into :adresse1,adresse2,adresse3,codepostal,ville,pays;
+          end
+            if (:adresse1 is null) then adresse1='';
+            if (:adresse2 is null) then adresse2='';
+            if (:adresse3 is null) then adresse3='';
+            if (:codepostal is null) then codepostal='';
+            if (:ville is null) then ville='';
+            if (:pays is null) then pays='';
+
+        verif=0;
+      /*Adresse livraison*/
+      select id_adresse,va.adresse1_adresse,va.adresse2_adresse,va.adresse3_adresse,va.codepostal_adresse
+      ,va.ville_adresse,va.pays_adresse from V_ADRESSE Va where Va.id_tiers = :id_tiers_tmp and va.code_t_adr='LIV'
+      into :verif,adresse1_liv,adresse2_liv,adresse3_liv,codepostal_liv,ville_liv,pays_liv;
+      if (:verif=0 or (:verif is null) ) then
+      begin
+         adresse1_liv=:adresse1;
+         adresse2_liv=:adresse2;
+         adresse3_liv=:adresse3;
+         codepostal_liv=:codepostal;
+         ville_liv=:ville;
+         pays_liv=:pays;
+      end
+        if (:adresse1_liv is null) then adresse1_liv='';
+        if (:adresse2_liv is null) then adresse2_liv='';
+        if (:adresse3_liv is null) then adresse3_liv='';
+        if (:codepostal_liv is null) then codepostal_liv='';
+        if (:ville_liv is null) then ville_liv='';
+        if (:pays_liv is null) then pays_liv='';
+
+
+        CODEFACTURE_TMP=rtrim(cast(:compteur as varchar(9)));
+        while  (strlen(:CODEFACTURE_TMP)<lencompteur)  do
+        begin
+          CODEFACTURE_TMP='0'||:CODEFACTURE_TMP;
+        end
+        CODEFACTURE_TMP= CODEFIXE||:CODEFACTURE_TMP;
+    rang=0;
+    id_fact_courant=GEN_ID(num_id_facture,1) ;
+
+    article = null;
+    /*Article Epic�a*/
+    select (case
+    when l.options_e2='R' then 'HE09SA'
+    when l.type_e2='M' then 'HE09MO'
+    when l.type_e2='D' then 'HE09MO'
+    when l.type_e2='G' then  'HE09GR'   end) as article,
+    l.reduc_e2,
+    sum(l.duree_e2_retard+l.duree_e2),
+    l.total_ht_e2,l.participation_cogere
+    from ta_wlgr l where total_ht_e2<>0 and l.code_client like(:code_tiers_input) 
+    group by l.type_e2,l.options_e2,l.reduc_e2,l.total_ht_e2,l.participation_cogere into :article,:taux_rem,:qte,:mtht,:participation;
+    if (:article is not null) then
+        begin
+            if (:taux_rem is null ) then taux_rem=0;
+            if (:qte is null) then qte = 1;
+            prix = (:mtht/(1-(:taux_rem/100)))/:qte;
+
+            select  t.id_t_ligne from ta_t_ligne t where T.code_t_ligne ='H' into :type_ligne;
+            select a.id_article,a.libellec_article,a.numcpt_article,a.code_tva,a.taux_tva,a.code_unite from v_article a where
+            code_article like(:article)
+            into :id_article,:lib_article,:compte_article,:code_tva,:taux,:u;
+            insert into ta_l_facture_temp values(GEN_ID(num_id_l_facture,1),:id_fact_courant,:type_ligne,:id_article,:rang,:lib_article,:qte,:u,null,
+            :prix,:taux,:compte_article,:code_tva,:type_tva,:mtht,:mtttc,:taux_rem,:remise
+            ,null,null,null,null,null,current_connection);
+            rang = rang +1;
+            if (:participation is not null and :participation <>0) then
+                begin
+                    prix=:participation/:qte;
+                    taux_rem=0;
+                    select a.id_article,a.libellec_article,a.numcpt_article,a.code_tva,a.taux_tva,a.code_unite from v_article a where
+                    code_article like('COGE09')
+                    into :id_article,:lib_article,:compte_article,:code_tva,:taux,:u;
+                    insert into ta_l_facture_temp values(GEN_ID(num_id_l_facture,1),:id_fact_courant,:type_ligne,:id_article,:rang,:lib_article,1,null,null,
+                    :participation,:taux,:compte_article,:code_tva,:type_tva,:participation,:mtttc,:taux_rem,:remise
+                    ,null,null,null,null,null,current_connection);
+                    rang = rang +1;
+                end
+        end
+    /*fin Article Epic�a*/
+
+     article = null;
+    /*Article E2-fac*/
+    select (case
+    when l.options_f2='G' then 'HF09MO'
+    else 'HF09OP' end) as article,
+    l.reduc_f2,
+    sum(l.duree_f2_retard+l.duree_f2),
+    l.total_ht_f2
+    from ta_wlgr l where total_ht_f2<>0 and l.code_client like(:code_tiers_input)
+    group by l.code_client,l.options_f2,l.type_f2,l.total_ht_f2,l.reduc_f2
+     into :article,:taux_rem,:qte,:mtht;
+    if (:article is not null) then
+        begin
+            if (:taux_rem is null ) then taux_rem=0;
+            if (:qte is null) then qte = 1;
+            prix = (:mtht/(1-(:taux_rem/100)))/:qte;
+
+            select  t.id_t_ligne from ta_t_ligne t where T.code_t_ligne ='H' into :type_ligne;
+            select a.id_article,a.libellec_article,a.numcpt_article,a.code_tva,a.taux_tva,a.code_unite from v_article a where code_article like(:article)
+            into :id_article,:lib_article,:compte_article,:code_tva,:taux,:u;
+            insert into ta_l_facture_temp values(GEN_ID(num_id_l_facture,1),:id_fact_courant,:type_ligne,:id_article,:rang,:lib_article,:qte,:u,null,
+            :prix,:taux,:compte_article,:code_tva,:type_tva,:mtht,:mtttc,:taux_rem,:remise
+            ,null,null,null,null,null,current_connection);
+            rang = rang +1;
+        end
+    /*fin Article E2-fac*/
+
+    article = null;
+    /*Article Sara */
+    select ('HS09MO') as article,
+    l.reduc_s2,
+    sum(l.duree_s2_retard+l.duree_s2),
+    l.total_ht_s2
+    from ta_wlgr l where total_ht_s2<>0 and l.code_client like(:code_tiers_input)
+    group by l.code_client,l.options_s2,l.type_s2,l.total_ht_s2,l.reduc_s2
+     into :article,:taux_rem,:qte,:mtht;
+    if (:article is not null) then
+        begin
+            if (:taux_rem is null ) then taux_rem=0;
+            if (:qte is null) then qte = 1;
+            prix = (:mtht/(1-(:taux_rem/100)))/:qte;
+
+            select  t.id_t_ligne from ta_t_ligne t where T.code_t_ligne ='H' into :type_ligne;
+            select a.id_article,a.libellec_article,a.numcpt_article,a.code_tva,a.taux_tva,a.code_unite from v_article a where code_article like(:article)
+            into :id_article,:lib_article,:compte_article,:code_tva,:taux,:u;
+            insert into ta_l_facture_temp values(GEN_ID(num_id_l_facture,1),:id_fact_courant,:type_ligne,:id_article,:rang,:lib_article,:qte,:u,null,
+            :prix,:taux,:compte_article,:code_tva,:type_tva,:mtht,:mtttc,:taux_rem,:remise
+            ,null,null,null,null,null,current_connection);
+            rang = rang +1;
+        end
+    /*fin Article Sara */
+
+    /*update ta_l_facture_temp set id_l_facture =GEN_ID(num_id_l_facture,1) where ip_acces=current_connection ;*/
+    /*update ta_l_facture_temp set id_facture =0 where ip_acces=current_connection ;*/
+          execute procedure dispatcher_tva_document('FACTURE',:id_fact_courant,:ttc,0);
+
+    rem_ht_facture=0;
+    tx_rem_ht_facture=0;
+    rem_ttc_facture=0;
+    tx_rem_ttc_facture=0;
+    ttc=0;
+    if (:rang>0) then /*S'il y a des lignes*/
+        begin
+            insert into ta_facture  (id_facture,code_facture,date_facture,date_ech_facture,
+            date_liv_facture,libelle_facture,id_adresse,id_adresse_liv,id_tiers,id_t_paiement
+            ,id_c_paiement,regle_facture,rem_ht_facture,tx_rem_ht_facture,rem_ttc_facture,tx_rem_ttc_facture
+            ,nb_e_facture,ttc,export,commentaire)values(:id_fact_courant,:CODEFACTURE_TMP,:datedoc,:datedoc,
+            :datedoc,:libelledoc,:id_adresse,:id_adresse_liv,:id_tiers_tmp,null
+            ,:id_c_paiement,0,:rem_ht_facture,:tx_rem_ht_facture,:rem_ttc_facture,:tx_rem_ttc_facture
+            ,0,:ttc,0,:commentaire);
+        
+        
+            insert into ta_infos_facture  (id_infos_facture,id_facture,adresse1,adresse2
+            ,adresse3,codepostal,ville,pays,adresse1_liv,adresse2_liv,adresse3_liv,codepostal_liv,
+            ville_liv,pays_liv,code_compta,compte,nom_tiers,prenom_tiers,surnom_tiers,code_t_civilite,
+            code_t_entite,tva_i_com_compl,code_c_paiement,lib_c_paiement,report_c_paiement,fin_mois_c_paiement,
+            code_entreprise,libl_entreprise,code_t_entite_entreprise)
+            values(GEN_ID(num_id_infos_facture,1),:id_fact_courant,:adresse1,:adresse2
+            ,:adresse3,:codepostal,:ville,:pays,:adresse1_liv,:adresse2_liv,:adresse3_liv,:codepostal_liv,
+            :ville_liv,:pays_liv,:code_compta,:compte,:nom_tiers,:prenom_tiers,:surnom_tiers,:code_t_civilite,
+            :code_t_entite,:tva_i_com_compl,:code_c_paiement,:lib_c_paiement,:report_c_paiement,:fin_mois_c_paiement,
+            :code_entreprise,:libl_entreprise,:code_t_entite_entreprise);
+            code_document = :CODEFACTURE_TMP;
+            nb_facture = :nb_facture+1;
+            select MTNETTTC from calcul_total_direct('facture',:id_fact_courant) into :netttc;
+
+            update ta_facture set regle_facture=:netttc where id_facture = :id_fact_courant;
+            totalfacture = :totalfacture + :netttc;
+            compteur = compteur +1;
+        end
+  end
+update ta_wlgr set traite = 1,code_doc=:code_document where code_client like(:code_tiers_input);
+nb_facture = :nb_facture;
+suspend;
+end
+^
+
+CREATE PROCEDURE ARTICLES_DEVIS_INTERNET 
+RETURNS (
+    CODE_DEVIS VARCHAR(20),
+    DATE_DEVIS DATE,
+    CODE_ARTICLE VARCHAR(20),
+    CODE_TIERS VARCHAR(20),
+    NOM_TIERS VARCHAR(100),
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+begin
+for select
+V_devis.code_devis,
+V_devis.date_devis,
+v_l_devis.code_article,
+ta_tiers.code_tiers,
+ta_tiers.nom_tiers,
+(MTNETHT)as ht,
+(MTNETTVA)as tva,
+(MTNETTTC)as ttc
+from 
+v_l_devis,
+calcul_total_ligne_direct('devis',v_l_devis.id_l_devis),
+V_devis,
+ta_tiers,
+v_article
+where V_devis.ID_devis=v_l_devis.ID_devis
+and ta_tiers.id_tiers=v_devis.id_tiers
+and v_article.id_article = v_l_devis.id_article and v_article.code_famille like('INT')
+and v_l_devis.code_article is not null
+order by date_devis
+INTO
+:code_devis,
+date_devis,
+code_article,
+code_tiers,
+nom_tiers,
+ht,
+tva,
+ttc
+do begin
+  suspend;
+  end
+end
+^
+
+
+CREATE PROCEDURE ARTICLES_FACTURES_INTERNET 
+RETURNS (
+    CODE_FACTURE VARCHAR(20),
+    DATE_FACTURE DATE,
+    CODE_ARTICLE VARCHAR(20),
+    CODE_TIERS VARCHAR(20),
+    NOM_TIERS VARCHAR(100),
+    HT NUMERIC(15,2),
+    TVA NUMERIC(15,2),
+    TTC NUMERIC(15,2))
+AS
+begin
+for select
+v_facture.code_facture,
+v_facture.date_facture,
+v_l_facture.code_article,
+ta_tiers.code_tiers,
+ta_tiers.nom_tiers,
+(MTNETHT)as ht,
+(MTNETTVA)as tva,
+(MTNETTTC)as ttc
+from 
+v_l_facture,
+calcul_total_ligne_direct('facture',v_l_facture.id_l_facture),
+V_FACTURE,
+ta_tiers,
+v_article
+where V_FACTURE.ID_FACTURE=v_l_facture.ID_FACTURE 
+and ta_tiers.id_tiers=v_facture.id_tiers
+and v_article.id_article = v_l_facture.id_article and v_article.code_famille like('INT')
+and v_l_facture.code_article is not null
+order by date_facture
+INTO
+:code_facture,
+date_facture,
+code_article,
+code_tiers,
+nom_tiers,
+ht,
+tva,
+ttc
+do begin
+  suspend;
+  end
+end
+^
